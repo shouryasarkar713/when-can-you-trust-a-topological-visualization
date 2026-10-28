@@ -1,0 +1,474 @@
+{
+ "step": "summarize_stability",
+ "created_utc": "2026-10-22T09:52:33Z",
+ "guards": {
+  "reference_overlap": "The full-data reference OVERLAPS each 80% subsample: distances are descriptive resampling stability, not independent validation and not an unbiased generalization estimate. The spread of the 30 distances is a variability band, not a formal confidence set.",
+  "metric_not_test": "Bottleneck and Wasserstein distances are METRICS between persistence diagrams. Reporting their values across resamples is NOT a statistical hypothesis test: there is no null distribution, no p-value, and no rejection region anywhere in this extension.",
+  "similarity_caveat": "S is a custom exploratory overlap indicator (symmetric mean of best membership-Jaccard matches), not a metric and not a canonical Mapper graph similarity; it is greedy, edge-blind, and not normalized for node count, so it must not be used to rank graphs across different cover resolutions. Read it only against the pre-specified reference cell, beside component counts and representative graphs.",
+  "weather_status": "SENSITIVITY ANALYSIS on six years of single-station data: not a population-level climate claim, not a formal confidence interval, not a hypothesis test. No parameter is retuned after inspecting folds."
+ },
+ "ph_resampling": {
+  "annulus": {
+   "n_replicates": 30,
+   "reference_dominant_H1": 1.4959,
+   "resample_dominant_H1": {
+    "median": 1.4915,
+    "q25": 1.4751,
+    "q75": 1.52755,
+    "min": 1.439,
+    "max": 1.5751
+   },
+   "distances": {
+    "H0_bottleneck": {
+     "median": 0.02207,
+     "q25": 0.01694,
+     "q75": 0.02464,
+     "min": 0.01627,
+     "max": 0.05916
+    },
+    "H0_wasserstein": {
+     "median": 3.56917,
+     "q25": 3.47784,
+     "q75": 3.67627,
+     "min": 3.16747,
+     "max": 4.01872
+    },
+    "H1_bottleneck": {
+     "median": 0.02883,
+     "q25": 0.02252,
+     "q75": 0.05105,
+     "min": 0.01723,
+     "max": 0.09177
+    },
+    "H1_wasserstein": {
+     "median": 0.6181,
+     "q25": 0.59263,
+     "q75": 0.68498,
+     "min": 0.41216,
+     "max": 0.74055
+    }
+   },
+   "H1_bottleneck_over_dominant": {
+    "median": 0.01927,
+    "q25": 0.01505,
+    "q75": 0.03413,
+    "min": 0.01152,
+    "max": 0.06135
+   },
+   "gap_diagnostic": {
+    "statistic": "r1 at ground-truth rank 1",
+    "reference": 19.345,
+    "resamples": {
+     "median": 18.5945,
+     "q25": 15.88525,
+     "q75": 19.754,
+     "min": 13.205,
+     "max": 25.631
+    }
+   }
+  },
+  "figure_eight": {
+   "n_replicates": 30,
+   "reference_dominant_H1": 0.481,
+   "resample_dominant_H1": {
+    "median": 0.4807,
+    "q25": 0.4807,
+    "q75": 0.48733,
+    "min": 0.4575,
+    "max": 0.5115
+   },
+   "distances": {
+    "H0_bottleneck": {
+     "median": 0.01721,
+     "q25": 0.01392,
+     "q75": 0.01952,
+     "min": 0.00913,
+     "max": 0.03662
+    },
+    "H0_wasserstein": {
+     "median": 2.05511,
+     "q25": 1.96876,
+     "q75": 2.11541,
+     "min": 1.82679,
+     "max": 2.30323
+    },
+    "H1_bottleneck": {
+     "median": 0.01928,
+     "q25": 0.01584,
+     "q75": 0.02386,
+     "min": 0.00995,
+     "max": 0.03757
+    },
+    "H1_wasserstein": {
+     "median": 0.27719,
+     "q25": 0.25124,
+     "q75": 0.30398,
+     "min": 0.21788,
+     "max": 0.35978
+    }
+   },
+   "H1_bottleneck_over_dominant": {
+    "median": 0.04008,
+    "q25": 0.03293,
+    "q75": 0.04961,
+    "min": 0.02069,
+    "max": 0.07811
+   },
+   "gap_diagnostic": {
+    "statistic": "r2 at ground-truth rank 2",
+    "reference": 9.747,
+    "resamples": {
+     "median": 9.745,
+     "q25": 9.52175,
+     "q75": 10.319,
+     "min": 7.348,
+     "max": 13.815
+    }
+   }
+  },
+  "blob": {
+   "n_replicates": 30,
+   "reference_dominant_H1": 0.1396,
+   "resample_dominant_H1": {
+    "median": 0.13475,
+    "q25": 0.1132,
+    "q75": 0.1463,
+    "min": 0.0924,
+    "max": 0.1813
+   },
+   "distances": {
+    "H0_bottleneck": {
+     "median": 0.05615,
+     "q25": 0.03418,
+     "q75": 0.14225,
+     "min": 0.01608,
+     "max": 0.22359
+    },
+    "H0_wasserstein": {
+     "median": 3.05166,
+     "q25": 2.96621,
+     "q75": 3.29313,
+     "min": 2.73621,
+     "max": 3.58343
+    },
+    "H1_bottleneck": {
+     "median": 0.04809,
+     "q25": 0.04412,
+     "q75": 0.05253,
+     "min": 0.03454,
+     "max": 0.0738
+    },
+    "H1_wasserstein": {
+     "median": 0.94517,
+     "q25": 0.85587,
+     "q75": 1.00683,
+     "min": 0.74106,
+     "max": 1.0836
+    }
+   },
+   "H1_bottleneck_over_dominant": {
+    "median": 0.34448,
+    "q25": 0.31606,
+    "q75": 0.37631,
+    "min": 0.24741,
+    "max": 0.52868
+   },
+   "gap_diagnostic": {
+    "statistic": "r1 calibration only (no constructed rank)",
+    "reference": 1.451,
+    "resamples": {
+     "median": 1.1425,
+     "q25": 1.0535,
+     "q75": 1.36975,
+     "min": 1.005,
+     "max": 1.751
+    }
+   }
+  }
+ },
+ "mapper_resampling": {
+  "annulus": {
+   "n_replicates": 30,
+   "reference": {
+    "n_nodes": 20,
+    "n_edges": 21,
+    "n_components": 1,
+    "cyclomatic_number": 2
+   },
+   "n_nodes_counts": {
+    "20": 30
+   },
+   "n_edges_range": [
+    18,
+    21
+   ],
+   "n_components_counts": {
+    "1": 24,
+    "2": 6
+   },
+   "cyclomatic_number_counts": {
+    "0": 13,
+    "1": 9,
+    "2": 8
+   },
+   "S_vs_reference": {
+    "median": 0.5851,
+    "q25": 0.5318,
+    "q75": 0.71405,
+    "min": 0.4785,
+    "max": 0.7924
+   },
+   "S_note": "exploratory overlap indicator only (see guards)"
+  },
+  "figure_eight": {
+   "n_replicates": 30,
+   "reference": {
+    "n_nodes": 20,
+    "n_edges": 19,
+    "n_components": 2,
+    "cyclomatic_number": 1
+   },
+   "n_nodes_counts": {
+    "20": 30
+   },
+   "n_edges_range": [
+    18,
+    20
+   ],
+   "n_components_counts": {
+    "1": 6,
+    "2": 24
+   },
+   "cyclomatic_number_counts": {
+    "0": 12,
+    "1": 18
+   },
+   "S_vs_reference": {
+    "median": 0.7621,
+    "q25": 0.7385,
+    "q75": 0.77358,
+    "min": 0.7017,
+    "max": 0.8132
+   },
+   "S_note": "exploratory overlap indicator only (see guards)"
+  },
+  "blob": {
+   "n_replicates": 30,
+   "reference": {
+    "n_nodes": 20,
+    "n_edges": 23,
+    "n_components": 1,
+    "cyclomatic_number": 4
+   },
+   "n_nodes_counts": {
+    "20": 30
+   },
+   "n_edges_range": [
+    19,
+    24
+   ],
+   "n_components_counts": {
+    "1": 10,
+    "2": 12,
+    "3": 8
+   },
+   "cyclomatic_number_counts": {
+    "1": 2,
+    "2": 5,
+    "3": 4,
+    "4": 10,
+    "5": 7,
+    "6": 2
+   },
+   "S_vs_reference": {
+    "median": 0.64485,
+    "q25": 0.57405,
+    "q75": 0.69275,
+    "min": 0.4658,
+    "max": 0.7528
+   },
+   "S_note": "exploratory overlap indicator only (see guards)"
+  }
+ },
+ "weather_loyo": {
+  "tau30_d8": {
+   "full_data": {
+    "dominant_H1": 1.998,
+    "r1": 5.625,
+    "n_points": 1982
+   },
+   "fold_dominant_H1": {
+    "median": 2.03585,
+    "q25": 1.96917,
+    "q75": 2.15172,
+    "min": 1.8824,
+    "max": 2.1945
+   },
+   "fold_r1": {
+    "median": 5.795,
+    "q25": 5.26925,
+    "q75": 6.5225,
+    "min": 4.985,
+    "max": 6.976
+   },
+   "all_folds_r1_at_least_3": true,
+   "min_fold_r1": 4.985,
+   "max_windows_lost_to_gap": 210
+  },
+  "tau45_d9": {
+   "full_data": {
+    "dominant_H1": 2.5706,
+    "r1": 7.319,
+    "n_points": 1832
+   },
+   "fold_dominant_H1": {
+    "median": 2.5164,
+    "q25": 2.48165,
+    "q75": 2.54268,
+    "min": 2.4584,
+    "max": 2.5882
+   },
+   "fold_r1": {
+    "median": 6.9715,
+    "q25": 6.67975,
+    "q75": 7.4875,
+    "min": 6.485,
+    "max": 7.754
+   },
+   "all_folds_r1_at_least_3": true,
+   "min_fold_r1": 6.485,
+   "max_windows_lost_to_gap": 360
+  },
+  "tau52_d8": {
+   "full_data": {
+    "dominant_H1": 2.0386,
+    "r1": 4.922,
+    "n_points": 1828
+   },
+   "fold_dominant_H1": {
+    "median": 2.0354,
+    "q25": 2.00372,
+    "q75": 2.10173,
+    "min": 1.9929,
+    "max": 2.122
+   },
+   "fold_r1": {
+    "median": 5.035,
+    "q25": 5.01525,
+    "q75": 5.117,
+    "min": 4.705,
+    "max": 5.665
+   },
+   "all_folds_r1_at_least_3": true,
+   "min_fold_r1": 4.705,
+   "max_windows_lost_to_gap": 364
+  },
+  "tau60_d8": {
+   "full_data": {
+    "dominant_H1": 2.167,
+    "r1": 6.753,
+    "n_points": 1772
+   },
+   "fold_dominant_H1": {
+    "median": 2.13845,
+    "q25": 2.10513,
+    "q75": 2.16975,
+    "min": 2.0232,
+    "max": 2.195
+   },
+   "fold_r1": {
+    "median": 6.265,
+    "q25": 5.8475,
+    "q75": 6.495,
+    "min": 5.028,
+    "max": 6.911
+   },
+   "all_folds_r1_at_least_3": true,
+   "min_fold_r1": 5.028,
+   "max_windows_lost_to_gap": 420
+  },
+  "tau73_d6": {
+   "full_data": {
+    "dominant_H1": 1.4168,
+    "r1": 4.745,
+    "n_points": 1827
+   },
+   "fold_dominant_H1": {
+    "median": 1.4974,
+    "q25": 1.45685,
+    "q75": 1.64948,
+    "min": 1.4321,
+    "max": 1.8853
+   },
+   "fold_r1": {
+    "median": 4.983,
+    "q25": 4.879,
+    "q75": 5.564,
+    "min": 4.376,
+    "max": 5.821
+   },
+   "all_folds_r1_at_least_3": true,
+   "min_fold_r1": 4.376,
+   "max_windows_lost_to_gap": 365
+  },
+  "tau90_d8": {
+   "full_data": {
+    "dominant_H1": 2.1211,
+    "r1": 5.761,
+    "n_points": 1562
+   },
+   "fold_dominant_H1": {
+    "median": 2.10825,
+    "q25": 2.02323,
+    "q75": 2.23033,
+    "min": 1.757,
+    "max": 2.3227
+   },
+   "fold_r1": {
+    "median": 5.4305,
+    "q25": 5.193,
+    "q75": 5.8765,
+    "min": 4.848,
+    "max": 6.518
+   },
+   "all_folds_r1_at_least_3": true,
+   "min_fold_r1": 4.848,
+   "max_windows_lost_to_gap": 630
+  }
+ },
+ "stable_vs_varying_examples": {
+  "stable": [
+   {
+    "feature": "annulus dominant H1 persistence (constructed loop)",
+    "reference": 1.4959,
+    "resample_range": [
+     1.439,
+     1.5751
+    ]
+   },
+   {
+    "feature": "figure-eight co-dominant H1 pair",
+    "reference": 0.481,
+    "resample_range": [
+     0.4575,
+     0.5115
+    ]
+   }
+  ],
+  "varying": [
+   {
+    "feature": "blob top H1 persistence (no constructed loop)",
+    "reference": 0.1396,
+    "resample_range": [
+     0.0924,
+     0.1813
+    ]
+   },
+   {
+    "feature": "noise-scale H1 classes (all shapes)",
+    "note": "class counts and small persistences vary freely; only constructed features stabilize"
+   }
+  ],
+  "note": "computed from all 30 resamples per shape; no favorable subset was selected after inspecting outcomes"
+ }
+}

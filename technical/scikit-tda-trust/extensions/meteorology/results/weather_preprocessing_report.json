@@ -1,0 +1,328 @@
+{
+  "step": "preprocess_weather",
+  "deterministic": true,
+  "created_utc": "2026-10-22T09:57:02Z",
+  "inputs": {},
+  "n_raw_rows": 2192,
+  "schema": {
+    "observed_columns": [
+      "STATION",
+      "DATE",
+      "LATITUDE",
+      "LONGITUDE",
+      "ELEVATION",
+      "NAME",
+      "TEMP",
+      "TEMP_ATTRIBUTES",
+      "DEWP",
+      "DEWP_ATTRIBUTES",
+      "SLP",
+      "SLP_ATTRIBUTES",
+      "STP",
+      "STP_ATTRIBUTES",
+      "VISIB",
+      "VISIB_ATTRIBUTES",
+      "WDSP",
+      "WDSP_ATTRIBUTES",
+      "MXSPD",
+      "GUST",
+      "MAX",
+      "MAX_ATTRIBUTES",
+      "MIN",
+      "MIN_ATTRIBUTES",
+      "PRCP",
+      "PRCP_ATTRIBUTES",
+      "SNDP",
+      "FRSHTT"
+    ],
+    "expected_numeric_fields_present": true
+  },
+  "station_identity": {
+    "station_ids": [
+      "72505394728"
+    ],
+    "names": [
+      "NY CITY CENTRAL PARK, NY US"
+    ],
+    "latitudes": [
+      "40.77898"
+    ],
+    "matches_config": true
+  },
+  "per_year_row_counts": {
+    "2019": {
+      "observed": 365,
+      "expected": 365
+    },
+    "2020": {
+      "observed": 366,
+      "expected": 366
+    },
+    "2021": {
+      "observed": 365,
+      "expected": 365
+    },
+    "2022": {
+      "observed": 365,
+      "expected": 365
+    },
+    "2023": {
+      "observed": 365,
+      "expected": 365
+    },
+    "2024": {
+      "observed": 366,
+      "expected": 366
+    }
+  },
+  "date_validation": {
+    "n_rows": 2192,
+    "n_unique": 2192,
+    "strictly_increasing": true,
+    "unique": true,
+    "calendar_complete": true,
+    "first": "2019-01-01",
+    "last": "2024-12-31",
+    "expected_first": "2019-01-01",
+    "expected_last": "2024-12-31",
+    "coverage_ok": true,
+    "ok": true
+  },
+  "sentinel_hits_per_field": {
+    "TEMP": 0,
+    "DEWP": 0,
+    "SLP": 4,
+    "STP": 0,
+    "VISIB": 2,
+    "WDSP": 125,
+    "MXSPD": 125,
+    "GUST": 911,
+    "MAX": 0,
+    "MIN": 0,
+    "PRCP": 0,
+    "SNDP": 2119
+  },
+  "unit_conversions_applied": {
+    "TEMP": "degF->degC",
+    "DEWP": "degF->degC",
+    "SLP": "mb->hPa (identity)",
+    "STP": "mb->hPa (identity)",
+    "VISIB": "miles (kept)",
+    "WDSP": "knots->m/s",
+    "MXSPD": "knots->m/s",
+    "GUST": "knots->m/s",
+    "MAX": "degF->degC",
+    "MIN": "degF->degC",
+    "PRCP": "inches->mm",
+    "SNDP": "inches (kept)"
+  },
+  "sentinel_crosscheck_vs_provenance": {
+    "preprocessing": {
+      "TEMP": 0,
+      "DEWP": 0,
+      "SLP": 4,
+      "STP": 0,
+      "VISIB": 2,
+      "WDSP": 125,
+      "MXSPD": 125,
+      "GUST": 911,
+      "MAX": 0,
+      "MIN": 0,
+      "PRCP": 0,
+      "SNDP": 2119
+    },
+    "provenance_inspection": {
+      "TEMP": 0,
+      "DEWP": 0,
+      "SLP": 5,
+      "STP": 6,
+      "VISIB": 2,
+      "WDSP": 125,
+      "MXSPD": 125,
+      "GUST": 911,
+      "PRCP": 0,
+      "SNDP": 2119
+    },
+    "diffs": {
+      "SLP": {
+        "preprocessing_exact": 4,
+        "provenance_string_match": 5
+      },
+      "STP": {
+        "preprocessing_exact": 0,
+        "provenance_string_match": 6
+      }
+    },
+    "match": false,
+    "diff_explanation": "The provenance inspector string-matches ANY sentinel-family value (9999.9/999.9/99.99) in any field; the preprocessing applies each field's DOCUMENTED sentinel only. Diffs therefore mark values from another field's sentinel family \u2014 see data_quality_observations."
+  },
+  "data_quality_observations": {
+    "STP_excluded": {
+      "finding": "STP (station pressure) is systematically corrupted in this station's files: 94.8% of values are below 900 hPa (median 12.4 hPa) at a station whose elevation (42.7 m) implies ~1008 hPa; only 5.2% lie in the physically plausible 950-1050 hPa range.",
+      "decision": "STP is EXCLUDED from every analysis; values are kept in the cleaned CSV for transparency only."
+    },
+    "SLP_ambiguous_2020_12_01": {
+      "finding": "SLP on 2020-12-01 reads 999.9 \u2014 the wind/visibility sentinel value, not the documented SLP sentinel (9999.9). Neighboring days: 1010.4 (Nov 30), 1011.9 (Dec 2); a ~10 mb dip between them is consistent with a passing winter storm, so the value is also meteorologically plausible as a real reading.",
+      "decision": "Treated as VALID data per the official schema (only 9999.9 is the documented SLP sentinel). Impact if the alternative reading were taken: the primary cloud would lose 1 of 2188 days (0.046%)."
+    }
+  },
+  "missingness": {
+    "TEMP": {
+      "n_missing": 0,
+      "fraction_missing": 0.0,
+      "longest_consecutive_missing_days": 0
+    },
+    "DEWP": {
+      "n_missing": 0,
+      "fraction_missing": 0.0,
+      "longest_consecutive_missing_days": 0
+    },
+    "SLP": {
+      "n_missing": 4,
+      "fraction_missing": 0.00182,
+      "longest_consecutive_missing_days": 1
+    },
+    "STP": {
+      "n_missing": 0,
+      "fraction_missing": 0.0,
+      "longest_consecutive_missing_days": 0
+    },
+    "VISIB": {
+      "n_missing": 2,
+      "fraction_missing": 0.00091,
+      "longest_consecutive_missing_days": 2
+    },
+    "WDSP": {
+      "n_missing": 125,
+      "fraction_missing": 0.05703,
+      "longest_consecutive_missing_days": 70
+    },
+    "MXSPD": {
+      "n_missing": 125,
+      "fraction_missing": 0.05703,
+      "longest_consecutive_missing_days": 70
+    },
+    "GUST": {
+      "n_missing": 911,
+      "fraction_missing": 0.4156,
+      "longest_consecutive_missing_days": 70
+    },
+    "MAX": {
+      "n_missing": 0,
+      "fraction_missing": 0.0,
+      "longest_consecutive_missing_days": 0
+    },
+    "MIN": {
+      "n_missing": 0,
+      "fraction_missing": 0.0,
+      "longest_consecutive_missing_days": 0
+    },
+    "PRCP": {
+      "n_missing": 0,
+      "fraction_missing": 0.0,
+      "longest_consecutive_missing_days": 0
+    },
+    "SNDP": {
+      "n_missing": 2119,
+      "fraction_missing": 0.9667,
+      "longest_consecutive_missing_days": 378
+    },
+    "n_days_total": 2192
+  },
+  "primary_cloud": {
+    "features": [
+      "TEMP",
+      "DEWP",
+      "SLP"
+    ],
+    "n_days_kept": 2188,
+    "n_days_dropped": 4,
+    "fraction_dropped": 0.00182,
+    "dropped_dates": [
+      "2019-04-20",
+      "2021-04-04",
+      "2023-09-18",
+      "2024-12-30"
+    ],
+    "scaling_means_raw_units": [
+      13.757,
+      5.702,
+      1016.693
+    ],
+    "scaling_sds_raw_units": [
+      8.938,
+      10.144,
+      7.386
+    ]
+  },
+  "sensitivity_cloud": {
+    "features": [
+      "TEMP",
+      "DEWP",
+      "SLP",
+      "WDSP"
+    ],
+    "n_days_kept": 2063,
+    "n_days_dropped": 129,
+    "fraction_dropped": 0.05885,
+    "dropped_winters_note": "includes all of Jan-Feb 2019 (59 consecutive days)",
+    "season_counts_kept": {
+      "MAM": 525,
+      "JJA": 533,
+      "SON": 529,
+      "DJF": 476
+    },
+    "season_counts_full": {
+      "DJF": 542,
+      "MAM": 552,
+      "JJA": 552,
+      "SON": 546
+    }
+  },
+  "ph_series": {
+    "feature": "TEMP",
+    "units_after_conversion": "degC then z-score",
+    "n_days": 2192,
+    "n_missing": 0,
+    "date_range": [
+      "2019-01-01",
+      "2024-12-31"
+    ]
+  },
+  "oni": {
+    "enabled": true,
+    "role": "DESCRIPTIVE CONTEXT ONLY (no hypothesis test)",
+    "power_statement": "The 2019-2024 window contains roughly two ENSO episodes (a protracted La Nina and one El Nino). No station-level ENSO hypothesis is tested; the phase coloring is descriptive context only, and the reanalysis-scale TDA-climate literature (e.g., Strommen et al., 2022) does not transfer to single-station scale without the very test this design cannot power.",
+    "oni_years": [
+      1950,
+      2026
+    ],
+    "n_days_matched": 2192,
+    "phase_counts": {
+      "ElNino": 699,
+      "Neutral": 733,
+      "LaNina": 760,
+      "Unknown": 0
+    },
+    "note": "Phase labels use the ONI value with CPC +/-0.5 thresholds, not the 5-consecutive-season episode definition."
+  },
+  "season_counts": {
+    "DJF": 542,
+    "MAM": 552,
+    "JJA": 552,
+    "SON": 546
+  },
+  "outputs": {
+    "cleaned_csv": {
+      "path": "extensions/meteorology/data_provenance/processed/gsod_72505394728_2019-2024_clean.csv",
+      "sha256": "bd0a2bbacda0171623b56acddeaab4e51e95ee0592c55873c480e71b289b0932",
+      "bytes": 328940
+    },
+    "analysis_npz": {
+      "path": "extensions/meteorology/data_provenance/processed/weather_analysis.npz",
+      "sha256": "9efb4e050ef8b4b8b3e23352a5b619b92e96cf47e9f1aae30b7365cc0a3993ac",
+      "bytes": 87427
+    }
+  },
+  "status": "OK"
+}

@@ -1,0 +1,110 @@
+# Extension A — Real meteorological case study (GSOD Central Park)
+# All parameters for the weather extension. Nothing is hard-coded in scripts.
+# Conventions follow the baseline project (configs/*.yaml).
+
+station:
+  id: "72505394728"          # USAF+WBN, NY City Central Park
+  name: "NY CITY CENTRAL PARK, NY US"
+  expected_latitude: 40.77898
+  expected_longitude: -73.96925
+  expected_elevation_m: 42.7
+
+source:
+  url_template: "https://www.ncei.noaa.gov/data/global-summary-of-the-day/access/{year}/{station}.csv"
+  years: [2019, 2020, 2021, 2022, 2023, 2024]   # complete years only
+  readme_url: "https://www.ncei.noaa.gov/data/global-summary-of-the-day/doc/readme.txt"
+  requested_range: "2019-01-01..2024-12-31"
+
+# ONI is DESCRIPTIVE CONTEXT ONLY (no hypothesis test; ~2 episodes in-window).
+oni:
+  enabled: true
+  url: "https://psl.noaa.gov/data/correlation/oni.data"
+  missing_sentinel: -99.90
+  el_nino_threshold: 0.5     # degC on the 3-month running mean (CPC convention)
+  la_nina_threshold: -0.5
+  power_statement: >
+    The 2019-2024 window contains roughly two ENSO episodes (a protracted
+    La Nina and one El Nino). No station-level ENSO hypothesis is tested;
+    the phase coloring is descriptive context only, and the reanalysis-scale
+    TDA-climate literature (e.g., Strommen et al., 2022) does not transfer
+    to single-station scale without the very test this design cannot power.
+
+schema:
+  # GSOD sentinels (verified against fetched data 2026-10-22; see
+  # data_provenance/provenance.json for the authoritative readme excerpt).
+  sentinel_9999_9: ["TEMP", "DEWP", "SLP", "STP"]      # degF / mb fields
+  sentinel_999_9: ["VISIB", "WDSP", "MXSPD", "GUST", "SNDP"]
+  sentinel_99_99: ["PRCP"]                              # inches
+  expected_rows_per_year: {2019: 365, 2020: 366, 2021: 365, 2022: 365, 2023: 365, 2024: 366}
+
+units:
+  # Conversions applied to physical units BEFORE any distance computation.
+  temp_f_to_c: true        # TEMP, DEWP, MAX, MIN: (F - 32) * 5/9
+  wind_knots_to_ms: true   # WDSP, MXSPD, GUST: * 0.514444
+  precip_in_to_mm: true    # PRCP: * 25.4
+  slp_mb_to_hpa: true      # identity conversion, documented (1 mb = 1 hPa)
+
+preprocessing:
+  # REDESIGN (triggered 2026-10-22 by the pre-specified rule, NOT silent):
+  # The Rev2 spec's 4-feature cloud (TEMP, DEWP, SLP, WDSP) requires dropping
+  # 131 days (5.98%) because WDSP is missing 125 days, including ALL of
+  # Jan-Feb 2019 (59 consecutive days) and May-Jun 2020 (33 days) — a
+  # seasonally biased deletion that would remove winter 2019 from the cloud.
+  # Redesign: primary cloud = TEMP, DEWP, SLP (5 missing days, 0.23%,
+  # unstructured). The 4-feature cloud is retained as a DOCUMENTED
+  # SENSITIVITY CHECK quantifying the cost of adding wind.
+  primary_features: ["TEMP", "DEWP", "SLP"]
+  sensitivity_features: ["TEMP", "DEWP", "SLP", "WDSP"]  # Rev2 spec, 131 days dropped
+  drop_rule: "drop_day_if_any_primary_missing"           # no imputation; count reported
+  max_acceptable_primary_missing_fraction: 0.05
+  scaling: "zscore"                                 # per-feature mean 0 / sd 1
+  season_assignment: "meteorological"               # DJF/MAM/JJA/SON by month
+  missingness_facts: >
+    TEMP: 0 missing in 2192 days; DEWP: 0; SLP: 5 (2019-04-20, 2021-04-04,
+    2023-09-18, 2024-12-30 + 1); WDSP: 125 (all Jan-Feb 2019, most of
+    May-Jun 2020, Sep-Oct 2021); GUST: 911; SNDP: 2119 (not used).
+
+pca:
+  n_components: 2
+
+mapper:
+  # Lens: PCA component 1 of the z-scored core features (unsupervised).
+  # Reference cell = baseline E2 reference (10, 0.35); small grid for
+  # parameter-context, same discipline as baseline E2 (no tuning-to-result:
+  # grid fixed before inspecting outputs).
+  reference: {n_cubes: 10, perc_overlap: 0.35}
+  grid: {n_cubes: [5, 10, 15, 20], perc_overlap: [0.35, 0.50]}
+  kmeans: {n_clusters: 2, random_state: 42, n_init: 10}
+  day_of_year_lens:            # descriptive comparison only (encodes calendar)
+    enabled: true
+    note: "Day-of-year lens encodes calendar information directly; always shown beside the unsupervised PCA-lens result."
+
+seasonal_ph:
+  # Sliding-window (time-delay) embedding of the daily TEMP series (degC,
+  # z-scored). Parameter meaning is fixed EXPLICITLY:
+  #   lag tau (days between consecutive coordinates),
+  #   dimension d (number of coordinates per embedded point),
+  #   span = (d-1)*tau days of series covered by one embedded point,
+  #   stride (days between consecutive window start times).
+  # The annual cycle period is T = 365.25 days. To resolve the annual loop,
+  # the span should be on the order of one period. The original plan's
+  # "window 60 days, dimension 8" corresponds here to tau=60, d=8 ->
+  # span 420 d (~1.15 T): kept as the pre-specified REFERENCE, not copied
+  # blindly; alternatives bracket the one-period scale and controls sit at
+  # half / one-and-a-half periods.
+  series: "TEMP"                # degC, z-scored
+  stride: 1
+  maxdim: 1
+  reference: {tau: 60, d: 8}    # span 420 d
+  sweep:
+    - {tau: 30, d: 8}    # span 210 d  (~0.57 T, sub-annual control)
+    - {tau: 45, d: 9}    # span 360 d  (~0.99 T)
+    - {tau: 52, d: 8}    # span 364 d  (~1.00 T)
+    - {tau: 60, d: 8}    # span 420 d  (~1.15 T, REFERENCE)
+    - {tau: 73, d: 6}    # span 365 d  (~1.00 T, sparser embedding)
+    - {tau: 90, d: 8}    # span 630 d  (~1.72 T, supra-annual control)
+  prominence_convention: "dominant H1 persistence and r_1 = p1/p2 (baseline GAP_RATIO_CONVENTION); r_1 >= 3 is a stated convention, not a theorem"
+
+figures:
+  dpi: 150
+  colormap_season: {DJF: "#2176ff", MAM: "#2ca02c", JJA: "#ff7f0e", SON: "#8c564b"}

@@ -1,0 +1,101 @@
+{
+  "step": "stability_claims_evidence",
+  "scope": "Stage 4 (extensions/stability/) — every claim below is tied to its exact output file and figure; claims are deliberately modest and carry their guards inline.",
+  "global_guards": [
+    "Distances to the full-data reference are DESCRIPTIVE resampling stability: the reference overlaps every 80% subsample, so they are not independent validation and not unbiased generalization estimates.",
+    "Variability bands are NOT formal confidence sets; no hypothesis test is performed anywhere in this extension (a diagram distance is a metric value, not a test statistic).",
+    "The custom membership-Jaccard S is an exploratory overlap indicator (greedy, edge-blind, not a metric, not normalized for node count), never the sole stability measure.",
+    "Input-sampling stability (this extension) is distinct from parameter sensitivity (baseline E2 / meteorology Mapper grid): different subsamples at fixed parameters vs the same data at different parameters.",
+    "The weather component is a sensitivity analysis on six years of single-station data: not a population-level climate claim, not a confidence interval, not a hypothesis test.",
+    "No claim is made that a particular topology is universally recovered, that Mapper is generally more robust than PCA/t-SNE/UMAP, or that readers understand results better (no human-participant study exists in this project)."
+  ],
+  "rows": [
+    {
+      "id": "S1",
+      "claim": "Under 30 deterministic 80% subsamples, the constructed PH features are stable: the annulus dominant H1 persistence stays in [1.439, 1.575] around the full-data reference 1.496, and the figure-eight co-dominant pair keeps p1 in [0.458, 0.511] around 0.481, with the rank-appropriate gap diagnostic far above the stated convention in every resample (r1 >= 13.2; r2 >= 7.35).",
+      "evidence_file": "extensions/stability/results/ph_resampling.json",
+      "summary_file": "extensions/stability/results/stability_summary.json",
+      "figure": "extensions/stability/figures/ph_resampling_persistence.png",
+      "guard": "descriptive stability only; reference overlaps each subsample; no confidence set implied"
+    },
+    {
+      "id": "S2",
+      "claim": "Diagram distances to the reference are small at H1 for the loop-constructed shapes (bottleneck medians 0.029 annulus / 0.019 figure-eight) and proportionally larger for the no-loop blob (0.048, ~34% of its noise-scale top persistence vs 1.9% / 4.0% for the constructed features).",
+      "evidence_file": "extensions/stability/results/ph_resampling.json",
+      "summary_file": "extensions/stability/results/stability_summary.json",
+      "figure": "extensions/stability/figures/ph_resampling_cross_shape.png",
+      "guard": "scale normalization is descriptive, not a statistic; H0 Wasserstein is structurally inflated by the 399-vs-499 finite-class difference (documented in the figure caption)"
+    },
+    {
+      "id": "S3",
+      "claim": "Full per-resample distance distributions (H0/H1 separate, bottleneck + Wasserstein) are recorded for all 90 subsamples; the H0 bottleneck medians are 0.022/0.017/0.056 (annulus/figure-eight/blob).",
+      "evidence_file": "extensions/stability/results/ph_resampling.json",
+      "figure": "extensions/stability/figures/ph_resampling_dists.png",
+      "guard": "persim drops the essential H0 class before computing distances (recorded in the results metadata)"
+    },
+    {
+      "id": "S4",
+      "claim": "At fixed Mapper parameters (10, 0.35), the node count is exactly 20 in all 90 resample graphs of all three shapes — the same uninformative 2 x n_cubes pattern the baseline E2 parameter sweep found, here shown on the input-sampling axis.",
+      "evidence_file": "extensions/stability/results/mapper_resampling.json",
+      "figure": "extensions/stability/figures/mapper_resampling_structure.png",
+      "guard": "node count is a cover-resolution artifact, not a data-structure summary"
+    },
+    {
+      "id": "S5",
+      "claim": "The annulus Mapper graph's cycle cue is NOT stable under input subsampling: the cyclomatic number is 0 in 13/30, 1 in 9/30 and 2 in 8/30 resamples (reference 2), while the underlying H1 loop remains prominent in all 30 resamples (S1) — on this axis too, reading Mapper cycles as loops is unreliable even when persistent homology is stable.",
+      "evidence_file": "extensions/stability/results/mapper_resampling.json",
+      "figure": "extensions/stability/figures/mapper_resampling_structure.png",
+      "guard": "cyclomatic number = E - V + C counts independent graph cycles, which are not automatically topological loops (baseline caveat)"
+    },
+    {
+      "id": "S6",
+      "claim": "The figure-eight 2-component reading holds in 24/30 resamples (1 component in 6/30); the no-loop blob is the most structurally variable (components 1-3, cyclomatic 1-6) — no graph summary is stable for the control shape.",
+      "evidence_file": "extensions/stability/results/mapper_resampling.json",
+      "figure": "extensions/stability/figures/mapper_resampling_graphs_blob.png",
+      "guard": "small multiples are rendering choices; structure claims rest on the recorded statistics"
+    },
+    {
+      "id": "S7",
+      "claim": "The exploratory membership-Jaccard S against the full-data reference has medians 0.585 (annulus), 0.762 (figure-eight), 0.645 (blob) with wide ranges — reported for completeness only, never as the stability measure.",
+      "evidence_file": "extensions/stability/results/mapper_resampling.json",
+      "figure": null,
+      "guard": "S is greedy, edge-blind, not a metric, not normalized for node count; S = 1 does not imply identical graphs"
+    },
+    {
+      "id": "S8",
+      "claim": "Leave-one-calendar-year-out sensitivity: for every one of the six documented embedding configurations and every one of the six omitted years, the retained-series embedding still yields one dominant H1 class with r_1 >= 4.38 (full-data range 4.75-7.32) — the seasonal-cycle finding does not depend disproportionately on any single observed year.",
+      "evidence_file": "extensions/stability/results/weather_loyo.json",
+      "summary_file": "extensions/stability/results/stability_summary.json",
+      "figure": "extensions/stability/figures/weather_loyo.png",
+      "guard": "sensitivity analysis on six years of single-station data; not a population-level climate claim, not a confidence interval, not a hypothesis test; dominant H1 evidences recurrent quasi-periodic structure of the embedded series, not a closed physical climate trajectory"
+    },
+    {
+      "id": "S9",
+      "claim": "The gap-safe window rule has a recorded structural cost: omitting a mid-series year removes 210-630 embedding windows per configuration (edge years remove 0), and the tau=90 configuration drops to 567 windows in the 2021/2022 folds — the r_1 finding persists even at that reduced support.",
+      "evidence_file": "extensions/stability/results/weather_loyo.json",
+      "figure": "extensions/stability/figures/weather_loyo.png",
+      "guard": "window counts are exact bookkeeping, not a quality score"
+    },
+    {
+      "id": "S10",
+      "claim": "All numerical outputs were saved before any figure existed; every figure renders from saved results only; re-rendering is byte-identical; and the baseline manifest remains byte-identical (verified after every stage).",
+      "evidence_file": "extensions/stability/results/stability_summary.json",
+      "figure": "extensions/stability/figures/captions.json",
+      "guard": "verified by the Stage-4 test suite (extensions/stability/tests/test_stability.py) and extensions/scripts/verify_baseline_unchanged.py"
+    },
+    {
+      "id": "S11",
+      "claim": "Measured runtimes are reported rather than reduced: the H0 bottleneck distances dominated the Part-B runtimes (annulus 355 s, figure-eight 200 s, blob 296 s cumulative; individual H0 bottleneck computations ranged 0.6-75 s), and replication was not silently lowered from 30.",
+      "evidence_file": "extensions/stability/results/ph_resampling.json",
+      "figure": null,
+      "guard": "per-replicate ripser and distance timings are stored individually in the results file"
+    },
+    {
+      "id": "S12",
+      "claim": "Determinism verified at three levels: regenerating the subsample indices from the stored seed rule reproduces them exactly; recomputing a resample's diagrams reproduces the stored diagnostics exactly; and the Mapper reference rebuild reproduces the baseline E1 saved memberships exactly.",
+      "evidence_file": "extensions/stability/results/mapper_resampling.json",
+      "figure": null,
+      "guard": "asserted by the test suite; wall-clock time fields are the only non-reproducible fields (documented)"
+    }
+  ]
+}

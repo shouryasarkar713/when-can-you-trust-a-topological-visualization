@@ -1,0 +1,90 @@
+{
+  "table_title": "Extension A (meteorology) — claims to evidence",
+  "convention": "Every major claim maps to a saved result file and (where visual) a figure. Claims are calibrated to what the artifacts show; negative results are reported as results.",
+  "rows": [
+    {
+      "id": "A1",
+      "claim": "The GSOD data acquisition is fully documented: 6 station-years (2019-2024) for station 72505394728 fetched from the official NOAA NCEI access directory; 2192/2192 expected daily rows observed; zero duplicate dates; full calendar coverage; raw files checksummed (SHA-256) and immutable.",
+      "evidence_file": "extensions/meteorology/data_provenance/provenance.json",
+      "figure": null
+    },
+    {
+      "id": "A2",
+      "claim": "Preprocessing is deterministic and documented: sentinels handled per the official schema (9999.9 temp/pressure, 999.9 wind/visibility, 99.99 precipitation), units converted (degF->degC, knots->m/s, inches->mm), no imputation; the primary cloud (TEMP/DEWP/SLP) drops only 4 of 2192 days (0.18%).",
+      "evidence_file": "extensions/meteorology/results/weather_preprocessing_report.json",
+      "figure": "extensions/meteorology/figures/weather_temp_series.png"
+    },
+    {
+      "id": "A3",
+      "claim": "Data-quality findings are explicit, not silent: STP is systematically corrupted in this station's files (94.8% of values below 900 hPa at 42.7 m elevation) and is excluded from all analyses; SLP on 2020-12-01 reads 999.9 (wind-family sentinel value, meteorologically plausible as a real storm reading) and is treated as valid per the documented schema, with impact quantified (1 of 2188 days).",
+      "evidence_file": "extensions/meteorology/results/weather_preprocessing_report.json",
+      "figure": null
+    },
+    {
+      "id": "A4",
+      "claim": "The 4-feature cloud specified in Revision 2 (TEMP/DEWP/SLP/WDSP) was NOT used as primary because WDSP is missing 125 days including all of Jan-Feb 2019 (59 consecutive days): dropping them would delete winter 2019 (a seasonally biased deletion); it is retained as a documented sensitivity check (129 days dropped).",
+      "evidence_file": "extensions/meteorology/results/weather_preprocessing_report.json",
+      "figure": null
+    },
+    {
+      "id": "A5",
+      "claim": "PCA shows the z-scored TEMP/DEWP/SLP cloud is effectively two-dimensional (97.6% cumulative variance in 2 PCs) with an interpretable thermal axis (PC1: TEMP+DEWP loading, 69.0%) and pressure axis (PC2: SLP loading, 28.6%); seasons organize along PC1 in a recurrent band.",
+      "evidence_file": "extensions/meteorology/results/weather_analysis_results.json",
+      "figure": "extensions/meteorology/figures/weather_pca_panels.png"
+    },
+    {
+      "id": "A6",
+      "claim": "ONI phase coloring is included as DESCRIPTIVE CONTEXT ONLY with the power statement embedded; no station-level ENSO hypothesis is tested (the 2019-2024 window holds roughly two episodes).",
+      "evidence_file": "extensions/meteorology/results/weather_preprocessing_report.json",
+      "figure": "extensions/meteorology/figures/weather_pca_panels.png"
+    },
+    {
+      "id": "A7",
+      "claim": "The baseline E2 Mapper parameter-sensitivity pattern replicates on real weather data: node count = 2 x n_cubes in all 8 pre-specified cells; the graph is connected for n_cubes <= 15 and fragments into 2 components at n_cubes = 20 under BOTH overlaps; membership-Jaccard S vs the reference cell ranges 0.445-1.000.",
+      "evidence_file": "extensions/meteorology/results/weather_mapper_results.json",
+      "figure": "extensions/meteorology/figures/weather_mapper_grid.png"
+    },
+    {
+      "id": "A8",
+      "claim": "The reference Mapper graph (PCA-1 lens, (10, 0.35)) organizes by thermal state (node color = mean z-TEMP polarizes across the graph); its graph cycles are structural objects, NOT automatic evidence of topological loops (baseline no-loop control caveat carried over).",
+      "evidence_file": "extensions/meteorology/results/weather_mapper_results.json",
+      "figure": "extensions/meteorology/figures/weather_mapper_reference.png"
+    },
+    {
+      "id": "A9",
+      "claim": "The day-of-year lens produces a similar-shaped graph (20 nodes, 27 edges, 1 component) but ENCODES calendar information directly; it is shown only as a descriptive comparison beside the unsupervised PCA-lens result.",
+      "evidence_file": "extensions/meteorology/results/weather_mapper_results.json",
+      "figure": "extensions/meteorology/figures/weather_mapper_lens_comparison.png"
+    },
+    {
+      "id": "A10",
+      "claim": "Each of the 6 pre-specified sliding-window configurations (spans 210-630 days, embedding dimensions 6-9; tau and d vary jointly across six discrete settings) yields ONE dominant H1 class (dominant persistence 1.42-2.57 z-units; gap ratio r_1 = 4.7-7.3, above the stated r_1>=3 convention), strongest near one-period spans (r_1 = 7.32 at span 360 d) — consistent with recurrent seasonal or quasi-periodic structure in the embedded temperature series.",
+      "evidence_file": "extensions/meteorology/results/weather_analysis_results.json",
+      "figure": "extensions/meteorology/figures/weather_seasonal_ph_sweep.png"
+    },
+    {
+      "id": "A11",
+      "claim": "The dominant H1 class is NOT proof of a simple closed physical climate trajectory, and it does not independently validate an annual period: it evidences recurrent quasi-periodic structure of the embedded series at the studied scale. The sub-annual span is not a null control (any non-commensurate delay embedding of a periodic signal closes); the negative representation contrast is the state-space cloud (A12); the post-hoc periodogram/autocorrelation cross-check (A14) shows the series itself is near-annually recurrent but was not used to select or retune any embedding parameter.",
+      "evidence_file": "extensions/meteorology/results/weather_analysis_results.json",
+      "figure": "extensions/meteorology/figures/weather_seasonal_ph_sweep.png"
+    },
+    {
+      "id": "A12",
+      "claim": "NEGATIVE REPRESENTATION CONTRAST (state space): the 3-D daily weather-state cloud itself shows NO dominant loop (1049 H1 classes, dominant persistence 0.21, r_1 = 1.19). This is a negative representation contrast, not a formal statistical null control: the state-space cloud and the sliding-window delay embedding are different constructions of the same daily observations, so the cloud is not a null sample but a second representation answering a different question. The contrast shows the dominant H1 class depends on the temporal construction (recurrence in time) rather than on the static geometry of daily states, which day-to-day weather variability fills in.",
+      "evidence_file": "extensions/meteorology/results/weather_analysis_results.json",
+      "figure": "extensions/meteorology/figures/weather_state_space_ph.png"
+    },
+    {
+      "id": "A13",
+      "claim": "The reference 8-D sliding-window embedding projects to a closed band with a visible hole (2-D PCA rendering), with seasons progressing around the loop; the quantitative evidence remains the persistence diagram, not the projection.",
+      "evidence_file": "extensions/meteorology/results/weather_reference_embedding.npz",
+      "figure": "extensions/meteorology/figures/weather_embedding_pca.png"
+    },
+    {
+      "id": "A14",
+      "claim": "POST-HOC SEASONALITY SANITY CHECK (Stage 3): FFT periodogram and normalized autocorrelation of the z-scored daily TEMP series give dominant period 365.3 d (30-800 d search band) and autocorrelation peak lag 360 d (pre-specified fixed analysis search window 180-550 d; acf[365]=+0.67, acf[182]=-0.75) — the series itself carries near-annual periodicity, consistent with the recurrent structure recovered by the sliding-window PH. Computed after the sweep was pre-specified and saved; NOT used to select or retune any embedding parameter; descriptive, not a hypothesis test.",
+      "evidence_file": "extensions/meteorology/results/weather_seasonality_check.json",
+      "figure": "extensions/meteorology/figures/weather_seasonality_check.png"
+    }
+  ]
+}

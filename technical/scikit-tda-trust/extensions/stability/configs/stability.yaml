@@ -1,0 +1,68 @@
+# Stage 4 — resampling and robustness experiments (extensions/stability/)
+#
+# Three components, all configuration-driven (nothing hard-coded in scripts):
+#   B. persistence-diagram resampling stability (synthetic shapes)
+#   C. Mapper input-sampling stability (synthetic shapes, FIXED parameters)
+#   D. weather leave-one-calendar-year-out sensitivity (seasonal embedding)
+#
+# Interpretation guards (mandatory wording, see README.md):
+#   - Distances to the FULL-DATA reference are DESCRIPTIVE resampling
+#     stability: the reference overlaps each 80% subsample, so they are NOT
+#     independent validation and NOT an unbiased generalization estimate.
+#   - Variability bands are NOT formal confidence sets; no hypothesis test
+#     is performed anywhere in this extension.
+#   - Component C varies the INPUT SAMPLE at fixed Mapper parameters. It is
+#     distinct from baseline E2 parameter sensitivity (same data, different
+#     parameters). Both questions are reported separately and neither yields
+#     a "universally correct" score.
+
+# ---- shared subsampling design (Parts B and C use the SAME subsamples) ----
+shapes: [annulus, figure_eight, blob]     # reuse baseline generators/configs
+
+resampling:
+  n_replicates: 30
+  fraction: 0.8                            # 80% without replacement
+  seed_base: 20261022                      # date-stamped, recorded in outputs
+  seed_offsets: {annulus: 0, figure_eight: 1000, blob: 2000}
+  # seed(shape, rep i) = seed_base + seed_offsets[shape] + i ; the 90 seeds
+  # are pairwise distinct across shapes and replicates by construction.
+
+# ---- Part B: persistence-diagram resampling stability --------------------
+ph:
+  maxdim: 1                                # pinned baseline E1 ripser config
+  reference: e1_saved_full_data            # results/e1/{shape}_ph_dgms.npz
+  metrics: [bottleneck, wasserstein]       # both supported by pinned persim 0.4.1
+  homology_dims: [0, 1]                    # reported separately, never pooled
+  # Pre-specified persistence-gap diagnostic per construction (baseline
+  # ground-truth ranks from src/shapes.py; NOT re-chosen after inspection):
+  gap_diagnostics:
+    annulus:      {rank: 1, statistic: r1}
+    figure_eight: {rank: 2, statistic: r2}   # r_2 = p2/p3 is the correct statistic
+    blob:         {rank: null, statistic: r1_calibration}
+
+# ---- Part C: Mapper input-sampling stability ------------------------------
+mapper:
+  # FIXED at the documented baseline reference settings (configs/e1_audit.yaml
+  # mapper_defaults). Parameters do NOT vary in this component.
+  n_cubes: 10
+  perc_overlap: 0.35
+  kmeans: {n_clusters: 2, random_state: 42, n_init: 10}
+  lens: PCA-1
+  layout_seed: 42                          # deterministic spring layouts
+  graph_small_multiples: 6                 # resamples shown per shape in figures
+
+# ---- Part D: weather leave-one-calendar-year-out sensitivity --------------
+weather_loyo:
+  years: [2019, 2020, 2021, 2022, 2023, 2024]
+  zscore_scope: retained_days   # re-z-score TEMP within the retained 5 years
+  # (r_k gap ratios are invariant to this affine rescaling; dominant-H1
+  #  persistence is reported in retained-series z-units and is NOT compared
+  #  numerically to the full-data z-units without noting the rescaling.)
+  embedding_gap_rule: windows_never_cross_omitted_year
+  # All six documented seasonal-embedding configurations from
+  # extensions/meteorology/configs/weather.yaml seasonal_ph.sweep are run per
+  # fold; tau=60, d=8 is the pre-specified reference.
+
+paths:
+  results_dir: extensions/stability/results
+  figures_dir: extensions/stability/figures

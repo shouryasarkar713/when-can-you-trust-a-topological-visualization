@@ -1,0 +1,925 @@
+{
+ "step": "run_weather_loyo",
+ "created_utc": "2026-10-22T09:22:50Z",
+ "config": {
+  "years": [
+   2019,
+   2020,
+   2021,
+   2022,
+   2023,
+   2024
+  ],
+  "zscore_scope": "retained_days",
+  "embedding_gap_rule": "windows_never_cross_omitted_year",
+  "sweep": [
+   {
+    "tau": 30,
+    "d": 8
+   },
+   {
+    "tau": 45,
+    "d": 9
+   },
+   {
+    "tau": 52,
+    "d": 8
+   },
+   {
+    "tau": 60,
+    "d": 8
+   },
+   {
+    "tau": 73,
+    "d": 6
+   },
+   {
+    "tau": 90,
+    "d": 8
+   }
+  ],
+  "reference_config": "tau60_d8",
+  "ripser_maxdim": 1,
+  "series": "TEMP"
+ },
+ "uncertainty_represented": "Dependence of the seasonal-cycle PH result on a single observed calendar year. Days are NOT resampled independently (strong autocorrelation + embedding windows span 210-630 days); no block bootstrap concatenation is used (it would create artificial delay windows at block boundaries).",
+ "status_guard": "SENSITIVITY ANALYSIS on six years of single-station data: not a population-level climate claim, not a formal confidence interval, not a hypothesis test. No parameter is retuned after inspecting folds.",
+ "interpretation_guard": "A dominant H1 class evidences recurrent quasi-periodic structure of the embedded series at the studied scale; it is NOT proof of a simple closed physical climate trajectory (same wording rule as the meteorology extension).",
+ "folds": {
+  "2019": {
+   "omitted_year": 2019,
+   "n_retained_days": 1827,
+   "n_omitted_days": 365,
+   "zscore_retained_mean_c": 13.8999,
+   "zscore_retained_sd_c": 8.8086,
+   "n_blocks": 1,
+   "blocks": [
+    {
+     "start_date": "2020-01-01",
+     "end_date": "2024-12-31",
+     "length_days": 1827
+    }
+   ],
+   "configs": {
+    "tau30_d8": {
+     "tau": 30,
+     "d": 8,
+     "span_days": 210,
+     "span_over_annual_period": 0.575,
+     "n_points": 1617,
+     "n_windows_lost_to_gap": 0,
+     "status": "OK",
+     "ripser_time_s": 12.215,
+     "H1_classes": 1431,
+     "H0_classes": 1617,
+     "H1_top3_persistence": [
+      2.1693,
+      0.4351,
+      0.3382
+     ],
+     "dominant_H1_persistence": 2.1693,
+     "gap_ratio_r1": 4.985,
+     "gap_ratio_convention": "r_k = p_k / p_{k+1} with persistences sorted in descending order. The rank k is known from the synthetic construction of each dataset (annulus k=1, figure-eight k=2, controls: none); r_k is NOT a universal automatic loop-counting rule, and the 'prominent' threshold (r_k >= 3) is a stated convention, not a theorem."
+    },
+    "tau45_d9": {
+     "tau": 45,
+     "d": 9,
+     "span_days": 360,
+     "span_over_annual_period": 0.986,
+     "n_points": 1467,
+     "n_windows_lost_to_gap": 0,
+     "status": "OK",
+     "ripser_time_s": 18.481,
+     "H1_classes": 1283,
+     "H0_classes": 1467,
+     "H1_top3_persistence": [
+      2.549,
+      0.3364,
+      0.326
+     ],
+     "dominant_H1_persistence": 2.549,
+     "gap_ratio_r1": 7.577,
+     "gap_ratio_convention": "r_k = p_k / p_{k+1} with persistences sorted in descending order. The rank k is known from the synthetic construction of each dataset (annulus k=1, figure-eight k=2, controls: none); r_k is NOT a universal automatic loop-counting rule, and the 'prominent' threshold (r_k >= 3) is a stated convention, not a theorem."
+    },
+    "tau52_d8": {
+     "tau": 52,
+     "d": 8,
+     "span_days": 364,
+     "span_over_annual_period": 0.997,
+     "n_points": 1463,
+     "n_windows_lost_to_gap": 0,
+     "status": "OK",
+     "ripser_time_s": 14.255,
+     "H1_classes": 1235,
+     "H0_classes": 1463,
+     "H1_top3_persistence": [
+      2.122,
+      0.4199,
+      0.3507
+     ],
+     "dominant_H1_persistence": 2.122,
+     "gap_ratio_r1": 5.054,
+     "gap_ratio_convention": "r_k = p_k / p_{k+1} with persistences sorted in descending order. The rank k is known from the synthetic construction of each dataset (annulus k=1, figure-eight k=2, controls: none); r_k is NOT a universal automatic loop-counting rule, and the 'prominent' threshold (r_k >= 3) is a stated convention, not a theorem."
+    },
+    "tau60_d8": {
+     "tau": 60,
+     "d": 8,
+     "span_days": 420,
+     "span_over_annual_period": 1.15,
+     "n_points": 1407,
+     "n_windows_lost_to_gap": 0,
+     "status": "OK",
+     "ripser_time_s": 11.708,
+     "H1_classes": 1261,
+     "H0_classes": 1407,
+     "H1_top3_persistence": [
+      2.195,
+      0.3378,
+      0.3253
+     ],
+     "dominant_H1_persistence": 2.195,
+     "gap_ratio_r1": 6.498,
+     "gap_ratio_convention": "r_k = p_k / p_{k+1} with persistences sorted in descending order. The rank k is known from the synthetic construction of each dataset (annulus k=1, figure-eight k=2, controls: none); r_k is NOT a universal automatic loop-counting rule, and the 'prominent' threshold (r_k >= 3) is a stated convention, not a theorem."
+    },
+    "tau73_d6": {
+     "tau": 73,
+     "d": 6,
+     "span_days": 365,
+     "span_over_annual_period": 0.999,
+     "n_points": 1462,
+     "n_windows_lost_to_gap": 0,
+     "status": "OK",
+     "ripser_time_s": 7.296,
+     "H1_classes": 1181,
+     "H0_classes": 1462,
+     "H1_top3_persistence": [
+      1.4765,
+      0.3042,
+      0.2939
+     ],
+     "dominant_H1_persistence": 1.4765,
+     "gap_ratio_r1": 4.854,
+     "gap_ratio_convention": "r_k = p_k / p_{k+1} with persistences sorted in descending order. The rank k is known from the synthetic construction of each dataset (annulus k=1, figure-eight k=2, controls: none); r_k is NOT a universal automatic loop-counting rule, and the 'prominent' threshold (r_k >= 3) is a stated convention, not a theorem."
+    },
+    "tau90_d8": {
+     "tau": 90,
+     "d": 8,
+     "span_days": 630,
+     "span_over_annual_period": 1.725,
+     "n_points": 1197,
+     "n_windows_lost_to_gap": 0,
+     "status": "OK",
+     "ripser_time_s": 5.818,
+     "H1_classes": 965,
+     "H0_classes": 1197,
+     "H1_top3_persistence": [
+      2.0758,
+      0.3698,
+      0.3474
+     ],
+     "dominant_H1_persistence": 2.0758,
+     "gap_ratio_r1": 5.614,
+     "gap_ratio_convention": "r_k = p_k / p_{k+1} with persistences sorted in descending order. The rank k is known from the synthetic construction of each dataset (annulus k=1, figure-eight k=2, controls: none); r_k is NOT a universal automatic loop-counting rule, and the 'prominent' threshold (r_k >= 3) is a stated convention, not a theorem."
+    }
+   }
+  },
+  "2020": {
+   "omitted_year": 2020,
+   "n_retained_days": 1826,
+   "n_omitted_days": 366,
+   "zscore_retained_mean_c": 13.7336,
+   "zscore_retained_sd_c": 9.0068,
+   "n_blocks": 2,
+   "blocks": [
+    {
+     "start_date": "2019-01-01",
+     "end_date": "2019-12-31",
+     "length_days": 365
+    },
+    {
+     "start_date": "2021-01-01",
+     "end_date": "2024-12-31",
+     "length_days": 1461
+    }
+   ],
+   "configs": {
+    "tau30_d8": {
+     "tau": 30,
+     "d": 8,
+     "span_days": 210,
+     "span_over_annual_period": 0.575,
+     "n_points": 1406,
+     "n_windows_lost_to_gap": 210,
+     "status": "OK",
+     "ripser_time_s": 6.216,
+     "H1_classes": 1217,
+     "H0_classes": 1406,
+     "H1_top3_persistence": [
+      2.099,
+      0.3126,
+      0.2848
+     ],
+     "dominant_H1_persistence": 2.099,
+     "gap_ratio_r1": 6.715,
+     "gap_ratio_convention": "r_k = p_k / p_{k+1} with persistences sorted in descending order. The rank k is known from the synthetic construction of each dataset (annulus k=1, figure-eight k=2, controls: none); r_k is NOT a universal automatic loop-counting rule, and the 'prominent' threshold (r_k >= 3) is a stated convention, not a theorem."
+    },
+    "tau45_d9": {
+     "tau": 45,
+     "d": 9,
+     "span_days": 360,
+     "span_over_annual_period": 0.986,
+     "n_points": 1106,
+     "n_windows_lost_to_gap": 360,
+     "status": "OK",
+     "ripser_time_s": 8.914,
+     "H1_classes": 880,
+     "H0_classes": 1106,
+     "H1_top3_persistence": [
+      2.4725,
+      0.3189,
+      0.3123
+     ],
+     "dominant_H1_persistence": 2.4725,
+     "gap_ratio_r1": 7.754,
+     "gap_ratio_convention": "r_k = p_k / p_{k+1} with persistences sorted in descending order. The rank k is known from the synthetic construction of each dataset (annulus k=1, figure-eight k=2, controls: none); r_k is NOT a universal automatic loop-counting rule, and the 'prominent' threshold (r_k >= 3) is a stated convention, not a theorem."
+    },
+    "tau52_d8": {
+     "tau": 52,
+     "d": 8,
+     "span_days": 364,
+     "span_over_annual_period": 0.997,
+     "n_points": 1098,
+     "n_windows_lost_to_gap": 364,
+     "status": "OK",
+     "ripser_time_s": 5.989,
+     "H1_classes": 835,
+     "H0_classes": 1098,
+     "H1_top3_persistence": [
+      2.0595,
+      0.4106,
+      0.3549
+     ],
+     "dominant_H1_persistence": 2.0595,
+     "gap_ratio_r1": 5.015,
+     "gap_ratio_convention": "r_k = p_k / p_{k+1} with persistences sorted in descending order. The rank k is known from the synthetic construction of each dataset (annulus k=1, figure-eight k=2, controls: none); r_k is NOT a universal automatic loop-counting rule, and the 'prominent' threshold (r_k >= 3) is a stated convention, not a theorem."
+    },
+    "tau60_d8": {
+     "tau": 60,
+     "d": 8,
+     "span_days": 420,
+     "span_over_annual_period": 1.15,
+     "n_points": 1041,
+     "n_windows_lost_to_gap": 365,
+     "status": "OK",
+     "ripser_time_s": 4.564,
+     "H1_classes": 814,
+     "H0_classes": 1041,
+     "H1_top3_persistence": [
+      2.0962,
+      0.4169,
+      0.3595
+     ],
+     "dominant_H1_persistence": 2.0962,
+     "gap_ratio_r1": 5.028,
+     "gap_ratio_convention": "r_k = p_k / p_{k+1} with persistences sorted in descending order. The rank k is known from the synthetic construction of each dataset (annulus k=1, figure-eight k=2, controls: none); r_k is NOT a universal automatic loop-counting rule, and the 'prominent' threshold (r_k >= 3) is a stated convention, not a theorem."
+    },
+    "tau73_d6": {
+     "tau": 73,
+     "d": 6,
+     "span_days": 365,
+     "span_over_annual_period": 0.999,
+     "n_points": 1096,
+     "n_windows_lost_to_gap": 365,
+     "status": "OK",
+     "ripser_time_s": 3.236,
+     "H1_classes": 819,
+     "H0_classes": 1096,
+     "H1_top3_persistence": [
+      1.4321,
+      0.2891,
+      0.2876
+     ],
+     "dominant_H1_persistence": 1.4321,
+     "gap_ratio_r1": 4.954,
+     "gap_ratio_convention": "r_k = p_k / p_{k+1} with persistences sorted in descending order. The rank k is known from the synthetic construction of each dataset (annulus k=1, figure-eight k=2, controls: none); r_k is NOT a universal automatic loop-counting rule, and the 'prominent' threshold (r_k >= 3) is a stated convention, not a theorem."
+    },
+    "tau90_d8": {
+     "tau": 90,
+     "d": 8,
+     "span_days": 630,
+     "span_over_annual_period": 1.725,
+     "n_points": 831,
+     "n_windows_lost_to_gap": 365,
+     "status": "OK",
+     "ripser_time_s": 2.084,
+     "H1_classes": 592,
+     "H0_classes": 831,
+     "H1_top3_persistence": [
+      2.0057,
+      0.3363,
+      0.3309
+     ],
+     "dominant_H1_persistence": 2.0057,
+     "gap_ratio_r1": 5.964,
+     "gap_ratio_convention": "r_k = p_k / p_{k+1} with persistences sorted in descending order. The rank k is known from the synthetic construction of each dataset (annulus k=1, figure-eight k=2, controls: none); r_k is NOT a universal automatic loop-counting rule, and the 'prominent' threshold (r_k >= 3) is a stated convention, not a theorem."
+    }
+   }
+  },
+  "2021": {
+   "omitted_year": 2021,
+   "n_retained_days": 1827,
+   "n_omitted_days": 365,
+   "zscore_retained_mean_c": 13.7543,
+   "zscore_retained_sd_c": 8.9059,
+   "n_blocks": 2,
+   "blocks": [
+    {
+     "start_date": "2019-01-01",
+     "end_date": "2020-12-31",
+     "length_days": 731
+    },
+    {
+     "start_date": "2022-01-01",
+     "end_date": "2024-12-31",
+     "length_days": 1096
+    }
+   ],
+   "configs": {
+    "tau30_d8": {
+     "tau": 30,
+     "d": 8,
+     "span_days": 210,
+     "span_over_annual_period": 0.575,
+     "n_points": 1407,
+     "n_windows_lost_to_gap": 210,
+     "status": "OK",
+     "ripser_time_s": 7.728,
+     "H1_classes": 1180,
+     "H0_classes": 1407,
+     "H1_top3_persistence": [
+      2.1945,
+      0.3146,
+      0.3032
+     ],
+     "dominant_H1_persistence": 2.1945,
+     "gap_ratio_r1": 6.976,
+     "gap_ratio_convention": "r_k = p_k / p_{k+1} with persistences sorted in descending order. The rank k is known from the synthetic construction of each dataset (annulus k=1, figure-eight k=2, controls: none); r_k is NOT a universal automatic loop-counting rule, and the 'prominent' threshold (r_k >= 3) is a stated convention, not a theorem."
+    },
+    "tau45_d9": {
+     "tau": 45,
+     "d": 9,
+     "span_days": 360,
+     "span_over_annual_period": 0.986,
+     "n_points": 1107,
+     "n_windows_lost_to_gap": 360,
+     "status": "OK",
+     "ripser_time_s": 9.198,
+     "H1_classes": 892,
+     "H0_classes": 1107,
+     "H1_top3_persistence": [
+      2.5091,
+      0.3732,
+      0.3522
+     ],
+     "dominant_H1_persistence": 2.5091,
+     "gap_ratio_r1": 6.724,
+     "gap_ratio_convention": "r_k = p_k / p_{k+1} with persistences sorted in descending order. The rank k is known from the synthetic construction of each dataset (annulus k=1, figure-eight k=2, controls: none); r_k is NOT a universal automatic loop-counting rule, and the 'prominent' threshold (r_k >= 3) is a stated convention, not a theorem."
+    },
+    "tau52_d8": {
+     "tau": 52,
+     "d": 8,
+     "span_days": 364,
+     "span_over_annual_period": 0.997,
+     "n_points": 1099,
+     "n_windows_lost_to_gap": 364,
+     "status": "OK",
+     "ripser_time_s": 5.165,
+     "H1_classes": 826,
+     "H0_classes": 1099,
+     "H1_top3_persistence": [
+      1.9929,
+      0.3879,
+      0.3068
+     ],
+     "dominant_H1_persistence": 1.9929,
+     "gap_ratio_r1": 5.138,
+     "gap_ratio_convention": "r_k = p_k / p_{k+1} with persistences sorted in descending order. The rank k is known from the synthetic construction of each dataset (annulus k=1, figure-eight k=2, controls: none); r_k is NOT a universal automatic loop-counting rule, and the 'prominent' threshold (r_k >= 3) is a stated convention, not a theorem."
+    },
+    "tau60_d8": {
+     "tau": 60,
+     "d": 8,
+     "span_days": 420,
+     "span_over_annual_period": 1.15,
+     "n_points": 987,
+     "n_windows_lost_to_gap": 420,
+     "status": "OK",
+     "ripser_time_s": 3.278,
+     "H1_classes": 702,
+     "H0_classes": 987,
+     "H1_top3_persistence": [
+      2.178,
+      0.3767,
+      0.3466
+     ],
+     "dominant_H1_persistence": 2.178,
+     "gap_ratio_r1": 5.782,
+     "gap_ratio_convention": "r_k = p_k / p_{k+1} with persistences sorted in descending order. The rank k is known from the synthetic construction of each dataset (annulus k=1, figure-eight k=2, controls: none); r_k is NOT a universal automatic loop-counting rule, and the 'prominent' threshold (r_k >= 3) is a stated convention, not a theorem."
+    },
+    "tau73_d6": {
+     "tau": 73,
+     "d": 6,
+     "span_days": 365,
+     "span_over_annual_period": 0.999,
+     "n_points": 1097,
+     "n_windows_lost_to_gap": 365,
+     "status": "OK",
+     "ripser_time_s": 4.147,
+     "H1_classes": 748,
+     "H0_classes": 1097,
+     "H1_top3_persistence": [
+      1.6932,
+      0.2909,
+      0.256
+     ],
+     "dominant_H1_persistence": 1.6932,
+     "gap_ratio_r1": 5.821,
+     "gap_ratio_convention": "r_k = p_k / p_{k+1} with persistences sorted in descending order. The rank k is known from the synthetic construction of each dataset (annulus k=1, figure-eight k=2, controls: none); r_k is NOT a universal automatic loop-counting rule, and the 'prominent' threshold (r_k >= 3) is a stated convention, not a theorem."
+    },
+    "tau90_d8": {
+     "tau": 90,
+     "d": 8,
+     "span_days": 630,
+     "span_over_annual_period": 1.725,
+     "n_points": 567,
+     "n_windows_lost_to_gap": 630,
+     "status": "OK",
+     "ripser_time_s": 0.492,
+     "H1_classes": 360,
+     "H0_classes": 567,
+     "H1_top3_persistence": [
+      1.757,
+      0.3395,
+      0.3238
+     ],
+     "dominant_H1_persistence": 1.757,
+     "gap_ratio_r1": 5.175,
+     "gap_ratio_convention": "r_k = p_k / p_{k+1} with persistences sorted in descending order. The rank k is known from the synthetic construction of each dataset (annulus k=1, figure-eight k=2, controls: none); r_k is NOT a universal automatic loop-counting rule, and the 'prominent' threshold (r_k >= 3) is a stated convention, not a theorem."
+    }
+   }
+  },
+  "2022": {
+   "omitted_year": 2022,
+   "n_retained_days": 1827,
+   "n_omitted_days": 365,
+   "zscore_retained_mean_c": 13.8251,
+   "zscore_retained_sd_c": 8.7733,
+   "n_blocks": 2,
+   "blocks": [
+    {
+     "start_date": "2019-01-01",
+     "end_date": "2021-12-31",
+     "length_days": 1096
+    },
+    {
+     "start_date": "2023-01-01",
+     "end_date": "2024-12-31",
+     "length_days": 731
+    }
+   ],
+   "configs": {
+    "tau30_d8": {
+     "tau": 30,
+     "d": 8,
+     "span_days": 210,
+     "span_over_annual_period": 0.575,
+     "n_points": 1407,
+     "n_windows_lost_to_gap": 210,
+     "status": "OK",
+     "ripser_time_s": 5.599,
+     "H1_classes": 1233,
+     "H0_classes": 1407,
+     "H1_top3_persistence": [
+      1.968,
+      0.3826,
+      0.3796
+     ],
+     "dominant_H1_persistence": 1.968,
+     "gap_ratio_r1": 5.144,
+     "gap_ratio_convention": "r_k = p_k / p_{k+1} with persistences sorted in descending order. The rank k is known from the synthetic construction of each dataset (annulus k=1, figure-eight k=2, controls: none); r_k is NOT a universal automatic loop-counting rule, and the 'prominent' threshold (r_k >= 3) is a stated convention, not a theorem."
+    },
+    "tau45_d9": {
+     "tau": 45,
+     "d": 9,
+     "span_days": 360,
+     "span_over_annual_period": 0.986,
+     "n_points": 1107,
+     "n_windows_lost_to_gap": 360,
+     "status": "OK",
+     "ripser_time_s": 9.215,
+     "H1_classes": 958,
+     "H0_classes": 1107,
+     "H1_top3_persistence": [
+      2.5882,
+      0.3585,
+      0.3205
+     ],
+     "dominant_H1_persistence": 2.5882,
+     "gap_ratio_r1": 7.219,
+     "gap_ratio_convention": "r_k = p_k / p_{k+1} with persistences sorted in descending order. The rank k is known from the synthetic construction of each dataset (annulus k=1, figure-eight k=2, controls: none); r_k is NOT a universal automatic loop-counting rule, and the 'prominent' threshold (r_k >= 3) is a stated convention, not a theorem."
+    },
+    "tau52_d8": {
+     "tau": 52,
+     "d": 8,
+     "span_days": 364,
+     "span_over_annual_period": 0.997,
+     "n_points": 1099,
+     "n_windows_lost_to_gap": 364,
+     "status": "OK",
+     "ripser_time_s": 5.492,
+     "H1_classes": 917,
+     "H0_classes": 1099,
+     "H1_top3_persistence": [
+      2.1158,
+      0.3735,
+      0.3635
+     ],
+     "dominant_H1_persistence": 2.1158,
+     "gap_ratio_r1": 5.665,
+     "gap_ratio_convention": "r_k = p_k / p_{k+1} with persistences sorted in descending order. The rank k is known from the synthetic construction of each dataset (annulus k=1, figure-eight k=2, controls: none); r_k is NOT a universal automatic loop-counting rule, and the 'prominent' threshold (r_k >= 3) is a stated convention, not a theorem."
+    },
+    "tau60_d8": {
+     "tau": 60,
+     "d": 8,
+     "span_days": 420,
+     "span_over_annual_period": 1.15,
+     "n_points": 987,
+     "n_windows_lost_to_gap": 420,
+     "status": "OK",
+     "ripser_time_s": 2.781,
+     "H1_classes": 719,
+     "H0_classes": 987,
+     "H1_top3_persistence": [
+      2.145,
+      0.3104,
+      0.2846
+     ],
+     "dominant_H1_persistence": 2.145,
+     "gap_ratio_r1": 6.911,
+     "gap_ratio_convention": "r_k = p_k / p_{k+1} with persistences sorted in descending order. The rank k is known from the synthetic construction of each dataset (annulus k=1, figure-eight k=2, controls: none); r_k is NOT a universal automatic loop-counting rule, and the 'prominent' threshold (r_k >= 3) is a stated convention, not a theorem."
+    },
+    "tau73_d6": {
+     "tau": 73,
+     "d": 6,
+     "span_days": 365,
+     "span_over_annual_period": 0.999,
+     "n_points": 1097,
+     "n_windows_lost_to_gap": 365,
+     "status": "OK",
+     "ripser_time_s": 5.112,
+     "H1_classes": 801,
+     "H0_classes": 1097,
+     "H1_top3_persistence": [
+      1.8853,
+      0.328,
+      0.2968
+     ],
+     "dominant_H1_persistence": 1.8853,
+     "gap_ratio_r1": 5.748,
+     "gap_ratio_convention": "r_k = p_k / p_{k+1} with persistences sorted in descending order. The rank k is known from the synthetic construction of each dataset (annulus k=1, figure-eight k=2, controls: none); r_k is NOT a universal automatic loop-counting rule, and the 'prominent' threshold (r_k >= 3) is a stated convention, not a theorem."
+    },
+    "tau90_d8": {
+     "tau": 90,
+     "d": 8,
+     "span_days": 630,
+     "span_over_annual_period": 1.725,
+     "n_points": 567,
+     "n_windows_lost_to_gap": 630,
+     "status": "OK",
+     "ripser_time_s": 1.118,
+     "H1_classes": 375,
+     "H0_classes": 567,
+     "H1_top3_persistence": [
+      2.3227,
+      0.3563,
+      0.3074
+     ],
+     "dominant_H1_persistence": 2.3227,
+     "gap_ratio_r1": 6.518,
+     "gap_ratio_convention": "r_k = p_k / p_{k+1} with persistences sorted in descending order. The rank k is known from the synthetic construction of each dataset (annulus k=1, figure-eight k=2, controls: none); r_k is NOT a universal automatic loop-counting rule, and the 'prominent' threshold (r_k >= 3) is a stated convention, not a theorem."
+    }
+   }
+  },
+  "2023": {
+   "omitted_year": 2023,
+   "n_retained_days": 1827,
+   "n_omitted_days": 365,
+   "zscore_retained_mean_c": 13.6637,
+   "zscore_retained_sd_c": 9.1137,
+   "n_blocks": 2,
+   "blocks": [
+    {
+     "start_date": "2019-01-01",
+     "end_date": "2022-12-31",
+     "length_days": 1461
+    },
+    {
+     "start_date": "2024-01-01",
+     "end_date": "2024-12-31",
+     "length_days": 366
+    }
+   ],
+   "configs": {
+    "tau30_d8": {
+     "tau": 30,
+     "d": 8,
+     "span_days": 210,
+     "span_over_annual_period": 0.575,
+     "n_points": 1407,
+     "n_windows_lost_to_gap": 210,
+     "status": "OK",
+     "ripser_time_s": 5.64,
+     "H1_classes": 1249,
+     "H0_classes": 1407,
+     "H1_top3_persistence": [
+      1.8824,
+      0.3335,
+      0.3326
+     ],
+     "dominant_H1_persistence": 1.8824,
+     "gap_ratio_r1": 5.645,
+     "gap_ratio_convention": "r_k = p_k / p_{k+1} with persistences sorted in descending order. The rank k is known from the synthetic construction of each dataset (annulus k=1, figure-eight k=2, controls: none); r_k is NOT a universal automatic loop-counting rule, and the 'prominent' threshold (r_k >= 3) is a stated convention, not a theorem."
+    },
+    "tau45_d9": {
+     "tau": 45,
+     "d": 9,
+     "span_days": 360,
+     "span_over_annual_period": 0.986,
+     "n_points": 1107,
+     "n_windows_lost_to_gap": 360,
+     "status": "OK",
+     "ripser_time_s": 7.125,
+     "H1_classes": 905,
+     "H0_classes": 1107,
+     "H1_top3_persistence": [
+      2.5237,
+      0.3892,
+      0.3191
+     ],
+     "dominant_H1_persistence": 2.5237,
+     "gap_ratio_r1": 6.485,
+     "gap_ratio_convention": "r_k = p_k / p_{k+1} with persistences sorted in descending order. The rank k is known from the synthetic construction of each dataset (annulus k=1, figure-eight k=2, controls: none); r_k is NOT a universal automatic loop-counting rule, and the 'prominent' threshold (r_k >= 3) is a stated convention, not a theorem."
+    },
+    "tau52_d8": {
+     "tau": 52,
+     "d": 8,
+     "span_days": 364,
+     "span_over_annual_period": 0.997,
+     "n_points": 1099,
+     "n_windows_lost_to_gap": 364,
+     "status": "OK",
+     "ripser_time_s": 4.132,
+     "H1_classes": 876,
+     "H0_classes": 1099,
+     "H1_top3_persistence": [
+      2.0113,
+      0.401,
+      0.3787
+     ],
+     "dominant_H1_persistence": 2.0113,
+     "gap_ratio_r1": 5.016,
+     "gap_ratio_convention": "r_k = p_k / p_{k+1} with persistences sorted in descending order. The rank k is known from the synthetic construction of each dataset (annulus k=1, figure-eight k=2, controls: none); r_k is NOT a universal automatic loop-counting rule, and the 'prominent' threshold (r_k >= 3) is a stated convention, not a theorem."
+    },
+    "tau60_d8": {
+     "tau": 60,
+     "d": 8,
+     "span_days": 420,
+     "span_over_annual_period": 1.15,
+     "n_points": 1041,
+     "n_windows_lost_to_gap": 366,
+     "status": "OK",
+     "ripser_time_s": 3.704,
+     "H1_classes": 845,
+     "H0_classes": 1041,
+     "H1_top3_persistence": [
+      2.0232,
+      0.3119,
+      0.2994
+     ],
+     "dominant_H1_persistence": 2.0232,
+     "gap_ratio_r1": 6.486,
+     "gap_ratio_convention": "r_k = p_k / p_{k+1} with persistences sorted in descending order. The rank k is known from the synthetic construction of each dataset (annulus k=1, figure-eight k=2, controls: none); r_k is NOT a universal automatic loop-counting rule, and the 'prominent' threshold (r_k >= 3) is a stated convention, not a theorem."
+    },
+    "tau73_d6": {
+     "tau": 73,
+     "d": 6,
+     "span_days": 365,
+     "span_over_annual_period": 0.999,
+     "n_points": 1097,
+     "n_windows_lost_to_gap": 365,
+     "status": "OK",
+     "ripser_time_s": 2.956,
+     "H1_classes": 779,
+     "H0_classes": 1097,
+     "H1_top3_persistence": [
+      1.5183,
+      0.303,
+      0.2573
+     ],
+     "dominant_H1_persistence": 1.5183,
+     "gap_ratio_r1": 5.012,
+     "gap_ratio_convention": "r_k = p_k / p_{k+1} with persistences sorted in descending order. The rank k is known from the synthetic construction of each dataset (annulus k=1, figure-eight k=2, controls: none); r_k is NOT a universal automatic loop-counting rule, and the 'prominent' threshold (r_k >= 3) is a stated convention, not a theorem."
+    },
+    "tau90_d8": {
+     "tau": 90,
+     "d": 8,
+     "span_days": 630,
+     "span_over_annual_period": 1.725,
+     "n_points": 831,
+     "n_windows_lost_to_gap": 366,
+     "status": "OK",
+     "ripser_time_s": 2.073,
+     "H1_classes": 632,
+     "H0_classes": 831,
+     "H1_top3_persistence": [
+      2.1407,
+      0.4416,
+      0.344
+     ],
+     "dominant_H1_persistence": 2.1407,
+     "gap_ratio_r1": 4.848,
+     "gap_ratio_convention": "r_k = p_k / p_{k+1} with persistences sorted in descending order. The rank k is known from the synthetic construction of each dataset (annulus k=1, figure-eight k=2, controls: none); r_k is NOT a universal automatic loop-counting rule, and the 'prominent' threshold (r_k >= 3) is a stated convention, not a theorem."
+    }
+   }
+  },
+  "2024": {
+   "omitted_year": 2024,
+   "n_retained_days": 1826,
+   "n_omitted_days": 366,
+   "zscore_retained_mean_c": 13.6762,
+   "zscore_retained_sd_c": 8.9677,
+   "n_blocks": 1,
+   "blocks": [
+    {
+     "start_date": "2019-01-01",
+     "end_date": "2023-12-31",
+     "length_days": 1826
+    }
+   ],
+   "configs": {
+    "tau30_d8": {
+     "tau": 30,
+     "d": 8,
+     "span_days": 210,
+     "span_over_annual_period": 0.575,
+     "n_points": 1616,
+     "n_windows_lost_to_gap": 0,
+     "status": "OK",
+     "ripser_time_s": 9.4,
+     "H1_classes": 1472,
+     "H0_classes": 1616,
+     "H1_top3_persistence": [
+      1.9727,
+      0.3318,
+      0.3128
+     ],
+     "dominant_H1_persistence": 1.9727,
+     "gap_ratio_r1": 5.945,
+     "gap_ratio_convention": "r_k = p_k / p_{k+1} with persistences sorted in descending order. The rank k is known from the synthetic construction of each dataset (annulus k=1, figure-eight k=2, controls: none); r_k is NOT a universal automatic loop-counting rule, and the 'prominent' threshold (r_k >= 3) is a stated convention, not a theorem."
+    },
+    "tau45_d9": {
+     "tau": 45,
+     "d": 9,
+     "span_days": 360,
+     "span_over_annual_period": 0.986,
+     "n_points": 1466,
+     "n_windows_lost_to_gap": 0,
+     "status": "OK",
+     "ripser_time_s": 17.608,
+     "H1_classes": 1304,
+     "H0_classes": 1466,
+     "H1_top3_persistence": [
+      2.4584,
+      0.3688,
+      0.3665
+     ],
+     "dominant_H1_persistence": 2.4584,
+     "gap_ratio_r1": 6.665,
+     "gap_ratio_convention": "r_k = p_k / p_{k+1} with persistences sorted in descending order. The rank k is known from the synthetic construction of each dataset (annulus k=1, figure-eight k=2, controls: none); r_k is NOT a universal automatic loop-counting rule, and the 'prominent' threshold (r_k >= 3) is a stated convention, not a theorem."
+    },
+    "tau52_d8": {
+     "tau": 52,
+     "d": 8,
+     "span_days": 364,
+     "span_over_annual_period": 0.997,
+     "n_points": 1462,
+     "n_windows_lost_to_gap": 0,
+     "status": "OK",
+     "ripser_time_s": 11.544,
+     "H1_classes": 1186,
+     "H0_classes": 1462,
+     "H1_top3_persistence": [
+      2.0012,
+      0.4253,
+      0.38
+     ],
+     "dominant_H1_persistence": 2.0012,
+     "gap_ratio_r1": 4.705,
+     "gap_ratio_convention": "r_k = p_k / p_{k+1} with persistences sorted in descending order. The rank k is known from the synthetic construction of each dataset (annulus k=1, figure-eight k=2, controls: none); r_k is NOT a universal automatic loop-counting rule, and the 'prominent' threshold (r_k >= 3) is a stated convention, not a theorem."
+    },
+    "tau60_d8": {
+     "tau": 60,
+     "d": 8,
+     "span_days": 420,
+     "span_over_annual_period": 1.15,
+     "n_points": 1406,
+     "n_windows_lost_to_gap": 0,
+     "status": "OK",
+     "ripser_time_s": 11.955,
+     "H1_classes": 1241,
+     "H0_classes": 1406,
+     "H1_top3_persistence": [
+      2.1319,
+      0.3527,
+      0.3442
+     ],
+     "dominant_H1_persistence": 2.1319,
+     "gap_ratio_r1": 6.044,
+     "gap_ratio_convention": "r_k = p_k / p_{k+1} with persistences sorted in descending order. The rank k is known from the synthetic construction of each dataset (annulus k=1, figure-eight k=2, controls: none); r_k is NOT a universal automatic loop-counting rule, and the 'prominent' threshold (r_k >= 3) is a stated convention, not a theorem."
+    },
+    "tau73_d6": {
+     "tau": 73,
+     "d": 6,
+     "span_days": 365,
+     "span_over_annual_period": 0.999,
+     "n_points": 1461,
+     "n_windows_lost_to_gap": 0,
+     "status": "OK",
+     "ripser_time_s": 6.443,
+     "H1_classes": 1121,
+     "H0_classes": 1461,
+     "H1_top3_persistence": [
+      1.4503,
+      0.3314,
+      0.2873
+     ],
+     "dominant_H1_persistence": 1.4503,
+     "gap_ratio_r1": 4.376,
+     "gap_ratio_convention": "r_k = p_k / p_{k+1} with persistences sorted in descending order. The rank k is known from the synthetic construction of each dataset (annulus k=1, figure-eight k=2, controls: none); r_k is NOT a universal automatic loop-counting rule, and the 'prominent' threshold (r_k >= 3) is a stated convention, not a theorem."
+    },
+    "tau90_d8": {
+     "tau": 90,
+     "d": 8,
+     "span_days": 630,
+     "span_over_annual_period": 1.725,
+     "n_points": 1196,
+     "n_windows_lost_to_gap": 0,
+     "status": "OK",
+     "ripser_time_s": 7.209,
+     "H1_classes": 980,
+     "H0_classes": 1196,
+     "H1_top3_persistence": [
+      2.2602,
+      0.4308,
+      0.3401
+     ],
+     "dominant_H1_persistence": 2.2602,
+     "gap_ratio_r1": 5.247,
+     "gap_ratio_convention": "r_k = p_k / p_{k+1} with persistences sorted in descending order. The rank k is known from the synthetic construction of each dataset (annulus k=1, figure-eight k=2, controls: none); r_k is NOT a universal automatic loop-counting rule, and the 'prominent' threshold (r_k >= 3) is a stated convention, not a theorem."
+    }
+   }
+  }
+ },
+ "full_data_reference": {
+  "tau30_d8": {
+   "n_points": 1982,
+   "dominant_H1_persistence": 1.998,
+   "gap_ratio_r1": 5.625
+  },
+  "tau45_d9": {
+   "n_points": 1832,
+   "dominant_H1_persistence": 2.5706,
+   "gap_ratio_r1": 7.319
+  },
+  "tau52_d8": {
+   "n_points": 1828,
+   "dominant_H1_persistence": 2.0386,
+   "gap_ratio_r1": 4.922
+  },
+  "tau60_d8": {
+   "n_points": 1772,
+   "dominant_H1_persistence": 2.167,
+   "gap_ratio_r1": 6.753
+  },
+  "tau73_d6": {
+   "n_points": 1827,
+   "dominant_H1_persistence": 1.4168,
+   "gap_ratio_r1": 4.745
+  },
+  "tau90_d8": {
+   "n_points": 1562,
+   "dominant_H1_persistence": 2.1211,
+   "gap_ratio_r1": 5.761
+  }
+ },
+ "runtime_note": "wall-clock accumulated across resumable invocations; per-config ripser timings are recorded individually"
+}

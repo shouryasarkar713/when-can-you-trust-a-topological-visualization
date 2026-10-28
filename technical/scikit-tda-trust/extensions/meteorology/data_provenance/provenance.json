@@ -1,0 +1,446 @@
+{
+  "provenance_version": 1,
+  "created_utc": "2026-10-22T05:29:16Z",
+  "dataset": "NOAA Global Summary of the Day (GSOD), access directory",
+  "station": {
+    "id": "72505394728",
+    "name": "NY CITY CENTRAL PARK, NY US",
+    "expected_latitude": 40.77898,
+    "expected_longitude": -73.96925,
+    "expected_elevation_m": 42.7
+  },
+  "readme_url": "https://www.ncei.noaa.gov/data/global-summary-of-the-day/doc/readme.txt",
+  "requested_range": "2019-01-01..2024-12-31",
+  "files": {
+    "gsod_72505394728_2019.csv": {
+      "url": "https://www.ncei.noaa.gov/data/global-summary-of-the-day/access/2019/72505394728.csv",
+      "downloaded_this_run": false,
+      "bytes": 87544,
+      "sha256": "dd7d9863474fce09758457dd656701fd73ad54dda0116d81178cf5b01d23a022",
+      "inspection": {
+        "columns": [
+          "STATION",
+          "DATE",
+          "LATITUDE",
+          "LONGITUDE",
+          "ELEVATION",
+          "NAME",
+          "TEMP",
+          "TEMP_ATTRIBUTES",
+          "DEWP",
+          "DEWP_ATTRIBUTES",
+          "SLP",
+          "SLP_ATTRIBUTES",
+          "STP",
+          "STP_ATTRIBUTES",
+          "VISIB",
+          "VISIB_ATTRIBUTES",
+          "WDSP",
+          "WDSP_ATTRIBUTES",
+          "MXSPD",
+          "GUST",
+          "MAX",
+          "MAX_ATTRIBUTES",
+          "MIN",
+          "MIN_ATTRIBUTES",
+          "PRCP",
+          "PRCP_ATTRIBUTES",
+          "SNDP",
+          "FRSHTT"
+        ],
+        "n_rows": 365,
+        "station_ids": [
+          "72505394728"
+        ],
+        "latitudes": [
+          "40.77898"
+        ],
+        "longitudes": [
+          "-73.96925"
+        ],
+        "names": [
+          "NY CITY CENTRAL PARK, NY US"
+        ],
+        "first_date": "2019-01-01",
+        "last_date": "2019-12-31",
+        "n_unique_dates": 365,
+        "n_duplicate_date_rows": 0,
+        "sentinels_observed": {
+          "TEMP": 0,
+          "DEWP": 0,
+          "SLP": 1,
+          "STP": 1,
+          "VISIB": 0,
+          "WDSP": 70,
+          "MXSPD": 70,
+          "GUST": 201,
+          "PRCP": 0,
+          "SNDP": 354
+        }
+      }
+    },
+    "gsod_72505394728_2020.csv": {
+      "url": "https://www.ncei.noaa.gov/data/global-summary-of-the-day/access/2020/72505394728.csv",
+      "downloaded_this_run": false,
+      "bytes": 87783,
+      "sha256": "df5d5208777a0f67c3face6e6cee5a1c7c0e824b91d6edea0c7325da88364a75",
+      "inspection": {
+        "columns": [
+          "STATION",
+          "DATE",
+          "LATITUDE",
+          "LONGITUDE",
+          "ELEVATION",
+          "NAME",
+          "TEMP",
+          "TEMP_ATTRIBUTES",
+          "DEWP",
+          "DEWP_ATTRIBUTES",
+          "SLP",
+          "SLP_ATTRIBUTES",
+          "STP",
+          "STP_ATTRIBUTES",
+          "VISIB",
+          "VISIB_ATTRIBUTES",
+          "WDSP",
+          "WDSP_ATTRIBUTES",
+          "MXSPD",
+          "GUST",
+          "MAX",
+          "MAX_ATTRIBUTES",
+          "MIN",
+          "MIN_ATTRIBUTES",
+          "PRCP",
+          "PRCP_ATTRIBUTES",
+          "SNDP",
+          "FRSHTT"
+        ],
+        "n_rows": 366,
+        "station_ids": [
+          "72505394728"
+        ],
+        "latitudes": [
+          "40.77898"
+        ],
+        "longitudes": [
+          "-73.96925"
+        ],
+        "names": [
+          "NY CITY CENTRAL PARK, NY US"
+        ],
+        "first_date": "2020-01-01",
+        "last_date": "2020-12-31",
+        "n_unique_dates": 366,
+        "n_duplicate_date_rows": 0,
+        "sentinels_observed": {
+          "TEMP": 0,
+          "DEWP": 0,
+          "SLP": 1,
+          "STP": 0,
+          "VISIB": 0,
+          "WDSP": 39,
+          "MXSPD": 39,
+          "GUST": 144,
+          "PRCP": 0,
+          "SNDP": 357
+        }
+      }
+    },
+    "gsod_72505394728_2021.csv": {
+      "url": "https://www.ncei.noaa.gov/data/global-summary-of-the-day/access/2021/72505394728.csv",
+      "downloaded_this_run": false,
+      "bytes": 87544,
+      "sha256": "c834178cd62e4cff8236e2c3b793f74765c694bd5a2f27714c9ec315ff9f7075",
+      "inspection": {
+        "columns": [
+          "STATION",
+          "DATE",
+          "LATITUDE",
+          "LONGITUDE",
+          "ELEVATION",
+          "NAME",
+          "TEMP",
+          "TEMP_ATTRIBUTES",
+          "DEWP",
+          "DEWP_ATTRIBUTES",
+          "SLP",
+          "SLP_ATTRIBUTES",
+          "STP",
+          "STP_ATTRIBUTES",
+          "VISIB",
+          "VISIB_ATTRIBUTES",
+          "WDSP",
+          "WDSP_ATTRIBUTES",
+          "MXSPD",
+          "GUST",
+          "MAX",
+          "MAX_ATTRIBUTES",
+          "MIN",
+          "MIN_ATTRIBUTES",
+          "PRCP",
+          "PRCP_ATTRIBUTES",
+          "SNDP",
+          "FRSHTT"
+        ],
+        "n_rows": 365,
+        "station_ids": [
+          "72505394728"
+        ],
+        "latitudes": [
+          "40.77898"
+        ],
+        "longitudes": [
+          "-73.96925"
+        ],
+        "names": [
+          "NY CITY CENTRAL PARK, NY US"
+        ],
+        "first_date": "2021-01-01",
+        "last_date": "2021-12-31",
+        "n_unique_dates": 365,
+        "n_duplicate_date_rows": 0,
+        "sentinels_observed": {
+          "TEMP": 0,
+          "DEWP": 0,
+          "SLP": 1,
+          "STP": 2,
+          "VISIB": 2,
+          "WDSP": 16,
+          "MXSPD": 16,
+          "GUST": 153,
+          "PRCP": 0,
+          "SNDP": 341
+        }
+      }
+    },
+    "gsod_72505394728_2022.csv": {
+      "url": "https://www.ncei.noaa.gov/data/global-summary-of-the-day/access/2022/72505394728.csv",
+      "downloaded_this_run": false,
+      "bytes": 87544,
+      "sha256": "509a905b8ac67a58983fc7ff304fc47c3ab7691535af357a8b2fb0a636a6f7b4",
+      "inspection": {
+        "columns": [
+          "STATION",
+          "DATE",
+          "LATITUDE",
+          "LONGITUDE",
+          "ELEVATION",
+          "NAME",
+          "TEMP",
+          "TEMP_ATTRIBUTES",
+          "DEWP",
+          "DEWP_ATTRIBUTES",
+          "SLP",
+          "SLP_ATTRIBUTES",
+          "STP",
+          "STP_ATTRIBUTES",
+          "VISIB",
+          "VISIB_ATTRIBUTES",
+          "WDSP",
+          "WDSP_ATTRIBUTES",
+          "MXSPD",
+          "GUST",
+          "MAX",
+          "MAX_ATTRIBUTES",
+          "MIN",
+          "MIN_ATTRIBUTES",
+          "PRCP",
+          "PRCP_ATTRIBUTES",
+          "SNDP",
+          "FRSHTT"
+        ],
+        "n_rows": 365,
+        "station_ids": [
+          "72505394728"
+        ],
+        "latitudes": [
+          "40.77898"
+        ],
+        "longitudes": [
+          "-73.96925"
+        ],
+        "names": [
+          "NY CITY CENTRAL PARK, NY US"
+        ],
+        "first_date": "2022-01-01",
+        "last_date": "2022-12-31",
+        "n_unique_dates": 365,
+        "n_duplicate_date_rows": 0,
+        "sentinels_observed": {
+          "TEMP": 0,
+          "DEWP": 0,
+          "SLP": 0,
+          "STP": 2,
+          "VISIB": 0,
+          "WDSP": 0,
+          "MXSPD": 0,
+          "GUST": 128,
+          "PRCP": 0,
+          "SNDP": 354
+        }
+      }
+    },
+    "gsod_72505394728_2023.csv": {
+      "url": "https://www.ncei.noaa.gov/data/global-summary-of-the-day/access/2023/72505394728.csv",
+      "downloaded_this_run": false,
+      "bytes": 87544,
+      "sha256": "d5d65503619e349c812bdc99501238a48d75e488f96b3146abe32273634d8b15",
+      "inspection": {
+        "columns": [
+          "STATION",
+          "DATE",
+          "LATITUDE",
+          "LONGITUDE",
+          "ELEVATION",
+          "NAME",
+          "TEMP",
+          "TEMP_ATTRIBUTES",
+          "DEWP",
+          "DEWP_ATTRIBUTES",
+          "SLP",
+          "SLP_ATTRIBUTES",
+          "STP",
+          "STP_ATTRIBUTES",
+          "VISIB",
+          "VISIB_ATTRIBUTES",
+          "WDSP",
+          "WDSP_ATTRIBUTES",
+          "MXSPD",
+          "GUST",
+          "MAX",
+          "MAX_ATTRIBUTES",
+          "MIN",
+          "MIN_ATTRIBUTES",
+          "PRCP",
+          "PRCP_ATTRIBUTES",
+          "SNDP",
+          "FRSHTT"
+        ],
+        "n_rows": 365,
+        "station_ids": [
+          "72505394728"
+        ],
+        "latitudes": [
+          "40.77898"
+        ],
+        "longitudes": [
+          "-73.96925"
+        ],
+        "names": [
+          "NY CITY CENTRAL PARK, NY US"
+        ],
+        "first_date": "2023-01-01",
+        "last_date": "2023-12-31",
+        "n_unique_dates": 365,
+        "n_duplicate_date_rows": 0,
+        "sentinels_observed": {
+          "TEMP": 0,
+          "DEWP": 0,
+          "SLP": 1,
+          "STP": 1,
+          "VISIB": 0,
+          "WDSP": 0,
+          "MXSPD": 0,
+          "GUST": 152,
+          "PRCP": 0,
+          "SNDP": 363
+        }
+      }
+    },
+    "gsod_72505394728_2024.csv": {
+      "url": "https://www.ncei.noaa.gov/data/global-summary-of-the-day/access/2024/72505394728.csv",
+      "downloaded_this_run": false,
+      "bytes": 87783,
+      "sha256": "d7dd1b521a52a9e83dc9676bb92b2737aa8acd7f8e30ce5c8b35c056c9d59427",
+      "inspection": {
+        "columns": [
+          "STATION",
+          "DATE",
+          "LATITUDE",
+          "LONGITUDE",
+          "ELEVATION",
+          "NAME",
+          "TEMP",
+          "TEMP_ATTRIBUTES",
+          "DEWP",
+          "DEWP_ATTRIBUTES",
+          "SLP",
+          "SLP_ATTRIBUTES",
+          "STP",
+          "STP_ATTRIBUTES",
+          "VISIB",
+          "VISIB_ATTRIBUTES",
+          "WDSP",
+          "WDSP_ATTRIBUTES",
+          "MXSPD",
+          "GUST",
+          "MAX",
+          "MAX_ATTRIBUTES",
+          "MIN",
+          "MIN_ATTRIBUTES",
+          "PRCP",
+          "PRCP_ATTRIBUTES",
+          "SNDP",
+          "FRSHTT"
+        ],
+        "n_rows": 366,
+        "station_ids": [
+          "72505394728"
+        ],
+        "latitudes": [
+          "40.77898"
+        ],
+        "longitudes": [
+          "-73.96925"
+        ],
+        "names": [
+          "NY CITY CENTRAL PARK, NY US"
+        ],
+        "first_date": "2024-01-01",
+        "last_date": "2024-12-31",
+        "n_unique_dates": 366,
+        "n_duplicate_date_rows": 0,
+        "sentinels_observed": {
+          "TEMP": 0,
+          "DEWP": 0,
+          "SLP": 1,
+          "STP": 0,
+          "VISIB": 0,
+          "WDSP": 0,
+          "MXSPD": 0,
+          "GUST": 133,
+          "PRCP": 0,
+          "SNDP": 350
+        }
+      }
+    },
+    "oni.data": {
+      "url": "https://psl.noaa.gov/data/correlation/oni.data",
+      "downloaded_this_run": false,
+      "bytes": 6666,
+      "sha256": "7bdc80c08e8669492d922a6aebe30518b9654deca1e866f5cd1bfb0f2a8d453d",
+      "inspection": {
+        "n_header_or_note_lines": 8,
+        "n_data_lines": 78,
+        "years": [
+          1950,
+          2026
+        ],
+        "n_monthly_values": 925,
+        "n_missing_sentinel_values": 4,
+        "text_head": [
+          " 1950         2026",
+          "1950  -1.32 -1.20 -1.12 -1.08 -1.10 -0.90 -0.62   -0.57  -0.56  -0.62  -0.66 -0.79"
+        ]
+      },
+      "role": "DESCRIPTIVE CONTEXT ONLY \u2014 no ENSO hypothesis test; see power_statement in configs/weather.yaml"
+    }
+  },
+  "notes": [
+    "Raw files under data_provenance/raw/ are immutable inputs; the deterministic preprocessing step never writes here.",
+    "Units observed in the fetched schema (2026-10-22): TEMP/DEWP/MAX/MIN degrees Fahrenheit, SLP/STP millibars, WDSP/MXSPD/GUST knots, VISIB miles, PRCP inches, SNDP inches; missing sentinels 9999.9 (temp/pressure fields), 999.9 (wind/visibility/snow), 99.99 (precipitation). Sentinels confirmed present in the fetched data (see per-file sentinels_observed).",
+    "GSOD summary data are intended for free and unrestricted use in research and education (archive readme; WMO Resolution 40 context)."
+  ],
+  "total_gsod_rows_observed": 2192,
+  "expected_total_rows": 2192
+}
