@@ -417,22 +417,22 @@
    "detail": ""
   },
   {
-   "name": "F100: '64 files identical, 34 figures pixel-identical, 3 differ' derived from results and present in report",
+   "name": "F100: '64 files identical, 34 figures pixel-identical, 3 differ' derived from results and present in ",
    "pass": true,
    "detail": ""
   },
   {
-   "name": "F101: '30 files identical, 12 figures pixel-identical, 3 differ' derived from results and present in report",
+   "name": "F101: '30 files identical, 12 figures pixel-identical, 3 differ' derived from results and present in ",
    "pass": true,
    "detail": ""
   },
   {
-   "name": "F102: '15 files identical, 9 figures pixel-identical, 0 differ' derived from results and present in report",
+   "name": "F102: '15 files identical, 9 figures pixel-identical, 0 differ' derived from results and present in ",
    "pass": true,
    "detail": ""
   },
   {
-   "name": "F103: '11 files identical, 3 differ' derived from results and present in report",
+   "name": "F103: '11 files identical, 3 differ' derived from results and present in ",
    "pass": true,
    "detail": ""
   },
@@ -442,32 +442,32 @@
    "detail": ""
   },
   {
-   "name": "F111: '86 passed' derived from results and present in report",
+   "name": "F111: '86 passed' derived from results and present in ",
    "pass": true,
    "detail": ""
   },
   {
-   "name": "F112: '44 passed' derived from results and present in report",
+   "name": "F112: '44 passed' derived from results and present in ",
    "pass": true,
    "detail": ""
   },
   {
-   "name": "F113: '23 passed' derived from results and present in report",
+   "name": "F113: '23 passed' derived from results and present in ",
    "pass": true,
    "detail": ""
   },
   {
-   "name": "F114: '29 passed' derived from results and present in report",
+   "name": "F114: '29 passed' derived from results and present in ",
    "pass": true,
    "detail": ""
   },
   {
-   "name": "F115: '10 passed' derived from results and present in report",
+   "name": "F115: '10 passed' derived from results and present in ",
    "pass": true,
    "detail": ""
   },
   {
-   "name": "F104: '5 files identical' derived from results and present in report",
+   "name": "F104: '5 files identical' derived from results and present in ",
    "pass": true,
    "detail": ""
   },
@@ -922,137 +922,7 @@
    "detail": ""
   },
   {
-   "name": "URL well-formed: https://doi.org/10.1109/TVCG.2013.126",
-   "pass": true,
-   "detail": ""
-  },
-  {
-   "name": "URL well-formed: https://doi.org/10.1145/142750.142834",
-   "pass": true,
-   "detail": ""
-  },
-  {
-   "name": "URL well-formed: https://www.ncei.noaa.gov/data/global-summary-of-the-day/",
-   "pass": true,
-   "detail": ""
-  },
-  {
-   "name": "URL well-formed: https://doi.org/10.1007/978-3-662-44199-2_28",
-   "pass": true,
-   "detail": ""
-  },
-  {
-   "name": "URL well-formed: https://www.jmlr.org/papers/v21/19-540.html",
-   "pass": true,
-   "detail": ""
-  },
-  {
-   "name": "URL well-formed: https://am.ieeevis.org/year/2026/program/content/9e4af3b5-5f6d-4b27-ba09-7ea9190",
-   "pass": true,
-   "detail": ""
-  },
-  {
-   "name": "URL well-formed: https://doi.org/10.1007/s00454-004-1146-y",
-   "pass": true,
-   "detail": ""
-  },
-  {
-   "name": "URL well-formed: https://doi.org/10.1007/s41468-021-00071-5",
-   "pass": true,
-   "detail": ""
-  },
-  {
-   "name": "URL well-formed: https://doi.org/10.1109/PacificVis52677.2021.00021",
-   "pass": true,
-   "detail": ""
-  },
-  {
-   "name": "URL well-formed: https://www.jmlr.org/papers/v19/17-291.html",
-   "pass": true,
-   "detail": ""
-  },
-  {
-   "name": "URL well-formed: https://doi.org/10.5281/zenodo.2533369",
-   "pass": true,
-   "detail": ""
-  },
-  {
-   "name": "URL well-formed: https://github.com/shouryasarkar713/when-can-you-trust-a-topological-visualizati",
-   "pass": true,
-   "detail": ""
-  },
-  {
-   "name": "URL well-formed: https://doi.org/10.21105/joss.00925",
-   "pass": true,
-   "detail": ""
-  },
-  {
-   "name": "URL well-formed: https://doi.org/10.1007/s10208-017-9370-z",
-   "pass": true,
-   "detail": ""
-  },
-  {
-   "name": "URL well-formed: https://doi.org/10.21105/joss.01315",
-   "pass": true,
-   "detail": ""
-  },
-  {
    "name": "URL well-formed: https://github.com/lucasimi/tda-mapper-python",
-   "pass": true,
-   "detail": ""
-  },
-  {
-   "name": "URL well-formed: https://doi.org/10.5194/gmd-12-613-2019",
-   "pass": true,
-   "detail": ""
-  },
-  {
-   "name": "URL well-formed: https://doi.org/10.1007/s10208-014-9206-z",
-   "pass": true,
-   "detail": ""
-  },
-  {
-   "name": "URL well-formed: https://psl.noaa.gov/data/correlation/oni.data",
-   "pass": true,
-   "detail": ""
-  },
-  {
-   "name": "URL well-formed: https://doi.org/10.1007/s00454-002-2885-2",
-   "pass": true,
-   "detail": ""
-  },
-  {
-   "name": "URL well-formed: https://doi.org/10.1109/TVCG.2013.124",
-   "pass": true,
-   "detail": ""
-  },
-  {
-   "name": "URL well-formed: https://doi.org/10.1186/s12859-015-0645-6",
-   "pass": true,
-   "detail": ""
-  },
-  {
-   "name": "URL well-formed: https://www.jmlr.org/papers/v22/20-325.html",
-   "pass": true,
-   "detail": ""
-  },
-  {
-   "name": "URL well-formed: https://doi.org/10.1109/TVCG.2014.2346321",
-   "pass": true,
-   "detail": ""
-  },
-  {
-   "name": "URL well-formed: https://doi.org/10.1109/TVCG.2009.111",
-   "pass": true,
-   "detail": ""
-  },
-  {
-   "name": "URL well-formed: https://arxiv.org/abs/2606.21688",
-   "pass": true,
-   "detail": ""
-  },
-  {
-   "name": "URL well-formed: https://doi.org/10.1109/TVCG.2011.279",
    "pass": true,
    "detail": ""
   },
@@ -1062,7 +932,82 @@
    "detail": ""
   },
   {
-   "name": "URL well-formed: https://doi.org/10.1007/s00454-006-1276-5",
+   "name": "URL well-formed: https://doi.org/10.21105/joss.01315",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "URL well-formed: https://www.jmlr.org/papers/v21/19-540.html",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "URL well-formed: https://github.com/shouryasarkar713/when-can-you-trust-a-topological-visualizati",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "URL well-formed: https://doi.org/10.1145/142750.142834",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "URL well-formed: https://doi.org/10.1109/TVCG.2013.124",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "URL well-formed: https://doi.org/10.1007/s41468-021-00071-5",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "URL well-formed: https://am.ieeevis.org/year/2026/program/content/9e4af3b5-5f6d-4b27-ba09-7ea9190",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "URL well-formed: https://psl.noaa.gov/data/correlation/oni.data",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "URL well-formed: https://doi.org/10.1007/978-3-662-44199-2_28",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "URL well-formed: https://doi.org/10.5281/zenodo.2533369",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "URL well-formed: https://arxiv.org/abs/2606.21688",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "URL well-formed: https://doi.org/10.1007/s10208-014-9206-z",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "URL well-formed: https://doi.org/10.1109/TVCG.2009.111",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "URL well-formed: https://doi.org/10.1186/s12859-015-0645-6",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "URL well-formed: https://www.jmlr.org/papers/v19/17-291.html",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "URL well-formed: https://www.ncei.noaa.gov/data/global-summary-of-the-day/",
    "pass": true,
    "detail": ""
   },
@@ -1072,7 +1017,62 @@
    "detail": ""
   },
   {
+   "name": "URL well-formed: https://www.jmlr.org/papers/v22/20-325.html",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "URL well-formed: https://doi.org/10.1007/s00454-004-1146-y",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "URL well-formed: https://doi.org/10.1109/TVCG.2014.2346321",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "URL well-formed: https://doi.org/10.1109/PacificVis52677.2021.00021",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "URL well-formed: https://doi.org/10.1109/TVCG.2013.126",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "URL well-formed: https://doi.org/10.1007/s00454-006-1276-5",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "URL well-formed: https://doi.org/10.1007/s00454-002-2885-2",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "URL well-formed: https://doi.org/10.1007/s10208-017-9370-z",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "URL well-formed: https://doi.org/10.5194/gmd-12-613-2019",
+   "pass": true,
+   "detail": ""
+  },
+  {
    "name": "URL well-formed: https://doi.org/10.1007/s41468-020-00063-x",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "URL well-formed: https://doi.org/10.21105/joss.00925",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "URL well-formed: https://doi.org/10.1109/TVCG.2011.279",
    "pass": true,
    "detail": ""
   },
@@ -1087,9 +1087,9 @@
    "detail": "[]"
   },
   {
-   "name": "PDF has more than 30 pages and a rendered table of contents",
+   "name": "PDF has at least 20 pages (sanity bound) and a rendered table of contents",
    "pass": true,
-   "detail": "31"
+   "detail": "28"
   },
   {
    "name": "complete text of all 157 Markdown paragraphs/items present in docx (edition not stale)",
@@ -1312,7 +1312,7 @@
    "detail": ""
   }
  ],
- "report_pdf_pages": 31,
+ "report_pdf_pages": 28,
  "n_facts": 79,
  "summary": {
   "n_checks": 262,

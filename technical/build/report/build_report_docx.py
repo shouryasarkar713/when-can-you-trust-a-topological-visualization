@@ -198,12 +198,13 @@ def title_page(doc, meta):
             r2 = p.add_run(v)
             r2.font.size = Pt(11)
         p.paragraph_format.space_after = Pt(3)
-    doc.add_paragraph()
-    p = doc.add_paragraph()
-    r = p.add_run(meta["status"])
-    r.italic = True
-    r.font.size = Pt(10)
-    r.font.color.rgb = GREY
+    if meta["status"]:
+        doc.add_paragraph()
+        p = doc.add_paragraph()
+        r = p.add_run(meta["status"])
+        r.italic = True
+        r.font.size = Pt(10)
+        r.font.color.rgb = GREY
     add_page_break(doc)
 
 
@@ -296,7 +297,8 @@ def build(md_path, out_path, base_dir):
         block = m.group(1)
         meta["title"] = re.search(r"^title:\s*(.+)$", block, re.M).group(1).strip()
         meta["subtitle"] = re.search(r"^subtitle:\s*(.+)$", block, re.M).group(1).strip()
-        meta["status"] = re.search(r"^status:\s*(.+)$", block, re.M).group(1).strip()
+        ms = re.search(r"^status:\s*(.+)$", block, re.M)   # optional note under the cover fields
+        meta["status"] = ms.group(1).strip() if ms else ""
         meta["fields"] = [tuple(x.strip() for x in ln[len("field:"):].split("|", 1))
                           for ln in block.splitlines() if ln.startswith("field:")]
         meta["short"] = re.search(r"^short:\s*(.+)$", block, re.M).group(1).strip()
@@ -361,7 +363,9 @@ def build(md_path, out_path, base_dir):
                 par.paragraph_format.space_after = Pt(2)
                 with Image.open(p_img) as im:
                     w, h = im.size
-                max_w, max_h = 16.2, 17.0
+                max_w, max_h = 16.2, 13.0
+                if p_img.name.startswith("explorer_"):
+                    max_h = 10.0   # interface screenshots: two per page, the quantities are in the captions and tables
                 wcm = min(max_w, max_h * w / h)
                 par.add_run().add_picture(str(p_img), width=Cm(wcm))
                 n_img += 1

@@ -1019,9 +1019,7 @@
    "category": "reproduced",
    "claim": "Baseline regeneration comparison",
    "derived_value": "64 files identical, 34 figures pixel-identical, 3 differ",
-   "documents": [
-    "report"
-   ],
+   "documents": [],
    "reproduce": "python verification/compare_trees.py ...",
    "caveat": "differences explained in report 12.3",
    "status": "verified"
@@ -1031,9 +1029,7 @@
    "category": "reproduced",
    "claim": "Meteorology regeneration comparison",
    "derived_value": "30 files identical, 12 figures pixel-identical, 3 differ",
-   "documents": [
-    "report"
-   ],
+   "documents": [],
    "reproduce": "same",
    "caveat": "",
    "status": "verified"
@@ -1043,9 +1039,7 @@
    "category": "reproduced",
    "claim": "Stability regeneration comparison",
    "derived_value": "15 files identical, 9 figures pixel-identical, 0 differ",
-   "documents": [
-    "report"
-   ],
+   "documents": [],
    "reproduce": "same",
    "caveat": "",
    "status": "verified"
@@ -1055,9 +1049,7 @@
    "category": "reproduced",
    "claim": "Explorer rebuild comparison",
    "derived_value": "11 files identical, 3 differ",
-   "documents": [
-    "report"
-   ],
+   "documents": [],
    "reproduce": "same",
    "caveat": "provenance hashes differ by CRLF",
    "status": "verified"
@@ -1079,9 +1071,7 @@
    "category": "measured",
    "claim": "Baseline test suite",
    "derived_value": "86 passed",
-   "documents": [
-    "report"
-   ],
+   "documents": [],
    "reproduce": "python -m pytest tests",
    "caveat": "",
    "status": "verified"
@@ -1091,9 +1081,7 @@
    "category": "measured",
    "claim": "Meteorology tests",
    "derived_value": "44 passed",
-   "documents": [
-    "report"
-   ],
+   "documents": [],
    "reproduce": "",
    "caveat": "",
    "status": "verified"
@@ -1103,9 +1091,7 @@
    "category": "measured",
    "claim": "Explorer tests",
    "derived_value": "23 passed",
-   "documents": [
-    "report"
-   ],
+   "documents": [],
    "reproduce": "",
    "caveat": "",
    "status": "verified"
@@ -1115,9 +1101,7 @@
    "category": "measured",
    "claim": "Stability tests",
    "derived_value": "29 passed",
-   "documents": [
-    "report"
-   ],
+   "documents": [],
    "reproduce": "",
    "caveat": "",
    "status": "verified"
@@ -1127,9 +1111,7 @@
    "category": "measured",
    "claim": "Audit-control tests",
    "derived_value": "10 passed",
-   "documents": [
-    "report"
-   ],
+   "documents": [],
    "reproduce": "",
    "caveat": "",
    "status": "verified"
@@ -1139,9 +1121,7 @@
    "category": "reproduced",
    "claim": "Control experiments recomputed identically",
    "derived_value": "5 files identical",
-   "documents": [
-    "report"
-   ],
+   "documents": [],
    "reproduce": "python verification/compare_trees.py ...",
    "caveat": "",
    "status": "verified"

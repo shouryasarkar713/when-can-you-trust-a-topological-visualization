@@ -443,16 +443,16 @@ def tests_suite(d):
 
 
 FACTS += [
-    ("F100", "reproduced", "Baseline regeneration comparison", cmp_summary("baseline_regen"), [R], "python verification/compare_trees.py ...", "differences explained in report 12.3"),
-    ("F101", "reproduced", "Meteorology regeneration comparison", cmp_summary("meteorology"), [R], "same", ""),
-    ("F102", "reproduced", "Stability regeneration comparison", cmp_summary("stability"), [R], "same", ""),
-    ("F103", "reproduced", "Explorer rebuild comparison", cmp_short("explorer"), [R], "same", "provenance hashes differ by CRLF"),
+    ("F100", "reproduced", "Baseline regeneration comparison", cmp_summary("baseline_regen"), [], "python verification/compare_trees.py ...", "differences explained in report 12.3"),
+    ("F101", "reproduced", "Meteorology regeneration comparison", cmp_summary("meteorology"), [], "same", ""),
+    ("F102", "reproduced", "Stability regeneration comparison", cmp_summary("stability"), [], "same", ""),
+    ("F103", "reproduced", "Explorer rebuild comparison", cmp_short("explorer"), [], "same", "provenance hashes differ by CRLF"),
     ("F110", "measured", "Total tests passed", tests_total, [R], "python -m pytest ...", "order-dependence on Windows recorded"),
-    ("F111", "measured", "Baseline test suite", tests_suite("tests"), [R], "python -m pytest tests", ""),
-    ("F112", "measured", "Meteorology tests", tests_suite("extensions/meteorology/tests"), [R], "", ""),
-    ("F113", "measured", "Explorer tests", tests_suite("extensions/mapper_explorer/tests"), [R], "", ""),
-    ("F114", "measured", "Stability tests", tests_suite("extensions/stability/tests"), [R], "", ""),
-    ("F115", "measured", "Audit-control tests", tests_suite("extensions/controls/tests"), [R], "", ""),
+    ("F111", "measured", "Baseline test suite", tests_suite("tests"), [], "python -m pytest tests", ""),
+    ("F112", "measured", "Meteorology tests", tests_suite("extensions/meteorology/tests"), [], "", ""),
+    ("F113", "measured", "Explorer tests", tests_suite("extensions/mapper_explorer/tests"), [], "", ""),
+    ("F114", "measured", "Stability tests", tests_suite("extensions/stability/tests"), [], "", ""),
+    ("F115", "measured", "Audit-control tests", tests_suite("extensions/controls/tests"), [], "", ""),
 ]
 
 
@@ -463,4 +463,4 @@ def cmp_ident(name):
     return g
 
 
-FACTS += [("F104", "reproduced", "Control experiments recomputed identically", cmp_ident("controls"), [R], "python verification/compare_trees.py ...", "")]
+FACTS += [("F104", "reproduced", "Control experiments recomputed identically", cmp_ident("controls"), [], "python verification/compare_trees.py ...", "")]

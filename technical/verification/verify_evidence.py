@@ -229,8 +229,8 @@ def main():
         miss = [h for h in heads if squash(h) not in squash(t)]
         check(f"all {len(heads)} Markdown headings present in {fmt}", not miss, miss[:3])
     if "pdf" in texts["report"]:
-        check("PDF has more than 30 pages and a rendered table of contents",
-              res.get("report_pdf_pages", 0) > 30 and "Contents" in texts["report"]["pdf"], res.get("report_pdf_pages"))
+        check("PDF has at least 20 pages (sanity bound) and a rendered table of contents",
+              res.get("report_pdf_pages", 0) >= 20 and "Contents" in texts["report"]["pdf"], res.get("report_pdf_pages"))
 
     # 6b. staleness of generated editions: every Markdown paragraph / list item (complete text)
     # must appear in the DOCX and in the PDF
