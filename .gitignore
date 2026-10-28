@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+
+# Virtual environments
+.venv/
+.venv-*/
+venv/
+env/.venv*/
+
+# Editor / OS metadata
+.idea/
+.vscode/
+*.swp
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Secrets and local configuration (never committed)
+.env
+.env.*
+*.pem
+*.key
+secrets.*
+
+# Temporary and build leftovers
+*.tmp
+*.log.tmp
+tmp/
+.test_logs/
+.tmp_build/
+
+# Ephemeral output of a routine test/verification run (the runner writes to a temporary
+# directory by default; if you point --log-dir inside the clone, it is ignored here)
+test_run_output/

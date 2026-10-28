@@ -1,0 +1,59 @@
+# Experiment 2 — Mapper parameter sensitivity (blueprint Section 4.2).
+# Phase 2 scope: BOTH primary shapes (annulus + figure-eight), 12 cells each
+# (24 cells total), plus the no-loop blob as a diagnostic sanity control at
+# two settings (NOT a third 12-cell sweep).
+
+shapes: [annulus, figure_eight]
+
+grid:
+  n_cubes: [5, 10, 15, 20]
+  perc_overlap: [0.20, 0.35, 0.50]
+
+reference_cell:            # pre-specified (blueprint 4.1 verified defaults)
+  n_cubes: 10
+  perc_overlap: 0.35
+
+# Representative contrast cell, PER SHAPE. A null entry triggers the
+# documented auto-selection rule in src/figures.py: among non-reference
+# cells, maximize lexicographically (|delta n_components|,
+# |delta cyclomatic_number|, 1 - similarity) — i.e. the cell whose STRUCTURE
+# differs most from the reference, which is the interpretation-change story.
+# - annulus (20, 0.20): PRE-SPECIFIED from the Phase-0 verified single point
+#   (blueprint 5.3: the annulus fragments only at this cell).
+# - figure_eight (20, 0.50): selected AFTER measuring the full 24-cell grid
+#   (2026-10-22 run) to represent the construction-consistent reading —
+#   connected, cyclomatic 2, two 20-node basis cycles — against the
+#   FRAGMENTED reference cell (2 components). This is an honest post-hoc
+#   PRESENTATION choice, not a pre-specified claim; all 12 cells per shape
+#   are reported in the summary figure and results/e2/e2_sensitivity.csv.
+contrast_cell:
+  annulus: {n_cubes: 20, perc_overlap: 0.20}
+  figure_eight: {n_cubes: 20, perc_overlap: 0.50}
+
+constants:
+  data_seed: 42
+  kmeans_seed: 42
+  kmeans_n_clusters: 2
+  lens: "PCA(n_components=1)"
+
+controls:
+  determinism: true        # rerun the reference cell; memberships must match exactly
+
+# No-loop sanity control (blueprint 4.2 'Controls'; R-2 wording applies).
+# TWO diagnostic settings only, each answering a specific question:
+#   - (10, 0.35) reference setting: does no-loop data still produce
+#     graph cycles a naive reader could misread as loops?
+#   - (20, 0.20) extreme setting: the annulus-fragmentation cell — does the
+#     control behave differently there?
+# H1 gap-ratio calibration is computed alongside to show the diagram
+# correctly reports no dominant class.
+sanity_control:
+  shape: blob
+  cells:
+    - {n_cubes: 10, perc_overlap: 0.35}
+    - {n_cubes: 20, perc_overlap: 0.20}
+  h1_calibration: true
+
+paths:
+  results_dir: results/e2
+  figures_dir: figures/e2

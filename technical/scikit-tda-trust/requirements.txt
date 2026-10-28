@@ -1,0 +1,17 @@
+# Scikit-TDA evaluation project — pinned stack
+# Pins verified 2026-10-21 (blueprint Section 8) on Linux x86_64, Python 3.12.15.
+# Do NOT bump these to "latest" on failure; diagnose, correct minimally, and
+# record the change in IMPLEMENTATION_NOTES.md.
+ripser==0.6.15
+persim==0.4.1
+kmapper==2.1.0
+tadasets==0.2.2
+scikit-learn==1.9.1
+numpy==2.5.4
+scipy==1.18.1
+matplotlib==3.11.2
+networkx==3.7
+# Deviation D-1 (IMPLEMENTATION_NOTES.md): PyYAML is required to parse the
+# YAML config files mandated by blueprint Section 9 but is absent from the
+# blueprint's pin list (no installed package provides a YAML parser).
+pyyaml==6.0.3

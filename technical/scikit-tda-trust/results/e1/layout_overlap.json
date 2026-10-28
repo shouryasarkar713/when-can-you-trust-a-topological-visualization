@@ -1,0 +1,54 @@
+{
+  "annulus": {
+    "native_kk": {
+      "n_components": 1,
+      "max_component_bbox_iou": 0.0,
+      "inter_close_fraction": 0.0
+    },
+    "component_separated": {
+      "n_components": 1,
+      "max_component_bbox_iou": 0.0,
+      "inter_close_fraction": 0.0
+    },
+    "measures_definition": "max_component_bbox_iou: largest pairwise IoU of component bounding boxes in normalized layout space; inter_close_fraction: fraction of inter-component node pairs closer than the median intra-component nearest-neighbour distance. Layouts: native kk = nx.kamada_kawai_layout(whole graph) (what km.draw_matplotlib(layout='kk') draws); custom = per-component spring_layout(seed=42) in disjoint bands."
+  },
+  "figure_eight": {
+    "native_kk": {
+      "n_components": 2,
+      "max_component_bbox_iou": 0.0355,
+      "inter_close_fraction": 0.0667
+    },
+    "component_separated": {
+      "n_components": 2,
+      "max_component_bbox_iou": 0.0,
+      "inter_close_fraction": 0.0
+    },
+    "measures_definition": "max_component_bbox_iou: largest pairwise IoU of component bounding boxes in normalized layout space; inter_close_fraction: fraction of inter-component node pairs closer than the median intra-component nearest-neighbour distance. Layouts: native kk = nx.kamada_kawai_layout(whole graph) (what km.draw_matplotlib(layout='kk') draws); custom = per-component spring_layout(seed=42) in disjoint bands."
+  },
+  "blob": {
+    "native_kk": {
+      "n_components": 1,
+      "max_component_bbox_iou": 0.0,
+      "inter_close_fraction": 0.0
+    },
+    "component_separated": {
+      "n_components": 1,
+      "max_component_bbox_iou": 0.0,
+      "inter_close_fraction": 0.0
+    },
+    "measures_definition": "max_component_bbox_iou: largest pairwise IoU of component bounding boxes in normalized layout space; inter_close_fraction: fraction of inter-component node pairs closer than the median intra-component nearest-neighbour distance. Layouts: native kk = nx.kamada_kawai_layout(whole graph) (what km.draw_matplotlib(layout='kk') draws); custom = per-component spring_layout(seed=42) in disjoint bands."
+  },
+  "three_blobs": {
+    "native_kk": {
+      "n_components": 3,
+      "max_component_bbox_iou": 0.2332,
+      "inter_close_fraction": 0.1439
+    },
+    "component_separated": {
+      "n_components": 3,
+      "max_component_bbox_iou": 0.0,
+      "inter_close_fraction": 0.0
+    },
+    "measures_definition": "max_component_bbox_iou: largest pairwise IoU of component bounding boxes in normalized layout space; inter_close_fraction: fraction of inter-component node pairs closer than the median intra-component nearest-neighbour distance. Layouts: native kk = nx.kamada_kawai_layout(whole graph) (what km.draw_matplotlib(layout='kk') draws); custom = per-component spring_layout(seed=42) in disjoint bands."
+  }
+}

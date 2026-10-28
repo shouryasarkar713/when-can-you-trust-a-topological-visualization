@@ -1,0 +1,4 @@
+# Development-only dependencies (NOT imported by src/ or scripts/ at runtime).
+# Deviation D-2 (IMPLEMENTATION_NOTES.md): test runner for tests/; the
+# blueprint mandates a tests/ directory but does not name a runner.
+pytest==8.4.2

@@ -1,0 +1,19 @@
+# E3 structured single-observer inspection worksheet (BLANK).
+# One row per stimulus, fixed order S01..S13 (PROTOCOL.md).
+# assessment in {clearly_apparent, ambiguous, visually_obscured, not_represented}; matches_expected in {yes, no, partial}.
+# evidence_files: semicolon-separated repo-relative paths.
+# The completed copy of this worksheet is the AUTHORED file e3_inspection/inspection_record.csv.
+task_id,stimulus_id,question,expected_property,visible_cues,observer_interpretation,assessment,matches_expected,misleading_cues,evidence_files,explanation_and_limitation
+T1,S01,Does this dataset contain a prominent loop? Yes / No.,Yes,,,,,,,
+T5,S02,Does this dataset contain a prominent loop? Yes / No.,Yes,,,,,,,
+T2,S03,How many prominent loops does this dataset contain?,1,,,,,,,
+T4,S04,Which best describes this graph: a large ring-like cycle / several disconnected pieces / a dense tangle?,several disconnected pieces,,,,,,,
+T5,S05,Does this dataset contain a prominent loop? Yes / No.,No,,,,,,,
+T4,S06,Which best describes this graph: a large ring-like cycle / several disconnected pieces / a dense tangle?,a large ring-like cycle,,,,,,,
+T3,S07,How many well-separated components does this dataset contain?,3,,,,,,,
+T2,S08,How many prominent loops does this dataset contain?,2,,,,,,,
+T5,S09,How many well-separated components does this dataset contain?,3,,,,,,,
+T5,S10,How many prominent loops does this dataset contain?,2,,,,,,,
+T4,S11,Which best describes this graph: a large ring-like cycle / several disconnected pieces / a dense tangle?,a dense tangle,,,,,,,
+T3,S12,How many well-separated components does this dataset contain?,3,,,,,,,
+T1,S13,Does this dataset contain a prominent loop? Yes / No.,No,,,,,,,

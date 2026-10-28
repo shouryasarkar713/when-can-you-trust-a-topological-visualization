@@ -1,0 +1,211 @@
+{
+  "python": "3.12.15",
+  "executable": "/home/z/my-project/scikit-tda-trust/.venv/bin/python",
+  "platform": "Linux-5.10.134-013.15.kangaroo.al8.x86_64-x86_64-with-glibc2.41",
+  "machine": "x86_64",
+  "pins_checked": {
+    "ripser": "0.6.15",
+    "persim": "0.4.1",
+    "kmapper": "2.1.0",
+    "tadasets": "0.2.2",
+    "scikit-learn": "1.9.1",
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "matplotlib": "3.11.2",
+    "networkx": "3.7",
+    "pyyaml": "6.0.3"
+  },
+  "checks": [
+    {
+      "check": "pin:ripser",
+      "ok": true,
+      "detail": "installed 0.6.15, pinned 0.6.15"
+    },
+    {
+      "check": "pin:persim",
+      "ok": true,
+      "detail": "installed 0.4.1, pinned 0.4.1"
+    },
+    {
+      "check": "pin:kmapper",
+      "ok": true,
+      "detail": "installed 2.1.0, pinned 2.1.0"
+    },
+    {
+      "check": "pin:tadasets",
+      "ok": true,
+      "detail": "installed 0.2.2, pinned 0.2.2"
+    },
+    {
+      "check": "pin:scikit-learn",
+      "ok": true,
+      "detail": "installed 1.9.1, pinned 1.9.1"
+    },
+    {
+      "check": "pin:numpy",
+      "ok": true,
+      "detail": "installed 2.5.4, pinned 2.5.4"
+    },
+    {
+      "check": "pin:scipy",
+      "ok": true,
+      "detail": "installed 1.18.1, pinned 1.18.1"
+    },
+    {
+      "check": "pin:matplotlib",
+      "ok": true,
+      "detail": "installed 3.11.2, pinned 3.11.2"
+    },
+    {
+      "check": "pin:networkx",
+      "ok": true,
+      "detail": "installed 3.7, pinned 3.7"
+    },
+    {
+      "check": "pin:pyyaml",
+      "ok": true,
+      "detail": "installed 6.0.3, pinned 6.0.3"
+    },
+    {
+      "check": "import:numpy",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "check": "import:scipy",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "check": "import:sklearn",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "check": "import:matplotlib",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "check": "import:networkx",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "check": "import:yaml",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "check": "import:ripser",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "check": "import:persim",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "check": "import:kmapper",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "check": "import:tadasets",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "check": "api:ripser.no_plot_dgms",
+      "ok": true,
+      "detail": "ripser exports ['Rips', 'correlation_to_distance', 'lower_star_img', 'ripser'] (diagram plotting lives in persim)"
+    },
+    {
+      "check": "api:ripser.ripser",
+      "ok": true,
+      "detail": "present"
+    },
+    {
+      "check": "api:ripser.Rips",
+      "ok": true,
+      "detail": "present"
+    },
+    {
+      "check": "api:ripser.lower_star_img",
+      "ok": true,
+      "detail": "present"
+    },
+    {
+      "check": "api:ripser.correlation_to_distance",
+      "ok": true,
+      "detail": "present"
+    },
+    {
+      "check": "api:persim.plot_diagrams",
+      "ok": true,
+      "detail": "present"
+    },
+    {
+      "check": "api:persim.bottleneck",
+      "ok": true,
+      "detail": "present"
+    },
+    {
+      "check": "api:persim.wasserstein",
+      "ok": true,
+      "detail": "present"
+    },
+    {
+      "check": "api:persim.bottleneck_matching",
+      "ok": true,
+      "detail": "present"
+    },
+    {
+      "check": "api:persim.wasserstein_matching",
+      "ok": true,
+      "detail": "present"
+    },
+    {
+      "check": "api:persim.__version__",
+      "ok": true,
+      "detail": "absent (expected; use importlib.metadata)"
+    },
+    {
+      "check": "api:kmapper.KeplerMapper",
+      "ok": true,
+      "detail": "present"
+    },
+    {
+      "check": "api:kmapper.CubicalCover",
+      "ok": true,
+      "detail": "present"
+    },
+    {
+      "check": "api:kmapper.to_networkx",
+      "ok": true,
+      "detail": "module-level"
+    },
+    {
+      "check": "api:kmapper.draw_matplotlib",
+      "ok": true,
+      "detail": "module-level"
+    },
+    {
+      "check": "smoke:circle_H1_one_dominant_class",
+      "ok": true,
+      "detail": "H1 classes=1, dominant(>0.5*top)=1, top persistence=1.666, r_1=n/a"
+    },
+    {
+      "check": "smoke:mapper_graph_built",
+      "ok": true,
+      "detail": "10 nodes, 4 edges"
+    },
+    {
+      "check": "smoke:mapper_html_exported",
+      "ok": true,
+      "detail": "58029 bytes"
+    }
+  ],
+  "all_passed": true
+}

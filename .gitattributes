@@ -1,0 +1,4 @@
+# Store every file byte-for-byte as committed, on every platform.
+# The checksum manifests (SHA256SUMS.txt, extensions/BASELINE_MANIFEST.json) hash raw bytes, so no
+# line-ending conversion may happen on checkout or commit.
+* -text

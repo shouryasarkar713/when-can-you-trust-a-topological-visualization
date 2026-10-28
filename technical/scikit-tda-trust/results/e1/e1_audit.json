@@ -1,0 +1,386 @@
+{
+  "meta": {
+    "script": "scripts/run_e1_audit.py",
+    "config": "configs/e1_audit.yaml"
+  },
+  "shapes": {
+    "annulus": {
+      "params": {
+        "n": 500,
+        "r_in": 1.0,
+        "r_out": 1.4,
+        "noise": 0.05,
+        "seed": 42,
+        "ground_truth_h1_rank": 1,
+        "role": "one prominent loop (primary signal dataset)"
+      },
+      "ph_summary": {
+        "n_points": 500,
+        "H0_classes": 500,
+        "ripser_time_s": 0.6976,
+        "H1_classes": 100,
+        "H1_top3_persistence": [
+          1.4959,
+          0.0773,
+          0.0726
+        ],
+        "gap_ratio_r1_calibration": 19.345,
+        "gap_ratio_r1_at_ground_truth_rank": 19.345,
+        "gap_ratio_convention": "r_k = p_k / p_{k+1} with persistences sorted in descending order. The rank k is known from the synthetic construction of each dataset (annulus k=1, figure-eight k=2, controls: none); r_k is NOT a universal automatic loop-counting rule, and the 'prominent' threshold (r_k >= 3) is a stated convention, not a theorem."
+      },
+      "mapper_stats": {
+        "n_nodes": 20,
+        "n_edges": 21,
+        "n_components": 1,
+        "cyclomatic_number": 2,
+        "max_basis_cycle_length": 16,
+        "mean_basis_cycle_length": 10.0,
+        "cycles_caveat": "Mapper graph cycles are not automatically equivalent to true topological loops in the data: the no-loop control produces short noise-scale graph cycles while its H1 diagram correctly shows no dominant class. Cycle length and scale context distinguish loop-like structure from noise."
+      },
+      "mapper_static_method": "native km.draw_matplotlib(layout='kk')",
+      "mapper_html": {
+        "time_s": 0.0458,
+        "external_urls": [
+          "http://i.imgur.com/axOG6GJ.jpg",
+          "https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js",
+          "https://cdnjs.cloudflare.com/ajax/libs/d3/6.1.1/d3.js",
+          "https://fonts.googleapis.com/css?family=Roboto+Mono:700,300"
+        ]
+      },
+      "stage_times_s": {
+        "generate": 0.006,
+        "ripser": 0.6996,
+        "mapper_build": 0.0989
+      },
+      "artifacts": {
+        "scatter": "figures/e1/annulus_scatter.png",
+        "pca_baseline": "figures/e1/annulus_pca_baseline.png",
+        "diagram": "figures/e1/annulus_diagram.png",
+        "barcode": "figures/e1/annulus_barcode.png",
+        "mapper_memberships": "results/e1/annulus_mapper_memberships.json",
+        "mapper_static": "figures/e1/annulus_mapper_static.png",
+        "mapper_html": "figures/e1/annulus_mapper.html",
+        "matching": "figures/e1/annulus_matching.png"
+      }
+    },
+    "figure_eight": {
+      "params": {
+        "n": 500,
+        "noise": 0.05,
+        "seed": 42,
+        "ground_truth_h1_rank": 2,
+        "role": "two co-dominant loops (r_2 is the correct gap statistic; r_1 ~ 1 is expected)"
+      },
+      "ph_summary": {
+        "n_points": 500,
+        "H0_classes": 500,
+        "ripser_time_s": 0.2172,
+        "H1_classes": 91,
+        "H1_top3_persistence": [
+          0.481,
+          0.4807,
+          0.0493
+        ],
+        "gap_ratio_r1_calibration": 1.001,
+        "gap_ratio_r2_at_ground_truth_rank": 9.747,
+        "gap_ratio_convention": "r_k = p_k / p_{k+1} with persistences sorted in descending order. The rank k is known from the synthetic construction of each dataset (annulus k=1, figure-eight k=2, controls: none); r_k is NOT a universal automatic loop-counting rule, and the 'prominent' threshold (r_k >= 3) is a stated convention, not a theorem."
+      },
+      "mapper_stats": {
+        "n_nodes": 20,
+        "n_edges": 19,
+        "n_components": 2,
+        "cyclomatic_number": 1,
+        "max_basis_cycle_length": 4,
+        "mean_basis_cycle_length": 4.0,
+        "cycles_caveat": "Mapper graph cycles are not automatically equivalent to true topological loops in the data: the no-loop control produces short noise-scale graph cycles while its H1 diagram correctly shows no dominant class. Cycle length and scale context distinguish loop-like structure from noise."
+      },
+      "mapper_static_method": "native km.draw_matplotlib(layout='kk')",
+      "mapper_html": {
+        "time_s": 0.0508,
+        "external_urls": [
+          "http://i.imgur.com/axOG6GJ.jpg",
+          "https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js",
+          "https://cdnjs.cloudflare.com/ajax/libs/d3/6.1.1/d3.js",
+          "https://fonts.googleapis.com/css?family=Roboto+Mono:700,300"
+        ]
+      },
+      "stage_times_s": {
+        "generate": 0.0006,
+        "ripser": 0.2178,
+        "mapper_build": 0.0376
+      },
+      "artifacts": {
+        "scatter": "figures/e1/figure_eight_scatter.png",
+        "pca_baseline": "figures/e1/figure_eight_pca_baseline.png",
+        "diagram": "figures/e1/figure_eight_diagram.png",
+        "barcode": "figures/e1/figure_eight_barcode.png",
+        "mapper_memberships": "results/e1/figure_eight_mapper_memberships.json",
+        "mapper_static": "figures/e1/figure_eight_mapper_static.png",
+        "mapper_html": "figures/e1/figure_eight_mapper.html"
+      }
+    },
+    "blob": {
+      "params": {
+        "n": 500,
+        "spread": 0.45,
+        "seed": 42,
+        "ground_truth_h1_rank": null,
+        "role": "no-loop control (H1 gap ratios are calibration only)"
+      },
+      "ph_summary": {
+        "n_points": 500,
+        "H0_classes": 500,
+        "ripser_time_s": 0.131,
+        "H1_classes": 127,
+        "H1_top3_persistence": [
+          0.1396,
+          0.0962,
+          0.0924
+        ],
+        "gap_ratio_r1_calibration": 1.451,
+        "gap_ratio_convention": "r_k = p_k / p_{k+1} with persistences sorted in descending order. The rank k is known from the synthetic construction of each dataset (annulus k=1, figure-eight k=2, controls: none); r_k is NOT a universal automatic loop-counting rule, and the 'prominent' threshold (r_k >= 3) is a stated convention, not a theorem."
+      },
+      "mapper_stats": {
+        "n_nodes": 20,
+        "n_edges": 23,
+        "n_components": 1,
+        "cyclomatic_number": 4,
+        "max_basis_cycle_length": 6,
+        "mean_basis_cycle_length": 5.0,
+        "cycles_caveat": "Mapper graph cycles are not automatically equivalent to true topological loops in the data: the no-loop control produces short noise-scale graph cycles while its H1 diagram correctly shows no dominant class. Cycle length and scale context distinguish loop-like structure from noise."
+      },
+      "mapper_static_method": "native km.draw_matplotlib(layout='kk')",
+      "mapper_html": {
+        "time_s": 0.0694,
+        "external_urls": [
+          "http://i.imgur.com/axOG6GJ.jpg",
+          "https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js",
+          "https://cdnjs.cloudflare.com/ajax/libs/d3/6.1.1/d3.js",
+          "https://fonts.googleapis.com/css?family=Roboto+Mono:700,300"
+        ]
+      },
+      "stage_times_s": {
+        "generate": 0.0005,
+        "ripser": 0.1318,
+        "mapper_build": 0.0393
+      },
+      "artifacts": {
+        "scatter": "figures/e1/blob_scatter.png",
+        "pca_baseline": "figures/e1/blob_pca_baseline.png",
+        "diagram": "figures/e1/blob_diagram.png",
+        "barcode": "figures/e1/blob_barcode.png",
+        "mapper_memberships": "results/e1/blob_mapper_memberships.json",
+        "mapper_static": "figures/e1/blob_mapper_static.png",
+        "mapper_html": "figures/e1/blob_mapper.html"
+      }
+    },
+    "three_blobs": {
+      "params": {
+        "n": 450,
+        "spread": 0.25,
+        "centers": [
+          [
+            -2.0,
+            0.0
+          ],
+          [
+            2.0,
+            0.0
+          ],
+          [
+            0.0,
+            2.5
+          ]
+        ],
+        "seed": 42,
+        "ground_truth_h1_rank": null,
+        "role": "three-component control (component structure read from H0, not H1)"
+      },
+      "ph_summary": {
+        "n_points": 450,
+        "H0_classes": 450,
+        "ripser_time_s": 0.1398,
+        "H1_classes": 102,
+        "H1_top3_persistence": [
+          0.1024,
+          0.0992,
+          0.0905
+        ],
+        "gap_ratio_r1_calibration": 1.033,
+        "gap_ratio_convention": "r_k = p_k / p_{k+1} with persistences sorted in descending order. The rank k is known from the synthetic construction of each dataset (annulus k=1, figure-eight k=2, controls: none); r_k is NOT a universal automatic loop-counting rule, and the 'prominent' threshold (r_k >= 3) is a stated convention, not a theorem.",
+        "H0_prominent_merges_half_max": 2,
+        "H0_prominence_convention": "finite H0 classes with persistence > 0.5 * max finite persistence; construction implies 2 late merges + essential class = 3 components"
+      },
+      "mapper_stats": {
+        "n_nodes": 20,
+        "n_edges": 20,
+        "n_components": 3,
+        "cyclomatic_number": 3,
+        "max_basis_cycle_length": 4,
+        "mean_basis_cycle_length": 4.0,
+        "cycles_caveat": "Mapper graph cycles are not automatically equivalent to true topological loops in the data: the no-loop control produces short noise-scale graph cycles while its H1 diagram correctly shows no dominant class. Cycle length and scale context distinguish loop-like structure from noise."
+      },
+      "mapper_static_method": "native km.draw_matplotlib(layout='kk')",
+      "mapper_html": {
+        "time_s": 0.0465,
+        "external_urls": [
+          "http://i.imgur.com/axOG6GJ.jpg",
+          "https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js",
+          "https://cdnjs.cloudflare.com/ajax/libs/d3/6.1.1/d3.js",
+          "https://fonts.googleapis.com/css?family=Roboto+Mono:700,300"
+        ]
+      },
+      "stage_times_s": {
+        "generate": 0.0005,
+        "ripser": 0.1407,
+        "mapper_build": 0.0466
+      },
+      "artifacts": {
+        "scatter": "figures/e1/three_blobs_scatter.png",
+        "pca_baseline": "figures/e1/three_blobs_pca_baseline.png",
+        "diagram": "figures/e1/three_blobs_diagram.png",
+        "barcode": "figures/e1/three_blobs_barcode.png",
+        "mapper_memberships": "results/e1/three_blobs_mapper_memberships.json",
+        "mapper_static": "figures/e1/three_blobs_mapper_static.png",
+        "mapper_html": "figures/e1/three_blobs_mapper.html"
+      }
+    }
+  },
+  "stability_check": {
+    "annulus": {
+      "bottleneck": {
+        "metric": "bottleneck",
+        "value": 0.05261,
+        "time_s": 0.0072
+      },
+      "wasserstein": {
+        "metric": "wasserstein",
+        "value": 0.71316,
+        "time_s": 0.0026
+      },
+      "matching_plot": {
+        "distance": 0.05261,
+        "metric": "bottleneck"
+      }
+    },
+    "figure_eight": {
+      "bottleneck": {
+        "metric": "bottleneck",
+        "value": 0.04716,
+        "time_s": 0.0055
+      },
+      "wasserstein": {
+        "metric": "wasserstein",
+        "value": 0.38596,
+        "time_s": 0.0019
+      }
+    },
+    "blob": {
+      "bottleneck": {
+        "metric": "bottleneck",
+        "value": 0.04886,
+        "time_s": 0.0121
+      },
+      "wasserstein": {
+        "metric": "wasserstein",
+        "value": 1.04987,
+        "time_s": 0.0033
+      }
+    },
+    "three_blobs": {
+      "bottleneck": {
+        "metric": "bottleneck",
+        "value": 0.03103,
+        "time_s": 0.0072
+      },
+      "wasserstein": {
+        "metric": "wasserstein",
+        "value": 0.84229,
+        "time_s": 0.0024
+      }
+    }
+  },
+  "determinism_check": {
+    "shape": "annulus",
+    "point_clouds_identical": true,
+    "ripser_diagrams_identical": true,
+    "mapper_memberships_identical": true,
+    "note": "in-place rerun of the full numeric pipeline; the clean-clone + fresh-venv rerun is recorded separately in results/repro/comparison_report.json"
+  },
+  "layout_overlap": {
+    "annulus": {
+      "native_kk": {
+        "n_components": 1,
+        "max_component_bbox_iou": 0.0,
+        "inter_close_fraction": 0.0
+      },
+      "component_separated": {
+        "n_components": 1,
+        "max_component_bbox_iou": 0.0,
+        "inter_close_fraction": 0.0
+      },
+      "measures_definition": "max_component_bbox_iou: largest pairwise IoU of component bounding boxes in normalized layout space; inter_close_fraction: fraction of inter-component node pairs closer than the median intra-component nearest-neighbour distance. Layouts: native kk = nx.kamada_kawai_layout(whole graph) (what km.draw_matplotlib(layout='kk') draws); custom = per-component spring_layout(seed=42) in disjoint bands."
+    },
+    "figure_eight": {
+      "native_kk": {
+        "n_components": 2,
+        "max_component_bbox_iou": 0.0355,
+        "inter_close_fraction": 0.0667
+      },
+      "component_separated": {
+        "n_components": 2,
+        "max_component_bbox_iou": 0.0,
+        "inter_close_fraction": 0.0
+      },
+      "measures_definition": "max_component_bbox_iou: largest pairwise IoU of component bounding boxes in normalized layout space; inter_close_fraction: fraction of inter-component node pairs closer than the median intra-component nearest-neighbour distance. Layouts: native kk = nx.kamada_kawai_layout(whole graph) (what km.draw_matplotlib(layout='kk') draws); custom = per-component spring_layout(seed=42) in disjoint bands."
+    },
+    "blob": {
+      "native_kk": {
+        "n_components": 1,
+        "max_component_bbox_iou": 0.0,
+        "inter_close_fraction": 0.0
+      },
+      "component_separated": {
+        "n_components": 1,
+        "max_component_bbox_iou": 0.0,
+        "inter_close_fraction": 0.0
+      },
+      "measures_definition": "max_component_bbox_iou: largest pairwise IoU of component bounding boxes in normalized layout space; inter_close_fraction: fraction of inter-component node pairs closer than the median intra-component nearest-neighbour distance. Layouts: native kk = nx.kamada_kawai_layout(whole graph) (what km.draw_matplotlib(layout='kk') draws); custom = per-component spring_layout(seed=42) in disjoint bands."
+    },
+    "three_blobs": {
+      "native_kk": {
+        "n_components": 3,
+        "max_component_bbox_iou": 0.2332,
+        "inter_close_fraction": 0.1439
+      },
+      "component_separated": {
+        "n_components": 3,
+        "max_component_bbox_iou": 0.0,
+        "inter_close_fraction": 0.0
+      },
+      "measures_definition": "max_component_bbox_iou: largest pairwise IoU of component bounding boxes in normalized layout space; inter_close_fraction: fraction of inter-component node pairs closer than the median intra-component nearest-neighbour distance. Layouts: native kk = nx.kamada_kawai_layout(whole graph) (what km.draw_matplotlib(layout='kk') draws); custom = per-component spring_layout(seed=42) in disjoint bands."
+    }
+  },
+  "glue_code_loc": {
+    "method": "scripts/count_glue_code.py (documented rule; see audit/glue_code_accounting.json)",
+    "total_loc": 130,
+    "by_task": {
+      "T02": 39,
+      "T05": 15,
+      "E2-metric": 37,
+      "T09": 17,
+      "T13": 4,
+      "T10-alt": 18
+    }
+  },
+  "tadasets_crosscheck": {
+    "source": "tadasets.infty_sign(n=500, noise=0.05, seed=7)",
+    "H1_top3_persistence": [
+      0.673,
+      0.6339,
+      0.054
+    ],
+    "gap_ratio_r2": 11.736,
+    "purpose": "external-generator agreement with the custom figure-eight two-loop signature (correctness check, blueprint Table 5.2)"
+  }
+}

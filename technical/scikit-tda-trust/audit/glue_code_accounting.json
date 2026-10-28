@@ -1,0 +1,165 @@
+{
+  "rule": "LOC per function = non-blank, non-comment-only, non-docstring source lines (AST docstring detection), including def/decorators/local imports. Scope: custom functions in src/ that fill a capability gap of the evaluated ecosystem (generators, custom renderers, graph-analysis wrapper, custom metrics, baseline, alternative layout). Excluded: tests/, scripts/ (experiment harness), module docstrings/constants, figure-caption plumbing, CLI code. No generated code is counted.",
+  "inventory": [
+    {
+      "module": "shapes",
+      "function": "annulus",
+      "task": "T02",
+      "category": "data-generation",
+      "why_glue": "ecosystem ships no data generators",
+      "loc": 7,
+      "source": "src/shapes.py::annulus"
+    },
+    {
+      "module": "shapes",
+      "function": "figure_eight",
+      "task": "T02",
+      "category": "data-generation",
+      "why_glue": "ecosystem ships no data generators",
+      "loc": 5,
+      "source": "src/shapes.py::figure_eight"
+    },
+    {
+      "module": "shapes",
+      "function": "blob",
+      "task": "T02",
+      "category": "data-generation",
+      "why_glue": "ecosystem ships no data generators",
+      "loc": 3,
+      "source": "src/shapes.py::blob"
+    },
+    {
+      "module": "shapes",
+      "function": "three_blobs",
+      "task": "T02",
+      "category": "data-generation",
+      "why_glue": "ecosystem ships no data generators",
+      "loc": 8,
+      "source": "src/shapes.py::three_blobs"
+    },
+    {
+      "module": "shapes",
+      "function": "make_shape",
+      "task": "T02",
+      "category": "data-generation",
+      "why_glue": "config-to-generator plumbing",
+      "loc": 16,
+      "source": "src/shapes.py::make_shape"
+    },
+    {
+      "module": "pipeline",
+      "function": "render_barcode",
+      "task": "T05",
+      "category": "rendering",
+      "why_glue": "persim ships diagrams, not barcodes (API inventory verified)",
+      "loc": 15,
+      "source": "src/pipeline.py::render_barcode"
+    },
+    {
+      "module": "pipeline",
+      "function": "gap_ratio",
+      "task": "E2-metric",
+      "category": "metric",
+      "why_glue": "no gap-ratio statistic in ripser/persim",
+      "loc": 9,
+      "source": "src/pipeline.py::gap_ratio"
+    },
+    {
+      "module": "pipeline",
+      "function": "h1_persistences",
+      "task": "E2-metric",
+      "category": "metric",
+      "why_glue": "helper for the gap ratio",
+      "loc": 4,
+      "source": "src/pipeline.py::h1_persistences"
+    },
+    {
+      "module": "pipeline",
+      "function": "h0_prominent_merges",
+      "task": "E2-metric",
+      "category": "metric",
+      "why_glue": "component-structure check for the three-blob control",
+      "loc": 6,
+      "source": "src/pipeline.py::h0_prominent_merges"
+    },
+    {
+      "module": "pipeline",
+      "function": "mapper_structure_stats",
+      "task": "T09",
+      "category": "graph-analysis",
+      "why_glue": "component/cycle counts need networkx (not a kmapper dependency)",
+      "loc": 17,
+      "source": "src/pipeline.py::mapper_structure_stats"
+    },
+    {
+      "module": "pipeline",
+      "function": "render_pca_baseline",
+      "task": "T13",
+      "category": "baseline",
+      "why_glue": "conventional baseline assembled from sklearn + matplotlib",
+      "loc": 4,
+      "source": "src/pipeline.py::render_pca_baseline"
+    },
+    {
+      "module": "similarity",
+      "function": "jaccard",
+      "task": "E2-metric",
+      "category": "metric",
+      "why_glue": "membership-Jaccard helper for S",
+      "loc": 5,
+      "source": "src/similarity.py::jaccard"
+    },
+    {
+      "module": "similarity",
+      "function": "similarity",
+      "task": "E2-metric",
+      "category": "metric",
+      "why_glue": "custom exploratory overlap indicator S (no canonical metric exists)",
+      "loc": 4,
+      "source": "src/similarity.py::similarity"
+    },
+    {
+      "module": "similarity",
+      "function": "memberships_from_graph",
+      "task": "E2-metric",
+      "category": "metric",
+      "why_glue": "graph-to-memberships extraction for S",
+      "loc": 7,
+      "source": "src/similarity.py::memberships_from_graph"
+    },
+    {
+      "module": "similarity",
+      "function": "memberships_equal",
+      "task": "E2-metric",
+      "category": "metric",
+      "why_glue": "determinism-control equality",
+      "loc": 2,
+      "source": "src/similarity.py::memberships_equal"
+    },
+    {
+      "module": "figures",
+      "function": "component_separated_layout",
+      "task": "T10-alt",
+      "category": "rendering",
+      "why_glue": "native kk layout can overlap disconnected components; alternative analytical layout (structure untouched)",
+      "loc": 18,
+      "source": "src/figures.py::component_separated_layout"
+    }
+  ],
+  "total_loc": 130,
+  "by_task": {
+    "T02": 39,
+    "T05": 15,
+    "E2-metric": 37,
+    "T09": 17,
+    "T13": 4,
+    "T10-alt": 18
+  },
+  "by_category": {
+    "baseline": 4,
+    "data-generation": 39,
+    "graph-analysis": 17,
+    "metric": 37,
+    "rendering": 33
+  }
+}

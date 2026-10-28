@@ -1,0 +1,275 @@
+{
+  "label": "structured task-based inspection by a single observer (pre-specified fallback; participant study NOT conducted)",
+  "n_records": 13,
+  "counting_rule": "Counts describe RECORDED INSPECTION JUDGMENTS of one observer against pre-specified expected properties. They are NOT measured human accuracy, NOT population-level readability, and NOT statistically significant. Computational metrics cited in the basis fields (persistences, gap ratios, component counts, cycle-basis lengths) come from saved results and are separate from these inspection judgments.",
+  "assessment_counts_overall": {
+    "clearly_apparent": 11,
+    "ambiguous": 2
+  },
+  "matches_expected_counts_overall": {
+    "yes": 12,
+    "partial": 1
+  },
+  "per_task_representation": {
+    "T1/diagram": {
+      "n_records": 2,
+      "assessment_counts": {
+        "clearly_apparent": 2
+      },
+      "matches_expected_counts": {
+        "yes": 2
+      },
+      "items": [
+        {
+          "stimulus_id": "S01",
+          "assessment": "clearly_apparent",
+          "matches_expected": "yes",
+          "observer_interpretation": "Yes \u2014 a single prominent loop: exactly one H1 class stands out (top persistence 1.496; next 0.077; r_1 = 19.3 against the stated prominence convention of 3).",
+          "misleading_cues": "No legend: blue vs orange (H0 vs H1) is not explained in the figure; the dashed top line (essential H0 class) is not explained; as drawn, the essential-class point sits FARTHER from the diagonal (approx. 1.85) than the loop point (1.50), so a reader keying on distance-from-diagonal alone picks the wrong point.",
+          "explanation_and_limitation": "Readable once the standard color convention is known, but the convention is not encoded in the figure; the unprimed viewing pass initially anchored on the top-line point before settling on the orange outlier. The 19.3x gap ratio is a computational anchor from saved results, not a visual measurement. Single-observer judgment."
+        },
+        {
+          "stimulus_id": "S13",
+          "assessment": "clearly_apparent",
+          "matches_expected": "yes",
+          "observer_interpretation": "No \u2014 no dominant H1 class (top-3 persistences 0.140 / 0.096 / 0.092; r_1 = 1.45, below the stated prominence convention of 3).",
+          "misleading_cues": "Several orange points sit mildly above the band; 'prominent' is a threshold the figure does not define; overplotting near the origin hides individual short-lived features; colors unlabeled.",
+          "explanation_and_limitation": "The absence of a standout point is visible, especially in contrast with S01's dramatic outlier; but the prominence call ultimately rests on the stated convention (r_k >= 3), not on a figure-encoded threshold. Single-observer judgment."
+        }
+      ]
+    },
+    "T2/diagram": {
+      "n_records": 2,
+      "assessment_counts": {
+        "clearly_apparent": 1,
+        "ambiguous": 1
+      },
+      "matches_expected_counts": {
+        "yes": 2
+      },
+      "items": [
+        {
+          "stimulus_id": "S03",
+          "assessment": "clearly_apparent",
+          "matches_expected": "yes",
+          "observer_interpretation": "1 \u2014 the single dominant H1 class (persistence 1.496; next 0.077).",
+          "misleading_cues": "Same as S01: unlabeled colors; unexplained dashed line; the unprimed viewing pass initially treated the top-line essential class as the prominent feature before settling on the count 1.",
+          "explanation_and_limitation": "Count recoverable with the H0/H1 color convention; without it the essential class competes with the loop point for attention. Single-observer judgment."
+        },
+        {
+          "stimulus_id": "S08",
+          "assessment": "ambiguous",
+          "matches_expected": "yes",
+          "observer_interpretation": "2 \u2014 the two co-dominant H1 classes (persistences 0.481 / 0.481, about 10x the third at 0.049; r_2 = 9.7 at the known ground-truth rank 2).",
+          "misleading_cues": "No legend: the unprimed viewing pass anchored on the essential H0 point (drawn distance from diagonal approx. 0.68 vs 0.48 for the loops) and answered 1; the figure does not encode that only H1 points count as loops, nor that the dashed-line point is the essential class that never dies.",
+          "explanation_and_limitation": "The correct count is visible WITH the standard color convention; without it the rendering actively misleads, because the farthest-from-diagonal point is not a loop. Legend absence is the stimulus rendering choice under test (persim plot_diagrams default styling). This is the clearest single ambiguity recorded in the inspection. Single-observer judgment."
+        }
+      ]
+    },
+    "T3/mapper": {
+      "n_records": 1,
+      "assessment_counts": {
+        "clearly_apparent": 1
+      },
+      "matches_expected_counts": {
+        "yes": 1
+      },
+      "items": [
+        {
+          "stimulus_id": "S12",
+          "assessment": "clearly_apparent",
+          "matches_expected": "yes",
+          "observer_interpretation": "3 \u2014 three connected components (reference cell; saved component count 3).",
+          "misleading_cues": "Per-group colors and band separation are features of the component-separated custom rendering; in the NATIVE kk layout the three components overlap (component bbox IoU 0.233; 14.4% node interleaving) and the count is much harder to read; node sizes unexplained.",
+          "explanation_and_limitation": "The component count is a computational fact; its visual legibility depends strongly on the rendering choice (E1 layout finding). Reading the Mapper graph here agrees with the scatter (S07/S09) on the matched question. Single-observer judgment."
+        }
+      ]
+    },
+    "T3/scatter": {
+      "n_records": 1,
+      "assessment_counts": {
+        "clearly_apparent": 1
+      },
+      "matches_expected_counts": {
+        "yes": 1
+      },
+      "items": [
+        {
+          "stimulus_id": "S07",
+          "assessment": "clearly_apparent",
+          "matches_expected": "yes",
+          "observer_interpretation": "3 \u2014 three well-separated components (three separated Gaussians by construction).",
+          "misleading_cues": "Outlier points could be debated as tiny extra components; cluster boundaries are fuzzy at the margins.",
+          "explanation_and_limitation": "Count robust; the 'well-separated' judgment is slightly subjective at the margins. Single-observer judgment."
+        }
+      ]
+    },
+    "T4/mapper": {
+      "n_records": 3,
+      "assessment_counts": {
+        "clearly_apparent": 2,
+        "ambiguous": 1
+      },
+      "matches_expected_counts": {
+        "yes": 2,
+        "partial": 1
+      },
+      "items": [
+        {
+          "stimulus_id": "S04",
+          "assessment": "clearly_apparent",
+          "matches_expected": "yes",
+          "observer_interpretation": "Several disconnected pieces \u2014 the graph has exactly 2 connected components (20 nodes / 19 edges at the reference cell).",
+          "misleading_cues": "The larger component's small internal cycles could suggest local loops; node-size variation is unexplained; in the NATIVE kk layout the two components are not clearly separated (component bbox IoU 0.036; 6.7% node interleaving) \u2014 the clean separation shown here is a property of the component-separated custom rendering; and the disconnected morphology itself is parameter-dependent: at cover (20, 0.50) the same data yields a connected graph with two 20-node cycles (E2).",
+          "explanation_and_limitation": "The 2-component structure is a computational fact of this parameter cell and is clearly displayed by the documented component-separated rendering; the same structure is much harder to read natively, and the morphology changes across the E2 grid. Graph structure, rendering, and parameter dependence are kept distinct here. Single-observer judgment."
+        },
+        {
+          "stimulus_id": "S06",
+          "assessment": "clearly_apparent",
+          "matches_expected": "yes",
+          "observer_interpretation": "A large ring-like cycle \u2014 connected graph, cyclomatic number 2, dominant basis cycle of 16 nodes at the reference cell.",
+          "misleading_cues": "Branches can be read as part of the cycle or as appendages; node sizes (cluster memberships) are unexplained; the loop signal vanishes at n_cubes=5 (tree graph) and the graph fragments at (20, 0.20) \u2014 parameter-dependent (E2).",
+          "explanation_and_limitation": "The ring reading matches the saved graph structure; E2 shows the same data reads as a tree at lower cover resolution. Single-observer judgment."
+        },
+        {
+          "stimulus_id": "S11",
+          "assessment": "ambiguous",
+          "matches_expected": "partial",
+          "observer_interpretation": "Split judgment: the rendering reads as 'a large ring-like cycle', but the graph's cycles are noise-scale (longest basis cycle 6 nodes) and the underlying data has NO loop (H1 top persistence 0.140; r_1 = 1.45, below the stated convention of 3); with that computational context 'a dense tangle' is the defensible label \u2014 the graph rendering alone does not communicate it.",
+          "misleading_cues": "The ring-like visual circuit is itself the misleading cue: Mapper graph cycles are not automatically topological loops in the data; nothing in the rendering distinguishes noise-scale cycles (6 nodes) from data-scale loops (16 nodes on the annulus); node sizes unexplained.",
+          "explanation_and_limitation": "The E2 no-loop sanity finding manifests directly in the artifact: an unprimed reading picks 'ring-like cycle' for a loop-free dataset. Cycle scale and the H1 diagram are what separate the readings, and neither cue is present in the graph rendering itself. The strongest representation-level ambiguity recorded in this inspection. Single-observer judgment."
+        }
+      ]
+    },
+    "T5/scatter": {
+      "n_records": 4,
+      "assessment_counts": {
+        "clearly_apparent": 4
+      },
+      "matches_expected_counts": {
+        "yes": 4
+      },
+      "items": [
+        {
+          "stimulus_id": "S02",
+          "assessment": "clearly_apparent",
+          "matches_expected": "yes",
+          "observer_interpretation": "Yes \u2014 the ring is the loop; this scatter is the 2-D data itself (known-answer reference view).",
+          "misleading_cues": "None material: thickness and noise fuzz the exact boundary and a few outliers stray from the band.",
+          "explanation_and_limitation": "Reference view requiring no method knowledge; residual ambiguity only about thickness and outliers. Single-observer judgment."
+        },
+        {
+          "stimulus_id": "S05",
+          "assessment": "clearly_apparent",
+          "matches_expected": "yes",
+          "observer_interpretation": "No \u2014 no closed curve and no empty interior; the cloud is simply connected.",
+          "misleading_cues": "No axes or scale are drawn; a few outliers; subtle substructure would be hard to see at this density.",
+          "explanation_and_limitation": "Reference view; the absence of a loop is directly visible. Single-observer judgment."
+        },
+        {
+          "stimulus_id": "S09",
+          "assessment": "clearly_apparent",
+          "matches_expected": "yes",
+          "observer_interpretation": "3 \u2014 matches the T3 scatter reading; scatter reference view.",
+          "misleading_cues": "Same as S07: outliers and fuzzy cluster edges.",
+          "explanation_and_limitation": "Matched T3/T5 comparison view; consistent with S07. Single-observer judgment."
+        },
+        {
+          "stimulus_id": "S10",
+          "assessment": "clearly_apparent",
+          "matches_expected": "yes",
+          "observer_interpretation": "2 \u2014 two prominent loops sharing a crossing point.",
+          "misleading_cues": "Scatter noise fuzzes the lobe boundaries; the central region is cluttered, leaving slight uncertainty between one crossing point and two nearly-touching loops.",
+          "explanation_and_limitation": "Reference view; both loops are directly visible. Single-observer judgment."
+        }
+      ]
+    }
+  },
+  "recorded_misleading_cues": [
+    {
+      "stimulus_id": "S01",
+      "task_id": "T1",
+      "view": "diagram",
+      "misleading_cues": "No legend: blue vs orange (H0 vs H1) is not explained in the figure; the dashed top line (essential H0 class) is not explained; as drawn, the essential-class point sits FARTHER from the diagonal (approx. 1.85) than the loop point (1.50), so a reader keying on distance-from-diagonal alone picks the wrong point."
+    },
+    {
+      "stimulus_id": "S02",
+      "task_id": "T5",
+      "view": "scatter",
+      "misleading_cues": "None material: thickness and noise fuzz the exact boundary and a few outliers stray from the band."
+    },
+    {
+      "stimulus_id": "S03",
+      "task_id": "T2",
+      "view": "diagram",
+      "misleading_cues": "Same as S01: unlabeled colors; unexplained dashed line; the unprimed viewing pass initially treated the top-line essential class as the prominent feature before settling on the count 1."
+    },
+    {
+      "stimulus_id": "S04",
+      "task_id": "T4",
+      "view": "mapper",
+      "misleading_cues": "The larger component's small internal cycles could suggest local loops; node-size variation is unexplained; in the NATIVE kk layout the two components are not clearly separated (component bbox IoU 0.036; 6.7% node interleaving) \u2014 the clean separation shown here is a property of the component-separated custom rendering; and the disconnected morphology itself is parameter-dependent: at cover (20, 0.50) the same data yields a connected graph with two 20-node cycles (E2)."
+    },
+    {
+      "stimulus_id": "S05",
+      "task_id": "T5",
+      "view": "scatter",
+      "misleading_cues": "No axes or scale are drawn; a few outliers; subtle substructure would be hard to see at this density."
+    },
+    {
+      "stimulus_id": "S06",
+      "task_id": "T4",
+      "view": "mapper",
+      "misleading_cues": "Branches can be read as part of the cycle or as appendages; node sizes (cluster memberships) are unexplained; the loop signal vanishes at n_cubes=5 (tree graph) and the graph fragments at (20, 0.20) \u2014 parameter-dependent (E2)."
+    },
+    {
+      "stimulus_id": "S07",
+      "task_id": "T3",
+      "view": "scatter",
+      "misleading_cues": "Outlier points could be debated as tiny extra components; cluster boundaries are fuzzy at the margins."
+    },
+    {
+      "stimulus_id": "S08",
+      "task_id": "T2",
+      "view": "diagram",
+      "misleading_cues": "No legend: the unprimed viewing pass anchored on the essential H0 point (drawn distance from diagonal approx. 0.68 vs 0.48 for the loops) and answered 1; the figure does not encode that only H1 points count as loops, nor that the dashed-line point is the essential class that never dies."
+    },
+    {
+      "stimulus_id": "S09",
+      "task_id": "T5",
+      "view": "scatter",
+      "misleading_cues": "Same as S07: outliers and fuzzy cluster edges."
+    },
+    {
+      "stimulus_id": "S10",
+      "task_id": "T5",
+      "view": "scatter",
+      "misleading_cues": "Scatter noise fuzzes the lobe boundaries; the central region is cluttered, leaving slight uncertainty between one crossing point and two nearly-touching loops."
+    },
+    {
+      "stimulus_id": "S11",
+      "task_id": "T4",
+      "view": "mapper",
+      "misleading_cues": "The ring-like visual circuit is itself the misleading cue: Mapper graph cycles are not automatically topological loops in the data; nothing in the rendering distinguishes noise-scale cycles (6 nodes) from data-scale loops (16 nodes on the annulus); node sizes unexplained."
+    },
+    {
+      "stimulus_id": "S12",
+      "task_id": "T3",
+      "view": "mapper",
+      "misleading_cues": "Per-group colors and band separation are features of the component-separated custom rendering; in the NATIVE kk layout the three components overlap (component bbox IoU 0.233; 14.4% node interleaving) and the count is much harder to read; node sizes unexplained."
+    },
+    {
+      "stimulus_id": "S13",
+      "task_id": "T1",
+      "view": "diagram",
+      "misleading_cues": "Several orange points sit mildly above the band; 'prominent' is a threshold the figure does not define; overplotting near the origin hides individual short-lived features; colors unlabeled."
+    }
+  ],
+  "limitations": [
+    "single observer; the observer is the invested author who designed the datasets and had seen the E1/E2 computational results beforehand",
+    "observer bias and retrospective interpretation are possible and acknowledged; expected properties were pre-specified from construction, which limits but does not eliminate bias",
+    "the evidence concerns the produced artifacts and one observer's reading of them \u2014 NOT how a population of users would interpret them",
+    "no timing, no confidence ratings, no inferential statistics; no participant data exist for this experiment",
+    "judgments from different tasks are not comparable (task-specific design)"
+  ]
+}

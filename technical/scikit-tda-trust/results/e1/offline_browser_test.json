@@ -1,0 +1,47 @@
+{
+  "task": "T11 offline behavior — genuine browser-level offline test (executed, not inferred)",
+  "date_utc": "2026-10-22",
+  "tool": "agent-browser 0.39.0 (headless Playwright Chromium, chromium-1200)",
+  "subject": "figures/e1/annulus_mapper.html (kmapper 2.1.0 export; graph data embedded inline; same template as all four per-shape exports)",
+  "procedure": [
+    "1. ONLINE baseline: open file:///home/z/my-project/scikit-tda-trust/figures/e1/annulus_mapper.html; wait 3 s; evaluate DOM element counts; read network request log.",
+    "2. WARM-CACHE offline probe: 'set offline on', reload. RESULT NOT ACCEPTED as the offline answer: Chromium served the previously fetched CDN scripts from cache and the graph still rendered. Recorded as a caveat.",
+    "3. COLD-CACHE offline test (accepted result): FRESH browser session; 'set offline on' BEFORE navigation; open the same file:// URL; wait 4 s; evaluate DOM counts, network log, page errors; save screenshot."
+  ],
+  "online_result": {
+    "d3_loaded": true,
+    "node_groups_rendered": 20,
+    "edge_lines_rendered": 21,
+    "cdn_requests_succeeded": [
+      "https://fonts.googleapis.com/css?family=Roboto+Mono:700,300 (200)",
+      "https://cdnjs.cloudflare.com/ajax/libs/d3/6.1.1/d3.js (200)",
+      "https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js (200)",
+      "https://fonts.gstatic.com/s/robotomono/v31/L0x5DF4xlVMF-BfR8bXMIjhLq38.woff2 (200)"
+    ],
+    "notable_finding": "the imgur favicon request returned HTTP 429 (rate-limited) even in the ONLINE test — an additional external fragility",
+    "screenshot": "results/e1/browser_test/online.png"
+  },
+  "offline_cold_result": {
+    "d3_loaded": false,
+    "node_groups_rendered": 0,
+    "edge_lines_rendered": 0,
+    "graph_renders": false,
+    "what_remains_visible": "inline static HTML only: section headers ([+] CLUSTER DETAILS, [+] MAPPER SUMMARY, [+] HELP) and the page title; the SVG canvas is empty",
+    "failed_requests": [
+      "https://fonts.googleapis.com/css?family=Roboto+Mono:700,300 (stylesheet)",
+      "https://cdnjs.cloudflare.com/ajax/libs/d3/6.1.1/d3.js (script)",
+      "https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js (script)",
+      "http://i.imgur.com/axOG6GJ.jpg (favicon)"
+    ],
+    "page_errors_reported": "none captured — the D3 <script> simply fails to load, so the graph-drawing code never runs",
+    "screenshot": "results/e1/browser_test/offline_cold.png",
+    "conclusion": "The exported HTML is NOT an offline artifact: with network access disabled and a cold cache, D3 fails to load and the Mapper graph does not render at all."
+  },
+  "warm_cache_caveat": "A warm Chromium cache can mask the dependency (scripts served from cache while offline). Robust offline support would require bundling the scripts locally, which is NOT implemented in this project; static PNG figures remain the dependable offline presentation fallback.",
+  "evidence_sources": [
+    "DOM evaluation via in-page JS (node/edge element counts, typeof d3)",
+    "browser network request log (success codes online; failures offline)",
+    "screenshots (results/e1/browser_test/online.png, offline_cold.png)"
+  ],
+  "html_inspection_cross_check": "The four externally referenced resources found by HTML source inspection (D3, FileSaver, Google Fonts CSS, imgur favicon) are exactly the four requests observed in the browser network log — source inspection and runtime behavior agree."
+}

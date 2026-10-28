@@ -1,0 +1,280 @@
+{
+  "generated_utc": "2026-10-22 05:08",
+  "shuffle_seed": 2026,
+  "note": "INTERNAL \u2014 neutral IDs; expected properties pre-specified from construction and saved numerical results (never from inspection performance). Companion of PROTOCOL.md / METHODS_NOTE.md; the completed record is the authored inspection_record.csv.",
+  "record_columns": [
+    "task_id",
+    "stimulus_id",
+    "question",
+    "expected_property",
+    "visible_cues",
+    "observer_interpretation",
+    "assessment",
+    "matches_expected",
+    "misleading_cues",
+    "evidence_files",
+    "explanation_and_limitation"
+  ],
+  "items": [
+    {
+      "stimulus_id": "S01",
+      "task_id": "T1",
+      "shape": "annulus",
+      "view": "diagram",
+      "question": "Does this dataset contain a prominent loop? Yes / No.",
+      "expected_property": "Yes",
+      "basis": "construction: one circular band; anchor: annulus H1 top persistence + r_1 from results/e1/e1_audit.json. Measured anchors: top3 H1 persistence [1.4959, 0.0773, 0.0726], r_1 19.345, r_at_ground_truth_rank 19.345; Mapper reference cell: 1 component(s), longest basis cycle 16.",
+      "source_files": [
+        "results/e1/annulus_ph_dgms.npz"
+      ],
+      "rendering": {
+        "mapper_layout": null,
+        "dpi": 150,
+        "figsize": [
+          4.6,
+          4.6
+        ]
+      }
+    },
+    {
+      "stimulus_id": "S02",
+      "task_id": "T5",
+      "shape": "annulus",
+      "view": "scatter",
+      "question": "Does this dataset contain a prominent loop? Yes / No.",
+      "expected_property": "Yes",
+      "basis": "T1 question on the scatter; scatter IS the 2-D data (known-answer reference view). Measured anchors: top3 H1 persistence [1.4959, 0.0773, 0.0726], r_1 19.345, r_at_ground_truth_rank 19.345; Mapper reference cell: 1 component(s), longest basis cycle 16.",
+      "source_files": [
+        "results/e1/data/annulus.npy"
+      ],
+      "rendering": {
+        "mapper_layout": null,
+        "dpi": 150,
+        "figsize": [
+          4.6,
+          4.6
+        ]
+      }
+    },
+    {
+      "stimulus_id": "S03",
+      "task_id": "T2",
+      "shape": "annulus",
+      "view": "diagram",
+      "question": "How many prominent loops does this dataset contain?",
+      "expected_property": "1",
+      "basis": "construction: one loop; anchor: H1 gap at rank 1. Measured anchors: top3 H1 persistence [1.4959, 0.0773, 0.0726], r_1 19.345, r_at_ground_truth_rank 19.345; Mapper reference cell: 1 component(s), longest basis cycle 16.",
+      "source_files": [
+        "results/e1/annulus_ph_dgms.npz"
+      ],
+      "rendering": {
+        "mapper_layout": null,
+        "dpi": 150,
+        "figsize": [
+          4.6,
+          4.6
+        ]
+      }
+    },
+    {
+      "stimulus_id": "S04",
+      "task_id": "T4",
+      "shape": "figure_eight",
+      "view": "mapper",
+      "question": "Which best describes this graph: a large ring-like cycle / several disconnected pieces / a dense tangle?",
+      "expected_property": "several disconnected pieces",
+      "basis": "E2 reference cell: 2 components \u2014 the expected label is EXPLICITLY parameter-dependent (E2 finding: other cells are connected). Measured anchors: top3 H1 persistence [0.481, 0.4807, 0.0493], r_1 1.001, r_at_ground_truth_rank 9.747; Mapper reference cell: 2 component(s), longest basis cycle 4.",
+      "source_files": [
+        "results/e1/figure_eight_mapper_memberships.json"
+      ],
+      "rendering": {
+        "mapper_layout": "component_separated",
+        "dpi": 150,
+        "figsize": [
+          4.6,
+          4.6
+        ]
+      }
+    },
+    {
+      "stimulus_id": "S05",
+      "task_id": "T5",
+      "shape": "blob",
+      "view": "scatter",
+      "question": "Does this dataset contain a prominent loop? Yes / No.",
+      "expected_property": "No",
+      "basis": "T1 question on the scatter. Measured anchors: top3 H1 persistence [0.1396, 0.0962, 0.0924], r_1 1.451; Mapper reference cell: 1 component(s), longest basis cycle 6.",
+      "source_files": [
+        "results/e1/data/blob.npy"
+      ],
+      "rendering": {
+        "mapper_layout": null,
+        "dpi": 150,
+        "figsize": [
+          4.6,
+          4.6
+        ]
+      }
+    },
+    {
+      "stimulus_id": "S06",
+      "task_id": "T4",
+      "shape": "annulus",
+      "view": "mapper",
+      "question": "Which best describes this graph: a large ring-like cycle / several disconnected pieces / a dense tangle?",
+      "expected_property": "a large ring-like cycle",
+      "basis": "E2 reference cell: connected, long basis cycle; PARAMETER-DEPENDENT caveat from E2 grid. Measured anchors: top3 H1 persistence [1.4959, 0.0773, 0.0726], r_1 19.345, r_at_ground_truth_rank 19.345; Mapper reference cell: 1 component(s), longest basis cycle 16.",
+      "source_files": [
+        "results/e1/annulus_mapper_memberships.json"
+      ],
+      "rendering": {
+        "mapper_layout": "component_separated",
+        "dpi": 150,
+        "figsize": [
+          4.6,
+          4.6
+        ]
+      }
+    },
+    {
+      "stimulus_id": "S07",
+      "task_id": "T3",
+      "shape": "three_blobs",
+      "view": "scatter",
+      "question": "How many well-separated components does this dataset contain?",
+      "expected_property": "3",
+      "basis": "construction: three separated Gaussians; anchor: H0 two late merges + essential class; Mapper reference cell components from e1_audit.json. Measured anchors: top3 H1 persistence [0.1024, 0.0992, 0.0905], r_1 1.033; Mapper reference cell: 3 component(s), longest basis cycle 4.",
+      "source_files": [
+        "results/e1/data/three_blobs.npy"
+      ],
+      "rendering": {
+        "mapper_layout": null,
+        "dpi": 150,
+        "figsize": [
+          4.6,
+          4.6
+        ]
+      }
+    },
+    {
+      "stimulus_id": "S08",
+      "task_id": "T2",
+      "shape": "figure_eight",
+      "view": "diagram",
+      "question": "How many prominent loops does this dataset contain?",
+      "expected_property": "2",
+      "basis": "construction: two co-dominant loops; anchor: top two persistences ~equal, r_2 gap. Measured anchors: top3 H1 persistence [0.481, 0.4807, 0.0493], r_1 1.001, r_at_ground_truth_rank 9.747; Mapper reference cell: 2 component(s), longest basis cycle 4.",
+      "source_files": [
+        "results/e1/figure_eight_ph_dgms.npz"
+      ],
+      "rendering": {
+        "mapper_layout": null,
+        "dpi": 150,
+        "figsize": [
+          4.6,
+          4.6
+        ]
+      }
+    },
+    {
+      "stimulus_id": "S09",
+      "task_id": "T5",
+      "shape": "three_blobs",
+      "view": "scatter",
+      "question": "How many well-separated components does this dataset contain?",
+      "expected_property": "3",
+      "basis": "T3 question on the scatter. Measured anchors: top3 H1 persistence [0.1024, 0.0992, 0.0905], r_1 1.033; Mapper reference cell: 3 component(s), longest basis cycle 4.",
+      "source_files": [
+        "results/e1/data/three_blobs.npy"
+      ],
+      "rendering": {
+        "mapper_layout": null,
+        "dpi": 150,
+        "figsize": [
+          4.6,
+          4.6
+        ]
+      }
+    },
+    {
+      "stimulus_id": "S10",
+      "task_id": "T5",
+      "shape": "figure_eight",
+      "view": "scatter",
+      "question": "How many prominent loops does this dataset contain?",
+      "expected_property": "2",
+      "basis": "T2 question on the scatter. Measured anchors: top3 H1 persistence [0.481, 0.4807, 0.0493], r_1 1.001, r_at_ground_truth_rank 9.747; Mapper reference cell: 2 component(s), longest basis cycle 4.",
+      "source_files": [
+        "results/e1/data/figure_eight.npy"
+      ],
+      "rendering": {
+        "mapper_layout": null,
+        "dpi": 150,
+        "figsize": [
+          4.6,
+          4.6
+        ]
+      }
+    },
+    {
+      "stimulus_id": "S11",
+      "task_id": "T4",
+      "shape": "blob",
+      "view": "mapper",
+      "question": "Which best describes this graph: a large ring-like cycle / several disconnected pieces / a dense tangle?",
+      "expected_property": "a dense tangle",
+      "basis": "E1: noise-scale short cycles. Measured anchors: top3 H1 persistence [0.1396, 0.0962, 0.0924], r_1 1.451; Mapper reference cell: 1 component(s), longest basis cycle 6.",
+      "source_files": [
+        "results/e1/blob_mapper_memberships.json"
+      ],
+      "rendering": {
+        "mapper_layout": "component_separated",
+        "dpi": 150,
+        "figsize": [
+          4.6,
+          4.6
+        ]
+      }
+    },
+    {
+      "stimulus_id": "S12",
+      "task_id": "T3",
+      "shape": "three_blobs",
+      "view": "mapper",
+      "question": "How many well-separated components does this dataset contain?",
+      "expected_property": "3",
+      "basis": "construction: three separated Gaussians; anchor: H0 two late merges + essential class; Mapper reference cell components from e1_audit.json. Measured anchors: top3 H1 persistence [0.1024, 0.0992, 0.0905], r_1 1.033; Mapper reference cell: 3 component(s), longest basis cycle 4.",
+      "source_files": [
+        "results/e1/three_blobs_mapper_memberships.json"
+      ],
+      "rendering": {
+        "mapper_layout": "component_separated",
+        "dpi": 150,
+        "figsize": [
+          4.6,
+          4.6
+        ]
+      }
+    },
+    {
+      "stimulus_id": "S13",
+      "task_id": "T1",
+      "shape": "blob",
+      "view": "diagram",
+      "question": "Does this dataset contain a prominent loop? Yes / No.",
+      "expected_property": "No",
+      "basis": "construction: isotropic Gaussian; anchor: blob r_1 calibration from e1_audit.json. Measured anchors: top3 H1 persistence [0.1396, 0.0962, 0.0924], r_1 1.451; Mapper reference cell: 1 component(s), longest basis cycle 6.",
+      "source_files": [
+        "results/e1/blob_ph_dgms.npz"
+      ],
+      "rendering": {
+        "mapper_layout": null,
+        "dpi": 150,
+        "figsize": [
+          4.6,
+          4.6
+        ]
+      }
+    }
+  ]
+}

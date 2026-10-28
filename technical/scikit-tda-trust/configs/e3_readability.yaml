@@ -1,0 +1,128 @@
+# Experiment 3 — structured single-observer task-based inspection
+# (blueprint Section 4.3 FALLBACK, ACTIVATED 2026-10-22).
+#
+# PARTICIPANT STUDY: NOT CONDUCTED. A project constraint change (2026-10-22)
+# made any volunteer/participant study impossible. No participants were
+# recruited, approached, or observed; no participant responses exist; no
+# instructor approval was requested or granted, and none is needed for an
+# artifact inspection that involves no human subjects. E3 is executed
+# exclusively as the blueprint's pre-specified fallback: a structured
+# task-based inspection by a single observer. Nothing in this experiment may
+# be described as a human-participant study, a blinded study, or a
+# preregistered prospective experiment.
+
+research_question: >
+  For a predefined set of scientific exploration tasks, what structural
+  information is visible in Scikit-TDA's persistence diagrams and Mapper
+  visualizations, and what interpretation ambiguities arise from parameter
+  sensitivity and rendering choices?
+
+observer:
+  who: "the project author (single observer)"
+  bias_acknowledgment: >
+    The author designed the synthetic datasets and had seen the E1/E2
+    computational results before the inspection, so observer bias and
+    retrospective interpretation are possible. The expected properties
+    were pre-specified from the data construction and saved numerical
+    outputs (Phase-2 scoring key) before the inspection record was
+    authored, which limits -- but does not eliminate -- bias. Blinding
+    was neither possible nor claimed.
+  viewing_procedure: >
+    Stimuli are inspected as static PNG images in ONE pass, in the fixed
+    documented order S01..S13. An AI vision assistant is used as a viewing
+    aid to display and describe each rendered image; the recorded
+    interpretation is the author's judgment. No timing is recorded and no
+    confidence ratings are used (they would carry no evidential meaning
+    for a single invested observer).
+
+# Assessment categories (transparent descriptive categories, NOT objective
+# metrics). Exactly one per inspected item.
+#   clearly_apparent : the expected property is visible with ordinary care;
+#                      the cues supporting it dominate
+#   ambiguous        : cues point in more than one direction, or the property
+#                      is visible only with substantial inference; a different
+#                      reasonable reader could disagree
+#   visually_obscured: the property is present in the underlying computation
+#                      but the rendering makes it hard or impossible to see
+#   not_represented  : the representation does not encode the property at all
+assessment_categories: [clearly_apparent, ambiguous, visually_obscured,
+                        not_represented]
+
+# The five inspection tasks (blueprint Table 4.3, retained from the original
+# design). 'type' records whether the task is task-specific (one
+# representation) or a matched comparison (same structural question, same
+# data, multiple representations). Judgments from DIFFERENT tasks are never
+# compared as if the tasks were equivalent.
+tasks:
+  - id: T1
+    statement: "Does this dataset contain a prominent loop? Yes / No."
+    representation: persistence_diagram
+    type: task-specific
+  - id: T2
+    statement: "How many prominent loops does this dataset contain?"
+    representation: persistence_diagram
+    type: task-specific
+  - id: T3
+    statement: "How many well-separated components does this dataset contain?"
+    representation: scatter_and_mapper
+    type: matched_comparison   # same question, same data, two representations
+  - id: T4
+    statement: "Which best describes this graph: a large ring-like cycle / several disconnected pieces / a dense tangle?"
+    representation: mapper_graph
+    type: task-specific
+  - id: T5
+    statement: "The same structural questions on the raw scatter view."
+    representation: scatter
+    type: task_specific_baseline   # known-answer reference view, not a competitor
+
+# Stimulus set. NEUTRAL IDs only (S01..): recorded materials carry no dataset
+# names, no method names, and no expected answers. The ID mapping is fixed by
+# the seeded shuffle below and lives ONLY in the internal manifest / key.
+stimuli:
+  id_prefix: S
+  shuffle_seed: 2026          # deterministic ID assignment; recorded in manifest
+  mapper_layout: component_separated   # documented rendering choice (E1 finding:
+                        # native kk layout can overlap disconnected components;
+                        # native-vs-separated rendering is examined as a
+                        # rendering-choice ambiguity, evidence: E1/E2 figures)
+  dpi: 150
+  figsize: [4.6, 4.6]
+  # source data: SAVED RESULTS ONLY (no recomputation) —
+  #   scatter        <- results/e1/data/{shape}.npy
+  #   diagram        <- results/e1/{shape}_ph_dgms.npz
+  #   mapper graph   <- results/e1/{shape}_mapper_memberships.json (reference cell)
+  items:
+    - {shape: annulus,       view: diagram, task: T1}
+    - {shape: blob,          view: diagram, task: T1}
+    - {shape: annulus,       view: diagram, task: T2}
+    - {shape: figure_eight,  view: diagram, task: T2}
+    - {shape: three_blobs,   view: scatter, task: T3}
+    - {shape: three_blobs,   view: mapper,  task: T3}
+    - {shape: annulus,       view: mapper,  task: T4}
+    - {shape: figure_eight,  view: mapper,  task: T4}
+    - {shape: blob,          view: mapper,  task: T4}
+    - {shape: annulus,       view: scatter, task: T5}
+    - {shape: figure_eight,  view: scatter, task: T5}
+    - {shape: blob,          view: scatter, task: T5}
+    - {shape: three_blobs,   view: scatter, task: T5}
+
+# Fixed inspection order (single observer; no randomization — the actual
+# procedure is the documented fixed order S01..S13, recorded here and in
+# PROTOCOL.md). If the order is ever varied, the actual procedure must be
+# recorded instead.
+order:
+  fixed: true
+  sequence: "S01 S02 S03 S04 S05 S06 S07 S08 S09 S10 S11 S12 S13"
+
+paths:
+  e3_dir: e3_inspection
+  results_e1: results/e1
+  results_e3: results/e3
+
+# Expected properties live in the INTERNAL key generated next to the stimuli
+# (e3_inspection/scoring_key.csv + e3_inspection/stimulus_manifest.json).
+# They are derived from the data CONSTRUCTION and the saved E1/E2 results —
+# never from inspection performance. The completed record
+# (e3_inspection/inspection_record.csv) is an AUTHORED document: scripts
+# generate the blank worksheet and validate/summarize the completed record,
+# but never create observation content.

@@ -1,0 +1,478 @@
+{
+  "meta": {
+    "generated_utc": "2026-10-21T17:17:56.941863+00:00",
+    "reference_root": "/home/z/my-project/scikit-tda-trust",
+    "candidate_root": "/home/z/my-project/scikit-tda-trust-cleanclone",
+    "excluded_env_dependent_keys": [
+      "build_time_s",
+      "generate",
+      "generated_utc",
+      "mapper_build",
+      "ripser",
+      "ripser_time_s",
+      "stage_times_s",
+      "time_s"
+    ],
+    "gate": "all structural (array/JSON/CSV-except-time_s) outputs identical; PNG figures compared pixel-wise separately"
+  },
+  "comparisons": [
+    {
+      "artifact": "results/e1/data/annulus.npy",
+      "identical": true
+    },
+    {
+      "artifact": "results/e1/data/blob.npy",
+      "identical": true
+    },
+    {
+      "artifact": "results/e1/data/figure_eight.npy",
+      "identical": true
+    },
+    {
+      "artifact": "results/e1/data/three_blobs.npy",
+      "identical": true
+    },
+    {
+      "artifact": "results/e1/annulus_ph_dgms.npz",
+      "identical": true
+    },
+    {
+      "artifact": "results/e1/blob_ph_dgms.npz",
+      "identical": true
+    },
+    {
+      "artifact": "results/e1/figure_eight_ph_dgms.npz",
+      "identical": true
+    },
+    {
+      "artifact": "results/e1/three_blobs_ph_dgms.npz",
+      "identical": true
+    },
+    {
+      "artifact": "results/e1/annulus_mapper_memberships.json",
+      "identical": true,
+      "n_differences": 0,
+      "differences": []
+    },
+    {
+      "artifact": "results/e1/blob_mapper_memberships.json",
+      "identical": true,
+      "n_differences": 0,
+      "differences": []
+    },
+    {
+      "artifact": "results/e1/figure_eight_mapper_memberships.json",
+      "identical": true,
+      "n_differences": 0,
+      "differences": []
+    },
+    {
+      "artifact": "results/e1/three_blobs_mapper_memberships.json",
+      "identical": true,
+      "n_differences": 0,
+      "differences": []
+    },
+    {
+      "artifact": "results/e1/e1_audit.json",
+      "identical": true,
+      "n_differences": 0,
+      "differences": []
+    },
+    {
+      "artifact": "results/e1/layout_overlap.json",
+      "identical": true,
+      "n_differences": 0,
+      "differences": []
+    },
+    {
+      "artifact": "results/e2/e2_sensitivity.json",
+      "identical": true,
+      "n_differences": 0,
+      "differences": []
+    },
+    {
+      "artifact": "results/e2/e2_blob_sanity.json",
+      "identical": true,
+      "n_differences": 0,
+      "differences": []
+    },
+    {
+      "artifact": "results/e2/e2_sensitivity.csv",
+      "identical": true,
+      "rows_compared": 24,
+      "columns_skipped": [
+        "time_s"
+      ]
+    },
+    {
+      "artifact": "audit/glue_code_accounting.json",
+      "identical": true,
+      "n_differences": 0,
+      "differences": []
+    },
+    {
+      "artifact": "e3_inspection/stimulus_manifest.json",
+      "identical": true,
+      "n_differences": 0,
+      "differences": []
+    },
+    {
+      "artifact": "e3_inspection/scoring_key.csv",
+      "identical": true,
+      "rows_compared": 13,
+      "columns_skipped": []
+    },
+    {
+      "artifact": "e3_inspection/inspection_worksheet_BLANK.csv",
+      "identical": true,
+      "rows_compared": 13,
+      "columns_skipped": []
+    },
+    {
+      "artifact": "results/e3/inspection_summary.json",
+      "identical": true,
+      "n_differences": 0,
+      "differences": []
+    },
+    {
+      "artifact": "figures/e1/annulus_mapper.html",
+      "identical": true
+    },
+    {
+      "artifact": "figures/e1/blob_mapper.html",
+      "identical": true
+    },
+    {
+      "artifact": "figures/e1/figure_eight_mapper.html",
+      "identical": true
+    },
+    {
+      "artifact": "figures/e1/three_blobs_mapper.html",
+      "identical": true
+    }
+  ],
+  "all_structural_outputs_identical": true,
+  "figure_pixel_comparison": {
+    "n_figures": 45,
+    "n_pixel_identical": 45,
+    "reports": [
+      {
+        "artifact": "figures/e1/annulus_barcode.png",
+        "pixel_identical": true,
+        "max_channel_diff": 0,
+        "mean_abs_diff": 0.0,
+        "fraction_pixels_differing": 0.0
+      },
+      {
+        "artifact": "figures/e1/annulus_diagram.png",
+        "pixel_identical": true,
+        "max_channel_diff": 0,
+        "mean_abs_diff": 0.0,
+        "fraction_pixels_differing": 0.0
+      },
+      {
+        "artifact": "figures/e1/annulus_mapper_static.png",
+        "pixel_identical": true,
+        "max_channel_diff": 0,
+        "mean_abs_diff": 0.0,
+        "fraction_pixels_differing": 0.0
+      },
+      {
+        "artifact": "figures/e1/annulus_matching.png",
+        "pixel_identical": true,
+        "max_channel_diff": 0,
+        "mean_abs_diff": 0.0,
+        "fraction_pixels_differing": 0.0
+      },
+      {
+        "artifact": "figures/e1/annulus_pca_baseline.png",
+        "pixel_identical": true,
+        "max_channel_diff": 0,
+        "mean_abs_diff": 0.0,
+        "fraction_pixels_differing": 0.0
+      },
+      {
+        "artifact": "figures/e1/annulus_readability_native_vs_separated.png",
+        "pixel_identical": true,
+        "max_channel_diff": 0,
+        "mean_abs_diff": 0.0,
+        "fraction_pixels_differing": 0.0
+      },
+      {
+        "artifact": "figures/e1/annulus_scatter.png",
+        "pixel_identical": true,
+        "max_channel_diff": 0,
+        "mean_abs_diff": 0.0,
+        "fraction_pixels_differing": 0.0
+      },
+      {
+        "artifact": "figures/e1/blob_barcode.png",
+        "pixel_identical": true,
+        "max_channel_diff": 0,
+        "mean_abs_diff": 0.0,
+        "fraction_pixels_differing": 0.0
+      },
+      {
+        "artifact": "figures/e1/blob_diagram.png",
+        "pixel_identical": true,
+        "max_channel_diff": 0,
+        "mean_abs_diff": 0.0,
+        "fraction_pixels_differing": 0.0
+      },
+      {
+        "artifact": "figures/e1/blob_mapper_static.png",
+        "pixel_identical": true,
+        "max_channel_diff": 0,
+        "mean_abs_diff": 0.0,
+        "fraction_pixels_differing": 0.0
+      },
+      {
+        "artifact": "figures/e1/blob_pca_baseline.png",
+        "pixel_identical": true,
+        "max_channel_diff": 0,
+        "mean_abs_diff": 0.0,
+        "fraction_pixels_differing": 0.0
+      },
+      {
+        "artifact": "figures/e1/blob_readability_native_vs_separated.png",
+        "pixel_identical": true,
+        "max_channel_diff": 0,
+        "mean_abs_diff": 0.0,
+        "fraction_pixels_differing": 0.0
+      },
+      {
+        "artifact": "figures/e1/blob_scatter.png",
+        "pixel_identical": true,
+        "max_channel_diff": 0,
+        "mean_abs_diff": 0.0,
+        "fraction_pixels_differing": 0.0
+      },
+      {
+        "artifact": "figures/e1/figure_eight_barcode.png",
+        "pixel_identical": true,
+        "max_channel_diff": 0,
+        "mean_abs_diff": 0.0,
+        "fraction_pixels_differing": 0.0
+      },
+      {
+        "artifact": "figures/e1/figure_eight_diagram.png",
+        "pixel_identical": true,
+        "max_channel_diff": 0,
+        "mean_abs_diff": 0.0,
+        "fraction_pixels_differing": 0.0
+      },
+      {
+        "artifact": "figures/e1/figure_eight_mapper_static.png",
+        "pixel_identical": true,
+        "max_channel_diff": 0,
+        "mean_abs_diff": 0.0,
+        "fraction_pixels_differing": 0.0
+      },
+      {
+        "artifact": "figures/e1/figure_eight_pca_baseline.png",
+        "pixel_identical": true,
+        "max_channel_diff": 0,
+        "mean_abs_diff": 0.0,
+        "fraction_pixels_differing": 0.0
+      },
+      {
+        "artifact": "figures/e1/figure_eight_readability_native_vs_separated.png",
+        "pixel_identical": true,
+        "max_channel_diff": 0,
+        "mean_abs_diff": 0.0,
+        "fraction_pixels_differing": 0.0
+      },
+      {
+        "artifact": "figures/e1/figure_eight_scatter.png",
+        "pixel_identical": true,
+        "max_channel_diff": 0,
+        "mean_abs_diff": 0.0,
+        "fraction_pixels_differing": 0.0
+      },
+      {
+        "artifact": "figures/e1/three_blobs_barcode.png",
+        "pixel_identical": true,
+        "max_channel_diff": 0,
+        "mean_abs_diff": 0.0,
+        "fraction_pixels_differing": 0.0
+      },
+      {
+        "artifact": "figures/e1/three_blobs_diagram.png",
+        "pixel_identical": true,
+        "max_channel_diff": 0,
+        "mean_abs_diff": 0.0,
+        "fraction_pixels_differing": 0.0
+      },
+      {
+        "artifact": "figures/e1/three_blobs_mapper_static.png",
+        "pixel_identical": true,
+        "max_channel_diff": 0,
+        "mean_abs_diff": 0.0,
+        "fraction_pixels_differing": 0.0
+      },
+      {
+        "artifact": "figures/e1/three_blobs_pca_baseline.png",
+        "pixel_identical": true,
+        "max_channel_diff": 0,
+        "mean_abs_diff": 0.0,
+        "fraction_pixels_differing": 0.0
+      },
+      {
+        "artifact": "figures/e1/three_blobs_readability_native_vs_separated.png",
+        "pixel_identical": true,
+        "max_channel_diff": 0,
+        "mean_abs_diff": 0.0,
+        "fraction_pixels_differing": 0.0
+      },
+      {
+        "artifact": "figures/e1/three_blobs_scatter.png",
+        "pixel_identical": true,
+        "max_channel_diff": 0,
+        "mean_abs_diff": 0.0,
+        "fraction_pixels_differing": 0.0
+      },
+      {
+        "artifact": "figures/e2/e2_readability_annulus.png",
+        "pixel_identical": true,
+        "max_channel_diff": 0,
+        "mean_abs_diff": 0.0,
+        "fraction_pixels_differing": 0.0
+      },
+      {
+        "artifact": "figures/e2/e2_readability_figure_eight.png",
+        "pixel_identical": true,
+        "max_channel_diff": 0,
+        "mean_abs_diff": 0.0,
+        "fraction_pixels_differing": 0.0
+      },
+      {
+        "artifact": "figures/e2/e2_representative_panels_annulus.png",
+        "pixel_identical": true,
+        "max_channel_diff": 0,
+        "mean_abs_diff": 0.0,
+        "fraction_pixels_differing": 0.0
+      },
+      {
+        "artifact": "figures/e2/e2_representative_panels_figure_eight.png",
+        "pixel_identical": true,
+        "max_channel_diff": 0,
+        "mean_abs_diff": 0.0,
+        "fraction_pixels_differing": 0.0
+      },
+      {
+        "artifact": "figures/e2/e2_sanity_blob.png",
+        "pixel_identical": true,
+        "max_channel_diff": 0,
+        "mean_abs_diff": 0.0,
+        "fraction_pixels_differing": 0.0
+      },
+      {
+        "artifact": "figures/e2/e2_sensitivity_summary_annulus.png",
+        "pixel_identical": true,
+        "max_channel_diff": 0,
+        "mean_abs_diff": 0.0,
+        "fraction_pixels_differing": 0.0
+      },
+      {
+        "artifact": "figures/e2/e2_sensitivity_summary_figure_eight.png",
+        "pixel_identical": true,
+        "max_channel_diff": 0,
+        "mean_abs_diff": 0.0,
+        "fraction_pixels_differing": 0.0
+      },
+      {
+        "artifact": "e3_inspection/stimuli/S01.png",
+        "pixel_identical": true,
+        "max_channel_diff": 0,
+        "mean_abs_diff": 0.0,
+        "fraction_pixels_differing": 0.0
+      },
+      {
+        "artifact": "e3_inspection/stimuli/S02.png",
+        "pixel_identical": true,
+        "max_channel_diff": 0,
+        "mean_abs_diff": 0.0,
+        "fraction_pixels_differing": 0.0
+      },
+      {
+        "artifact": "e3_inspection/stimuli/S03.png",
+        "pixel_identical": true,
+        "max_channel_diff": 0,
+        "mean_abs_diff": 0.0,
+        "fraction_pixels_differing": 0.0
+      },
+      {
+        "artifact": "e3_inspection/stimuli/S04.png",
+        "pixel_identical": true,
+        "max_channel_diff": 0,
+        "mean_abs_diff": 0.0,
+        "fraction_pixels_differing": 0.0
+      },
+      {
+        "artifact": "e3_inspection/stimuli/S05.png",
+        "pixel_identical": true,
+        "max_channel_diff": 0,
+        "mean_abs_diff": 0.0,
+        "fraction_pixels_differing": 0.0
+      },
+      {
+        "artifact": "e3_inspection/stimuli/S06.png",
+        "pixel_identical": true,
+        "max_channel_diff": 0,
+        "mean_abs_diff": 0.0,
+        "fraction_pixels_differing": 0.0
+      },
+      {
+        "artifact": "e3_inspection/stimuli/S07.png",
+        "pixel_identical": true,
+        "max_channel_diff": 0,
+        "mean_abs_diff": 0.0,
+        "fraction_pixels_differing": 0.0
+      },
+      {
+        "artifact": "e3_inspection/stimuli/S08.png",
+        "pixel_identical": true,
+        "max_channel_diff": 0,
+        "mean_abs_diff": 0.0,
+        "fraction_pixels_differing": 0.0
+      },
+      {
+        "artifact": "e3_inspection/stimuli/S09.png",
+        "pixel_identical": true,
+        "max_channel_diff": 0,
+        "mean_abs_diff": 0.0,
+        "fraction_pixels_differing": 0.0
+      },
+      {
+        "artifact": "e3_inspection/stimuli/S10.png",
+        "pixel_identical": true,
+        "max_channel_diff": 0,
+        "mean_abs_diff": 0.0,
+        "fraction_pixels_differing": 0.0
+      },
+      {
+        "artifact": "e3_inspection/stimuli/S11.png",
+        "pixel_identical": true,
+        "max_channel_diff": 0,
+        "mean_abs_diff": 0.0,
+        "fraction_pixels_differing": 0.0
+      },
+      {
+        "artifact": "e3_inspection/stimuli/S12.png",
+        "pixel_identical": true,
+        "max_channel_diff": 0,
+        "mean_abs_diff": 0.0,
+        "fraction_pixels_differing": 0.0
+      },
+      {
+        "artifact": "e3_inspection/stimuli/S13.png",
+        "pixel_identical": true,
+        "max_channel_diff": 0,
+        "mean_abs_diff": 0.0,
+        "fraction_pixels_differing": 0.0
+      }
+    ]
+  },
+  "differences": [],
+  "n_differences_total": 0
+}

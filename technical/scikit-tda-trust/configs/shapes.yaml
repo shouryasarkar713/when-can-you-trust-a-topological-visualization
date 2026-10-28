@@ -1,0 +1,43 @@
+# Synthetic dataset definitions (blueprint Section 5.2).
+# Seeds are MANDATORY for every stochastic step (blueprint Section 9).
+# ground_truth_h1_rank is known from the CONSTRUCTION of each generator
+# (R-1 in IMPLEMENTATION_NOTES.md); it is not a universal loop-counting rule.
+
+shapes:
+  annulus:
+    n: 500
+    r_in: 1.0
+    r_out: 1.4
+    noise: 0.05
+    seed: 42
+    ground_truth_h1_rank: 1
+    role: "one prominent loop (primary signal dataset)"
+
+  figure_eight:
+    n: 500
+    noise: 0.05
+    seed: 42
+    ground_truth_h1_rank: 2
+    role: "two co-dominant loops (r_2 is the correct gap statistic; r_1 ~ 1 is expected)"
+
+  blob:
+    n: 500
+    spread: 0.45
+    seed: 42
+    ground_truth_h1_rank: null
+    role: "no-loop control (H1 gap ratios are calibration only)"
+
+  three_blobs:
+    n: 450
+    spread: 0.25
+    centers: [[-2.0, 0.0], [2.0, 0.0], [0.0, 2.5]]
+    seed: 42
+    ground_truth_h1_rank: null
+    role: "three-component control (component structure read from H0, not H1)"
+
+# Resampling-stability check (E1): distances between two independently
+# seeded copies of each shape's H1 diagram.
+stability_check:
+  seeds: [43, 44]        # two fresh seeds, distinct from the headline seed
+  metrics: [bottleneck, wasserstein]
+  matching_plot_shape: annulus   # one shape gets a matching visualization

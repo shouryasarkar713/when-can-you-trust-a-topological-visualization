@@ -1,0 +1,51 @@
+# Experiment 1 — visualization capability and workflow audit.
+# The 13 audited tasks follow blueprint Section 4.1. Support levels recorded
+# in the capability matrix are DEMONSTRATED by this run (what ran, which
+# packages, which artifacts); they are not asserted from documentation.
+
+mapper_defaults:            # sandbox-verified defaults (blueprint 4.1)
+  n_cubes: 10
+  perc_overlap: 0.35
+  kmeans_seed: 42
+  kmeans_n_clusters: 2
+
+ripser_defaults:
+  maxdim: 1
+
+paths:
+  results_dir: results/e1
+  figures_dir: figures/e1
+  audit_dir: audit
+  data_dir: results/e1/data      # per-shape .npy arrays (traceability)
+
+determinism_check:
+  shape: annulus                # rerun this shape end-to-end and compare
+
+# The 13 tasks (labels used by the capability matrix; execution is scripted).
+tasks:
+  - id: T01
+    task: "Create and activate a clean environment and install the stack"
+  - id: T02
+    task: "Generate a synthetic point cloud with documented parameters and seed"
+  - id: T03
+    task: "Compute persistent homology with ripser"
+  - id: T04
+    task: "Render a persistence diagram with persim"
+  - id: T05
+    task: "Render an H1 barcode"
+  - id: T06
+    task: "Compute bottleneck and Wasserstein distances between two diagrams"
+  - id: T07
+    task: "Visualize a bottleneck matching"
+  - id: T08
+    task: "Construct a Mapper graph with a PCA lens and seeded KMeans"
+  - id: T09
+    task: "Count nodes, edges, and connected components"
+  - id: T10
+    task: "Render a static Mapper graph"
+  - id: T11
+    task: "Export the interactive HTML visualization (online and offline behavior)"
+  - id: T12
+    task: "Re-run the pipeline and confirm identical numeric outputs"
+  - id: T13
+    task: "Produce the conventional baseline (PCA scatter)"

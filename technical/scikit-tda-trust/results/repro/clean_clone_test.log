@@ -1,0 +1,228 @@
+
+=== [17:16:59] Clean-copy reproducibility test started: Wed Oct 21 17:16:59 UTC 2026 ===
+Reference : /home/z/my-project/scikit-tda-trust
+Candidate : /home/z/my-project/scikit-tda-trust/../scikit-tda-trust-cleanclone
+Python    : Python 3.12.15
+
+=== [17:17:00] 1. Export clean copy of the current source state ===
+    exit status: 0
+
+=== [17:17:00] 2. Fresh virtual environment (Python 3.12) in the candidate copy ===
+    exit status: 0
+
+=== [17:17:02] 3. Install pinned dependencies (documented procedure) ===
+    exit status: 0
+
+=== [17:17:23] 3b. Record environment of the candidate ===
+Python 3.12.15
+{'ripser': '0.6.15', 'persim': '0.4.1', 'kmapper': '2.1.0', 'scikit-learn': '1.9.1', 'numpy': '2.5.4', 'scipy': '1.18.1', 'matplotlib': '3.11.2', 'networkx': '3.7'}
+    exit status: 0
+
+=== [17:17:23] 4a. Environment verification in the candidate ===
+Python : 3.12.15  (/home/z/my-project/scikit-tda-trust-cleanclone/.venv/bin/python)
+Platform: Linux-5.10.134-013.15.kangaroo.al8.x86_64-x86_64-with-glibc2.41
+
+[PASS] pin:ripser: installed 0.6.15, pinned 0.6.15
+[PASS] pin:persim: installed 0.4.1, pinned 0.4.1
+[PASS] pin:kmapper: installed 2.1.0, pinned 2.1.0
+[PASS] pin:tadasets: installed 0.2.2, pinned 0.2.2
+[PASS] pin:scikit-learn: installed 1.9.1, pinned 1.9.1
+[PASS] pin:numpy: installed 2.5.4, pinned 2.5.4
+[PASS] pin:scipy: installed 1.18.1, pinned 1.18.1
+[PASS] pin:matplotlib: installed 3.11.2, pinned 3.11.2
+[PASS] pin:networkx: installed 3.7, pinned 3.7
+[PASS] pin:pyyaml: installed 6.0.3, pinned 6.0.3
+[PASS] import:numpy: ok
+[PASS] import:scipy: ok
+[PASS] import:sklearn: ok
+[PASS] import:matplotlib: ok
+[PASS] import:networkx: ok
+[PASS] import:yaml: ok
+[PASS] import:ripser: ok
+[PASS] import:persim: ok
+[PASS] import:kmapper: ok
+[PASS] import:tadasets: ok
+[PASS] api:ripser.no_plot_dgms: ripser exports ['Rips', 'correlation_to_distance', 'lower_star_img', 'ripser'] (diagram plotting lives in persim)
+[PASS] api:ripser.ripser: present
+[PASS] api:ripser.Rips: present
+[PASS] api:ripser.lower_star_img: present
+[PASS] api:ripser.correlation_to_distance: present
+[PASS] api:persim.plot_diagrams: present
+[PASS] api:persim.bottleneck: present
+[PASS] api:persim.wasserstein: present
+[PASS] api:persim.bottleneck_matching: present
+[PASS] api:persim.wasserstein_matching: present
+[PASS] api:persim.__version__: absent (expected; use importlib.metadata)
+[PASS] api:kmapper.KeplerMapper: present
+[PASS] api:kmapper.CubicalCover: present
+[PASS] api:kmapper.to_networkx: module-level
+[PASS] api:kmapper.draw_matplotlib: module-level
+[PASS] smoke:circle_H1_one_dominant_class: H1 classes=1, dominant(>0.5*top)=1, top persistence=1.666, r_1=n/a
+[PASS] smoke:mapper_graph_built: 10 nodes, 4 edges
+[PASS] smoke:mapper_html_exported: 58029 bytes
+
+38/38 checks passed. Evidence: /home/z/my-project/scikit-tda-trust-cleanclone/results/env/verification.json
+    exit status: 0
+
+=== [17:17:25] 4b. Test suite in the candidate ===
+............................................................             [100%]
+60 passed in 7.80s
+    exit status: 0
+
+=== [17:17:33] 4c. E1 pipeline in the candidate ===
+--- E1 pipeline: annulus ---
+no display found. Using non-interactive Agg backend
+    H1 top3=[1.4959, 0.0773, 0.0726] mapper=20n/21e/1cc html_urls=4 kk_overlap_iou=0.0
+--- E1 pipeline: figure_eight ---
+no display found. Using non-interactive Agg backend
+    H1 top3=[0.481, 0.4807, 0.0493] mapper=20n/19e/2cc html_urls=4 kk_overlap_iou=0.0355
+--- E1 pipeline: blob ---
+no display found. Using non-interactive Agg backend
+    H1 top3=[0.1396, 0.0962, 0.0924] mapper=20n/23e/1cc html_urls=4 kk_overlap_iou=0.0
+--- E1 pipeline: three_blobs ---
+no display found. Using non-interactive Agg backend
+    H1 top3=[0.1024, 0.0992, 0.0905] mapper=20n/20e/3cc html_urls=4 kk_overlap_iou=0.2332
+--- E1 stability check (two fresh seeds per shape) ---
+/home/z/my-project/scikit-tda-trust-cleanclone/.venv/lib/python3.12/site-packages/persim/bottleneck.py:52: UserWarning: As of 0.4.0, bottleneck(..., matching=True) may return a different optimal matching than earlier versions when several matchings tie for the bottleneck distance; the distance itself is unaffected. This is a one-time notice for the 0.4.x series and will be removed in 0.5.0.
+  warnings.warn(
+--- E1 determinism check (full rerun): annulus ---
+    arrays=True diagrams=True memberships=True
+
+Wrote /home/z/my-project/scikit-tda-trust-cleanclone/results/e1/e1_audit.json
+Wrote /home/z/my-project/scikit-tda-trust-cleanclone/audit/capability_matrix.csv
+Wrote /home/z/my-project/scikit-tda-trust-cleanclone/audit/evidence_log.md
+Wrote /home/z/my-project/scikit-tda-trust-cleanclone/audit/glue_code_accounting.json
+Wrote /home/z/my-project/scikit-tda-trust-cleanclone/results/e1/layout_overlap.json
+Capability matrix: 13 tasks, statuses: {'demonstrated'}
+    exit status: 0
+
+=== [17:17:45] 4d. E2 pipeline (24-cell grid + sanity control) in the candidate ===
+--- E2 grid: annulus (12 cells) ---
+--- E2 grid: figure_eight (12 cells) ---
+--- E2 sanity control: blob (2 diagnostic cells) ---
+Wrote /home/z/my-project/scikit-tda-trust-cleanclone/results/e2/e2_blob_sanity.json
+
+Wrote /home/z/my-project/scikit-tda-trust-cleanclone/results/e2/e2_sensitivity.json
+Wrote /home/z/my-project/scikit-tda-trust-cleanclone/results/e2/e2_sensitivity.csv
+annulus: components observed [1, 2]; cyclomatic observed [0, 1, 2, 3, 4, 5]; similarity range 0.449-1.000; determinism control: identical
+figure_eight: components observed [1, 2, 4]; cyclomatic observed [0, 1, 2, 3, 4]; similarity range 0.457-1.000; determinism control: identical
+sanity (blob): H1 r_1 calibration=1.451; graph cells: (10,0.35)=1cc/4cyc/maxlen6; (20,0.2)=6cc/5cyc/maxlen10
+    exit status: 0
+
+=== [17:17:48] 4e. Figure regeneration from saved results in the candidate ===
+no display found. Using non-interactive Agg backend
+no display found. Using non-interactive Agg backend
+no display found. Using non-interactive Agg backend
+no display found. Using non-interactive Agg backend
+no display found. Using non-interactive Agg backend
+no display found. Using non-interactive Agg backend
+no display found. Using non-interactive Agg backend
+no display found. Using non-interactive Agg backend
+no display found. Using non-interactive Agg backend
+no display found. Using non-interactive Agg backend
+no display found. Using non-interactive Agg backend
+no display found. Using non-interactive Agg backend
+Wrote /home/z/my-project/scikit-tda-trust-cleanclone/figures/e2/e2_sensitivity_summary_annulus.png
+Wrote /home/z/my-project/scikit-tda-trust-cleanclone/figures/e2/e2_sensitivity_summary_annulus.caption.txt
+Wrote /home/z/my-project/scikit-tda-trust-cleanclone/figures/e2/e2_sensitivity_summary_figure_eight.png
+Wrote /home/z/my-project/scikit-tda-trust-cleanclone/figures/e2/e2_sensitivity_summary_figure_eight.caption.txt
+Wrote /home/z/my-project/scikit-tda-trust-cleanclone/figures/e2/e2_representative_panels_annulus.png
+Wrote /home/z/my-project/scikit-tda-trust-cleanclone/figures/e2/e2_representative_panels_annulus.caption.txt
+Wrote /home/z/my-project/scikit-tda-trust-cleanclone/figures/e2/e2_representative_panels_figure_eight.png
+Wrote /home/z/my-project/scikit-tda-trust-cleanclone/figures/e2/e2_representative_panels_figure_eight.caption.txt
+Wrote /home/z/my-project/scikit-tda-trust-cleanclone/figures/e2/e2_readability_annulus.png
+Wrote /home/z/my-project/scikit-tda-trust-cleanclone/figures/e2/e2_readability_annulus.caption.txt
+Wrote /home/z/my-project/scikit-tda-trust-cleanclone/figures/e2/e2_readability_figure_eight.png
+Wrote /home/z/my-project/scikit-tda-trust-cleanclone/figures/e2/e2_readability_figure_eight.caption.txt
+Wrote /home/z/my-project/scikit-tda-trust-cleanclone/figures/e2/e2_sanity_blob.png
+Wrote /home/z/my-project/scikit-tda-trust-cleanclone/figures/e2/e2_sanity_blob.caption.txt
+Wrote /home/z/my-project/scikit-tda-trust-cleanclone/figures/e1/annulus_readability_native_vs_separated.png
+Wrote /home/z/my-project/scikit-tda-trust-cleanclone/figures/e1/annulus_readability_native_vs_separated.caption.txt
+Wrote /home/z/my-project/scikit-tda-trust-cleanclone/figures/e1/figure_eight_readability_native_vs_separated.png
+Wrote /home/z/my-project/scikit-tda-trust-cleanclone/figures/e1/figure_eight_readability_native_vs_separated.caption.txt
+Wrote /home/z/my-project/scikit-tda-trust-cleanclone/figures/e1/blob_readability_native_vs_separated.png
+Wrote /home/z/my-project/scikit-tda-trust-cleanclone/figures/e1/blob_readability_native_vs_separated.caption.txt
+Wrote /home/z/my-project/scikit-tda-trust-cleanclone/figures/e1/three_blobs_readability_native_vs_separated.png
+Wrote /home/z/my-project/scikit-tda-trust-cleanclone/figures/e1/three_blobs_readability_native_vs_separated.caption.txt
+    exit status: 0
+
+=== [17:17:52] 4f. E3 inspection MATERIALS regeneration in the candidate ===
+stimulus S01: T1 / annulus / diagram -> /home/z/my-project/scikit-tda-trust-cleanclone/e3_inspection/stimuli/S01.png
+stimulus S13: T1 / blob / diagram -> /home/z/my-project/scikit-tda-trust-cleanclone/e3_inspection/stimuli/S13.png
+stimulus S03: T2 / annulus / diagram -> /home/z/my-project/scikit-tda-trust-cleanclone/e3_inspection/stimuli/S03.png
+stimulus S08: T2 / figure_eight / diagram -> /home/z/my-project/scikit-tda-trust-cleanclone/e3_inspection/stimuli/S08.png
+stimulus S07: T3 / three_blobs / scatter -> /home/z/my-project/scikit-tda-trust-cleanclone/e3_inspection/stimuli/S07.png
+stimulus S12: T3 / three_blobs / mapper -> /home/z/my-project/scikit-tda-trust-cleanclone/e3_inspection/stimuli/S12.png
+stimulus S06: T4 / annulus / mapper -> /home/z/my-project/scikit-tda-trust-cleanclone/e3_inspection/stimuli/S06.png
+stimulus S04: T4 / figure_eight / mapper -> /home/z/my-project/scikit-tda-trust-cleanclone/e3_inspection/stimuli/S04.png
+stimulus S11: T4 / blob / mapper -> /home/z/my-project/scikit-tda-trust-cleanclone/e3_inspection/stimuli/S11.png
+stimulus S02: T5 / annulus / scatter -> /home/z/my-project/scikit-tda-trust-cleanclone/e3_inspection/stimuli/S02.png
+stimulus S10: T5 / figure_eight / scatter -> /home/z/my-project/scikit-tda-trust-cleanclone/e3_inspection/stimuli/S10.png
+stimulus S05: T5 / blob / scatter -> /home/z/my-project/scikit-tda-trust-cleanclone/e3_inspection/stimuli/S05.png
+stimulus S09: T5 / three_blobs / scatter -> /home/z/my-project/scikit-tda-trust-cleanclone/e3_inspection/stimuli/S09.png
+NOTE: completed inspection record already exists (/home/z/my-project/scikit-tda-trust-cleanclone/e3_inspection/inspection_record.csv, 25 lines) — this script does NOT touch it.
+
+Wrote /home/z/my-project/scikit-tda-trust-cleanclone/e3_inspection/stimuli (13 stimuli), scoring key, manifest, blank inspection worksheet -> /home/z/my-project/scikit-tda-trust-cleanclone/e3_inspection
+E3 is a STRUCTURED SINGLE-OBSERVER INSPECTION: the participant study was NOT conducted (constraint change 2026-10-22); no participant data exist or may be implied.
+    exit status: 0
+
+=== [17:17:54] 4g. E3 inspection-record analysis in the candidate (authored record, ===
+      rsync-copied verbatim; the analyzer only validates + summarizes)
+# E3 Inspection Summary — structured task-based inspection by a single observer (pre-specified fallback; participant study NOT conducted)
+
+- Inspection records: 13 (one per stimulus, fixed order S01..S13; single observer = the project author)
+- Counts describe RECORDED INSPECTION JUDGMENTS of one observer against pre-registered expected properties. They are NOT measured human accuracy, NOT population-level readability, and NOT statistically significant. Computational metrics cited in the basis fields (persistences, gap ratios, component counts, cycle-basis lengths) come from saved results and are separate from these inspection judgments.
+
+| Task | Representation | n | clearly_apparent | ambiguous | visually_obscured | not_represented | matches: yes/partial/no |
+|---|---|---|---|---|---|---|---|
+| T1 | diagram | 2 | 2 | 0 | 0 | 0 | 2/0/0 |
+| T2 | diagram | 2 | 1 | 1 | 0 | 0 | 2/0/0 |
+| T3 | mapper | 1 | 1 | 0 | 0 | 0 | 1/0/0 |
+| T3 | scatter | 1 | 1 | 0 | 0 | 0 | 1/0/0 |
+| T4 | mapper | 3 | 2 | 1 | 0 | 0 | 2/1/0 |
+| T5 | scatter | 4 | 4 | 0 | 0 | 0 | 4/0/0 |
+
+Overall (single-observer inspection result): {'clearly_apparent': 11, 'ambiguous': 2}; matches_expected: {'yes': 12, 'partial': 1}.
+
+## Recorded misleading cues / rendering problems
+- **S01 (T1, diagram)**: No legend: blue vs orange (H0 vs H1) is not explained in the figure; the dashed top line (essential H0 class) is not explained; as drawn, the essential-class point sits FARTHER from the diagonal (approx. 1.85) than the loop point (1.50), so a reader keying on distance-from-diagonal alone picks the wrong point.
+- **S02 (T5, scatter)**: None material: thickness and noise fuzz the exact boundary and a few outliers stray from the band.
+- **S03 (T2, diagram)**: Same as S01: unlabeled colors; unexplained dashed line; the unprimed viewing pass initially treated the top-line essential class as the prominent feature before settling on the count 1.
+- **S04 (T4, mapper)**: The larger component's small internal cycles could suggest local loops; node-size variation is unexplained; in the NATIVE kk layout the two components are not clearly separated (component bbox IoU 0.036; 6.7% node interleaving) — the clean separation shown here is a property of the component-separated custom rendering; and the disconnected morphology itself is parameter-dependent: at cover (20, 0.50) the same data yields a connected graph with two 20-node cycles (E2).
+- **S05 (T5, scatter)**: No axes or scale are drawn; a few outliers; subtle substructure would be hard to see at this density.
+- **S06 (T4, mapper)**: Branches can be read as part of the cycle or as appendages; node sizes (cluster memberships) are unexplained; the loop signal vanishes at n_cubes=5 (tree graph) and the graph fragments at (20, 0.20) — parameter-dependent (E2).
+- **S07 (T3, scatter)**: Outlier points could be debated as tiny extra components; cluster boundaries are fuzzy at the margins.
+- **S08 (T2, diagram)**: No legend: the unprimed viewing pass anchored on the essential H0 point (drawn distance from diagonal approx. 0.68 vs 0.48 for the loops) and answered 1; the figure does not encode that only H1 points count as loops, nor that the dashed-line point is the essential class that never dies.
+- **S09 (T5, scatter)**: Same as S07: outliers and fuzzy cluster edges.
+- **S10 (T5, scatter)**: Scatter noise fuzzes the lobe boundaries; the central region is cluttered, leaving slight uncertainty between one crossing point and two nearly-touching loops.
+- **S11 (T4, mapper)**: The ring-like visual circuit is itself the misleading cue: Mapper graph cycles are not automatically topological loops in the data; nothing in the rendering distinguishes noise-scale cycles (6 nodes) from data-scale loops (16 nodes on the annulus); node sizes unexplained.
+- **S12 (T3, mapper)**: Per-group colors and band separation are features of the component-separated custom rendering; in the NATIVE kk layout the three components overlap (component bbox IoU 0.233; 14.4% node interleaving) and the count is much harder to read; node sizes unexplained.
+- **S13 (T1, diagram)**: Several orange points sit mildly above the band; 'prominent' is a threshold the figure does not define; overplotting near the origin hides individual short-lived features; colors unlabeled.
+
+## Limitations
+- single observer; the observer is the invested author who designed the datasets and had seen the E1/E2 computational results beforehand
+- observer bias and retrospective interpretation are possible and acknowledged; expected properties were pre-registered from construction, which limits but does not eliminate bias
+- the evidence concerns the produced artifacts and one observer's reading of them — NOT how a population of users would interpret them
+- no timing, no confidence ratings, no inferential statistics; no participant data exist for this experiment
+- judgments from different tasks are not comparable (task-specific design)
+
+Labeled everywhere as a single-observer inspection — never as a human-participant study.
+
+VALIDATION PASSED: 13/13 records complete and consistent with the manifest.
+Wrote /home/z/my-project/scikit-tda-trust-cleanclone/results/e3/inspection_summary.json
+Wrote /home/z/my-project/scikit-tda-trust-cleanclone/results/e3/inspection_summary.md
+    exit status: 0
+
+=== [17:17:54] 5. Compare candidate outputs against the reference run ===
+Structural outputs identical: True (26/26 artifacts)
+Figures pixel-identical: 45/45
+Wrote /home/z/my-project/scikit-tda-trust/results/repro/comparison_report.json
+    exit status: 0
+
+=== [17:17:56] Summary ===
+Comparison exit status: 0 (0 = all structural outputs identical)
+Report: /home/z/my-project/scikit-tda-trust/results/repro/comparison_report.json
+NOTE: this is a clean EXPORTED SOURCE COPY test (rsync of the working
+tree), not a git clone — git commits are not permitted in this
+workspace, so a clone would miss the current source state (D-8).
+RESULT: clean-copy rerun structurally identical to the reference.
