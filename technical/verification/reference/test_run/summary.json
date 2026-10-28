@@ -1,0 +1,129 @@
+{
+  "started_utc": "2026-10-28T14:22:53+00:00",
+  "python": "3.12.13",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "steps": [
+    {
+      "step": "tests",
+      "kind": "pytest",
+      "log": "pytest_tests.log",
+      "exit_code": 0,
+      "counts": {
+        "tests": 86,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "outcome": "PASS",
+      "ok": true,
+      "result": "PASS"
+    },
+    {
+      "step": "extensions/meteorology/tests",
+      "kind": "pytest",
+      "log": "pytest_extensions_meteorology_tests.log",
+      "exit_code": 0,
+      "counts": {
+        "tests": 44,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "outcome": "PASS",
+      "ok": true,
+      "result": "PASS"
+    },
+    {
+      "step": "extensions/mapper_explorer/tests",
+      "kind": "pytest",
+      "log": "pytest_extensions_mapper_explorer_tests.log",
+      "exit_code": 0,
+      "counts": {
+        "tests": 23,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "outcome": "PASS",
+      "ok": true,
+      "result": "PASS"
+    },
+    {
+      "step": "extensions/stability/tests",
+      "kind": "pytest",
+      "log": "pytest_extensions_stability_tests.log",
+      "exit_code": 0,
+      "counts": {
+        "tests": 29,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "outcome": "PASS",
+      "ok": true,
+      "result": "PASS"
+    },
+    {
+      "step": "extensions/controls/tests",
+      "kind": "pytest",
+      "log": "pytest_extensions_controls_tests.log",
+      "exit_code": 0,
+      "counts": {
+        "tests": 10,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "outcome": "PASS",
+      "ok": true,
+      "result": "PASS"
+    },
+    {
+      "step": "baseline manifest (immediately after the suites)",
+      "kind": "script",
+      "exit_code": 0,
+      "outcome": "PASS",
+      "ok": true,
+      "result": "PASS"
+    },
+    {
+      "step": "scripts/verify_env.py (temporary copy)",
+      "kind": "script",
+      "exit_code": 0,
+      "outcome": "PASS",
+      "ok": true,
+      "result": "PASS 38/38 checks passed."
+    },
+    {
+      "step": "explorer offline browser test",
+      "kind": "script",
+      "exit_code": 0,
+      "outcome": "PASS",
+      "ok": true,
+      "result": "PASS"
+    },
+    {
+      "step": "protected tree unchanged by the run",
+      "kind": "integrity",
+      "exit_code": 0,
+      "outcome": "PASS",
+      "ok": true,
+      "result": "PASS (323 files identical before/after)"
+    }
+  ],
+  "tree_integrity": {
+    "protected_tree": "<repo-root>",
+    "files_hashed": 323,
+    "changes": []
+  },
+  "reference_comparison": null,
+  "totals": {
+    "tests": 192,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "failed_steps": [],
+  "overall": "PASS",
+  "finished_utc": "2026-10-28T14:27:48+00:00"
+}

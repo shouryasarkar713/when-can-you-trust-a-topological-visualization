@@ -1,0 +1,73 @@
+Using CPython 3.12.13
+Creating virtual environment at: env/.venv
+Activate with: env\.venv\Scripts\activate
+Using Python 3.12.13 environment at: env\.venv
+Resolved 34 packages in 1.00s
+warning: Failed to hardlink files; falling back to full copy. This may lead to degraded performance.
+         If the cache and target directories are on different filesystems, hardlinking may not be supported.
+         If this is intentional, set `export UV_LINK_MODE=copy` or use `--link-mode=copy` to suppress this warning.
+Installed 34 packages in 49.32s
+ + cloudpickle==3.1.2
+ + colorama==0.4.6
+ + contourpy==1.4.0
+ + cycler==0.12.1
+ + cython==3.3.0
+ + deprecated==3.0.0
+ + fonttools==4.68.0
+ + iniconfig==2.3.1
+ + jinja2==3.1.6
+ + joblib==1.6.0
+ + kiwisolver==1.5.1
+ + kmapper==2.1.0
+ + markupsafe==3.0.4
+ + matplotlib==3.11.2
+ + narwhals==2.28.0
+ + networkx==3.7
+ + numpy==2.5.4
+ + packaging==26.3
+ + persim==0.4.1
+ + pillow==13.0.0
+ + pluggy==1.7.0
+ + pygments==2.21.0
+ + pyparsing==3.3.3
+ + pytest==8.4.2
+ + python-dateutil==3.0.0
+ + pyyaml==6.0.3
+ + ripser==0.6.15
+ + scikit-learn==1.9.1
+ + scipy==1.18.1
+ + six==1.17.0
+ + tadasets==0.2.2
+ + threadpoolctl==3.7.0
+ + tzdata==2026.5
+ + wrapt==2.5.1
+Using CPython 3.12.13
+Creating virtual environment at: env/.venv-tools
+Activate with: env\.venv-tools\Scripts\activate
+Using Python 3.12.13 environment at: env\.venv-tools
+Resolved 21 packages in 599ms
+warning: Failed to hardlink files; falling back to full copy. This may lead to degraded performance.
+         If the cache and target directories are on different filesystems, hardlinking may not be supported.
+         If this is intentional, set `export UV_LINK_MODE=copy` or use `--link-mode=copy` to suppress this warning.
+Installed 21 packages in 21.34s
+ + flatbuffers==25.12.19
+ + greenlet==3.5.6
+ + lxml==6.1.3
+ + networkx==3.7
+ + numpy==2.5.4
+ + onnxruntime==1.31.1
+ + packaging==26.3
+ + pillow==13.0.0
+ + playwright==1.55.0
+ + protobuf==7.36.2
+ + psutil==7.2.2
+ + pyee==13.0.1
+ + pymupdf==2.0
+ + pymupdf-layout==2.0
+ + pymupdf4llm==2.0
+ + python-docx==1.2.0
+ + python-pptx==1.0.2
+ + pyyaml==6.0.3
+ + tabulate==0.10.0
+ + typing-extensions==4.16.0
+ + xlsxwriter==3.3.0

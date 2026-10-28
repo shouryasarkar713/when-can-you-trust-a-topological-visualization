@@ -1,0 +1,308 @@
+{
+ "baseline": "work\\ScikitTDA_Independent_Rebuild\\scikit-tda-trust",
+ "regen": "recompute\\scikit-tda-trust",
+ "summary": {
+  "identical": 30,
+  "pixel-identical": 12,
+  "MISSING-IN-REGEN": 1,
+  "DIFFERENT": 3
+ },
+ "files": {
+  "extensions/meteorology/configs/weather.yaml": {
+   "ext": ".yaml",
+   "status": "identical",
+   "byte_identical_raw": true
+  },
+  "extensions/meteorology/data_provenance/processed/gsod_72505394728_2019-2024_clean.csv": {
+   "ext": ".csv",
+   "status": "identical",
+   "byte_identical_raw": true
+  },
+  "extensions/meteorology/data_provenance/processed/weather_analysis.npz": {
+   "ext": ".npz",
+   "status": "identical",
+   "worst_abs": 0.0,
+   "bad": []
+  },
+  "extensions/meteorology/data_provenance/provenance.json": {
+   "ext": ".json",
+   "status": "identical",
+   "n_diffs": 0,
+   "diffs": [],
+   "ignored_volatile": 0,
+   "max_abs_num_diff": 0.0
+  },
+  "extensions/meteorology/data_provenance/raw/gsod_72505394728_2019.csv": {
+   "ext": ".csv",
+   "status": "identical",
+   "byte_identical_raw": true
+  },
+  "extensions/meteorology/data_provenance/raw/gsod_72505394728_2020.csv": {
+   "ext": ".csv",
+   "status": "identical",
+   "byte_identical_raw": true
+  },
+  "extensions/meteorology/data_provenance/raw/gsod_72505394728_2021.csv": {
+   "ext": ".csv",
+   "status": "identical",
+   "byte_identical_raw": true
+  },
+  "extensions/meteorology/data_provenance/raw/gsod_72505394728_2022.csv": {
+   "ext": ".csv",
+   "status": "identical",
+   "byte_identical_raw": true
+  },
+  "extensions/meteorology/data_provenance/raw/gsod_72505394728_2023.csv": {
+   "ext": ".csv",
+   "status": "identical",
+   "byte_identical_raw": true
+  },
+  "extensions/meteorology/data_provenance/raw/gsod_72505394728_2024.csv": {
+   "ext": ".csv",
+   "status": "identical",
+   "byte_identical_raw": true
+  },
+  "extensions/meteorology/data_provenance/raw/oni.data": {
+   "ext": ".data",
+   "status": "identical"
+  },
+  "extensions/meteorology/figures/captions.json": {
+   "ext": ".json",
+   "status": "identical",
+   "n_diffs": 0,
+   "diffs": [],
+   "ignored_volatile": 0,
+   "max_abs_num_diff": 0.0
+  },
+  "extensions/meteorology/figures/weather_embedding_pca.png": {
+   "ext": ".png",
+   "status": "pixel-identical",
+   "byte_identical": false,
+   "max_abs_pixel": 0,
+   "frac_pixels_differing": 0.0,
+   "frac_pixels_diff_gt32": 0.0
+  },
+  "extensions/meteorology/figures/weather_mapper_grid.png": {
+   "ext": ".png",
+   "status": "pixel-identical",
+   "byte_identical": false,
+   "max_abs_pixel": 0,
+   "frac_pixels_differing": 0.0,
+   "frac_pixels_diff_gt32": 0.0
+  },
+  "extensions/meteorology/figures/weather_mapper_lens_comparison.png": {
+   "ext": ".png",
+   "status": "pixel-identical",
+   "byte_identical": false,
+   "max_abs_pixel": 0,
+   "frac_pixels_differing": 0.0,
+   "frac_pixels_diff_gt32": 0.0
+  },
+  "extensions/meteorology/figures/weather_mapper_reference.png": {
+   "ext": ".png",
+   "status": "pixel-identical",
+   "byte_identical": false,
+   "max_abs_pixel": 0,
+   "frac_pixels_differing": 0.0,
+   "frac_pixels_diff_gt32": 0.0
+  },
+  "extensions/meteorology/figures/weather_pca_panels.png": {
+   "ext": ".png",
+   "status": "pixel-identical",
+   "byte_identical": false,
+   "max_abs_pixel": 0,
+   "frac_pixels_differing": 0.0,
+   "frac_pixels_diff_gt32": 0.0
+  },
+  "extensions/meteorology/figures/weather_seasonal_ph_reference_barcode.png": {
+   "ext": ".png",
+   "status": "pixel-identical",
+   "byte_identical": false,
+   "max_abs_pixel": 0,
+   "frac_pixels_differing": 0.0,
+   "frac_pixels_diff_gt32": 0.0
+  },
+  "extensions/meteorology/figures/weather_seasonal_ph_reference_diagram.png": {
+   "ext": ".png",
+   "status": "pixel-identical",
+   "byte_identical": false,
+   "max_abs_pixel": 0,
+   "frac_pixels_differing": 0.0,
+   "frac_pixels_diff_gt32": 0.0
+  },
+  "extensions/meteorology/figures/weather_seasonal_ph_sweep.png": {
+   "ext": ".png",
+   "status": "pixel-identical",
+   "byte_identical": false,
+   "max_abs_pixel": 0,
+   "frac_pixels_differing": 0.0,
+   "frac_pixels_diff_gt32": 0.0
+  },
+  "extensions/meteorology/figures/weather_seasonality_check.png": {
+   "ext": ".png",
+   "status": "pixel-identical",
+   "byte_identical": false,
+   "max_abs_pixel": 0,
+   "frac_pixels_differing": 0.0,
+   "frac_pixels_diff_gt32": 0.0
+  },
+  "extensions/meteorology/figures/weather_state_space_ph.png": {
+   "ext": ".png",
+   "status": "pixel-identical",
+   "byte_identical": false,
+   "max_abs_pixel": 0,
+   "frac_pixels_differing": 0.0,
+   "frac_pixels_diff_gt32": 0.0
+  },
+  "extensions/meteorology/figures/weather_state_space_ph_barcode.png": {
+   "ext": ".png",
+   "status": "pixel-identical",
+   "byte_identical": false,
+   "max_abs_pixel": 0,
+   "frac_pixels_differing": 0.0,
+   "frac_pixels_diff_gt32": 0.0
+  },
+  "extensions/meteorology/figures/weather_temp_series.png": {
+   "ext": ".png",
+   "status": "pixel-identical",
+   "byte_identical": false,
+   "max_abs_pixel": 0,
+   "frac_pixels_differing": 0.0,
+   "frac_pixels_diff_gt32": 0.0
+  },
+  "extensions/meteorology/README.md": {
+   "ext": ".md",
+   "status": "identical",
+   "byte_identical_raw": true
+  },
+  "extensions/meteorology/results/claims_evidence.json": {
+   "status": "MISSING-IN-REGEN"
+  },
+  "extensions/meteorology/results/weather_analysis_results.json": {
+   "ext": ".json",
+   "status": "identical",
+   "n_diffs": 0,
+   "diffs": [],
+   "ignored_volatile": 24,
+   "max_abs_num_diff": 0.0
+  },
+  "extensions/meteorology/results/weather_mapper_results.json": {
+   "ext": ".json",
+   "status": "identical",
+   "n_diffs": 0,
+   "diffs": [],
+   "ignored_volatile": 9,
+   "max_abs_num_diff": 0.0
+  },
+  "extensions/meteorology/results/weather_pca_coords.npy": {
+   "ext": ".npy",
+   "status": "DIFFERENT",
+   "worst_abs": 1.7763568394002505e-15,
+   "bad": [
+    "arr:max|d|=1.78e-15"
+   ]
+  },
+  "extensions/meteorology/results/weather_preprocessing_report.json": {
+   "ext": ".json",
+   "status": "DIFFERENT",
+   "n_diffs": 1,
+   "diffs": [
+    [
+     "$.outputs.analysis_npz.sha256",
+     "value",
+     "'9efb4e050ef8b4b8b3e23352a5b619b92e96cf47e9f1aae30b7365cc0a3993ac' vs '747880fd7ed89c78786e7e91d860e8ea2b077606170b1ed11c00059b57ad4289'"
+    ]
+   ],
+   "ignored_volatile": 3,
+   "max_abs_num_diff": 0.0
+  },
+  "extensions/meteorology/results/weather_reference_embedding.npz": {
+   "ext": ".npz",
+   "status": "DIFFERENT",
+   "worst_abs": 8.881784197001252e-15,
+   "bad": [
+    "pca2d:max|d|=8.88e-15"
+   ]
+  },
+  "extensions/meteorology/results/weather_seasonal_ph_dgms.npz": {
+   "ext": ".npz",
+   "status": "identical",
+   "worst_abs": 0.0,
+   "bad": []
+  },
+  "extensions/meteorology/results/weather_seasonality_check.json": {
+   "ext": ".json",
+   "status": "identical",
+   "n_diffs": 0,
+   "diffs": [],
+   "ignored_volatile": 1,
+   "max_abs_num_diff": 0.0
+  },
+  "extensions/meteorology/results/weather_state_space_dgms.npz": {
+   "ext": ".npz",
+   "status": "identical",
+   "worst_abs": 0.0,
+   "bad": []
+  },
+  "extensions/meteorology/scripts/determinism_check.py": {
+   "ext": ".py",
+   "status": "identical",
+   "byte_identical_raw": true
+  },
+  "extensions/meteorology/scripts/fetch_gsod.py": {
+   "ext": ".py",
+   "status": "identical",
+   "byte_identical_raw": true
+  },
+  "extensions/meteorology/scripts/preprocess_weather.py": {
+   "ext": ".py",
+   "status": "identical",
+   "byte_identical_raw": true
+  },
+  "extensions/meteorology/scripts/render_weather_figures.py": {
+   "ext": ".py",
+   "status": "identical",
+   "byte_identical_raw": true
+  },
+  "extensions/meteorology/scripts/run_weather_analysis.py": {
+   "ext": ".py",
+   "status": "identical",
+   "byte_identical_raw": true
+  },
+  "extensions/meteorology/scripts/seasonality_check.py": {
+   "ext": ".py",
+   "status": "identical",
+   "byte_identical_raw": true
+  },
+  "extensions/meteorology/tests/__init__.py": {
+   "ext": ".py",
+   "status": "identical",
+   "byte_identical_raw": true
+  },
+  "extensions/meteorology/tests/conftest.py": {
+   "ext": ".py",
+   "status": "identical",
+   "byte_identical_raw": true
+  },
+  "extensions/meteorology/tests/test_weather_outputs.py": {
+   "ext": ".py",
+   "status": "identical",
+   "byte_identical_raw": true
+  },
+  "extensions/meteorology/tests/test_weather_preprocess.py": {
+   "ext": ".py",
+   "status": "identical",
+   "byte_identical_raw": true
+  },
+  "extensions/meteorology/wx/__init__.py": {
+   "ext": ".py",
+   "status": "identical",
+   "byte_identical_raw": true
+  },
+  "extensions/meteorology/wx/weather_lib.py": {
+   "ext": ".py",
+   "status": "identical",
+   "byte_identical_raw": true
+  }
+ }
+}

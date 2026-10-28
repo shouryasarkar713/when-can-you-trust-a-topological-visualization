@@ -1,0 +1,176 @@
+{
+ "baseline": "work\\ScikitTDA_Independent_Rebuild\\scikit-tda-trust",
+ "regen": "recompute\\scikit-tda-trust",
+ "summary": {
+  "identical": 15,
+  "pixel-identical": 9,
+  "MISSING-IN-REGEN": 1
+ },
+ "files": {
+  "extensions/stability/configs/stability.yaml": {
+   "ext": ".yaml",
+   "status": "identical",
+   "byte_identical_raw": true
+  },
+  "extensions/stability/figures/captions.json": {
+   "ext": ".json",
+   "status": "identical",
+   "n_diffs": 0,
+   "diffs": [],
+   "ignored_volatile": 0,
+   "max_abs_num_diff": 0.0
+  },
+  "extensions/stability/figures/mapper_resampling_graphs_annulus.png": {
+   "ext": ".png",
+   "status": "pixel-identical",
+   "byte_identical": false,
+   "max_abs_pixel": 0,
+   "frac_pixels_differing": 0.0,
+   "frac_pixels_diff_gt32": 0.0
+  },
+  "extensions/stability/figures/mapper_resampling_graphs_blob.png": {
+   "ext": ".png",
+   "status": "pixel-identical",
+   "byte_identical": false,
+   "max_abs_pixel": 0,
+   "frac_pixels_differing": 0.0,
+   "frac_pixels_diff_gt32": 0.0
+  },
+  "extensions/stability/figures/mapper_resampling_graphs_figure_eight.png": {
+   "ext": ".png",
+   "status": "pixel-identical",
+   "byte_identical": false,
+   "max_abs_pixel": 0,
+   "frac_pixels_differing": 0.0,
+   "frac_pixels_diff_gt32": 0.0
+  },
+  "extensions/stability/figures/mapper_resampling_layouts.png": {
+   "ext": ".png",
+   "status": "pixel-identical",
+   "byte_identical": false,
+   "max_abs_pixel": 0,
+   "frac_pixels_differing": 0.0,
+   "frac_pixels_diff_gt32": 0.0
+  },
+  "extensions/stability/figures/mapper_resampling_structure.png": {
+   "ext": ".png",
+   "status": "pixel-identical",
+   "byte_identical": false,
+   "max_abs_pixel": 0,
+   "frac_pixels_differing": 0.0,
+   "frac_pixels_diff_gt32": 0.0
+  },
+  "extensions/stability/figures/ph_resampling_cross_shape.png": {
+   "ext": ".png",
+   "status": "pixel-identical",
+   "byte_identical": false,
+   "max_abs_pixel": 0,
+   "frac_pixels_differing": 0.0,
+   "frac_pixels_diff_gt32": 0.0
+  },
+  "extensions/stability/figures/ph_resampling_dists.png": {
+   "ext": ".png",
+   "status": "pixel-identical",
+   "byte_identical": false,
+   "max_abs_pixel": 0,
+   "frac_pixels_differing": 0.0,
+   "frac_pixels_diff_gt32": 0.0
+  },
+  "extensions/stability/figures/ph_resampling_persistence.png": {
+   "ext": ".png",
+   "status": "pixel-identical",
+   "byte_identical": false,
+   "max_abs_pixel": 0,
+   "frac_pixels_differing": 0.0,
+   "frac_pixels_diff_gt32": 0.0
+  },
+  "extensions/stability/figures/weather_loyo.png": {
+   "ext": ".png",
+   "status": "pixel-identical",
+   "byte_identical": false,
+   "max_abs_pixel": 0,
+   "frac_pixels_differing": 0.0,
+   "frac_pixels_diff_gt32": 0.0
+  },
+  "extensions/stability/README.md": {
+   "ext": ".md",
+   "status": "identical",
+   "byte_identical_raw": true
+  },
+  "extensions/stability/results/claims_evidence.json": {
+   "status": "MISSING-IN-REGEN"
+  },
+  "extensions/stability/results/mapper_resampling.json": {
+   "ext": ".json",
+   "status": "identical",
+   "n_diffs": 0,
+   "diffs": [],
+   "ignored_volatile": 98,
+   "max_abs_num_diff": 0.0
+  },
+  "extensions/stability/results/ph_resampling.json": {
+   "ext": ".json",
+   "status": "identical",
+   "n_diffs": 0,
+   "diffs": [],
+   "ignored_volatile": 454,
+   "max_abs_num_diff": 0.0
+  },
+  "extensions/stability/results/stability_summary.json": {
+   "ext": ".json",
+   "status": "identical",
+   "n_diffs": 0,
+   "diffs": [],
+   "ignored_volatile": 1,
+   "max_abs_num_diff": 0.0
+  },
+  "extensions/stability/results/weather_loyo.json": {
+   "ext": ".json",
+   "status": "identical",
+   "n_diffs": 0,
+   "diffs": [],
+   "ignored_volatile": 37,
+   "max_abs_num_diff": 0.0
+  },
+  "extensions/stability/scripts/render_stability_figures.py": {
+   "ext": ".py",
+   "status": "identical",
+   "byte_identical_raw": true
+  },
+  "extensions/stability/scripts/run_mapper_resampling.py": {
+   "ext": ".py",
+   "status": "identical",
+   "byte_identical_raw": true
+  },
+  "extensions/stability/scripts/run_ph_resampling.py": {
+   "ext": ".py",
+   "status": "identical",
+   "byte_identical_raw": true
+  },
+  "extensions/stability/scripts/run_weather_loyo.py": {
+   "ext": ".py",
+   "status": "identical",
+   "byte_identical_raw": true
+  },
+  "extensions/stability/scripts/summarize_stability.py": {
+   "ext": ".py",
+   "status": "identical",
+   "byte_identical_raw": true
+  },
+  "extensions/stability/tests/__init__.py": {
+   "ext": ".py",
+   "status": "identical",
+   "byte_identical_raw": true
+  },
+  "extensions/stability/tests/conftest.py": {
+   "ext": ".py",
+   "status": "identical",
+   "byte_identical_raw": true
+  },
+  "extensions/stability/tests/test_stability.py": {
+   "ext": ".py",
+   "status": "identical",
+   "byte_identical_raw": true
+  }
+ }
+}

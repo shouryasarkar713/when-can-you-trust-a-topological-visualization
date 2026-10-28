@@ -1,0 +1,5 @@
+$ <python> -B -m pytest <repo-root>\technical\scikit-tda-trust\extensions\meteorology\tests -q -p no:cacheprovider -rs --junitxml=<log-dir>\pytest_extensions_meteorology_tests.xml
+
+............................................                             [100%]
+- generated xml file: <log-dir>\pytest_extensions_meteorology_tests.xml -
+44 passed in 11.75s

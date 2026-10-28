@@ -1,0 +1,49 @@
+{
+ "baseline": "work\\ScikitTDA_Independent_Rebuild\\scikit-tda-trust",
+ "regen": "recompute\\scikit-tda-trust",
+ "summary": {
+  "identical": 5
+ },
+ "files": {
+  "extensions/controls/results/caveat_checks.json": {
+   "ext": ".json",
+   "status": "identical",
+   "n_diffs": 0,
+   "diffs": [],
+   "ignored_volatile": 0,
+   "max_abs_num_diff": 0.0
+  },
+  "extensions/controls/results/independent_draws.json": {
+   "ext": ".json",
+   "status": "identical",
+   "n_diffs": 0,
+   "diffs": [],
+   "ignored_volatile": 0,
+   "max_abs_num_diff": 0.0
+  },
+  "extensions/controls/results/mapper_clusterer_control.json": {
+   "ext": ".json",
+   "status": "identical",
+   "n_diffs": 0,
+   "diffs": [],
+   "ignored_volatile": 0,
+   "max_abs_num_diff": 0.0
+  },
+  "extensions/controls/results/mapper_resampling_control.json": {
+   "ext": ".json",
+   "status": "identical",
+   "n_diffs": 0,
+   "diffs": [],
+   "ignored_volatile": 0,
+   "max_abs_num_diff": 0.0
+  },
+  "extensions/controls/results/weather_null_controls.json": {
+   "ext": ".json",
+   "status": "identical",
+   "n_diffs": 0,
+   "diffs": [],
+   "ignored_volatile": 22,
+   "max_abs_num_diff": 0.0
+  }
+ }
+}

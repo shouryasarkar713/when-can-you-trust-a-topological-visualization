@@ -1,0 +1,6 @@
+e3 tests exit 0
+manifest check after e3 tests exit 1
+BASELINE PRESERVATION VIOLATION:
+  CHANGED: results/e3/inspection_summary.json
+  CHANGED: results/e3/inspection_summary.md
+inspection_summary.json CRLF count: 274 LF-only count: 0

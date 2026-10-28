@@ -1,0 +1,89 @@
+{
+ "run_started_utc": "2026-10-28T14:22:53+00:00",
+ "run_finished_utc": "2026-10-28T14:27:48+00:00",
+ "python": "3.12.13",
+ "platform": "Windows-11-10.0.26300-SP0",
+ "command": "python scripts/run_all_tests.py",
+ "overall": "PASS",
+ "suites": [
+  {
+   "dir": "tests",
+   "result": "86 passed",
+   "passed": 86,
+   "failed": 0,
+   "skipped": 0,
+   "exit_code": 0,
+   "outcome": "PASS",
+   "step_result": "PASS"
+  },
+  {
+   "dir": "extensions/meteorology/tests",
+   "result": "44 passed",
+   "passed": 44,
+   "failed": 0,
+   "skipped": 0,
+   "exit_code": 0,
+   "outcome": "PASS",
+   "step_result": "PASS"
+  },
+  {
+   "dir": "extensions/mapper_explorer/tests",
+   "result": "23 passed",
+   "passed": 23,
+   "failed": 0,
+   "skipped": 0,
+   "exit_code": 0,
+   "outcome": "PASS",
+   "step_result": "PASS"
+  },
+  {
+   "dir": "extensions/stability/tests",
+   "result": "29 passed",
+   "passed": 29,
+   "failed": 0,
+   "skipped": 0,
+   "exit_code": 0,
+   "outcome": "PASS",
+   "step_result": "PASS"
+  },
+  {
+   "dir": "extensions/controls/tests",
+   "result": "10 passed",
+   "passed": 10,
+   "failed": 0,
+   "skipped": 0,
+   "exit_code": 0,
+   "outcome": "PASS",
+   "step_result": "PASS"
+  }
+ ],
+ "total_passed": 192,
+ "total_failed": 0,
+ "total_skipped": 0,
+ "other_checks": [
+  {
+   "cmd": "baseline manifest (immediately after the suites)",
+   "exit_code": 0,
+   "outcome": "PASS",
+   "result": "PASS"
+  },
+  {
+   "cmd": "scripts/verify_env.py (temporary copy)",
+   "exit_code": 0,
+   "outcome": "PASS",
+   "result": "PASS 38/38 checks passed."
+  },
+  {
+   "cmd": "explorer offline browser test",
+   "exit_code": 0,
+   "outcome": "PASS",
+   "result": "PASS"
+  },
+  {
+   "cmd": "protected tree unchanged by the run",
+   "exit_code": 0,
+   "outcome": "PASS",
+   "result": "PASS (323 files identical before/after)"
+  }
+ ]
+}

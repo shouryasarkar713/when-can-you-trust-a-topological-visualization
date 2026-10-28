@@ -1,0 +1,49 @@
+$ <python> -B <temp-copy>\repo\scripts\verify_env.py
+
+<env>\.venv\Lib\site-packages\persim\landscapes\visuals.py:310: SyntaxWarning: invalid escape sequence '\l'
+  ax.plot(ls[:, 0], ls[:, 1], label=f"$\lambda_{{{depth}}}$", alpha=alpha)
+<env>\.venv\Lib\site-packages\persim\landscapes\visuals.py:469: SyntaxWarning: invalid escape sequence '\l'
+  ax.plot(domain, lscape, label=f"$\lambda_{{{depth}}}$", alpha=alpha)
+Python : 3.12.13  (<python>)
+Platform: Windows-11-10.0.26300-SP0
+
+[PASS] pin:ripser: installed 0.6.15, pinned 0.6.15
+[PASS] pin:persim: installed 0.4.1, pinned 0.4.1
+[PASS] pin:kmapper: installed 2.1.0, pinned 2.1.0
+[PASS] pin:tadasets: installed 0.2.2, pinned 0.2.2
+[PASS] pin:scikit-learn: installed 1.9.1, pinned 1.9.1
+[PASS] pin:numpy: installed 2.5.4, pinned 2.5.4
+[PASS] pin:scipy: installed 1.18.1, pinned 1.18.1
+[PASS] pin:matplotlib: installed 3.11.2, pinned 3.11.2
+[PASS] pin:networkx: installed 3.7, pinned 3.7
+[PASS] pin:pyyaml: installed 6.0.3, pinned 6.0.3
+[PASS] import:numpy: ok
+[PASS] import:scipy: ok
+[PASS] import:sklearn: ok
+[PASS] import:matplotlib: ok
+[PASS] import:networkx: ok
+[PASS] import:yaml: ok
+[PASS] import:ripser: ok
+[PASS] import:persim: ok
+[PASS] import:kmapper: ok
+[PASS] import:tadasets: ok
+[PASS] api:ripser.no_plot_dgms: ripser exports ['Rips', 'correlation_to_distance', 'lower_star_img', 'ripser'] (diagram plotting lives in persim)
+[PASS] api:ripser.ripser: present
+[PASS] api:ripser.Rips: present
+[PASS] api:ripser.lower_star_img: present
+[PASS] api:ripser.correlation_to_distance: present
+[PASS] api:persim.plot_diagrams: present
+[PASS] api:persim.bottleneck: present
+[PASS] api:persim.wasserstein: present
+[PASS] api:persim.bottleneck_matching: present
+[PASS] api:persim.wasserstein_matching: present
+[PASS] api:persim.__version__: absent (expected; use importlib.metadata)
+[PASS] api:kmapper.KeplerMapper: present
+[PASS] api:kmapper.CubicalCover: present
+[PASS] api:kmapper.to_networkx: module-level
+[PASS] api:kmapper.draw_matplotlib: module-level
+[PASS] smoke:circle_H1_one_dominant_class: H1 classes=1, dominant(>0.5*top)=1, top persistence=1.666, r_1=n/a
+[PASS] smoke:mapper_graph_built: 10 nodes, 4 edges
+[PASS] smoke:mapper_html_exported: 58029 bytes
+
+38/38 checks passed. Evidence: <temp-copy>\repo\results\env\verification.json

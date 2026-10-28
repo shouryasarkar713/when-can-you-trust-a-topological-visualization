@@ -1,0 +1,184 @@
+{
+ "baseline": "work\\ScikitTDA_Independent_Rebuild\\scikit-tda-trust",
+ "regen": "recompute\\scikit-tda-trust",
+ "summary": {
+  "DIFFERENT": 3,
+  "identical": 11,
+  "MISSING-IN-REGEN": 1
+ },
+ "files": {
+  "extensions/mapper_explorer/data/explorer_data.json": {
+   "ext": ".json",
+   "status": "DIFFERENT",
+   "n_diffs": 8,
+   "diffs": [
+    [
+     "$.provenance.e2_blob_sanity.json.bytes",
+     "num",
+     "38926 vs 41146 (abs 2.22e+03)"
+    ],
+    [
+     "$.provenance.e2_blob_sanity.json.sha256",
+     "value",
+     "'0a2f9e89ab376ead1b9605e162abc045a4a7fcaaadce83d1797a1468437daefc' vs '6656d8d09110be90c27d5391db52bf2d82ce3be656eb65e122e0a0df4b4b3ac5'"
+    ],
+    [
+     "$.provenance.e2_sensitivity.json.bytes",
+     "num",
+     "530771 vs 555018 (abs 2.42e+04)"
+    ],
+    [
+     "$.provenance.e2_sensitivity.json.sha256",
+     "value",
+     "'7c6f6a4d3ff69eb0ba1ac80957c30b1ce8dd2509401a35e411a1c3178000886b' vs 'e9b5c17da5f190dabf0e93e57a16eb354efbc718eb670b163464083df7dbbb92'"
+    ],
+    [
+     "$.provenance.weather_analysis_results.json.bytes",
+     "num",
+     "67267 vs 70987 (abs 3.72e+03)"
+    ],
+    [
+     "$.provenance.weather_analysis_results.json.sha256",
+     "value",
+     "'b453ea9541d94383612b66c06d462d6aed6d0df6aea603af23d677442ec3cfb6' vs '8c913bc593ac1c06414f8f401d7091711c1ca92b954aebfd13baea15470e8245'"
+    ],
+    [
+     "$.provenance.weather_mapper_results.json.bytes",
+     "num",
+     "621666 vs 656994 (abs 3.53e+04)"
+    ],
+    [
+     "$.provenance.weather_mapper_results.json.sha256",
+     "value",
+     "'4afddca13fa96d0e1adbc048927c9d06bf5a825217eb1dca08a163dae0ac0efa' vs '45f5da4778e6c20f0062335eaa5e405f8d4e77de165527e7c6695cb6f14bf4b3'"
+    ]
+   ],
+   "ignored_volatile": 1,
+   "max_abs_num_diff": 35328.0
+  },
+  "extensions/mapper_explorer/figures/screenshot_annulus_reference.png": {
+   "ext": ".png",
+   "status": "identical",
+   "byte_identical": true
+  },
+  "extensions/mapper_explorer/figures/screenshot_blob_control.png": {
+   "ext": ".png",
+   "status": "identical",
+   "byte_identical": true
+  },
+  "extensions/mapper_explorer/figures/screenshot_figure_eight.png": {
+   "ext": ".png",
+   "status": "identical",
+   "byte_identical": true
+  },
+  "extensions/mapper_explorer/figures/screenshot_weather_fragmentation.png": {
+   "ext": ".png",
+   "status": "identical",
+   "byte_identical": true
+  },
+  "extensions/mapper_explorer/figures/screenshot_weather_reference.png": {
+   "ext": ".png",
+   "status": "identical",
+   "byte_identical": true
+  },
+  "extensions/mapper_explorer/PRIOR_ART.md": {
+   "ext": ".md",
+   "status": "identical",
+   "byte_identical_raw": true
+  },
+  "extensions/mapper_explorer/README.md": {
+   "ext": ".md",
+   "status": "identical",
+   "byte_identical_raw": true
+  },
+  "extensions/mapper_explorer/results/browser_test.json": {
+   "status": "MISSING-IN-REGEN"
+  },
+  "extensions/mapper_explorer/results/build_report.json": {
+   "ext": ".json",
+   "status": "DIFFERENT",
+   "n_diffs": 10,
+   "diffs": [
+    [
+     "$.outputs.data/explorer_data.json.sha256",
+     "value",
+     "'4310a10d9e45a39e16cbb22090b15114d0c17f0af068035b2946bd24daba781f' vs '31bfa1e91fd4186e20540a7a0fb6981c364d53f888bdcf51b40d389e42c55080'"
+    ],
+    [
+     "$.outputs.viewer/index.html.sha256",
+     "value",
+     "'fa075ed6ba23da7bcf2738f92d006b17810110536ec744d29a620bf1b10b5072' vs 'b62a906e4a6f063c0b58d9afea1f25e389f125102c63a86a9b8e9fd163d5aeba'"
+    ],
+    [
+     "$.sources.e2_blob_sanity.json.bytes",
+     "num",
+     "38926 vs 41146 (abs 2.22e+03)"
+    ],
+    [
+     "$.sources.e2_blob_sanity.json.sha256",
+     "value",
+     "'0a2f9e89ab376ead1b9605e162abc045a4a7fcaaadce83d1797a1468437daefc' vs '6656d8d09110be90c27d5391db52bf2d82ce3be656eb65e122e0a0df4b4b3ac5'"
+    ],
+    [
+     "$.sources.e2_sensitivity.json.bytes",
+     "num",
+     "530771 vs 555018 (abs 2.42e+04)"
+    ],
+    [
+     "$.sources.e2_sensitivity.json.sha256",
+     "value",
+     "'7c6f6a4d3ff69eb0ba1ac80957c30b1ce8dd2509401a35e411a1c3178000886b' vs 'e9b5c17da5f190dabf0e93e57a16eb354efbc718eb670b163464083df7dbbb92'"
+    ],
+    [
+     "$.sources.weather_analysis_results.json.bytes",
+     "num",
+     "67267 vs 70987 (abs 3.72e+03)"
+    ],
+    [
+     "$.sources.weather_analysis_results.json.sha256",
+     "value",
+     "'b453ea9541d94383612b66c06d462d6aed6d0df6aea603af23d677442ec3cfb6' vs '8c913bc593ac1c06414f8f401d7091711c1ca92b954aebfd13baea15470e8245'"
+    ],
+    [
+     "$.sources.weather_mapper_results.json.bytes",
+     "num",
+     "621666 vs 656994 (abs 3.53e+04)"
+    ],
+    [
+     "$.sources.weather_mapper_results.json.sha256",
+     "value",
+     "'4afddca13fa96d0e1adbc048927c9d06bf5a825217eb1dca08a163dae0ac0efa' vs '45f5da4778e6c20f0062335eaa5e405f8d4e77de165527e7c6695cb6f14bf4b3'"
+    ]
+   ],
+   "ignored_volatile": 1,
+   "max_abs_num_diff": 35328.0
+  },
+  "extensions/mapper_explorer/scripts/build_viewer.py": {
+   "ext": ".py",
+   "status": "identical",
+   "byte_identical_raw": true
+  },
+  "extensions/mapper_explorer/tests/__init__.py": {
+   "ext": ".py",
+   "status": "identical",
+   "byte_identical_raw": true
+  },
+  "extensions/mapper_explorer/tests/test_explorer.py": {
+   "ext": ".py",
+   "status": "identical",
+   "byte_identical_raw": true
+  },
+  "extensions/mapper_explorer/viewer/index.html": {
+   "ext": ".html",
+   "status": "DIFFERENT",
+   "byte_identical_raw": false,
+   "n_diff_lines": 1,
+   "first_diff_line": 219
+  },
+  "extensions/mapper_explorer/viewer/template.html": {
+   "ext": ".html",
+   "status": "identical",
+   "byte_identical_raw": true
+  }
+ }
+}

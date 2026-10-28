@@ -1,0 +1,7 @@
+$ E:/sciviz_scikittda/final_submission/env/.venv-tools/Scripts/python.exe -B <repo-root>\technical\verification\explorer_offline_test.py <repo-root>\technical\scikit-tda-trust\extensions\mapper_explorer\viewer\index.html <repo-root>\technical\scikit-tda-trust <log-dir>\explorer_offline_test
+
+{
+ "n_checks": 222,
+ "n_pass": 222,
+ "failed": []
+}

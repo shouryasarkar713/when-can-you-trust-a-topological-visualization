@@ -1,0 +1,477 @@
+[
+ {
+  "entry": "Bauer, U. (2021). Ripser: Efficient computation of Vietoris–Rips persistence barcodes. *Jo",
+  "doi": "10.1007/s41468-021-00071-5",
+  "crossref": {
+   "title": "Ripser: efficient computation of Vietoris–Rips persistence barcodes",
+   "authors": [
+    "Bauer"
+   ],
+   "year": 2021,
+   "container": "Journal of Applied and Computational Topology",
+   "volume": "5",
+   "issue": "3",
+   "pages": "391-423"
+  },
+  "authors_in_entry_found_in_record": true,
+  "year_in_entry": true,
+  "pages_in_entry": true,
+  "volume_in_entry": true
+ },
+ {
+  "entry": "Belchí, F., Brodzki, J., Burfitt, M., & Niranjan, M. (2020). A numerical measure",
+  "doi": null,
+  "status": "no DOI (checked elsewhere)"
+ },
+ {
+  "entry": "Brehmer, M., & Munzner, T. (2013). A multi-level typology of abstract visualization tasks.",
+  "doi": "10.1109/TVCG.2013.124",
+  "crossref": {
+   "title": "A Multi-Level Typology of Abstract Visualization Tasks",
+   "authors": [
+    "Brehmer",
+    "Munzner"
+   ],
+   "year": 2013,
+   "container": "IEEE Transactions on Visualization and Computer Graphics",
+   "volume": "19",
+   "issue": "12",
+   "pages": "2376-2385"
+  },
+  "authors_in_entry_found_in_record": true,
+  "year_in_entry": true,
+  "pages_in_entry": true,
+  "volume_in_entry": true
+ },
+ {
+  "entry": "Brown, A., Bobrowski, O., Munch, E., & Wang, B. (2021). Probabilistic convergence and stab",
+  "doi": "10.1007/s41468-020-00063-x",
+  "crossref": {
+   "title": "Probabilistic convergence and stability of random mapper graphs",
+   "authors": [
+    "Brown",
+    "Bobrowski",
+    "Munch",
+    "Wang"
+   ],
+   "year": 2020,
+   "container": "Journal of Applied and Computational Topology",
+   "volume": "5",
+   "issue": "1",
+   "pages": "99-140"
+  },
+  "authors_in_entry_found_in_record": true,
+  "year_in_entry": false,
+  "pages_in_entry": true,
+  "volume_in_entry": true
+ },
+ {
+  "entry": "Carrière, M., Michel, B., & Oudot, S. (2018). Statistical analysis and parameter",
+  "doi": null,
+  "status": "no DOI (checked elsewhere)"
+ },
+ {
+  "entry": "Carrière, M., & Oudot, S. (2018). Structure and stability of the one-dimensional Mapper. *",
+  "doi": "10.1007/s10208-017-9370-z",
+  "crossref": {
+   "title": "Structure and Stability of the One-Dimensional Mapper",
+   "authors": [
+    "Carrière",
+    "Oudot"
+   ],
+   "year": 2017,
+   "container": "Foundations of Computational Mathematics",
+   "volume": "18",
+   "issue": "6",
+   "pages": "1333-1396"
+  },
+  "authors_in_entry_found_in_record": true,
+  "year_in_entry": false,
+  "pages_in_entry": true,
+  "volume_in_entry": true
+ },
+ {
+  "entry": "Cohen-Steiner, D., Edelsbrunner, H., & Harer, J. (2007). Stability of persistence diagrams",
+  "doi": "10.1007/s00454-006-1276-5",
+  "crossref": {
+   "title": "Stability of Persistence Diagrams",
+   "authors": [
+    "Cohen-Steiner",
+    "Edelsbrunner",
+    "Harer"
+   ],
+   "year": 2006,
+   "container": "Discrete &amp; Computational Geometry",
+   "volume": "37",
+   "issue": "1",
+   "pages": "103-120"
+  },
+  "authors_in_entry_found_in_record": true,
+  "year_in_entry": false,
+  "pages_in_entry": true,
+  "volume_in_entry": true
+ },
+ {
+  "entry": "Edelsbrunner, H., Letscher, D., & Zomorodian, A. (2002). Topological persistence and simpl",
+  "doi": "10.1007/s00454-002-2885-2",
+  "crossref": {
+   "title": "Topological Persistence and Simplification",
+   "authors": [
+    "Edelsbrunner",
+    "Letscher",
+    "Zomorodian"
+   ],
+   "year": 2002,
+   "container": "Discrete &amp; Computational Geometry",
+   "volume": "28",
+   "issue": "4",
+   "pages": "511-533"
+  },
+  "authors_in_entry_found_in_record": true,
+  "year_in_entry": true,
+  "pages_in_entry": true,
+  "volume_in_entry": true
+ },
+ {
+  "entry": "Isenberg, T., Isenberg, P., Chen, J., Sedlmair, M., & Möller, T. (2013). A systematic revi",
+  "doi": "10.1109/TVCG.2013.126",
+  "crossref": {
+   "title": "A Systematic Review on the Practice of Evaluating Visualization",
+   "authors": [
+    "Isenberg",
+    "Isenberg",
+    "Jian Chen",
+    "Sedlmair",
+    "Moller"
+   ],
+   "year": 2013,
+   "container": "IEEE Transactions on Visualization and Computer Graphics",
+   "volume": "19",
+   "issue": "12",
+   "pages": "2818-2827"
+  },
+  "authors_in_entry_found_in_record": false,
+  "year_in_entry": true,
+  "pages_in_entry": true,
+  "volume_in_entry": true
+ },
+ {
+  "entry": "Lam, H., Bertini, E., Isenberg, P., Plaisant, C., & Carpendale, S. (2012). Empirical studi",
+  "doi": "10.1109/TVCG.2011.279",
+  "crossref": {
+   "title": "Empirical Studies in Information Visualization: Seven Scenarios",
+   "authors": [
+    "Lam",
+    "Bertini",
+    "Isenberg",
+    "Plaisant",
+    "Carpendale"
+   ],
+   "year": 2012,
+   "container": "IEEE Transactions on Visualization and Computer Graphics",
+   "volume": "18",
+   "issue": "9",
+   "pages": "1520-1536"
+  },
+  "authors_in_entry_found_in_record": true,
+  "year_in_entry": true,
+  "pages_in_entry": true,
+  "volume_in_entry": true
+ },
+ {
+  "entry": "Maria, C., Boissonnat, J.-D., Glisse, M., & Yvinec, M. (2014). The Gudhi library: Simplici",
+  "doi": "10.1007/978-3-662-44199-2_28",
+  "crossref": {
+   "title": "The Gudhi Library: Simplicial Complexes and Persistent Homology",
+   "authors": [
+    "Maria",
+    "Boissonnat",
+    "Glisse",
+    "Yvinec"
+   ],
+   "year": 2014,
+   "container": "Lecture Notes in Computer Science",
+   "volume": null,
+   "issue": null,
+   "pages": "167-174"
+  },
+  "authors_in_entry_found_in_record": true,
+  "year_in_entry": true,
+  "pages_in_entry": true,
+  "volume_in_entry": null
+ },
+ {
+  "entry": "Munzner, T. (2009). A nested model for visualization design and validation. *IEEE Transact",
+  "doi": "10.1109/TVCG.2009.111",
+  "crossref": {
+   "title": "A Nested Model for Visualization Design and Validation",
+   "authors": [
+    "Munzner"
+   ],
+   "year": 2009,
+   "container": "IEEE Transactions on Visualization and Computer Graphics",
+   "volume": "15",
+   "issue": "6",
+   "pages": "921-928"
+  },
+  "authors_in_entry_found_in_record": true,
+  "year_in_entry": true,
+  "pages_in_entry": true,
+  "volume_in_entry": true
+ },
+ {
+  "entry": "Muszynski, G., Kashinath, K., Kurlin, V., Wehner, M., & Prabhat. (2019). Topological data ",
+  "doi": "10.5194/gmd-12-613-2019",
+  "crossref": {
+   "title": "Topological data analysis and machine learning for recognizing atmospheric river patterns in large c",
+   "authors": [
+    "Muszynski",
+    "Kashinath",
+    "Kurlin",
+    "Wehner",
+    "Prabhat"
+   ],
+   "year": 2019,
+   "container": "Geoscientific Model Development",
+   "volume": "12",
+   "issue": "2",
+   "pages": "613-628"
+  },
+  "authors_in_entry_found_in_record": true,
+  "year_in_entry": true,
+  "pages_in_entry": true,
+  "volume_in_entry": true
+ },
+ {
+  "entry": "NOAA National Centers for Environmental Information. *Global Summary of the Day ",
+  "doi": null,
+  "status": "no DOI (checked elsewhere)"
+ },
+ {
+  "entry": "NOAA Physical Sciences Laboratory. *Oceanic Niño Index (ONI)*, derived from NOAA",
+  "doi": null,
+  "status": "no DOI (checked elsewhere)"
+ },
+ {
+  "entry": "Nielsen, J. (1992). Finding usability problems through heuristic evaluation. In *Proceedin",
+  "doi": "10.1145/142750.142834",
+  "crossref": {
+   "title": "Finding usability problems through heuristic evaluation",
+   "authors": [
+    "Nielsen"
+   ],
+   "year": 1992,
+   "container": "Proceedings of the SIGCHI conference on Human factors in computing systems  - CHI '92",
+   "volume": null,
+   "issue": null,
+   "pages": "373-380"
+  },
+  "authors_in_entry_found_in_record": true,
+  "year_in_entry": true,
+  "pages_in_entry": true,
+  "volume_in_entry": null
+ },
+ {
+  "entry": "Perea, J. A., Deckard, A., Haase, S. B., & Harer, J. (2015). SW1PerS: Sliding windows and ",
+  "doi": "10.1186/s12859-015-0645-6",
+  "crossref": {
+   "title": "SW1PerS: Sliding windows and 1-persistence scoring; discovering periodicity in gene expression time ",
+   "authors": [
+    "Perea",
+    "Deckard",
+    "Haase",
+    "Harer"
+   ],
+   "year": 2015,
+   "container": "BMC Bioinformatics",
+   "volume": "16",
+   "issue": "1",
+   "pages": ""
+  },
+  "authors_in_entry_found_in_record": true,
+  "year_in_entry": true,
+  "pages_in_entry": null,
+  "volume_in_entry": true
+ },
+ {
+  "entry": "Perea, J. A., & Harer, J. (2015). Sliding windows and persistence: An application of topol",
+  "doi": "10.1007/s10208-014-9206-z",
+  "crossref": {
+   "title": "Sliding Windows and Persistence: An Application of Topological Methods to Signal Analysis",
+   "authors": [
+    "Perea",
+    "Harer"
+   ],
+   "year": 2014,
+   "container": "Foundations of Computational Mathematics",
+   "volume": "15",
+   "issue": "3",
+   "pages": "799-838"
+  },
+  "authors_in_entry_found_in_record": true,
+  "year_in_entry": false,
+  "pages_in_entry": true,
+  "volume_in_entry": true
+ },
+ {
+  "entry": "Saul, N., & Tralie, C. (2019). *Scikit-TDA: Topological data analysis for Python",
+  "doi": "10.5281/zenodo.2533369",
+  "status": "FETCH FAILED"
+ },
+ {
+  "entry": "Sedlmair, M., Heinzl, C., Bruckner, S., Piringer, H., & Möller, T. (2014). Visual paramete",
+  "doi": "10.1109/TVCG.2014.2346321",
+  "crossref": {
+   "title": "Visual Parameter Space Analysis: A Conceptual Framework",
+   "authors": [
+    "Sedlmair",
+    "Heinzl",
+    "Bruckner",
+    "Piringer",
+    "Moller"
+   ],
+   "year": 2014,
+   "container": "IEEE Transactions on Visualization and Computer Graphics",
+   "volume": "20",
+   "issue": "12",
+   "pages": "2161-2170"
+  },
+  "authors_in_entry_found_in_record": false,
+  "year_in_entry": true,
+  "pages_in_entry": true,
+  "volume_in_entry": true
+ },
+ {
+  "entry": "Sen, A., Singh, S., & Tiwari, S. P. (2026). A three axis evaluation framework fo",
+  "doi": null,
+  "status": "no DOI (checked elsewhere)"
+ },
+ {
+  "entry": "Simi, L. (2025). *tda-mapper* (Version 0.12.0) [Computer software]. https://gith",
+  "doi": null,
+  "status": "no DOI (checked elsewhere)"
+ },
+ {
+  "entry": "Singh, G., Mémoli, F., & Carlsson, G. (2007). Topological methods for the analys",
+  "doi": "10.2312/SPBG/SPBG07/091-100",
+  "status": "FETCH FAILED"
+ },
+ {
+  "entry": "Strommen, K., Chantry, M., Dorrington, J., & Otter, N. (2023). A topological perspective o",
+  "doi": "10.1007/s00382-022-06395-x",
+  "crossref": {
+   "title": "A topological perspective on weather regimes",
+   "authors": [
+    "Strommen",
+    "Chantry",
+    "Dorrington",
+    "Otter"
+   ],
+   "year": 2022,
+   "container": "Climate Dynamics",
+   "volume": "60",
+   "issue": "5-6",
+   "pages": "1415-1445"
+  },
+  "authors_in_entry_found_in_record": true,
+  "year_in_entry": false,
+  "pages_in_entry": true,
+  "volume_in_entry": true
+ },
+ {
+  "entry": "Tauzin, G., Lupo, U., Tunstall, L., Burella Pérez, J., Caorsi, M., Medina-Mardon",
+  "doi": null,
+  "status": "no DOI (checked elsewhere)"
+ },
+ {
+  "entry": "Tralie, C., Saul, N., & Bar-On, R. (2018). Ripser.py: A lean persistent homology library f",
+  "doi": "10.21105/joss.00925",
+  "crossref": {
+   "title": "Ripser.py: A Lean Persistent Homology Library for Python",
+   "authors": [
+    "Tralie",
+    "Saul",
+    "Bar-On"
+   ],
+   "year": 2018,
+   "container": "Journal of Open Source Software",
+   "volume": "3",
+   "issue": "29",
+   "pages": "925"
+  },
+  "authors_in_entry_found_in_record": true,
+  "year_in_entry": true,
+  "pages_in_entry": true,
+  "volume_in_entry": true
+ },
+ {
+  "entry": "van Veen, H. J., Saul, N., Eargle, D., & Mangham, S. W. (2019). Kepler Mapper: A flexible ",
+  "doi": "10.21105/joss.01315",
+  "crossref": {
+   "title": "Kepler Mapper: A flexible Python implementation of the Mapper algorithm.",
+   "authors": [
+    "van Veen",
+    "Saul",
+    "Eargle",
+    "Mangham"
+   ],
+   "year": 2019,
+   "container": "Journal of Open Source Software",
+   "volume": "4",
+   "issue": "42",
+   "pages": "1315"
+  },
+  "authors_in_entry_found_in_record": true,
+  "year_in_entry": true,
+  "pages_in_entry": true,
+  "volume_in_entry": true
+ },
+ {
+  "entry": "Yan, X., Li, J., & Wang, B. (2026). LoCoMapper: Local structural uncertainty ana",
+  "doi": null,
+  "status": "no DOI (checked elsewhere)"
+ },
+ {
+  "entry": "Zhou, Y., Chalapathi, N., Rathore, A., Zhao, Y., & Wang, B. (2021). Mapper Interactive: A ",
+  "doi": "10.1109/PacificVis52677.2021.00021",
+  "crossref": {
+   "title": "Mapper Interactive: A Scalable, Extendable, and Interactive Toolbox for the Visual Exploration of Hi",
+   "authors": [
+    "Zhou",
+    "Chalapathi",
+    "Rathore",
+    "Zhao",
+    "Wang"
+   ],
+   "year": 2021,
+   "container": "2021 IEEE 14th Pacific Visualization Symposium (PacificVis)",
+   "volume": null,
+   "issue": null,
+   "pages": "101-110"
+  },
+  "authors_in_entry_found_in_record": true,
+  "year_in_entry": true,
+  "pages_in_entry": true,
+  "volume_in_entry": null
+ },
+ {
+  "entry": "Zomorodian, A., & Carlsson, G. (2005). Computing persistent homology. *Discrete & Computat",
+  "doi": "10.1007/s00454-004-1146-y",
+  "crossref": {
+   "title": "Computing Persistent Homology",
+   "authors": [
+    "Zomorodian",
+    "Carlsson"
+   ],
+   "year": 2004,
+   "container": "Discrete &amp; Computational Geometry",
+   "volume": "33",
+   "issue": "2",
+   "pages": "249-274"
+  },
+  "authors_in_entry_found_in_record": true,
+  "year_in_entry": false,
+  "pages_in_entry": true,
+  "volume_in_entry": true
+ }
+]

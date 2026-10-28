@@ -1,0 +1,11 @@
+ripser==0.6.15
+persim==0.4.1
+kmapper==2.1.0
+tadasets==0.2.2
+scikit-learn==1.9.1
+numpy==2.5.4
+scipy==1.18.1
+matplotlib==3.11.2
+networkx==3.7
+pyyaml==6.0.3
+pytest==8.4.2

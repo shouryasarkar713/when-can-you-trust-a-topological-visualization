@@ -1,0 +1,5 @@
+$ <python> -B -m pytest <repo-root>\technical\scikit-tda-trust\extensions\mapper_explorer\tests -q -p no:cacheprovider -rs --junitxml=<log-dir>\pytest_extensions_mapper_explorer_tests.xml
+
+.......................                                                  [100%]
+- generated xml file: <log-dir>\pytest_extensions_mapper_explorer_tests.xml -
+23 passed in 41.80s

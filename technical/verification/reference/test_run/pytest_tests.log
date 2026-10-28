@@ -1,0 +1,6 @@
+$ <python> -B -m pytest <repo-root>\technical\scikit-tda-trust\tests -q -p no:cacheprovider -rs --junitxml=<log-dir>\pytest_tests.xml
+
+........................................................................ [ 83%]
+..............                                                           [100%]
+- generated xml file: <log-dir>\pytest_tests.xml -
+86 passed in 133.14s (0:02:13)

@@ -1,0 +1,3 @@
+$ <python> -B <repo-root>\technical\scikit-tda-trust\extensions\scripts\verify_baseline_unchanged.py
+
+BASELINE PRESERVATION VERIFIED: 128/145 manifest files present and byte-identical; 17 intentionally not distributed (declared in BASELINE_RELEASE_EXCLUSIONS.json).

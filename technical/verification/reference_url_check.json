@@ -1,0 +1,12 @@
+{
+ "https://doi.org/10.5281/zenodo.2533369": "HTTP Error 403: Forbidden",
+ "https://doi.org/10.2312/SPBG/SPBG07/091-100": 200,
+ "https://www.jmlr.org/papers/v21/19-540.html": 200,
+ "https://www.jmlr.org/papers/v19/17-291.html": 200,
+ "https://www.jmlr.org/papers/v22/20-325.html": 200,
+ "https://arxiv.org/abs/2606.21688": 200,
+ "https://github.com/lucasimi/tda-mapper-python": 200,
+ "https://am.ieeevis.org/year/2026/program/content/9e4af3b5-5f6d-4b27-ba09-7ea919068da0": 200,
+ "https://www.ncei.noaa.gov/data/global-summary-of-the-day/": 200,
+ "https://psl.noaa.gov/data/correlation/oni.data": "<urlopen error [Errno 11004] getaddrinfo failed>"
+}

@@ -1,0 +1,31 @@
+{
+ "date": "2026-10-28",
+ "os": "Windows 11 26H2 (10.0.26300), AMD64",
+ "python": "3.12.13 (CPython, uv-managed)",
+ "environment": "fresh virtual environments created for the final verification run: env/.venv (analysis and tests) and env/.venv-tools (document generation, browser tests)",
+ "analysis_install": "uv venv --python 3.12 env/.venv; uv pip install -r technical/verification/env/req_all.txt (= requirements.txt pins plus pytest==8.4.2)",
+ "freeze": "pip_freeze_clean_environment.txt (analysis), pip_freeze_document_tools.txt (documents and browser tests)",
+ "differences_from_the_freeze_of_the_original_Linux_run": {
+  "colorama": {
+   "original_linux_run": null,
+   "verified_run": "0.4.6"
+  },
+  "fonttools": {
+   "original_linux_run": "4.67.0",
+   "verified_run": "4.68.0"
+  },
+  "narwhals": {
+   "original_linux_run": "2.27.1",
+   "verified_run": "2.28.0"
+  }
+ },
+ "browser": "Google Chrome 156.0.8078.49 via Playwright 1.55.0 (channel=chrome, headless)",
+ "office": "Microsoft Word / PowerPoint 16.0 (COM automation for DOCX field update, PDF export and slide rendering)",
+ "environment_variables": {
+  "PYTHONUTF8": "1 on Windows"
+ },
+ "seeds": "technical/scikit-tda-trust/configs/*.yaml and extensions/*/configs/*.yaml; resampling seed 20261022 + offset + i; weather shuffles 20261028 + i; independent draws 777000 + i",
+ "data_provenance": "technical/scikit-tda-trust/extensions/meteorology/data_provenance/provenance.json (SHA-256 of raw files)",
+ "version_control": "none; no git operations were performed",
+ "note": "All directly pinned packages are identical; the differences are unpinned transitive dependencies (patch releases) and a Windows-only dependency; regenerated figures remained pixel-identical."
+}

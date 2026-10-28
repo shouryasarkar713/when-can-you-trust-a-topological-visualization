@@ -1,0 +1,735 @@
+{
+ "baseline": "work\\ScikitTDA_Independent_Rebuild\\scikit-tda-trust",
+ "regen": "recompute\\scikit-tda-trust",
+ "summary": {
+  "identical": 64,
+  "DIFFERENT": 3,
+  "pixel-identical": 34
+ },
+ "files": {
+  "results/e1/annulus_mapper_memberships.json": {
+   "ext": ".json",
+   "status": "identical",
+   "n_diffs": 0,
+   "diffs": [],
+   "ignored_volatile": 0,
+   "max_abs_num_diff": 0.0
+  },
+  "results/e1/annulus_ph_dgms.npz": {
+   "ext": ".npz",
+   "status": "identical",
+   "worst_abs": 0.0,
+   "bad": []
+  },
+  "results/e1/blob_mapper_memberships.json": {
+   "ext": ".json",
+   "status": "identical",
+   "n_diffs": 0,
+   "diffs": [],
+   "ignored_volatile": 0,
+   "max_abs_num_diff": 0.0
+  },
+  "results/e1/blob_ph_dgms.npz": {
+   "ext": ".npz",
+   "status": "identical",
+   "worst_abs": 0.0,
+   "bad": []
+  },
+  "results/e1/browser_test/offline_cold.png": {
+   "ext": ".png",
+   "status": "identical",
+   "byte_identical": true
+  },
+  "results/e1/browser_test/online.png": {
+   "ext": ".png",
+   "status": "identical",
+   "byte_identical": true
+  },
+  "results/e1/data/annulus.npy": {
+   "ext": ".npy",
+   "status": "DIFFERENT",
+   "worst_abs": 2.220446049250313e-16,
+   "bad": [
+    "arr:max|d|=2.22e-16"
+   ]
+  },
+  "results/e1/data/blob.npy": {
+   "ext": ".npy",
+   "status": "identical",
+   "worst_abs": 0.0,
+   "bad": []
+  },
+  "results/e1/data/figure_eight.npy": {
+   "ext": ".npy",
+   "status": "DIFFERENT",
+   "worst_abs": 2.220446049250313e-16,
+   "bad": [
+    "arr:max|d|=2.22e-16"
+   ]
+  },
+  "results/e1/data/three_blobs.npy": {
+   "ext": ".npy",
+   "status": "identical",
+   "worst_abs": 0.0,
+   "bad": []
+  },
+  "results/e1/e1_audit.json": {
+   "ext": ".json",
+   "status": "DIFFERENT",
+   "n_diffs": 12,
+   "diffs": [
+    [
+     "$.shapes.annulus.stage_times_s.generate",
+     "num",
+     "0.006 vs 0.0385 (abs 0.0325)"
+    ],
+    [
+     "$.shapes.annulus.stage_times_s.mapper_build",
+     "num",
+     "0.0989 vs 1.3552 (abs 1.26)"
+    ],
+    [
+     "$.shapes.annulus.stage_times_s.ripser",
+     "num",
+     "0.6996 vs 0.9197 (abs 0.22)"
+    ],
+    [
+     "$.shapes.blob.stage_times_s.generate",
+     "num",
+     "0.0005 vs 0.0014 (abs 0.0009)"
+    ],
+    [
+     "$.shapes.blob.stage_times_s.mapper_build",
+     "num",
+     "0.0393 vs 0.6959 (abs 0.657)"
+    ],
+    [
+     "$.shapes.blob.stage_times_s.ripser",
+     "num",
+     "0.1318 vs 0.2931 (abs 0.161)"
+    ],
+    [
+     "$.shapes.figure_eight.stage_times_s.generate",
+     "num",
+     "0.0006 vs 0.0017 (abs 0.0011)"
+    ],
+    [
+     "$.shapes.figure_eight.stage_times_s.mapper_build",
+     "num",
+     "0.0376 vs 0.6503 (abs 0.613)"
+    ],
+    [
+     "$.shapes.figure_eight.stage_times_s.ripser",
+     "num",
+     "0.2178 vs 0.3305 (abs 0.113)"
+    ],
+    [
+     "$.shapes.three_blobs.stage_times_s.generate",
+     "num",
+     "0.0005 vs 0.0017 (abs 0.0012)"
+    ],
+    [
+     "$.shapes.three_blobs.stage_times_s.mapper_build",
+     "num",
+     "0.0466 vs 0.5977 (abs 0.551)"
+    ],
+    [
+     "$.shapes.three_blobs.stage_times_s.ripser",
+     "num",
+     "0.1407 vs 0.1904 (abs 0.0497)"
+    ]
+   ],
+   "ignored_volatile": 17,
+   "max_abs_num_diff": 1.2563
+  },
+  "results/e1/figure_eight_mapper_memberships.json": {
+   "ext": ".json",
+   "status": "identical",
+   "n_diffs": 0,
+   "diffs": [],
+   "ignored_volatile": 0,
+   "max_abs_num_diff": 0.0
+  },
+  "results/e1/figure_eight_ph_dgms.npz": {
+   "ext": ".npz",
+   "status": "identical",
+   "worst_abs": 0.0,
+   "bad": []
+  },
+  "results/e1/layout_overlap.json": {
+   "ext": ".json",
+   "status": "identical",
+   "n_diffs": 0,
+   "diffs": [],
+   "ignored_volatile": 0,
+   "max_abs_num_diff": 0.0
+  },
+  "results/e1/offline_browser_test.json": {
+   "ext": ".json",
+   "status": "identical",
+   "n_diffs": 0,
+   "diffs": [],
+   "ignored_volatile": 0,
+   "max_abs_num_diff": 0.0
+  },
+  "results/e1/three_blobs_mapper_memberships.json": {
+   "ext": ".json",
+   "status": "identical",
+   "n_diffs": 0,
+   "diffs": [],
+   "ignored_volatile": 0,
+   "max_abs_num_diff": 0.0
+  },
+  "results/e1/three_blobs_ph_dgms.npz": {
+   "ext": ".npz",
+   "status": "identical",
+   "worst_abs": 0.0,
+   "bad": []
+  },
+  "results/e2/e2_blob_sanity.json": {
+   "ext": ".json",
+   "status": "identical",
+   "n_diffs": 0,
+   "diffs": [],
+   "ignored_volatile": 3,
+   "max_abs_num_diff": 0.0
+  },
+  "results/e2/e2_interpretation_notes.md": {
+   "ext": ".md",
+   "status": "identical",
+   "byte_identical_raw": true
+  },
+  "results/e2/e2_sensitivity.csv": {
+   "ext": ".csv",
+   "note": "time_s column excluded (wall-clock)",
+   "status": "identical",
+   "byte_identical_raw": false
+  },
+  "results/e2/e2_sensitivity.json": {
+   "ext": ".json",
+   "status": "identical",
+   "n_diffs": 0,
+   "diffs": [],
+   "ignored_volatile": 32,
+   "max_abs_num_diff": 0.0
+  },
+  "results/e3/inspection_summary.json": {
+   "ext": ".json",
+   "status": "identical",
+   "n_diffs": 0,
+   "diffs": [],
+   "ignored_volatile": 0,
+   "max_abs_num_diff": 0.0
+  },
+  "results/e3/inspection_summary.md": {
+   "ext": ".md",
+   "status": "identical",
+   "byte_identical_raw": true
+  },
+  "results/env/pip_freeze.txt": {
+   "ext": ".txt",
+   "status": "identical",
+   "byte_identical_raw": true
+  },
+  "results/env/verification.json": {
+   "ext": ".json",
+   "status": "identical",
+   "n_diffs": 0,
+   "diffs": [],
+   "ignored_volatile": 0,
+   "max_abs_num_diff": 0.0
+  },
+  "results/repro/clean_clone_test.log": {
+   "ext": ".log",
+   "status": "identical",
+   "byte_identical_raw": true
+  },
+  "results/repro/comparison_report.json": {
+   "ext": ".json",
+   "status": "identical",
+   "n_diffs": 0,
+   "diffs": [],
+   "ignored_volatile": 0,
+   "max_abs_num_diff": 0.0
+  },
+  "audit/capability_matrix.csv": {
+   "ext": ".csv",
+   "status": "identical",
+   "byte_identical_raw": true
+  },
+  "audit/evidence_log.md": {
+   "ext": ".md",
+   "note": "run-date line excluded",
+   "status": "identical",
+   "byte_identical_raw": false
+  },
+  "audit/glue_code_accounting.json": {
+   "ext": ".json",
+   "status": "identical",
+   "n_diffs": 0,
+   "diffs": [],
+   "ignored_volatile": 0,
+   "max_abs_num_diff": 0.0
+  },
+  "audit/html_resource_inventory.md": {
+   "ext": ".md",
+   "status": "identical",
+   "byte_identical_raw": true
+  },
+  "e3_inspection/inspection_record.csv": {
+   "ext": ".csv",
+   "status": "identical",
+   "byte_identical_raw": true
+  },
+  "e3_inspection/inspection_worksheet_BLANK.csv": {
+   "ext": ".csv",
+   "status": "identical",
+   "byte_identical_raw": true
+  },
+  "e3_inspection/METHODS_NOTE.md": {
+   "ext": ".md",
+   "status": "identical",
+   "byte_identical_raw": true
+  },
+  "e3_inspection/PROTOCOL.md": {
+   "ext": ".md",
+   "status": "identical",
+   "byte_identical_raw": true
+  },
+  "e3_inspection/scoring_key.csv": {
+   "ext": ".csv",
+   "status": "identical",
+   "byte_identical_raw": true
+  },
+  "e3_inspection/stimuli/S01.png": {
+   "ext": ".png",
+   "status": "pixel-identical",
+   "byte_identical": false,
+   "max_abs_pixel": 0,
+   "frac_pixels_differing": 0.0,
+   "frac_pixels_diff_gt32": 0.0
+  },
+  "e3_inspection/stimuli/S02.png": {
+   "ext": ".png",
+   "status": "pixel-identical",
+   "byte_identical": false,
+   "max_abs_pixel": 0,
+   "frac_pixels_differing": 0.0,
+   "frac_pixels_diff_gt32": 0.0
+  },
+  "e3_inspection/stimuli/S03.png": {
+   "ext": ".png",
+   "status": "pixel-identical",
+   "byte_identical": false,
+   "max_abs_pixel": 0,
+   "frac_pixels_differing": 0.0,
+   "frac_pixels_diff_gt32": 0.0
+  },
+  "e3_inspection/stimuli/S04.png": {
+   "ext": ".png",
+   "status": "pixel-identical",
+   "byte_identical": false,
+   "max_abs_pixel": 0,
+   "frac_pixels_differing": 0.0,
+   "frac_pixels_diff_gt32": 0.0
+  },
+  "e3_inspection/stimuli/S05.png": {
+   "ext": ".png",
+   "status": "pixel-identical",
+   "byte_identical": false,
+   "max_abs_pixel": 0,
+   "frac_pixels_differing": 0.0,
+   "frac_pixels_diff_gt32": 0.0
+  },
+  "e3_inspection/stimuli/S06.png": {
+   "ext": ".png",
+   "status": "pixel-identical",
+   "byte_identical": false,
+   "max_abs_pixel": 0,
+   "frac_pixels_differing": 0.0,
+   "frac_pixels_diff_gt32": 0.0
+  },
+  "e3_inspection/stimuli/S07.png": {
+   "ext": ".png",
+   "status": "pixel-identical",
+   "byte_identical": false,
+   "max_abs_pixel": 0,
+   "frac_pixels_differing": 0.0,
+   "frac_pixels_diff_gt32": 0.0
+  },
+  "e3_inspection/stimuli/S08.png": {
+   "ext": ".png",
+   "status": "pixel-identical",
+   "byte_identical": false,
+   "max_abs_pixel": 0,
+   "frac_pixels_differing": 0.0,
+   "frac_pixels_diff_gt32": 0.0
+  },
+  "e3_inspection/stimuli/S09.png": {
+   "ext": ".png",
+   "status": "pixel-identical",
+   "byte_identical": false,
+   "max_abs_pixel": 0,
+   "frac_pixels_differing": 0.0,
+   "frac_pixels_diff_gt32": 0.0
+  },
+  "e3_inspection/stimuli/S10.png": {
+   "ext": ".png",
+   "status": "pixel-identical",
+   "byte_identical": false,
+   "max_abs_pixel": 0,
+   "frac_pixels_differing": 0.0,
+   "frac_pixels_diff_gt32": 0.0
+  },
+  "e3_inspection/stimuli/S11.png": {
+   "ext": ".png",
+   "status": "pixel-identical",
+   "byte_identical": false,
+   "max_abs_pixel": 0,
+   "frac_pixels_differing": 0.0,
+   "frac_pixels_diff_gt32": 0.0
+  },
+  "e3_inspection/stimuli/S12.png": {
+   "ext": ".png",
+   "status": "pixel-identical",
+   "byte_identical": false,
+   "max_abs_pixel": 0,
+   "frac_pixels_differing": 0.0,
+   "frac_pixels_diff_gt32": 0.0
+  },
+  "e3_inspection/stimuli/S13.png": {
+   "ext": ".png",
+   "status": "pixel-identical",
+   "byte_identical": false,
+   "max_abs_pixel": 0,
+   "frac_pixels_differing": 0.0,
+   "frac_pixels_diff_gt32": 0.0
+  },
+  "e3_inspection/stimulus_manifest.json": {
+   "ext": ".json",
+   "status": "identical",
+   "n_diffs": 0,
+   "diffs": [],
+   "ignored_volatile": 1,
+   "max_abs_num_diff": 0.0
+  },
+  "figures/e1/annulus_barcode.png": {
+   "ext": ".png",
+   "status": "pixel-identical",
+   "byte_identical": false,
+   "max_abs_pixel": 0,
+   "frac_pixels_differing": 0.0,
+   "frac_pixels_diff_gt32": 0.0
+  },
+  "figures/e1/annulus_diagram.png": {
+   "ext": ".png",
+   "status": "pixel-identical",
+   "byte_identical": false,
+   "max_abs_pixel": 0,
+   "frac_pixels_differing": 0.0,
+   "frac_pixels_diff_gt32": 0.0
+  },
+  "figures/e1/annulus_mapper.html": {
+   "ext": ".html",
+   "status": "identical",
+   "byte_identical_raw": true
+  },
+  "figures/e1/annulus_mapper_static.png": {
+   "ext": ".png",
+   "status": "pixel-identical",
+   "byte_identical": false,
+   "max_abs_pixel": 0,
+   "frac_pixels_differing": 0.0,
+   "frac_pixels_diff_gt32": 0.0
+  },
+  "figures/e1/annulus_matching.png": {
+   "ext": ".png",
+   "status": "pixel-identical",
+   "byte_identical": false,
+   "max_abs_pixel": 0,
+   "frac_pixels_differing": 0.0,
+   "frac_pixels_diff_gt32": 0.0
+  },
+  "figures/e1/annulus_pca_baseline.png": {
+   "ext": ".png",
+   "status": "pixel-identical",
+   "byte_identical": false,
+   "max_abs_pixel": 0,
+   "frac_pixels_differing": 0.0,
+   "frac_pixels_diff_gt32": 0.0
+  },
+  "figures/e1/annulus_readability_native_vs_separated.caption.txt": {
+   "ext": ".txt",
+   "status": "identical",
+   "byte_identical_raw": true
+  },
+  "figures/e1/annulus_readability_native_vs_separated.png": {
+   "ext": ".png",
+   "status": "identical",
+   "byte_identical": true
+  },
+  "figures/e1/annulus_scatter.png": {
+   "ext": ".png",
+   "status": "pixel-identical",
+   "byte_identical": false,
+   "max_abs_pixel": 0,
+   "frac_pixels_differing": 0.0,
+   "frac_pixels_diff_gt32": 0.0
+  },
+  "figures/e1/blob_barcode.png": {
+   "ext": ".png",
+   "status": "pixel-identical",
+   "byte_identical": false,
+   "max_abs_pixel": 0,
+   "frac_pixels_differing": 0.0,
+   "frac_pixels_diff_gt32": 0.0
+  },
+  "figures/e1/blob_diagram.png": {
+   "ext": ".png",
+   "status": "pixel-identical",
+   "byte_identical": false,
+   "max_abs_pixel": 0,
+   "frac_pixels_differing": 0.0,
+   "frac_pixels_diff_gt32": 0.0
+  },
+  "figures/e1/blob_mapper.html": {
+   "ext": ".html",
+   "status": "identical",
+   "byte_identical_raw": true
+  },
+  "figures/e1/blob_mapper_static.png": {
+   "ext": ".png",
+   "status": "pixel-identical",
+   "byte_identical": false,
+   "max_abs_pixel": 0,
+   "frac_pixels_differing": 0.0,
+   "frac_pixels_diff_gt32": 0.0
+  },
+  "figures/e1/blob_pca_baseline.png": {
+   "ext": ".png",
+   "status": "pixel-identical",
+   "byte_identical": false,
+   "max_abs_pixel": 0,
+   "frac_pixels_differing": 0.0,
+   "frac_pixels_diff_gt32": 0.0
+  },
+  "figures/e1/blob_readability_native_vs_separated.caption.txt": {
+   "ext": ".txt",
+   "status": "identical",
+   "byte_identical_raw": true
+  },
+  "figures/e1/blob_readability_native_vs_separated.png": {
+   "ext": ".png",
+   "status": "identical",
+   "byte_identical": true
+  },
+  "figures/e1/blob_scatter.png": {
+   "ext": ".png",
+   "status": "pixel-identical",
+   "byte_identical": false,
+   "max_abs_pixel": 0,
+   "frac_pixels_differing": 0.0,
+   "frac_pixels_diff_gt32": 0.0
+  },
+  "figures/e1/figure_eight_barcode.png": {
+   "ext": ".png",
+   "status": "pixel-identical",
+   "byte_identical": false,
+   "max_abs_pixel": 0,
+   "frac_pixels_differing": 0.0,
+   "frac_pixels_diff_gt32": 0.0
+  },
+  "figures/e1/figure_eight_diagram.png": {
+   "ext": ".png",
+   "status": "pixel-identical",
+   "byte_identical": false,
+   "max_abs_pixel": 0,
+   "frac_pixels_differing": 0.0,
+   "frac_pixels_diff_gt32": 0.0
+  },
+  "figures/e1/figure_eight_mapper.html": {
+   "ext": ".html",
+   "status": "identical",
+   "byte_identical_raw": true
+  },
+  "figures/e1/figure_eight_mapper_static.png": {
+   "ext": ".png",
+   "status": "pixel-identical",
+   "byte_identical": false,
+   "max_abs_pixel": 0,
+   "frac_pixels_differing": 0.0,
+   "frac_pixels_diff_gt32": 0.0
+  },
+  "figures/e1/figure_eight_pca_baseline.png": {
+   "ext": ".png",
+   "status": "pixel-identical",
+   "byte_identical": false,
+   "max_abs_pixel": 0,
+   "frac_pixels_differing": 0.0,
+   "frac_pixels_diff_gt32": 0.0
+  },
+  "figures/e1/figure_eight_readability_native_vs_separated.caption.txt": {
+   "ext": ".txt",
+   "status": "identical",
+   "byte_identical_raw": true
+  },
+  "figures/e1/figure_eight_readability_native_vs_separated.png": {
+   "ext": ".png",
+   "status": "identical",
+   "byte_identical": true
+  },
+  "figures/e1/figure_eight_scatter.png": {
+   "ext": ".png",
+   "status": "pixel-identical",
+   "byte_identical": false,
+   "max_abs_pixel": 0,
+   "frac_pixels_differing": 0.0,
+   "frac_pixels_diff_gt32": 0.0
+  },
+  "figures/e1/three_blobs_barcode.png": {
+   "ext": ".png",
+   "status": "pixel-identical",
+   "byte_identical": false,
+   "max_abs_pixel": 0,
+   "frac_pixels_differing": 0.0,
+   "frac_pixels_diff_gt32": 0.0
+  },
+  "figures/e1/three_blobs_diagram.png": {
+   "ext": ".png",
+   "status": "pixel-identical",
+   "byte_identical": false,
+   "max_abs_pixel": 0,
+   "frac_pixels_differing": 0.0,
+   "frac_pixels_diff_gt32": 0.0
+  },
+  "figures/e1/three_blobs_mapper.html": {
+   "ext": ".html",
+   "status": "identical",
+   "byte_identical_raw": true
+  },
+  "figures/e1/three_blobs_mapper_static.png": {
+   "ext": ".png",
+   "status": "pixel-identical",
+   "byte_identical": false,
+   "max_abs_pixel": 0,
+   "frac_pixels_differing": 0.0,
+   "frac_pixels_diff_gt32": 0.0
+  },
+  "figures/e1/three_blobs_pca_baseline.png": {
+   "ext": ".png",
+   "status": "pixel-identical",
+   "byte_identical": false,
+   "max_abs_pixel": 0,
+   "frac_pixels_differing": 0.0,
+   "frac_pixels_diff_gt32": 0.0
+  },
+  "figures/e1/three_blobs_readability_native_vs_separated.caption.txt": {
+   "ext": ".txt",
+   "status": "identical",
+   "byte_identical_raw": true
+  },
+  "figures/e1/three_blobs_readability_native_vs_separated.png": {
+   "ext": ".png",
+   "status": "identical",
+   "byte_identical": true
+  },
+  "figures/e1/three_blobs_scatter.png": {
+   "ext": ".png",
+   "status": "pixel-identical",
+   "byte_identical": false,
+   "max_abs_pixel": 0,
+   "frac_pixels_differing": 0.0,
+   "frac_pixels_diff_gt32": 0.0
+  },
+  "figures/e2/e2_readability_annulus.caption.txt": {
+   "ext": ".txt",
+   "status": "identical",
+   "byte_identical_raw": true
+  },
+  "figures/e2/e2_readability_annulus.png": {
+   "ext": ".png",
+   "status": "identical",
+   "byte_identical": true
+  },
+  "figures/e2/e2_readability_figure_eight.caption.txt": {
+   "ext": ".txt",
+   "status": "identical",
+   "byte_identical_raw": true
+  },
+  "figures/e2/e2_readability_figure_eight.png": {
+   "ext": ".png",
+   "status": "identical",
+   "byte_identical": true
+  },
+  "figures/e2/e2_representative_panels_annulus.caption.txt": {
+   "ext": ".txt",
+   "status": "identical",
+   "byte_identical_raw": true
+  },
+  "figures/e2/e2_representative_panels_annulus.png": {
+   "ext": ".png",
+   "status": "identical",
+   "byte_identical": true
+  },
+  "figures/e2/e2_representative_panels_figure_eight.caption.txt": {
+   "ext": ".txt",
+   "status": "identical",
+   "byte_identical_raw": true
+  },
+  "figures/e2/e2_representative_panels_figure_eight.png": {
+   "ext": ".png",
+   "status": "identical",
+   "byte_identical": true
+  },
+  "figures/e2/e2_sanity_blob.caption.txt": {
+   "ext": ".txt",
+   "status": "identical",
+   "byte_identical_raw": true
+  },
+  "figures/e2/e2_sanity_blob.png": {
+   "ext": ".png",
+   "status": "identical",
+   "byte_identical": true
+  },
+  "figures/e2/e2_sensitivity_summary_annulus.caption.txt": {
+   "ext": ".txt",
+   "status": "identical",
+   "byte_identical_raw": true
+  },
+  "figures/e2/e2_sensitivity_summary_annulus.png": {
+   "ext": ".png",
+   "status": "identical",
+   "byte_identical": true
+  },
+  "figures/e2/e2_sensitivity_summary_figure_eight.caption.txt": {
+   "ext": ".txt",
+   "status": "identical",
+   "byte_identical_raw": true
+  },
+  "figures/e2/e2_sensitivity_summary_figure_eight.png": {
+   "ext": ".png",
+   "status": "identical",
+   "byte_identical": true
+  },
+  "configs/e1_audit.yaml": {
+   "ext": ".yaml",
+   "status": "identical",
+   "byte_identical_raw": true
+  },
+  "configs/e2_sensitivity.yaml": {
+   "ext": ".yaml",
+   "status": "identical",
+   "byte_identical_raw": true
+  },
+  "configs/e3_readability.yaml": {
+   "ext": ".yaml",
+   "status": "identical",
+   "byte_identical_raw": true
+  },
+  "configs/shapes.yaml": {
+   "ext": ".yaml",
+   "status": "identical",
+   "byte_identical_raw": true
+  }
+ }
+}

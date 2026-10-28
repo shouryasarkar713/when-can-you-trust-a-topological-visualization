@@ -1,0 +1,15 @@
+$ <python> -B -m pytest <repo-root>\technical\scikit-tda-trust\extensions\stability\tests -q -p no:cacheprovider -rs --junitxml=<log-dir>\pytest_extensions_stability_tests.xml
+
+.............................                                            [100%]
+============================== warnings summary ===============================
+extensions/stability/tests/test_stability.py::TestDeterminism::test_subsample_indices_reproduce_from_seed_rule
+  <env>\.venv\Lib\site-packages\persim\landscapes\visuals.py:310: SyntaxWarning: invalid escape sequence '\l'
+    ax.plot(ls[:, 0], ls[:, 1], label=f"$\lambda_{{{depth}}}$", alpha=alpha)
+
+extensions/stability/tests/test_stability.py::TestDeterminism::test_subsample_indices_reproduce_from_seed_rule
+  <env>\.venv\Lib\site-packages\persim\landscapes\visuals.py:469: SyntaxWarning: invalid escape sequence '\l'
+    ax.plot(domain, lscape, label=f"$\lambda_{{{depth}}}$", alpha=alpha)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+- generated xml file: <log-dir>\pytest_extensions_stability_tests.xml -
+29 passed, 2 warnings in 17.87s

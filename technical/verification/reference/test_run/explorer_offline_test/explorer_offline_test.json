@@ -1,0 +1,1185 @@
+{
+  "viewer": "<repo-root>\\technical\\scikit-tda-trust\\extensions\\mapper_explorer\\viewer\\index.html",
+  "checks": [
+    {
+      "name": "no external script/link/img/iframe tags",
+      "pass": true,
+      "detail": "[]"
+    },
+    {
+      "name": "only file:// document request on load",
+      "pass": true,
+      "detail": "[{'url': 'file:///E:/sciviz_scikittda/release/work/technical/scikit-tda-trust/extensions/mapper_explorer/viewer/index.html', 'type': 'document'}]"
+    },
+    {
+      "name": "annulus/nc5_po0.2: export object corresponds to the selected cell",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "annulus/nc5_po0.2: displayed stats == independent recomputation",
+      "pass": true,
+      "detail": "shown={'n_nodes': 10, 'n_edges': 9, 'n_components': 1, 'cyclomatic_number': 0} mine={'n_nodes': 10, 'n_edges': 9, 'n_components': 1, 'cyclomatic_number': 0}"
+    },
+    {
+      "name": "annulus/nc5_po0.2: SVG circles == nodes",
+      "pass": true,
+      "detail": "10 vs 10"
+    },
+    {
+      "name": "annulus/nc5_po0.2: SVG lines == link entries",
+      "pass": true,
+      "detail": "9 vs 9"
+    },
+    {
+      "name": "annulus/nc5_po0.2: exported memberships == source-result memberships",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "annulus/nc5_po0.35: export object corresponds to the selected cell",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "annulus/nc5_po0.35: displayed stats == independent recomputation",
+      "pass": true,
+      "detail": "shown={'n_nodes': 10, 'n_edges': 9, 'n_components': 1, 'cyclomatic_number': 0} mine={'n_nodes': 10, 'n_edges': 9, 'n_components': 1, 'cyclomatic_number': 0}"
+    },
+    {
+      "name": "annulus/nc5_po0.35: SVG circles == nodes",
+      "pass": true,
+      "detail": "10 vs 10"
+    },
+    {
+      "name": "annulus/nc5_po0.35: SVG lines == link entries",
+      "pass": true,
+      "detail": "9 vs 9"
+    },
+    {
+      "name": "annulus/nc5_po0.35: exported memberships == source-result memberships",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "annulus/nc5_po0.5: export object corresponds to the selected cell",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "annulus/nc5_po0.5: displayed stats == independent recomputation",
+      "pass": true,
+      "detail": "shown={'n_nodes': 10, 'n_edges': 9, 'n_components': 1, 'cyclomatic_number': 0} mine={'n_nodes': 10, 'n_edges': 9, 'n_components': 1, 'cyclomatic_number': 0}"
+    },
+    {
+      "name": "annulus/nc5_po0.5: SVG circles == nodes",
+      "pass": true,
+      "detail": "10 vs 10"
+    },
+    {
+      "name": "annulus/nc5_po0.5: SVG lines == link entries",
+      "pass": true,
+      "detail": "9 vs 9"
+    },
+    {
+      "name": "annulus/nc5_po0.5: exported memberships == source-result memberships",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "annulus/nc10_po0.2: export object corresponds to the selected cell",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "annulus/nc10_po0.2: displayed stats == independent recomputation",
+      "pass": true,
+      "detail": "shown={'n_nodes': 20, 'n_edges': 19, 'n_components': 1, 'cyclomatic_number': 0} mine={'n_nodes': 20, 'n_edges': 19, 'n_components': 1, 'cyclomatic_number': 0}"
+    },
+    {
+      "name": "annulus/nc10_po0.2: SVG circles == nodes",
+      "pass": true,
+      "detail": "20 vs 20"
+    },
+    {
+      "name": "annulus/nc10_po0.2: SVG lines == link entries",
+      "pass": true,
+      "detail": "19 vs 19"
+    },
+    {
+      "name": "annulus/nc10_po0.2: exported memberships == source-result memberships",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "annulus/nc10_po0.35: export object corresponds to the selected cell",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "annulus/nc10_po0.35: displayed stats == independent recomputation",
+      "pass": true,
+      "detail": "shown={'n_nodes': 20, 'n_edges': 21, 'n_components': 1, 'cyclomatic_number': 2} mine={'n_nodes': 20, 'n_edges': 21, 'n_components': 1, 'cyclomatic_number': 2}"
+    },
+    {
+      "name": "annulus/nc10_po0.35: SVG circles == nodes",
+      "pass": true,
+      "detail": "20 vs 20"
+    },
+    {
+      "name": "annulus/nc10_po0.35: SVG lines == link entries",
+      "pass": true,
+      "detail": "21 vs 21"
+    },
+    {
+      "name": "annulus/nc10_po0.35: exported memberships == source-result memberships",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "annulus/nc10_po0.5: export object corresponds to the selected cell",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "annulus/nc10_po0.5: displayed stats == independent recomputation",
+      "pass": true,
+      "detail": "shown={'n_nodes': 20, 'n_edges': 21, 'n_components': 1, 'cyclomatic_number': 2} mine={'n_nodes': 20, 'n_edges': 21, 'n_components': 1, 'cyclomatic_number': 2}"
+    },
+    {
+      "name": "annulus/nc10_po0.5: SVG circles == nodes",
+      "pass": true,
+      "detail": "20 vs 20"
+    },
+    {
+      "name": "annulus/nc10_po0.5: SVG lines == link entries",
+      "pass": true,
+      "detail": "21 vs 21"
+    },
+    {
+      "name": "annulus/nc10_po0.5: exported memberships == source-result memberships",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "annulus/nc15_po0.2: export object corresponds to the selected cell",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "annulus/nc15_po0.2: displayed stats == independent recomputation",
+      "pass": true,
+      "detail": "shown={'n_nodes': 30, 'n_edges': 30, 'n_components': 1, 'cyclomatic_number': 1} mine={'n_nodes': 30, 'n_edges': 30, 'n_components': 1, 'cyclomatic_number': 1}"
+    },
+    {
+      "name": "annulus/nc15_po0.2: SVG circles == nodes",
+      "pass": true,
+      "detail": "30 vs 30"
+    },
+    {
+      "name": "annulus/nc15_po0.2: SVG lines == link entries",
+      "pass": true,
+      "detail": "30 vs 30"
+    },
+    {
+      "name": "annulus/nc15_po0.2: exported memberships == source-result memberships",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "annulus/nc15_po0.35: export object corresponds to the selected cell",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "annulus/nc15_po0.35: displayed stats == independent recomputation",
+      "pass": true,
+      "detail": "shown={'n_nodes': 30, 'n_edges': 32, 'n_components': 1, 'cyclomatic_number': 3} mine={'n_nodes': 30, 'n_edges': 32, 'n_components': 1, 'cyclomatic_number': 3}"
+    },
+    {
+      "name": "annulus/nc15_po0.35: SVG circles == nodes",
+      "pass": true,
+      "detail": "30 vs 30"
+    },
+    {
+      "name": "annulus/nc15_po0.35: SVG lines == link entries",
+      "pass": true,
+      "detail": "32 vs 32"
+    },
+    {
+      "name": "annulus/nc15_po0.35: exported memberships == source-result memberships",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "annulus/nc15_po0.5: export object corresponds to the selected cell",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "annulus/nc15_po0.5: displayed stats == independent recomputation",
+      "pass": true,
+      "detail": "shown={'n_nodes': 30, 'n_edges': 33, 'n_components': 1, 'cyclomatic_number': 4} mine={'n_nodes': 30, 'n_edges': 33, 'n_components': 1, 'cyclomatic_number': 4}"
+    },
+    {
+      "name": "annulus/nc15_po0.5: SVG circles == nodes",
+      "pass": true,
+      "detail": "30 vs 30"
+    },
+    {
+      "name": "annulus/nc15_po0.5: SVG lines == link entries",
+      "pass": true,
+      "detail": "33 vs 33"
+    },
+    {
+      "name": "annulus/nc15_po0.5: exported memberships == source-result memberships",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "annulus/nc20_po0.2: export object corresponds to the selected cell",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "annulus/nc20_po0.2: displayed stats == independent recomputation",
+      "pass": true,
+      "detail": "shown={'n_nodes': 40, 'n_edges': 39, 'n_components': 2, 'cyclomatic_number': 1} mine={'n_nodes': 40, 'n_edges': 39, 'n_components': 2, 'cyclomatic_number': 1}"
+    },
+    {
+      "name": "annulus/nc20_po0.2: SVG circles == nodes",
+      "pass": true,
+      "detail": "40 vs 40"
+    },
+    {
+      "name": "annulus/nc20_po0.2: SVG lines == link entries",
+      "pass": true,
+      "detail": "39 vs 39"
+    },
+    {
+      "name": "annulus/nc20_po0.2: exported memberships == source-result memberships",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "annulus/nc20_po0.35: export object corresponds to the selected cell",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "annulus/nc20_po0.35: displayed stats == independent recomputation",
+      "pass": true,
+      "detail": "shown={'n_nodes': 40, 'n_edges': 44, 'n_components': 1, 'cyclomatic_number': 5} mine={'n_nodes': 40, 'n_edges': 44, 'n_components': 1, 'cyclomatic_number': 5}"
+    },
+    {
+      "name": "annulus/nc20_po0.35: SVG circles == nodes",
+      "pass": true,
+      "detail": "40 vs 40"
+    },
+    {
+      "name": "annulus/nc20_po0.35: SVG lines == link entries",
+      "pass": true,
+      "detail": "44 vs 44"
+    },
+    {
+      "name": "annulus/nc20_po0.35: exported memberships == source-result memberships",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "annulus/nc20_po0.5: export object corresponds to the selected cell",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "annulus/nc20_po0.5: displayed stats == independent recomputation",
+      "pass": true,
+      "detail": "shown={'n_nodes': 40, 'n_edges': 44, 'n_components': 1, 'cyclomatic_number': 5} mine={'n_nodes': 40, 'n_edges': 44, 'n_components': 1, 'cyclomatic_number': 5}"
+    },
+    {
+      "name": "annulus/nc20_po0.5: SVG circles == nodes",
+      "pass": true,
+      "detail": "40 vs 40"
+    },
+    {
+      "name": "annulus/nc20_po0.5: SVG lines == link entries",
+      "pass": true,
+      "detail": "44 vs 44"
+    },
+    {
+      "name": "annulus/nc20_po0.5: exported memberships == source-result memberships",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "annulus/nc5_po0.2: S(viewer) == S(independent) within source rounding (4 d.p.)",
+      "pass": true,
+      "detail": "0.6483 vs 0.64825"
+    },
+    {
+      "name": "annulus/nc5_po0.35: S(viewer) == S(independent) within source rounding (4 d.p.)",
+      "pass": true,
+      "detail": "0.5684 vs 0.56845"
+    },
+    {
+      "name": "annulus/nc5_po0.5: S(viewer) == S(independent) within source rounding (4 d.p.)",
+      "pass": true,
+      "detail": "0.4487 vs 0.44873"
+    },
+    {
+      "name": "annulus/nc10_po0.2: S(viewer) == S(independent) within source rounding (4 d.p.)",
+      "pass": true,
+      "detail": "0.7755 vs 0.77553"
+    },
+    {
+      "name": "annulus/nc10_po0.35: S(viewer) == S(independent) within source rounding (0 d.p.)",
+      "pass": true,
+      "detail": "1 vs 1.00000"
+    },
+    {
+      "name": "annulus/nc10_po0.5: S(viewer) == S(independent) within source rounding (4 d.p.)",
+      "pass": true,
+      "detail": "0.7588 vs 0.75884"
+    },
+    {
+      "name": "annulus/nc15_po0.2: S(viewer) == S(independent) within source rounding (4 d.p.)",
+      "pass": true,
+      "detail": "0.5467 vs 0.54674"
+    },
+    {
+      "name": "annulus/nc15_po0.35: S(viewer) == S(independent) within source rounding (4 d.p.)",
+      "pass": true,
+      "detail": "0.6123 vs 0.61234"
+    },
+    {
+      "name": "annulus/nc15_po0.5: S(viewer) == S(independent) within source rounding (4 d.p.)",
+      "pass": true,
+      "detail": "0.7175 vs 0.71749"
+    },
+    {
+      "name": "annulus/nc20_po0.2: S(viewer) == S(independent) within source rounding (4 d.p.)",
+      "pass": true,
+      "detail": "0.4492 vs 0.44918"
+    },
+    {
+      "name": "annulus/nc20_po0.35: S(viewer) == S(independent) within source rounding (4 d.p.)",
+      "pass": true,
+      "detail": "0.5462 vs 0.54615"
+    },
+    {
+      "name": "annulus/nc20_po0.5: S(viewer) == S(independent) within source rounding (4 d.p.)",
+      "pass": true,
+      "detail": "0.6901 vs 0.69014"
+    },
+    {
+      "name": "figure_eight/nc5_po0.2: export object corresponds to the selected cell",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "figure_eight/nc5_po0.2: displayed stats == independent recomputation",
+      "pass": true,
+      "detail": "shown={'n_nodes': 10, 'n_edges': 10, 'n_components': 1, 'cyclomatic_number': 1} mine={'n_nodes': 10, 'n_edges': 10, 'n_components': 1, 'cyclomatic_number': 1}"
+    },
+    {
+      "name": "figure_eight/nc5_po0.2: SVG circles == nodes",
+      "pass": true,
+      "detail": "10 vs 10"
+    },
+    {
+      "name": "figure_eight/nc5_po0.2: SVG lines == link entries",
+      "pass": true,
+      "detail": "10 vs 10"
+    },
+    {
+      "name": "figure_eight/nc5_po0.2: exported memberships == source-result memberships",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "figure_eight/nc5_po0.35: export object corresponds to the selected cell",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "figure_eight/nc5_po0.35: displayed stats == independent recomputation",
+      "pass": true,
+      "detail": "shown={'n_nodes': 10, 'n_edges': 8, 'n_components': 2, 'cyclomatic_number': 0} mine={'n_nodes': 10, 'n_edges': 8, 'n_components': 2, 'cyclomatic_number': 0}"
+    },
+    {
+      "name": "figure_eight/nc5_po0.35: SVG circles == nodes",
+      "pass": true,
+      "detail": "10 vs 10"
+    },
+    {
+      "name": "figure_eight/nc5_po0.35: SVG lines == link entries",
+      "pass": true,
+      "detail": "8 vs 8"
+    },
+    {
+      "name": "figure_eight/nc5_po0.35: exported memberships == source-result memberships",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "figure_eight/nc5_po0.5: export object corresponds to the selected cell",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "figure_eight/nc5_po0.5: displayed stats == independent recomputation",
+      "pass": true,
+      "detail": "shown={'n_nodes': 10, 'n_edges': 9, 'n_components': 1, 'cyclomatic_number': 0} mine={'n_nodes': 10, 'n_edges': 9, 'n_components': 1, 'cyclomatic_number': 0}"
+    },
+    {
+      "name": "figure_eight/nc5_po0.5: SVG circles == nodes",
+      "pass": true,
+      "detail": "10 vs 10"
+    },
+    {
+      "name": "figure_eight/nc5_po0.5: SVG lines == link entries",
+      "pass": true,
+      "detail": "9 vs 9"
+    },
+    {
+      "name": "figure_eight/nc5_po0.5: exported memberships == source-result memberships",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "figure_eight/nc10_po0.2: export object corresponds to the selected cell",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "figure_eight/nc10_po0.2: displayed stats == independent recomputation",
+      "pass": true,
+      "detail": "shown={'n_nodes': 20, 'n_edges': 19, 'n_components': 2, 'cyclomatic_number': 1} mine={'n_nodes': 20, 'n_edges': 19, 'n_components': 2, 'cyclomatic_number': 1}"
+    },
+    {
+      "name": "figure_eight/nc10_po0.2: SVG circles == nodes",
+      "pass": true,
+      "detail": "20 vs 20"
+    },
+    {
+      "name": "figure_eight/nc10_po0.2: SVG lines == link entries",
+      "pass": true,
+      "detail": "19 vs 19"
+    },
+    {
+      "name": "figure_eight/nc10_po0.2: exported memberships == source-result memberships",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "figure_eight/nc10_po0.35: export object corresponds to the selected cell",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "figure_eight/nc10_po0.35: displayed stats == independent recomputation",
+      "pass": true,
+      "detail": "shown={'n_nodes': 20, 'n_edges': 19, 'n_components': 2, 'cyclomatic_number': 1} mine={'n_nodes': 20, 'n_edges': 19, 'n_components': 2, 'cyclomatic_number': 1}"
+    },
+    {
+      "name": "figure_eight/nc10_po0.35: SVG circles == nodes",
+      "pass": true,
+      "detail": "20 vs 20"
+    },
+    {
+      "name": "figure_eight/nc10_po0.35: SVG lines == link entries",
+      "pass": true,
+      "detail": "19 vs 19"
+    },
+    {
+      "name": "figure_eight/nc10_po0.35: exported memberships == source-result memberships",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "figure_eight/nc10_po0.5: export object corresponds to the selected cell",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "figure_eight/nc10_po0.5: displayed stats == independent recomputation",
+      "pass": true,
+      "detail": "shown={'n_nodes': 20, 'n_edges': 22, 'n_components': 1, 'cyclomatic_number': 3} mine={'n_nodes': 20, 'n_edges': 22, 'n_components': 1, 'cyclomatic_number': 3}"
+    },
+    {
+      "name": "figure_eight/nc10_po0.5: SVG circles == nodes",
+      "pass": true,
+      "detail": "20 vs 20"
+    },
+    {
+      "name": "figure_eight/nc10_po0.5: SVG lines == link entries",
+      "pass": true,
+      "detail": "22 vs 22"
+    },
+    {
+      "name": "figure_eight/nc10_po0.5: exported memberships == source-result memberships",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "figure_eight/nc15_po0.2: export object corresponds to the selected cell",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "figure_eight/nc15_po0.2: displayed stats == independent recomputation",
+      "pass": true,
+      "detail": "shown={'n_nodes': 30, 'n_edges': 28, 'n_components': 2, 'cyclomatic_number': 0} mine={'n_nodes': 30, 'n_edges': 28, 'n_components': 2, 'cyclomatic_number': 0}"
+    },
+    {
+      "name": "figure_eight/nc15_po0.2: SVG circles == nodes",
+      "pass": true,
+      "detail": "30 vs 30"
+    },
+    {
+      "name": "figure_eight/nc15_po0.2: SVG lines == link entries",
+      "pass": true,
+      "detail": "28 vs 28"
+    },
+    {
+      "name": "figure_eight/nc15_po0.2: exported memberships == source-result memberships",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "figure_eight/nc15_po0.35: export object corresponds to the selected cell",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "figure_eight/nc15_po0.35: displayed stats == independent recomputation",
+      "pass": true,
+      "detail": "shown={'n_nodes': 30, 'n_edges': 31, 'n_components': 1, 'cyclomatic_number': 2} mine={'n_nodes': 30, 'n_edges': 31, 'n_components': 1, 'cyclomatic_number': 2}"
+    },
+    {
+      "name": "figure_eight/nc15_po0.35: SVG circles == nodes",
+      "pass": true,
+      "detail": "30 vs 30"
+    },
+    {
+      "name": "figure_eight/nc15_po0.35: SVG lines == link entries",
+      "pass": true,
+      "detail": "31 vs 31"
+    },
+    {
+      "name": "figure_eight/nc15_po0.35: exported memberships == source-result memberships",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "figure_eight/nc15_po0.5: export object corresponds to the selected cell",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "figure_eight/nc15_po0.5: displayed stats == independent recomputation",
+      "pass": true,
+      "detail": "shown={'n_nodes': 30, 'n_edges': 33, 'n_components': 1, 'cyclomatic_number': 4} mine={'n_nodes': 30, 'n_edges': 33, 'n_components': 1, 'cyclomatic_number': 4}"
+    },
+    {
+      "name": "figure_eight/nc15_po0.5: SVG circles == nodes",
+      "pass": true,
+      "detail": "30 vs 30"
+    },
+    {
+      "name": "figure_eight/nc15_po0.5: SVG lines == link entries",
+      "pass": true,
+      "detail": "33 vs 33"
+    },
+    {
+      "name": "figure_eight/nc15_po0.5: exported memberships == source-result memberships",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "figure_eight/nc20_po0.2: export object corresponds to the selected cell",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "figure_eight/nc20_po0.2: displayed stats == independent recomputation",
+      "pass": true,
+      "detail": "shown={'n_nodes': 40, 'n_edges': 36, 'n_components': 4, 'cyclomatic_number': 0} mine={'n_nodes': 40, 'n_edges': 36, 'n_components': 4, 'cyclomatic_number': 0}"
+    },
+    {
+      "name": "figure_eight/nc20_po0.2: SVG circles == nodes",
+      "pass": true,
+      "detail": "40 vs 40"
+    },
+    {
+      "name": "figure_eight/nc20_po0.2: SVG lines == link entries",
+      "pass": true,
+      "detail": "36 vs 36"
+    },
+    {
+      "name": "figure_eight/nc20_po0.2: exported memberships == source-result memberships",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "figure_eight/nc20_po0.35: export object corresponds to the selected cell",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "figure_eight/nc20_po0.35: displayed stats == independent recomputation",
+      "pass": true,
+      "detail": "shown={'n_nodes': 40, 'n_edges': 40, 'n_components': 1, 'cyclomatic_number': 1} mine={'n_nodes': 40, 'n_edges': 40, 'n_components': 1, 'cyclomatic_number': 1}"
+    },
+    {
+      "name": "figure_eight/nc20_po0.35: SVG circles == nodes",
+      "pass": true,
+      "detail": "40 vs 40"
+    },
+    {
+      "name": "figure_eight/nc20_po0.35: SVG lines == link entries",
+      "pass": true,
+      "detail": "40 vs 40"
+    },
+    {
+      "name": "figure_eight/nc20_po0.35: exported memberships == source-result memberships",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "figure_eight/nc20_po0.5: export object corresponds to the selected cell",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "figure_eight/nc20_po0.5: displayed stats == independent recomputation",
+      "pass": true,
+      "detail": "shown={'n_nodes': 40, 'n_edges': 41, 'n_components': 1, 'cyclomatic_number': 2} mine={'n_nodes': 40, 'n_edges': 41, 'n_components': 1, 'cyclomatic_number': 2}"
+    },
+    {
+      "name": "figure_eight/nc20_po0.5: SVG circles == nodes",
+      "pass": true,
+      "detail": "40 vs 40"
+    },
+    {
+      "name": "figure_eight/nc20_po0.5: SVG lines == link entries",
+      "pass": true,
+      "detail": "41 vs 41"
+    },
+    {
+      "name": "figure_eight/nc20_po0.5: exported memberships == source-result memberships",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "figure_eight/nc5_po0.2: S(viewer) == S(independent) within source rounding (4 d.p.)",
+      "pass": true,
+      "detail": "0.6438 vs 0.64377"
+    },
+    {
+      "name": "figure_eight/nc5_po0.35: S(viewer) == S(independent) within source rounding (4 d.p.)",
+      "pass": true,
+      "detail": "0.5521 vs 0.55211"
+    },
+    {
+      "name": "figure_eight/nc5_po0.5: S(viewer) == S(independent) within source rounding (4 d.p.)",
+      "pass": true,
+      "detail": "0.4582 vs 0.45822"
+    },
+    {
+      "name": "figure_eight/nc10_po0.2: S(viewer) == S(independent) within source rounding (3 d.p.)",
+      "pass": true,
+      "detail": "0.801 vs 0.80101"
+    },
+    {
+      "name": "figure_eight/nc10_po0.35: S(viewer) == S(independent) within source rounding (0 d.p.)",
+      "pass": true,
+      "detail": "1 vs 1.00000"
+    },
+    {
+      "name": "figure_eight/nc10_po0.5: S(viewer) == S(independent) within source rounding (4 d.p.)",
+      "pass": true,
+      "detail": "0.7413 vs 0.74131"
+    },
+    {
+      "name": "figure_eight/nc15_po0.2: S(viewer) == S(independent) within source rounding (4 d.p.)",
+      "pass": true,
+      "detail": "0.5287 vs 0.52870"
+    },
+    {
+      "name": "figure_eight/nc15_po0.35: S(viewer) == S(independent) within source rounding (2 d.p.)",
+      "pass": true,
+      "detail": "0.63 vs 0.62998"
+    },
+    {
+      "name": "figure_eight/nc15_po0.5: S(viewer) == S(independent) within source rounding (4 d.p.)",
+      "pass": true,
+      "detail": "0.7324 vs 0.73242"
+    },
+    {
+      "name": "figure_eight/nc20_po0.2: S(viewer) == S(independent) within source rounding (4 d.p.)",
+      "pass": true,
+      "detail": "0.4566 vs 0.45656"
+    },
+    {
+      "name": "figure_eight/nc20_po0.35: S(viewer) == S(independent) within source rounding (4 d.p.)",
+      "pass": true,
+      "detail": "0.5439 vs 0.54388"
+    },
+    {
+      "name": "figure_eight/nc20_po0.5: S(viewer) == S(independent) within source rounding (4 d.p.)",
+      "pass": true,
+      "detail": "0.7014 vs 0.70144"
+    },
+    {
+      "name": "blob/nc10_po0.35: export object corresponds to the selected cell",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "blob/nc10_po0.35: displayed stats == independent recomputation",
+      "pass": true,
+      "detail": "shown={'n_nodes': 20, 'n_edges': 23, 'n_components': 1, 'cyclomatic_number': 4} mine={'n_nodes': 20, 'n_edges': 23, 'n_components': 1, 'cyclomatic_number': 4}"
+    },
+    {
+      "name": "blob/nc10_po0.35: SVG circles == nodes",
+      "pass": true,
+      "detail": "20 vs 20"
+    },
+    {
+      "name": "blob/nc10_po0.35: SVG lines == link entries",
+      "pass": true,
+      "detail": "23 vs 23"
+    },
+    {
+      "name": "blob/nc20_po0.2: export object corresponds to the selected cell",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "blob/nc20_po0.2: displayed stats == independent recomputation",
+      "pass": true,
+      "detail": "shown={'n_nodes': 38, 'n_edges': 37, 'n_components': 6, 'cyclomatic_number': 5} mine={'n_nodes': 38, 'n_edges': 37, 'n_components': 6, 'cyclomatic_number': 5}"
+    },
+    {
+      "name": "blob/nc20_po0.2: SVG circles == nodes",
+      "pass": true,
+      "detail": "38 vs 38"
+    },
+    {
+      "name": "blob/nc20_po0.2: SVG lines == link entries",
+      "pass": true,
+      "detail": "37 vs 37"
+    },
+    {
+      "name": "weather/nc5_po0.35: export object corresponds to the selected cell",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "weather/nc5_po0.35: displayed stats == independent recomputation",
+      "pass": true,
+      "detail": "shown={'n_nodes': 10, 'n_edges': 12, 'n_components': 1, 'cyclomatic_number': 3} mine={'n_nodes': 10, 'n_edges': 12, 'n_components': 1, 'cyclomatic_number': 3}"
+    },
+    {
+      "name": "weather/nc5_po0.35: SVG circles == nodes",
+      "pass": true,
+      "detail": "10 vs 10"
+    },
+    {
+      "name": "weather/nc5_po0.35: SVG lines == link entries",
+      "pass": true,
+      "detail": "12 vs 12"
+    },
+    {
+      "name": "weather/nc5_po0.35: exported memberships == source-result memberships",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "weather/nc5_po0.5: export object corresponds to the selected cell",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "weather/nc5_po0.5: displayed stats == independent recomputation",
+      "pass": true,
+      "detail": "shown={'n_nodes': 10, 'n_edges': 13, 'n_components': 1, 'cyclomatic_number': 4} mine={'n_nodes': 10, 'n_edges': 13, 'n_components': 1, 'cyclomatic_number': 4}"
+    },
+    {
+      "name": "weather/nc5_po0.5: SVG circles == nodes",
+      "pass": true,
+      "detail": "10 vs 10"
+    },
+    {
+      "name": "weather/nc5_po0.5: SVG lines == link entries",
+      "pass": true,
+      "detail": "13 vs 13"
+    },
+    {
+      "name": "weather/nc5_po0.5: exported memberships == source-result memberships",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "weather/nc10_po0.35: export object corresponds to the selected cell",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "weather/nc10_po0.35: displayed stats == independent recomputation",
+      "pass": true,
+      "detail": "shown={'n_nodes': 20, 'n_edges': 26, 'n_components': 1, 'cyclomatic_number': 7} mine={'n_nodes': 20, 'n_edges': 26, 'n_components': 1, 'cyclomatic_number': 7}"
+    },
+    {
+      "name": "weather/nc10_po0.35: SVG circles == nodes",
+      "pass": true,
+      "detail": "20 vs 20"
+    },
+    {
+      "name": "weather/nc10_po0.35: SVG lines == link entries",
+      "pass": true,
+      "detail": "26 vs 26"
+    },
+    {
+      "name": "weather/nc10_po0.35: exported memberships == source-result memberships",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "weather/nc10_po0.5: export object corresponds to the selected cell",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "weather/nc10_po0.5: displayed stats == independent recomputation",
+      "pass": true,
+      "detail": "shown={'n_nodes': 20, 'n_edges': 27, 'n_components': 1, 'cyclomatic_number': 8} mine={'n_nodes': 20, 'n_edges': 27, 'n_components': 1, 'cyclomatic_number': 8}"
+    },
+    {
+      "name": "weather/nc10_po0.5: SVG circles == nodes",
+      "pass": true,
+      "detail": "20 vs 20"
+    },
+    {
+      "name": "weather/nc10_po0.5: SVG lines == link entries",
+      "pass": true,
+      "detail": "27 vs 27"
+    },
+    {
+      "name": "weather/nc10_po0.5: exported memberships == source-result memberships",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "weather/nc15_po0.35: export object corresponds to the selected cell",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "weather/nc15_po0.35: displayed stats == independent recomputation",
+      "pass": true,
+      "detail": "shown={'n_nodes': 30, 'n_edges': 38, 'n_components': 1, 'cyclomatic_number': 9} mine={'n_nodes': 30, 'n_edges': 38, 'n_components': 1, 'cyclomatic_number': 9}"
+    },
+    {
+      "name": "weather/nc15_po0.35: SVG circles == nodes",
+      "pass": true,
+      "detail": "30 vs 30"
+    },
+    {
+      "name": "weather/nc15_po0.35: SVG lines == link entries",
+      "pass": true,
+      "detail": "38 vs 38"
+    },
+    {
+      "name": "weather/nc15_po0.35: exported memberships == source-result memberships",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "weather/nc15_po0.5: export object corresponds to the selected cell",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "weather/nc15_po0.5: displayed stats == independent recomputation",
+      "pass": true,
+      "detail": "shown={'n_nodes': 30, 'n_edges': 40, 'n_components': 1, 'cyclomatic_number': 11} mine={'n_nodes': 30, 'n_edges': 40, 'n_components': 1, 'cyclomatic_number': 11}"
+    },
+    {
+      "name": "weather/nc15_po0.5: SVG circles == nodes",
+      "pass": true,
+      "detail": "30 vs 30"
+    },
+    {
+      "name": "weather/nc15_po0.5: SVG lines == link entries",
+      "pass": true,
+      "detail": "40 vs 40"
+    },
+    {
+      "name": "weather/nc15_po0.5: exported memberships == source-result memberships",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "weather/nc20_po0.35: export object corresponds to the selected cell",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "weather/nc20_po0.35: displayed stats == independent recomputation",
+      "pass": true,
+      "detail": "shown={'n_nodes': 40, 'n_edges': 49, 'n_components': 2, 'cyclomatic_number': 11} mine={'n_nodes': 40, 'n_edges': 49, 'n_components': 2, 'cyclomatic_number': 11}"
+    },
+    {
+      "name": "weather/nc20_po0.35: SVG circles == nodes",
+      "pass": true,
+      "detail": "40 vs 40"
+    },
+    {
+      "name": "weather/nc20_po0.35: SVG lines == link entries",
+      "pass": true,
+      "detail": "49 vs 49"
+    },
+    {
+      "name": "weather/nc20_po0.35: exported memberships == source-result memberships",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "weather/nc20_po0.5: export object corresponds to the selected cell",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "weather/nc20_po0.5: displayed stats == independent recomputation",
+      "pass": true,
+      "detail": "shown={'n_nodes': 40, 'n_edges': 52, 'n_components': 2, 'cyclomatic_number': 14} mine={'n_nodes': 40, 'n_edges': 52, 'n_components': 2, 'cyclomatic_number': 14}"
+    },
+    {
+      "name": "weather/nc20_po0.5: SVG circles == nodes",
+      "pass": true,
+      "detail": "40 vs 40"
+    },
+    {
+      "name": "weather/nc20_po0.5: SVG lines == link entries",
+      "pass": true,
+      "detail": "52 vs 52"
+    },
+    {
+      "name": "weather/nc20_po0.5: exported memberships == source-result memberships",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "weather/doy_nc10_po0.35: export object corresponds to the selected cell",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "weather/doy_nc10_po0.35: displayed stats == independent recomputation",
+      "pass": true,
+      "detail": "shown={'n_nodes': 20, 'n_edges': 27, 'n_components': 1, 'cyclomatic_number': 8} mine={'n_nodes': 20, 'n_edges': 27, 'n_components': 1, 'cyclomatic_number': 8}"
+    },
+    {
+      "name": "weather/doy_nc10_po0.35: SVG circles == nodes",
+      "pass": true,
+      "detail": "20 vs 20"
+    },
+    {
+      "name": "weather/doy_nc10_po0.35: SVG lines == link entries",
+      "pass": true,
+      "detail": "27 vs 27"
+    },
+    {
+      "name": "weather/nc5_po0.35: S(viewer) == S(independent) within source rounding (3 d.p.)",
+      "pass": true,
+      "detail": "0.551 vs 0.55144"
+    },
+    {
+      "name": "weather/nc5_po0.5: S(viewer) == S(independent) within source rounding (3 d.p.)",
+      "pass": true,
+      "detail": "0.445 vs 0.44527"
+    },
+    {
+      "name": "weather/nc10_po0.35: S(viewer) == S(independent) within source rounding (0 d.p.)",
+      "pass": true,
+      "detail": "1 vs 1.00000"
+    },
+    {
+      "name": "weather/nc10_po0.5: S(viewer) == S(independent) within source rounding (3 d.p.)",
+      "pass": true,
+      "detail": "0.685 vs 0.68502"
+    },
+    {
+      "name": "weather/nc15_po0.35: S(viewer) == S(independent) within source rounding (3 d.p.)",
+      "pass": true,
+      "detail": "0.558 vs 0.55832"
+    },
+    {
+      "name": "weather/nc15_po0.5: S(viewer) == S(independent) within source rounding (3 d.p.)",
+      "pass": true,
+      "detail": "0.665 vs 0.66477"
+    },
+    {
+      "name": "weather/nc20_po0.35: S(viewer) == S(independent) within source rounding (3 d.p.)",
+      "pass": true,
+      "detail": "0.506 vs 0.50581"
+    },
+    {
+      "name": "weather/nc20_po0.5: S(viewer) == S(independent) within source rounding (3 d.p.)",
+      "pass": true,
+      "detail": "0.666 vs 0.66578"
+    },
+    {
+      "name": "viewport 1920x1080: no horizontal page overflow",
+      "pass": true,
+      "detail": "{'scrollW': 1920, 'clientW': 1920, 'clipped': [], 'overflowing': [], 'viewport': '1920x1080'}"
+    },
+    {
+      "name": "viewport 1920x1080: no clipped text elements",
+      "pass": true,
+      "detail": "[]"
+    },
+    {
+      "name": "viewport 1440x900: no horizontal page overflow",
+      "pass": true,
+      "detail": "{'scrollW': 1440, 'clientW': 1440, 'clipped': [], 'overflowing': [], 'viewport': '1440x900'}"
+    },
+    {
+      "name": "viewport 1440x900: no clipped text elements",
+      "pass": true,
+      "detail": "[]"
+    },
+    {
+      "name": "viewport 1366x768: no horizontal page overflow",
+      "pass": true,
+      "detail": "{'scrollW': 1366, 'clientW': 1366, 'clipped': [], 'overflowing': [], 'viewport': '1366x768'}"
+    },
+    {
+      "name": "viewport 1366x768: no clipped text elements",
+      "pass": true,
+      "detail": "[]"
+    },
+    {
+      "name": "viewport 1024x768: no horizontal page overflow",
+      "pass": true,
+      "detail": "{'scrollW': 1024, 'clientW': 1024, 'clipped': [], 'overflowing': [], 'viewport': '1024x768'}"
+    },
+    {
+      "name": "viewport 1024x768: no clipped text elements",
+      "pass": true,
+      "detail": "[]"
+    },
+    {
+      "name": "viewport 768x1024: no horizontal page overflow",
+      "pass": true,
+      "detail": "{'scrollW': 768, 'clientW': 768, 'clipped': [], 'overflowing': [], 'viewport': '768x1024'}"
+    },
+    {
+      "name": "viewport 768x1024: no clipped text elements",
+      "pass": true,
+      "detail": "[]"
+    },
+    {
+      "name": "viewport 390x844: no horizontal page overflow",
+      "pass": true,
+      "detail": "{'scrollW': 390, 'clientW': 390, 'clipped': [], 'overflowing': [], 'viewport': '390x844'}"
+    },
+    {
+      "name": "viewport 390x844: no clipped text elements",
+      "pass": true,
+      "detail": "[]"
+    },
+    {
+      "name": "zero attempted non-file requests (whole session)",
+      "pass": true,
+      "detail": "[]"
+    },
+    {
+      "name": "zero console errors/warnings",
+      "pass": true,
+      "detail": "[]"
+    },
+    {
+      "name": "zero uncaught page errors",
+      "pass": true,
+      "detail": "[]"
+    },
+    {
+      "name": "zero Performance-API resource entries (final)",
+      "pass": true,
+      "detail": "[]"
+    }
+  ],
+  "requests": [
+    {
+      "url": "file:///E:/sciviz_scikittda/release/work/technical/scikit-tda-trust/extensions/mapper_explorer/viewer/index.html",
+      "type": "document"
+    }
+  ],
+  "console": [],
+  "page_errors": [],
+  "failed_requests": [],
+  "browser_version": "156.0.8078.49",
+  "performance_resource_entries_initial": [],
+  "external_tag_references": [],
+  "datasets": [
+    "annulus",
+    "figure_eight",
+    "blob",
+    "weather"
+  ],
+  "downloads_received": 35,
+  "n_cells_exercised": 35,
+  "viewport_matrix": [
+    {
+      "scrollW": 1920,
+      "clientW": 1920,
+      "clipped": [],
+      "overflowing": [],
+      "viewport": "1920x1080"
+    },
+    {
+      "scrollW": 1440,
+      "clientW": 1440,
+      "clipped": [],
+      "overflowing": [],
+      "viewport": "1440x900"
+    },
+    {
+      "scrollW": 1366,
+      "clientW": 1366,
+      "clipped": [],
+      "overflowing": [],
+      "viewport": "1366x768"
+    },
+    {
+      "scrollW": 1024,
+      "clientW": 1024,
+      "clipped": [],
+      "overflowing": [],
+      "viewport": "1024x768"
+    },
+    {
+      "scrollW": 768,
+      "clientW": 768,
+      "clipped": [],
+      "overflowing": [],
+      "viewport": "768x1024"
+    },
+    {
+      "scrollW": 390,
+      "clientW": 390,
+      "clipped": [],
+      "overflowing": [],
+      "viewport": "390x844"
+    }
+  ],
+  "performance_resource_entries_final": [],
+  "summary": {
+    "n_checks": 222,
+    "n_pass": 222,
+    "failed": []
+  }
+}
