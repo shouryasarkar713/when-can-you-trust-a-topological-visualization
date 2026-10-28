@@ -3,6 +3,7 @@
 A task-based evaluation of the Scikit-TDA ecosystem (ripser 0.6.15 · persim 0.4.1 · KeplerMapper 2.1.0) for the course
 *Scientific Visualization — Evaluation of Visualization Systems*. Author: Shourya Sarkar. 28 October 2026.
 
+Repository: <https://github.com/shouryasarkar713/when-can-you-trust-a-topological-visualization>
 
 > **Provenance of this repository.** Contemporaneous version-control history was not maintained during the project. The
 > submission repository is organized retrospectively for reproducibility and release; its commit history should not be

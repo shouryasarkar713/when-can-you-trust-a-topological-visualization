@@ -1,0 +1,1322 @@
+{
+ "root": "E:\\sciviz_scikittda\\release\\work",
+ "checks": [
+  {
+   "name": "required output exists: submission/report/Final_Report.md",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "required output exists: submission/report/Final_Report.docx",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "required output exists: submission/report/Final_Report.pdf",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "required output exists: submission/presentation/Final_Presentation.pptx",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "required output exists: submission/presentation/Speaker_Notes.md",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "required output exists: technical/build/presentation/QA_Preparation.md",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "required output exists: submission/presentation/QA_Preparation.docx",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "required output exists: submission/presentation/QA_Preparation.pdf",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "required output exists: README.md",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "required output exists: technical/verification/claims_register.json",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "required output exists: technical/verification/requirements_matrix.md",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "required output exists: technical/verification/research_ledger.md",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "required output exists: technical/verification/code_audit_findings.md",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "required output exists: technical/scikit-tda-trust/requirements.txt",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "required output exists: technical/scikit-tda-trust/scripts/run_all_tests.py",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F001: '13' derived from results and present in report",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F002: '130' derived from results and present in report,slides",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F003: '0.449–1.000' derived from results and present in report",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F004: '0.457–1.000' derived from results and present in report",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F005: '24' derived from results and present in report",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F006: 'cyclomatic number 4 with a longest basis cycle of **6** nodes' derived from results and present in report",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F007: '0.1396 / 0.0962 / 0.0924' derived from results and present in report",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F008: '1.451' derived from results and present in report",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F010: '2192 rows (365 / 366 / 365 / 365 / 365 / 366 by year)' derived from results and present in report",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F011: '2188' derived from results and present in report",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F012: '125' derived from results and present in report",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F013: '94.8 %' derived from results and present in report",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F014: '129' derived from results and present in report",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F015: '69.0 % (TEMP and DEWP, negative SLP weight) and PC2 28.6 %, 97.6 % cum' derived from results and present in report",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F016: '4.75–7.32' derived from results and present in report,slides",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F017: '| 1982 | 1.998 | 5.62 |' derived from results and present in report",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F018: '| 1832 | 2.571 | 7.32 |' derived from results and present in report",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F019: '| 1828 | 2.039 | 4.92 |' derived from results and present in report",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F020: '| 1772 | 2.167 | 6.75 |' derived from results and present in report",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F021: '| 1827 | 1.417 | 4.75 |' derived from results and present in report",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F022: '| 1562 | 2.121 | 5.76 |' derived from results and present in report",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F023: '1049 H1 classes, dominant persistence 0.210 and r₁ = 1.19' derived from results and present in report",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F024: '| 10 | 12 | 1 | 3 | 0.551 |' derived from results and present in report",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F025: '| 10 | 13 | 1 | 4 | 0.445 |' derived from results and present in report",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F026: '| 20 | 26 | 1 | 7 | 1.000 |' derived from results and present in report",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F027: '| 20 | 27 | 1 | 8 | 0.685 |' derived from results and present in report",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F028: '| 30 | 38 | 1 | 9 | 0.558 |' derived from results and present in report",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F029: '| 30 | 40 | 1 | 11 | 0.665 |' derived from results and present in report",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F030: '| 40 | 49 | 2 | 11 | 0.506 |' derived from results and present in report",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F031: '| 40 | 52 | 2 | 14 | 0.666 |' derived from results and present in report",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F040: '82.2 %' derived from results and present in report,slides,qa",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F041: '1.02–1.14' derived from results and present in report,slides,qa",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F042: 'between 1.007 and 1.219' derived from results and present in report",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F043: 'median 1.06' derived from results and present in report",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F044: '| 5.625 | 1.138 | 1.998 | 0.685 |' derived from results and present in report",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F045: '| 7.319 | 1.023 | 2.571 | 0.703 |' derived from results and present in report",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F046: '| 4.922 | 1.035 | 2.039 | 0.506 |' derived from results and present in report",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F047: '| 6.753 | 1.077 | 2.167 | 0.636 |' derived from results and present in report",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F048: '| 4.745 | 1.025 | 1.417 | 0.573 |' derived from results and present in report",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F049: '| 5.761 | 1.034 | 2.121 | 0.765 |' derived from results and present in report",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F050: '| 0.308 | 17 / 1 / 1 | 10 | 11 |' derived from results and present in report",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F051: '| 0.154 | 27 / 3 / 1 | 0 | 8 |' derived from results and present in report",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F052: '| 0.177 | 13 / 1 / 2 | 12 | 8 |' derived from results and present in report",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F053: '| 0.089 | 29 / 5 / 0 | 0 | 0 |' derived from results and present in report",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F054: '| 0.261 | 26 / 9 / 0 | 0 | 3 |' derived from results and present in report",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F055: '| 0.130 | 79 / 36 / 0 | 0 | 2 |' derived from results and present in report",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F056: 'exactly one cycle in 30/30 subsamples and is connected in 29/30' derived from results and present in report",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F057: '22/30' derived from results and present in report,slides",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F058: '0 in 20 of 30, 1 in 7 and 2 in 3' derived from results and present in report",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F059: '0.041' derived from results and present in report,slides",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F060: '0.034' derived from results and present in report",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F061: '0.050' derived from results and present in report",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F062: 'cyclomatic 2–8' derived from results and present in report",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F063: '0.786–0.822' derived from results and present in report,qa",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F064: '3.68 against the 500-point reference, 0.67' derived from results and present in report",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F070: '0: 13, 1: 9, 2: 8' derived from results and present in report",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F071: '0: 12, 1: 18' derived from results and present in report",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F072: '0.585' derived from results and present in report",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F073: '0.762' derived from results and present in report",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F074: '0.645' derived from results and present in report",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F080: '4.376 to 7.754' derived from results and present in report",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F081: '10 of the 36 fold-configurations' derived from results and present in report,slides,qa",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F083: 'none at all in 5' derived from results and present in report,qa",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F084: '4.376–7.754' derived from results and present in slides",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F082: '8.77–9.11' derived from results and present in report",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F090: '35 cells over four datasets' derived from results and present in report",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F091: '222 of 222 checks' derived from results and present in report",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F092: '0 nodes and 0 edges' derived from results and present in report",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F100: '64 files identical, 34 figures pixel-identical, 3 differ' derived from results and present in report",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F101: '30 files identical, 12 figures pixel-identical, 3 differ' derived from results and present in report",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F102: '15 files identical, 9 figures pixel-identical, 0 differ' derived from results and present in report",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F103: '11 files identical, 3 differ' derived from results and present in report",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F110: '192 passed, 0 failed' derived from results and present in report",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F111: '86 passed' derived from results and present in report",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F112: '44 passed' derived from results and present in report",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F113: '23 passed' derived from results and present in report",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F114: '29 passed' derived from results and present in report",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F115: '10 passed' derived from results and present in report",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F104: '5 files identical' derived from results and present in report",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "no stale/unsupported wording outside corrected/negated context: 'r₁ = 1.24'",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "name": "no stale/unsupported wording outside corrected/negated context: 'right by luck'",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "name": "no stale/unsupported wording outside corrected/negated context: 'longest basis cycle 4 nodes'",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "name": "no stale/unsupported wording outside corrected/negated context: 'pre-registered'",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "name": "no stale/unsupported wording outside corrected/negated context: 'preregistered 180'",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "name": "no stale/unsupported wording outside corrected/negated context: 'Yvinec, B.'",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "name": "no stale/unsupported wording outside corrected/negated context: '15(5)'",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "name": "no stale/unsupported wording outside corrected/negated context: 'r₁ ≥ 4.38'",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "name": "no stale/unsupported wording outside corrected/negated context: 'TODO'",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "name": "no stale/unsupported wording outside corrected/negated context: 'TBD'",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "name": "no stale/unsupported wording outside corrected/negated context: 'lorem ipsum'",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "name": "no stale/unsupported wording outside corrected/negated context: 'FIXME'",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "name": "no stale/unsupported wording outside corrected/negated context: '[placeholder'",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "name": "no stale/unsupported wording outside corrected/negated context: 'XXX'",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "name": "no stale/unsupported wording outside corrected/negated context: 'first Mapper explorer ever'",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "name": "no stale/unsupported wording outside corrected/negated context: 'novel algorithm'",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "name": "no stale/unsupported wording outside corrected/negated context: 'no existing tool'",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "name": "no stale/unsupported wording outside corrected/negated context: 'frequently confuse'",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "name": "no stale/unsupported wording outside corrected/negated context: 'routinely confuse'",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "name": "no stale/unsupported wording outside corrected/negated context: 'pilot study was conducted'",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "name": "no stale/unsupported wording outside corrected/negated context: 'participants were recruited'",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "name": "no stale/unsupported wording outside corrected/negated context: 'fixed before outputs were inspected'",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "name": "no stale/unsupported wording outside corrected/negated context: '(0 in 6 '",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "name": "no stale/unsupported wording outside corrected/negated context: '0 in six'",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "name": "no stale/unsupported wording outside corrected/negated context: 'the annual signal lives'",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "name": "no project-history/process language: /previous (version|report|agent|solution|build|iteration|deck)/",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "name": "no project-history/process language: /earlier (version|report|draft|deck|extension)/",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "name": "no project-history/process language: /\\bold (report|version|conclusion|deck)/",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "name": "no project-history/process language: /independent rebuild/",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "name": "no project-history/process language: /\\brebuild/",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "name": "no project-history/process language: /supersed/",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "name": "no project-history/process language: /this iteration/",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "name": "no project-history/process language: /(was|were) corrected/",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "name": "no project-history/process language: /we fixed/",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "name": "no project-history/process language: /code audit/",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "name": "no project-history/process language: /audit record/",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "name": "no project-history/process language: /\\bagent\\b/",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "name": "no project-history/process language: /\\bprompt\\b/",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "name": "no project-history/process language: /\\bTODO\\b/",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "name": "no project-history/process language: /[A-Z]:\\\\Users/",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "name": "no project-history/process language: /\\bE:\\\\/",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "name": "no project-history/process language: //tmp//",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "name": "no project-history/process language: /independent_rebuild/",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "name": "no project-history/process language: /final_submission/",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "name": "no project-history/process language: /\\bchangelog\\b/",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "name": "figure exists: figures/d2_weather_null_controls.png",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "figure exists: figures/d3_mapper_resampling_clusterer.png",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "figure exists: figures/e2_no_loop_blob_control.png",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "figure exists: figures/e2_sensitivity_summary_annulus.png",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "figure exists: figures/e2_sensitivity_summary_figure_eight.png",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "figure exists: figures/explorer_annulus_reference.png",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "figure exists: figures/explorer_blob_control_fragmented.png",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "figure exists: figures/explorer_weather_fragmentation.png",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "figure exists: figures/mapper_resampling_graphs_annulus.png",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "figure exists: figures/mapper_resampling_structure.png",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "figure exists: figures/ph_resampling_cross_shape.png",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "figure exists: figures/ph_resampling_dists.png",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "figure exists: figures/ph_resampling_persistence.png",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "figure exists: figures/weather_embedding_pca.png",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "figure exists: figures/weather_loyo.png",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "figure exists: figures/weather_mapper_grid.png",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "figure exists: figures/weather_seasonal_ph_sweep.png",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "figure exists: figures/weather_seasonality_check.png",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "figure exists: figures/weather_state_space_ph.png",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "figure exists: figures/weather_temp_series.png",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "no orphaned figure files in report/figures",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "name": "every figure has a caption",
+   "pass": true,
+   "detail": "20 figures, 20 captions"
+  },
+  {
+   "name": "every Author (Year) citation of a listed author matches a reference entry",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "name": "every listed reference is cited in the body",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "name": "reference list has no duplicate (author, year, title) entries",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "relative link/figure resolves: figures/e2_sensitivity_summary_annulus.png",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "relative link/figure resolves: figures/e2_sensitivity_summary_figure_eight.png",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "relative link/figure resolves: figures/e2_no_loop_blob_control.png",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "relative link/figure resolves: figures/d3_mapper_resampling_clusterer.png",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "relative link/figure resolves: figures/weather_temp_series.png",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "relative link/figure resolves: figures/weather_mapper_grid.png",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "relative link/figure resolves: figures/weather_seasonal_ph_sweep.png",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "relative link/figure resolves: figures/weather_seasonality_check.png",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "relative link/figure resolves: figures/weather_state_space_ph.png",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "relative link/figure resolves: figures/weather_embedding_pca.png",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "relative link/figure resolves: figures/d2_weather_null_controls.png",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "relative link/figure resolves: figures/explorer_annulus_reference.png",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "relative link/figure resolves: figures/explorer_weather_fragmentation.png",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "relative link/figure resolves: figures/explorer_blob_control_fragmented.png",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "relative link/figure resolves: figures/ph_resampling_persistence.png",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "relative link/figure resolves: figures/ph_resampling_dists.png",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "relative link/figure resolves: figures/ph_resampling_cross_shape.png",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "relative link/figure resolves: figures/mapper_resampling_structure.png",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "relative link/figure resolves: figures/mapper_resampling_graphs_annulus.png",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "relative link/figure resolves: figures/weather_loyo.png",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "URL well-formed: https://doi.org/10.1109/TVCG.2013.126",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "URL well-formed: https://doi.org/10.1145/142750.142834",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "URL well-formed: https://www.ncei.noaa.gov/data/global-summary-of-the-day/",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "URL well-formed: https://doi.org/10.1007/978-3-662-44199-2_28",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "URL well-formed: https://www.jmlr.org/papers/v21/19-540.html",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "URL well-formed: https://am.ieeevis.org/year/2026/program/content/9e4af3b5-5f6d-4b27-ba09-7ea9190",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "URL well-formed: https://doi.org/10.1007/s00454-004-1146-y",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "URL well-formed: https://doi.org/10.1007/s41468-021-00071-5",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "URL well-formed: https://doi.org/10.1109/PacificVis52677.2021.00021",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "URL well-formed: https://www.jmlr.org/papers/v19/17-291.html",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "URL well-formed: https://doi.org/10.5281/zenodo.2533369",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "URL well-formed: https://github.com/shouryasarkar713/when-can-you-trust-a-topological-visualizati",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "URL well-formed: https://doi.org/10.21105/joss.00925",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "URL well-formed: https://doi.org/10.1007/s10208-017-9370-z",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "URL well-formed: https://doi.org/10.21105/joss.01315",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "URL well-formed: https://github.com/lucasimi/tda-mapper-python",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "URL well-formed: https://doi.org/10.5194/gmd-12-613-2019",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "URL well-formed: https://doi.org/10.1007/s10208-014-9206-z",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "URL well-formed: https://psl.noaa.gov/data/correlation/oni.data",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "URL well-formed: https://doi.org/10.1007/s00454-002-2885-2",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "URL well-formed: https://doi.org/10.1109/TVCG.2013.124",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "URL well-formed: https://doi.org/10.1186/s12859-015-0645-6",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "URL well-formed: https://www.jmlr.org/papers/v22/20-325.html",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "URL well-formed: https://doi.org/10.1109/TVCG.2014.2346321",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "URL well-formed: https://doi.org/10.1109/TVCG.2009.111",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "URL well-formed: https://arxiv.org/abs/2606.21688",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "URL well-formed: https://doi.org/10.1109/TVCG.2011.279",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "URL well-formed: https://doi.org/10.1007/s00382-022-06395-x",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "URL well-formed: https://doi.org/10.1007/s00454-006-1276-5",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "URL well-formed: https://doi.org/10.2312/SPBG/SPBG07/091-100",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "URL well-formed: https://doi.org/10.1007/s41468-020-00063-x",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "all 47 Markdown headings present in docx",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "name": "all 47 Markdown headings present in pdf",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "name": "PDF has more than 30 pages and a rendered table of contents",
+   "pass": true,
+   "detail": "31"
+  },
+  {
+   "name": "complete text of all 157 Markdown paragraphs/items present in docx (edition not stale)",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "name": "complete text of all 157 Markdown paragraphs/items present in pdf (edition not stale)",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "name": "slide count == notes sections",
+   "pass": true,
+   "detail": "14 vs 14"
+  },
+  {
+   "name": "embedded PPTX notes identical to speaker_notes.md",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "name": "every slide has speaker notes of 60-200 words",
+   "pass": true,
+   "detail": "[73, 87, 73, 86, 93, 132, 93, 88, 106, 98, 88, 98, 115, 94]"
+  },
+  {
+   "name": "documented narration duration equals actual word count / 130 wpm",
+   "pass": true,
+   "detail": "('1324', '10.2')"
+  },
+  {
+   "name": "talk length 9-12 minutes",
+   "pass": true,
+   "detail": "10.2 min"
+  },
+  {
+   "name": "requirements pin ripser==0.6.15",
+   "pass": true,
+   "detail": "0.6.15"
+  },
+  {
+   "name": "report states ripser 0.6.15",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "requirements pin persim==0.4.1",
+   "pass": true,
+   "detail": "0.4.1"
+  },
+  {
+   "name": "report states persim 0.4.1",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "requirements pin kmapper==2.1.0",
+   "pass": true,
+   "detail": "2.1.0"
+  },
+  {
+   "name": "report states kmapper 2.1.0",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "requirements pin numpy==2.5.4",
+   "pass": true,
+   "detail": "2.5.4"
+  },
+  {
+   "name": "report states numpy 2.5.4",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "requirements pin scipy==1.18.1",
+   "pass": true,
+   "detail": "1.18.1"
+  },
+  {
+   "name": "report states scipy 1.18.1",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "requirements pin scikit-learn==1.9.1",
+   "pass": true,
+   "detail": "1.9.1"
+  },
+  {
+   "name": "report states scikit-learn 1.9.1",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "requirements pin matplotlib==3.11.2",
+   "pass": true,
+   "detail": "3.11.2"
+  },
+  {
+   "name": "report states matplotlib 3.11.2",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "requirements pin networkx==3.7",
+   "pass": true,
+   "detail": "3.7"
+  },
+  {
+   "name": "report states networkx 3.7",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "environment freeze matches pin ripser",
+   "pass": true,
+   "detail": "0.6.15"
+  },
+  {
+   "name": "environment freeze matches pin persim",
+   "pass": true,
+   "detail": "0.4.1"
+  },
+  {
+   "name": "environment freeze matches pin kmapper",
+   "pass": true,
+   "detail": "2.1.0"
+  },
+  {
+   "name": "environment freeze matches pin tadasets",
+   "pass": true,
+   "detail": "0.2.2"
+  },
+  {
+   "name": "environment freeze matches pin scikit-learn",
+   "pass": true,
+   "detail": "1.9.1"
+  },
+  {
+   "name": "environment freeze matches pin numpy",
+   "pass": true,
+   "detail": "2.5.4"
+  },
+  {
+   "name": "environment freeze matches pin scipy",
+   "pass": true,
+   "detail": "1.18.1"
+  },
+  {
+   "name": "environment freeze matches pin matplotlib",
+   "pass": true,
+   "detail": "3.11.2"
+  },
+  {
+   "name": "environment freeze matches pin networkx",
+   "pass": true,
+   "detail": "3.7"
+  },
+  {
+   "name": "environment freeze matches pin pyyaml",
+   "pass": true,
+   "detail": "6.0.3"
+  },
+  {
+   "name": "report md: contains the repository URL",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "report docx: contains the repository URL",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "report pdf: contains the repository URL",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "report pdf: the repository URL is a clickable link annotation",
+   "pass": true,
+   "detail": "['https://github.com/shouryasarkar713/when-can-you-trust-a-topological-visualization']"
+  },
+  {
+   "name": "report docx: the repository URL is a hyperlink relationship",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "report md: version-control disclosure present",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "report docx: version-control disclosure present",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "report pdf: version-control disclosure present",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "README states that the repository was organised retrospectively",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "report docx: no unresolved field-code or placeholder text",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "report pdf: no unresolved field-code or placeholder text",
+   "pass": true,
+   "detail": ""
+  }
+ ],
+ "report_pdf_pages": 31,
+ "n_facts": 79,
+ "summary": {
+  "n_checks": 262,
+  "n_pass": 262,
+  "failed": []
+ }
+}
