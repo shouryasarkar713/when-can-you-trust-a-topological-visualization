@@ -1,17 +1,22 @@
 """Repository-level pytest configuration shared by every suite.
 
-1. ISOLATION. The E3 analyzer test that validates the real inspection record writes
-   `results/e3/inspection_summary.{json,md}` as a side effect. Those two files belong to the
-   preserved baseline (hash-listed in extensions/BASELINE_MANIFEST.json), so the test is
-   redirected to write into a pytest temporary directory instead (the test module is not edited).
+Purpose: a test run must leave the repository exactly as it found it.
 
-2. GUARD. Every file listed in the baseline manifest is checked after every test (cheap stat
-   comparison, re-hash on change). If a test mutates one, the exact original bytes are restored
-   in a `finally` path, the restoration is verified by hash, and the offending test FAILS with the
-   file names. The result therefore cannot depend on test ordering.
+1. ISOLATION. The E3 analyzer test that validates the real inspection record would write
+   `results/e3/inspection_summary.{json,md}` into the repository; it is redirected to a pytest
+   temporary directory (the preserved test module itself is not edited). The explorer rebuild test
+   passes `--out-dir` to the builder for the same reason.
 
-3. SESSION SUMMARY. At the end of the session the guard re-hashes all manifest files; any
-   difference makes the pytest exit status non-zero.
+2. GUARD (defence in depth, not a substitute for isolation). Every file of the repository is
+   tracked by (size, mtime) and re-hashed when its stat changes; files created by a test are
+   detected too. After each test, any difference is
+     - reverted (original bytes written back / created file removed) in a `finally` block,
+     - verified by hash, and
+     - reported by FAILING the offending test with the file names.
+   Files listed in extensions/BASELINE_MANIFEST.json are additionally re-hashed at session end.
+   The result therefore cannot depend on test ordering.
+
+3. The session exit status is forced to 1 if any repository file differs at the end of the session.
 """
 from __future__ import annotations
 
@@ -25,62 +30,86 @@ import yaml
 
 REPO = Path(__file__).resolve().parent
 MANIFEST = REPO / "extensions" / "BASELINE_MANIFEST.json"
+SKIP_PARTS = {"__pycache__", ".pytest_cache", ".git"}
 
-_STATE: dict = {"bytes": {}, "stat": {}, "sha": {}, "violations": []}
+_STATE: dict = {"bytes": {}, "stat": {}, "sha": {}, "violations": [], "manifest": {}}
 
 
 def _sha(b: bytes) -> str:
     return hashlib.sha256(b).hexdigest()
 
 
+def _iter_files():
+    for root, dirs, files in os.walk(REPO):
+        dirs[:] = [d for d in dirs if d not in SKIP_PARTS]
+        for f in files:
+            p = Path(root) / f
+            if p.suffix == ".pyc":
+                continue
+            yield p
+
+
 def pytest_sessionstart(session):
-    if not MANIFEST.exists():
-        return
-    for entry in json.loads(MANIFEST.read_text(encoding="utf-8"))["files"]:
-        p = REPO / entry["path"]
-        if p.exists():
-            data = p.read_bytes()
-            _STATE["bytes"][entry["path"]] = data
-            _STATE["sha"][entry["path"]] = entry["sha256"]
-            st = p.stat()
-            _STATE["stat"][entry["path"]] = (st.st_size, st.st_mtime_ns)
+    for p in _iter_files():
+        rel = p.relative_to(REPO).as_posix()
+        data = p.read_bytes()
+        _STATE["bytes"][rel] = data
+        _STATE["sha"][rel] = _sha(data)
+        st = p.stat()
+        _STATE["stat"][rel] = (st.st_size, st.st_mtime_ns)
+    if MANIFEST.exists():
+        for entry in json.loads(MANIFEST.read_text(encoding="utf-8"))["files"]:
+            _STATE["manifest"][entry["path"]] = entry["sha256"]
 
 
-def _check_and_restore() -> list[str]:
-    changed = []
+def _check_and_revert() -> list[str]:
+    changed: list[str] = []
+    current = {}
+    for p in _iter_files():
+        current[p.relative_to(REPO).as_posix()] = p
     for rel, (size, mtime) in _STATE["stat"].items():
         p = REPO / rel
         try:
             st = p.stat()
-            same_stat = (st.st_size, st.st_mtime_ns) == (size, mtime)
-            if same_stat:
+            if (st.st_size, st.st_mtime_ns) == (size, mtime):
                 continue
             if _sha(p.read_bytes()) == _STATE["sha"][rel]:
                 _STATE["stat"][rel] = (st.st_size, st.st_mtime_ns)
                 continue
         except FileNotFoundError:
             pass
-        changed.append(rel)
-    for rel in changed:
+        changed.append("modified/removed: " + rel)
+    added = sorted(set(current) - set(_STATE["stat"]))
+    changed.extend("created: " + rel for rel in added)
+    for entry in changed:
+        kind, rel = entry.split(": ", 1)
         p = REPO / rel
         try:
-            p.write_bytes(_STATE["bytes"][rel])
+            if kind == "created":
+                p.unlink()
+            else:
+                p.parent.mkdir(parents=True, exist_ok=True)
+                p.write_bytes(_STATE["bytes"][rel])
         finally:
-            ok = p.exists() and _sha(p.read_bytes()) == _STATE["sha"][rel]
+            if kind == "created":
+                ok = not p.exists()
+            else:
+                ok = p.exists() and _sha(p.read_bytes()) == _STATE["sha"][rel]
+                if p.exists():
+                    st = p.stat()
+                    _STATE["stat"][rel] = (st.st_size, st.st_mtime_ns)
             if not ok:
-                _STATE["violations"].append(f"RESTORE FAILED: {rel}")
-            st = p.stat()
-            _STATE["stat"][rel] = (st.st_size, st.st_mtime_ns)
+                _STATE["violations"].append("REVERT FAILED: " + entry)
     return changed
 
 
 @pytest.fixture(autouse=True)
-def _baseline_guard(request):
+def _repository_guard(request):
     yield
-    changed = _check_and_restore()
+    changed = _check_and_revert()
     if changed:
-        _STATE["violations"].extend(f"mutated by {request.node.nodeid}: {c}" for c in changed)
-        pytest.fail("test mutated baseline-manifest file(s) (restored): " + ", ".join(changed), pytrace=False)
+        _STATE["violations"].extend(f"{request.node.nodeid}: {c}" for c in changed)
+        pytest.fail("test modified the repository (reverted): " + "; ".join(changed), pytrace=False)
 
 
 @pytest.fixture(autouse=True)
@@ -106,13 +135,15 @@ def _isolate_e3_analyzer(request, tmp_path_factory, monkeypatch):
 def pytest_sessionfinish(session, exitstatus):
     if not _STATE["sha"]:
         return
-    final = []
-    for rel, sha in _STATE["sha"].items():
+    final = [rel for rel, sha in _STATE["sha"].items()
+             if not (REPO / rel).exists() or _sha((REPO / rel).read_bytes()) != sha]
+    bad_manifest = []
+    for rel, sha in _STATE["manifest"].items():
         p = REPO / rel
-        if not p.exists() or _sha(p.read_bytes()) != sha:
-            final.append(rel)
-    if final or _STATE["violations"]:
+        if p.exists() and _sha(p.read_bytes()) != sha:
+            bad_manifest.append(rel)
+    if final or bad_manifest or _STATE["violations"]:
         tr = session.config.pluginmanager.get_plugin("terminalreporter")
         if tr:
-            tr.write_line("BASELINE GUARD: " + "; ".join(_STATE["violations"] + final), red=True)
+            tr.write_line("REPOSITORY GUARD: " + "; ".join(_STATE["violations"] + final + bad_manifest), red=True)
         session.exitstatus = 1

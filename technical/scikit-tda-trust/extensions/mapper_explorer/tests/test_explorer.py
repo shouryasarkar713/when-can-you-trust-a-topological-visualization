@@ -176,20 +176,29 @@ class TestLayoutPreservation:
                 assert set(cell["layout_separated"]) == set(cell["layout_native"])
                 assert cell["structure"]["n_nodes"] == len(cell["layout_native"])
 
-    def test_layouts_are_deterministic_across_rebuild(self):
-        """Rebuild and compare (built_utc stripped): layouts must be identical."""
-        import tempfile
-        with tempfile.TemporaryDirectory() as td:
-            env = {"PATH": "/usr/bin:/bin"}
-            r = subprocess.run(
-                [sys.executable, str(BUILDER), "--repo-root", str(REPO)],
-                capture_output=True, text=True, env=env, cwd=td)
-            assert r.returncode == 0, r.stderr
-            rebuilt = json.loads((EXT / "data" / "explorer_data.json").read_text())
-        fresh = _load()
+    def test_layouts_are_deterministic_across_rebuild(self, tmp_path):
+        """Rebuild twice into TEMPORARY directories and compare with the saved explorer data
+        (built_utc stripped): layouts, graphs and diagrams must be identical. The repository is
+        never written to (the builder receives --out-dir)."""
         strip = lambda o: json.dumps(
             {k: v for k, v in o.items() if k != "built_utc"}, sort_keys=True)
-        assert strip(fresh) == strip(rebuilt)
+        rebuilt = []
+        for name in ("rebuild_a", "rebuild_b"):
+            out = tmp_path / name
+            env = {"PATH": "/usr/bin:/bin", "SYSTEMROOT": __import__("os").environ.get("SYSTEMROOT", "")}
+            r = subprocess.run(
+                [sys.executable, str(BUILDER), "--repo-root", str(REPO), "--out-dir", str(out)],
+                capture_output=True, text=True, env=env, cwd=str(tmp_path))
+            assert r.returncode == 0, r.stderr
+            rebuilt.append(json.loads((out / "data" / "explorer_data.json").read_text(encoding="utf-8")))
+        fresh = _load()
+        assert strip(rebuilt[0]) == strip(rebuilt[1]), "two rebuilds differ (non-deterministic build)"
+        assert strip(fresh) == strip(rebuilt[0]), "saved explorer data differs from a fresh rebuild"
+        # the standalone HTML of the rebuild embeds exactly the rebuilt data
+        html = (tmp_path / "rebuild_a" / "viewer" / "index.html").read_text(encoding="utf-8")
+        m = re.search(r'<script id="explorer-data" type="application/json">(.*?)</script>', html, re.S)
+        inline = json.loads(m.group(1).strip().strip("/*").strip("*/").strip())
+        assert strip(inline) == strip(rebuilt[0])
 
 
 # --------------------------------------------------------------------------
@@ -291,18 +300,68 @@ class TestViewerHtml:
 class TestBuilderErrors:
     def test_missing_inputs_produce_clear_error(self, tmp_path):
         r = subprocess.run(
-            [sys.executable, str(BUILDER), "--repo-root", str(tmp_path / "nonexistent")],
+            [sys.executable, str(BUILDER), "--repo-root", str(tmp_path / "nonexistent"),
+             "--out-dir", str(tmp_path / "out")],
             capture_output=True, text=True)
         assert r.returncode == 2
         assert "BUILD ERROR" in r.stderr
         assert "repository root" in r.stderr
+        assert not (tmp_path / "out").exists()
 
     def test_partial_inputs_produce_clear_error(self, tmp_path):
         (tmp_path / "results" / "e2").mkdir(parents=True)
         (tmp_path / "results" / "e2" / "e2_sensitivity.json").write_text("{}")
         r = subprocess.run(
-            [sys.executable, str(BUILDER), "--repo-root", str(tmp_path)],
+            [sys.executable, str(BUILDER), "--repo-root", str(tmp_path), "--out-dir", str(tmp_path / "out")],
             capture_output=True, text=True)
         assert r.returncode == 2
         assert "BUILD ERROR" in r.stderr
         assert "e2_blob_sanity.json" in r.stderr
+        assert not (tmp_path / "out").exists()
+
+
+# --------------------------------------------------------------------------
+# 6. the builder must never modify the repository (success AND failure paths)
+# --------------------------------------------------------------------------
+def _snapshot(root: Path) -> dict:
+    import hashlib
+    return {p.relative_to(root).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest()
+            for p in sorted(root.rglob("*")) if p.is_file() and "__pycache__" not in p.parts}
+
+
+@pytest.mark.skipif(not HAS_BUILD, reason=reason)
+class TestRepositoryIsNotModified:
+    def _run(self, args, tmp_path):
+        return subprocess.run([sys.executable, str(BUILDER), *args], capture_output=True, text=True,
+                              cwd=str(tmp_path))
+
+    def test_successful_rebuild_leaves_repository_unchanged(self, tmp_path):
+        before = _snapshot(REPO)
+        r = self._run(["--repo-root", str(REPO), "--out-dir", str(tmp_path / "out")], tmp_path)
+        assert r.returncode == 0, r.stderr
+        assert _snapshot(REPO) == before
+        assert not list((tmp_path / "out").rglob("*.tmp"))
+
+    def test_failed_rebuild_leaves_repository_unchanged_and_no_partial_outputs(self, tmp_path):
+        before = _snapshot(REPO)
+        r = self._run(["--repo-root", str(tmp_path / "missing"), "--out-dir", str(tmp_path / "out")], tmp_path)
+        assert r.returncode == 2
+        assert _snapshot(REPO) == before
+        assert not (tmp_path / "out").exists()
+
+    def test_write_failure_leaves_no_partial_files(self, tmp_path):
+        """If an output location cannot be written, nothing is left behind (temporaries removed,
+        no output file half-written) and the repository is untouched."""
+        before = _snapshot(REPO)
+        blocker = tmp_path / "blocked"
+        blocker.write_text("a file where a directory is required")
+        r = self._run(["--repo-root", str(REPO), "--out-dir", str(blocker)], tmp_path)
+        assert r.returncode != 0
+        assert _snapshot(REPO) == before
+        assert blocker.read_text() == "a file where a directory is required"
+        assert not list(tmp_path.rglob("*.tmp"))
+
+    def test_default_output_location_is_the_extension_directory(self):
+        """Documented default of --out-dir (used by the build workflow, never by the tests)."""
+        text = BUILDER.read_text(encoding="utf-8")
+        assert 'default=EXT_ROOT' in text and "--out-dir" in text

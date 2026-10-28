@@ -401,43 +401,61 @@ def build(repo_root: Path) -> dict:
     return data
 
 
+def _write_atomically(files: dict) -> None:
+    """Write {path: text} so that either every file is replaced or none is changed.
+
+    Each file is first written to a temporary sibling; only after all temporaries exist are they
+    moved into place. Temporaries are removed on any failure.
+    """
+    tmps = {}
+    try:
+        for path, text in files.items():
+            path.parent.mkdir(parents=True, exist_ok=True)
+            tmp = path.with_name(path.name + ".tmp")
+            tmp.write_text(text, encoding="utf-8", newline=chr(10))  # LF on every platform: hashes are platform-independent
+            tmps[path] = tmp
+        for path, tmp in tmps.items():
+            tmp.replace(path)
+    finally:
+        for tmp in tmps.values():
+            if tmp.exists():
+                tmp.unlink()
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--repo-root", type=Path, default=DEFAULT_REPO_ROOT)
+    ap.add_argument("--out-dir", type=Path, default=EXT_ROOT,
+                    help="directory receiving data/, viewer/ and results/ (default: this extension's own "
+                         "directory). Tests pass a temporary directory so the repository is never modified.")
     args = ap.parse_args()
     repo_root = args.repo_root.resolve()
+    out_root = args.out_dir.resolve()
     if not repo_root.exists():
         fail(f"repository root does not exist: {repo_root}")
 
     data = build(repo_root)
 
-    out_json = EXT_ROOT / "data" / "explorer_data.json"
-    out_json.parent.mkdir(parents=True, exist_ok=True)
-    out_json.write_text(json.dumps(data, indent=1) + "\n")
-
-    template = (EXT_ROOT / "viewer" / "template.html").read_text()
-    inline = json.dumps(data, separators=(",", ":"))
+    template = (EXT_ROOT / "viewer" / "template.html").read_text(encoding="utf-8")
     if "/*__EXPLORER_DATA__*/" not in template:
         fail("viewer/template.html is missing the /*__EXPLORER_DATA__*/ placeholder")
-    html = template.replace("/*__EXPLORER_DATA__*/", inline)
-    out_html = EXT_ROOT / "viewer" / "index.html"
-    out_html.write_text(html)
-
+    out_json = out_root / "data" / "explorer_data.json"
+    out_html = out_root / "viewer" / "index.html"
+    json_text = json.dumps(data, indent=1) + "\n"
+    html =template.replace("/*__EXPLORER_DATA__*/", json.dumps(data, separators=(",", ":")))
+    # hashes are computed on the exact bytes that will be written
+    def digest(text: str) -> dict:
+        b = text.encode("utf-8")
+        return {"bytes": len(b), "sha256": hashlib.sha256(b).hexdigest()}
     report = {
         "built_utc": data["built_utc"],
         "schema_version": SCHEMA_VERSION,
-        "outputs": {
-            "viewer/index.html": {"bytes": out_html.stat().st_size,
-                                  "sha256": sha256_of(out_html)},
-            "data/explorer_data.json": {"bytes": out_json.stat().st_size,
-                                        "sha256": sha256_of(out_json)},
-        },
+        "outputs": {"viewer/index.html": digest(html), "data/explorer_data.json": digest(json_text)},
         "sources": data["provenance"],
         "dataset_cell_counts": {k: len(v["cells"]) for k, v in data["datasets"].items()},
     }
-    (EXT_ROOT / "results").mkdir(parents=True, exist_ok=True)
-    (EXT_ROOT / "results" / "build_report.json").write_text(
-        json.dumps(report, indent=2) + "\n")
+    _write_atomically({out_json: json_text, out_html: html,
+                       out_root / "results" / "build_report.json": json.dumps(report, indent=2) + "\n"})
     print(f"viewer built: {out_html} "
           f"({out_html.stat().st_size/1e6:.2f} MB, "
           f"{sum(len(v['cells']) for v in data['datasets'].values())} cells "

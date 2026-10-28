@@ -1,0 +1,90 @@
+{
+ "purpose": "Manifest entries that are intentionally not part of this repository. Everything else listed in BASELINE_MANIFEST.json must be present and byte-identical.",
+ "excluded": [
+  {
+   "path": ".gitignore",
+   "sha256": "517214b7282a00a79892b89f1620bdec3ce0acdaf33bb06d1a56ef560323af09",
+   "reason": "replaced by the repository-root .gitignore; the original ignored the project's own source directories (it was written for a planning workspace) and would exclude the code from this repository"
+  },
+  {
+   "path": "presentation/QA_Preparation_Crib.docx",
+   "sha256": "81bc08766b20eb5bd7887a7a9681f300be2c352f5530f291532b94c2da9fa88f",
+   "reason": "earlier course deliverable (report, slides, Q&A crib or its generator); superseded by submission/ and not distributed"
+  },
+  {
+   "path": "presentation/QA_Preparation_Crib.pdf",
+   "sha256": "ab6d60dfea912b1724b82e72c9d4006e59f06c5eb3a61cf7f07ebebd303ef14c",
+   "reason": "earlier course deliverable (report, slides, Q&A crib or its generator); superseded by submission/ and not distributed"
+  },
+  {
+   "path": "presentation/README.md",
+   "sha256": "9770583945581447799eadd1c452105bf9d6bb1e672724666e7ed09a4540adec",
+   "reason": "earlier course deliverable (report, slides, Q&A crib or its generator); superseded by submission/ and not distributed"
+  },
+  {
+   "path": "presentation/When_Can_You_Trust_a_Topological_Visualization_Slides.pptx",
+   "sha256": "2cabf154c37139997c54a8be54608f56cefc77f8ad7ee03d75c966296a896ecc",
+   "reason": "earlier course deliverable (report, slides, Q&A crib or its generator); superseded by submission/ and not distributed"
+  },
+  {
+   "path": "report/README.md",
+   "sha256": "3463529f7f3553b08593b86e1d33826619f5a7bc427d89a93f3689d5975ceace",
+   "reason": "earlier course deliverable (report, slides, Q&A crib or its generator); superseded by submission/ and not distributed"
+  },
+  {
+   "path": "report/When_Can_You_Trust_a_Topological_Visualization_Report.docx",
+   "sha256": "8fc5026b502135c5db30ac1770fe62d9e480b6903f1ec884d638e1dc11e7ccab",
+   "reason": "earlier course deliverable (report, slides, Q&A crib or its generator); superseded by submission/ and not distributed"
+  },
+  {
+   "path": "report/When_Can_You_Trust_a_Topological_Visualization_Report.pdf",
+   "sha256": "9acd265d3ffe46399deb2f8213fe99d6d6fc2a84f4e7332c9151669eab2aa241",
+   "reason": "earlier course deliverable (report, slides, Q&A crib or its generator); superseded by submission/ and not distributed"
+  },
+  {
+   "path": "report/add_toc_placeholders.py",
+   "sha256": "31e96f625493ddda3cbd3ea479de8dddd604cb5d395dacd67eb22a0adc3ef716",
+   "reason": "earlier course deliverable (report, slides, Q&A crib or its generator); superseded by submission/ and not distributed"
+  },
+  {
+   "path": "report/content1.js",
+   "sha256": "49f21751f2d3a20ffb48778727aa677512065dd10c6c71167d13883c2222cfcb",
+   "reason": "earlier course deliverable (report, slides, Q&A crib or its generator); superseded by submission/ and not distributed"
+  },
+  {
+   "path": "report/content2.js",
+   "sha256": "3879c25d7fecd41313e26f195e05571450f46ecd00f1bebe0cbe3b22244e8785",
+   "reason": "earlier course deliverable (report, slides, Q&A crib or its generator); superseded by submission/ and not distributed"
+  },
+  {
+   "path": "report/content3.js",
+   "sha256": "dc3d844aa966cb8c4b9f2474474d2c7d89304c1361a1ed3494753c44796530b9",
+   "reason": "earlier course deliverable (report, slides, Q&A crib or its generator); superseded by submission/ and not distributed"
+  },
+  {
+   "path": "report/generate_qa_doc.js",
+   "sha256": "72c9dab2d9ed2623e9c0766960a37e22938da530469f3349c271d79518dc8880",
+   "reason": "earlier course deliverable (report, slides, Q&A crib or its generator); superseded by submission/ and not distributed"
+  },
+  {
+   "path": "report/generate_report.js",
+   "sha256": "a3e6c7fb0d20e824c438cfab42e777463fd5bb0adfc46465692e1348f224e4cb",
+   "reason": "earlier course deliverable (report, slides, Q&A crib or its generator); superseded by submission/ and not distributed"
+  },
+  {
+   "path": "report/helpers.js",
+   "sha256": "9259325ad6025aea41534ade38faff35a568570becdcfa7e5886fc6a80833bde",
+   "reason": "earlier course deliverable (report, slides, Q&A crib or its generator); superseded by submission/ and not distributed"
+  },
+  {
+   "path": "report/image_dims.json",
+   "sha256": "4e8620ceae8a76232b42854eeb34945db01f9bcacdbb50c69078405599c2dd3e",
+   "reason": "earlier course deliverable (report, slides, Q&A crib or its generator); superseded by submission/ and not distributed"
+  },
+  {
+   "path": "report/postprocess_report.py",
+   "sha256": "bc1d288466f33c2426a702dbb3248a2a9753a860cb4956db575886ee6b84870a",
+   "reason": "earlier course deliverable (report, slides, Q&A crib or its generator); superseded by submission/ and not distributed"
+  }
+ ]
+}
