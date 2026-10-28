@@ -1,0 +1,42 @@
+{
+  "built_utc": "2026-10-28T08:19:34+00:00",
+  "schema_version": "1.0.0",
+  "outputs": {
+    "viewer/index.html": {
+      "bytes": 566385,
+      "sha256": "af8f60c01744a4eee2b25cb82bd3cad36f4bb40eafe30c713163a627d83ada5d"
+    },
+    "data/explorer_data.json": {
+      "bytes": 1564461,
+      "sha256": "b247091e74beacd939e3a175466952e0f1c5d1e2e6005a51139d580fe0b03841"
+    }
+  },
+  "sources": {
+    "e2_sensitivity.json": {
+      "path": "results\\e2\\e2_sensitivity.json",
+      "bytes": 530771,
+      "sha256": "7c6f6a4d3ff69eb0ba1ac80957c30b1ce8dd2509401a35e411a1c3178000886b"
+    },
+    "e2_blob_sanity.json": {
+      "path": "results\\e2\\e2_blob_sanity.json",
+      "bytes": 38926,
+      "sha256": "0a2f9e89ab376ead1b9605e162abc045a4a7fcaaadce83d1797a1468437daefc"
+    },
+    "weather_mapper_results.json": {
+      "path": "extensions\\meteorology\\results\\weather_mapper_results.json",
+      "bytes": 621666,
+      "sha256": "4afddca13fa96d0e1adbc048927c9d06bf5a825217eb1dca08a163dae0ac0efa"
+    },
+    "weather_analysis_results.json": {
+      "path": "extensions\\meteorology\\results\\weather_analysis_results.json",
+      "bytes": 67267,
+      "sha256": "b453ea9541d94383612b66c06d462d6aed6d0df6aea603af23d677442ec3cfb6"
+    }
+  },
+  "dataset_cell_counts": {
+    "annulus": 12,
+    "figure_eight": 12,
+    "blob": 2,
+    "weather": 9
+  }
+}

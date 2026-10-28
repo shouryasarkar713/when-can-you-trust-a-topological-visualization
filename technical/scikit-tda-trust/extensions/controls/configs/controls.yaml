@@ -1,0 +1,88 @@
+# Extension D — control experiments for the Mapper and weather analyses.
+# STATUS OF THE PARAMETERS: every value below was written into this file before the corresponding
+# script was first run, but AFTER the results of the default configuration (forced KMeans k=2 per
+# cover interval) were known. The parameters were not tuned within a control and no independent time
+# stamp exists. The two clusterer scales are therefore exploratory choices, not preregistered ones.
+# These controls are supplementary and do not replace or alter any other experiment.
+
+# ---- D1: does the forced KMeans(k=2)-per-interval clusterer drive the Mapper cycle findings?
+# E2 forces exactly 2 clusters in every cover interval (node count = 2 x n_cubes in all
+# 24 cells), so graph cycles can be produced by forced splits of preimages that are one connected
+# piece.  Control: identical data, lens (PCA-1), cover grid and reference cell, but the clusterer
+# is data-adaptive: single-linkage agglomerative clustering cut at a distance threshold eps.
+# eps is tied to the data scale (not tuned per shape): eps = c * median 5-NN distance of the
+# FULL point cloud, with two multipliers c (exploratory choice: only these two values were tried).
+mapper_clusterer_control:
+  shapes: [annulus, figure_eight, blob]
+  data_seed: 42
+  grid:
+    n_cubes: [5, 10, 15, 20]
+    perc_overlap: [0.20, 0.35, 0.50]
+  reference_cell: {n_cubes: 10, perc_overlap: 0.35}
+  lens: "PCA(n_components=1)"
+  clusterer: "AgglomerativeClustering(linkage='single', n_clusters=None, distance_threshold=eps)"
+  knn_k: 5
+  eps_multipliers: [1.5, 3.0]
+  # Prominence reading for the reported cycle statistic: the same cyclomatic number E-V+C as the
+  # E2; NO threshold is applied (the full distribution over the 12 cells is reported).
+
+# ---- D2: weather null controls for the sliding-window seasonal embedding.
+# E2-era analysis contrasts the 6-config TEMP embedding with a 3-D static cloud, which changes
+# variables, dimension and point count at once, so it is not a matched control. Matched controls
+# use the SAME embedding code, the SAME six (tau, d) configurations and the SAME z-score step:
+#   (a) anomaly series: TEMP minus a fitted annual climatology (intercept + sin/cos harmonics of
+#       period 365.25 d with n_harmonics terms, ordinary least squares on all days), re-z-scored;
+#   (b) shuffled series: random permutation of the z-scored TEMP values (destroys all temporal
+#       structure, preserves the marginal distribution); n_shuffles permutations, seeded.
+weather_null_controls:
+  series: "TEMP"
+  configs:                      # identical to extensions/meteorology/configs/weather.yaml sweep
+    - {tau: 30, d: 8}
+    - {tau: 45, d: 9}
+    - {tau: 52, d: 8}
+    - {tau: 60, d: 8}
+    - {tau: 73, d: 6}
+    - {tau: 90, d: 8}
+  annual_period_days: 365.25
+  n_harmonics: 2
+  shuffle:
+    config: {tau: 60, d: 8}     # the reference configuration (tau=60, d=8) only, for cost
+    n_shuffles: 10
+    base_seed: 20261028
+
+# ---- D3 (written before the first execution of D3):
+# does the Mapper cycle-cue instability under input resampling (Extension C, annulus: cycle cue
+# lost in 13/30 subsamples with KMeans k=2) persist when the clusterer is data-adaptive?
+# Same 30 x 80% without-replacement subsamples (same seed rule), same cover (10, 0.35), same
+# PCA-1 lens refit per subsample, but the D1 single-linkage clusterer with eps = c * median 5-NN
+# distance of the FULL cloud (c in D1's eps_multipliers).  No other freedom.
+mapper_resampling_control:
+  shapes: [annulus, figure_eight, blob]
+  n_replicates: 30
+  fraction: 0.8
+  seed_base: 20261022
+  seed_offsets: {annulus: 0, figure_eight: 1000, blob: 2000}
+  cell: {n_cubes: 10, perc_overlap: 0.35}
+
+# ---- D4 (written before the first execution of D4):
+# Independent-draw reference.  Extension C subsamples ONE 500-point draw per shape (seed 42) and
+# compares to that draw, so (i) the full-data reference is itself a single realisation and
+# (ii) subsample/reference overlap makes distances optimistic.  D4 draws n_draws NEW 500-point
+# samples per shape from the same generator (new seeds) and reports, per draw:
+#   - H1 bottleneck distance to the seed-42 reference diagram (noise-floor / independent draws),
+#     and dominant H1 persistence and the ground-truth-rank gap ratio;
+#   - Mapper cyclomatic number / components at the reference cell (10, 0.35) with BOTH the
+#     default KMeans(k=2) clusterer and the D1 single-linkage clusterer (eps = 3.0 * median 5-NN
+#     distance of that draw's own cloud, same rule as D1).
+independent_draws:
+  shapes: [annulus, figure_eight, blob]
+  n_draws: 30
+  seed_base: 777000
+  n: 500
+  cell: {n_cubes: 10, perc_overlap: 0.35}
+  eps_multiplier: 3.0
+
+# ---- D5 (written before the first execution): two quantitative checks of caveats stated in the report.
+caveat_checks:
+  s_ceiling: {shape: annulus, cell: {n_cubes: 10, perc_overlap: 0.35}}   # uses saved Extension C subsamples
+  h0_cardinality: {shape: annulus, rep_a: 0, rep_b: 1}                   # 400 vs 400 vs 500-point reference

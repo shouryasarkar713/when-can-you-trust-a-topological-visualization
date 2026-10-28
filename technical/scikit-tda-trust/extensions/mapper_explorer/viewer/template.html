@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mapper sensitivity explorer — saved results only</title>
+<style>
+  :root {
+    --ink: #1a1f2b; --muted: #5b6472; --line: #d7dce4; --bg: #f5f6f8;
+    --panel: #ffffff; --accent: #1f5fa8; --warn: #8a5a00; --warnbg: #fff7e0;
+    --mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 14px/1.45 "Segoe UI", system-ui, -apple-system, sans-serif;
+         color: var(--ink); background: var(--bg); }
+  header { background: #10233f; color: #fff; padding: 10px 18px; }
+  header h1 { margin: 0; font-size: 17px; font-weight: 600; }
+  header p { margin: 2px 0 0; font-size: 12px; color: #b9c6da; }
+  details.banner { background: var(--warnbg); border-bottom: 1px solid #e6d9ad;
+                   padding: 6px 18px; font-size: 12.5px; color: var(--warn); }
+  details.banner summary { cursor: pointer; font-weight: 600; }
+  details.banner ul { margin: 6px 0 4px; padding-left: 18px; }
+  details.banner li { margin-bottom: 4px; }
+  .wrap { display: grid; grid-template-columns: 320px 1fr; gap: 14px;
+          padding: 14px 18px; align-items: start; }
+  @media (max-width: 980px) { .wrap { grid-template-columns: 1fr; } }
+  .card { background: var(--panel); border: 1px solid var(--line);
+          border-radius: 8px; padding: 12px 14px; margin-bottom: 14px; }
+  .card h2 { margin: 0 0 8px; font-size: 13px; text-transform: uppercase;
+             letter-spacing: .04em; color: var(--muted); }
+  .card h2 .tag { color: var(--accent); text-transform: none; letter-spacing: 0; }
+  label { display: block; font-size: 12px; color: var(--muted); margin: 8px 0 3px; }
+  select, button { font: inherit; }
+  select { width: 100%; padding: 5px 6px; border: 1px solid var(--line);
+           border-radius: 5px; background: #fff; }
+  .row { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+  .wrap > * { min-width: 0; }
+  #status-line { overflow-wrap: anywhere; flex: 1 1 100% !important; min-width: 0; }
+  .row > * { flex: 0 0 auto; }
+  button { padding: 5px 10px; border: 1px solid var(--accent); color: var(--accent);
+           background: #fff; border-radius: 5px; cursor: pointer; }
+  button:hover { background: #eef4fb; }
+  button:disabled { opacity: .4; cursor: default; }
+  dl.meta { display: grid; grid-template-columns: 118px 1fr; gap: 3px 10px;
+            margin: 0; font-size: 12.5px; }
+  dl.meta dt { color: var(--muted); }
+  dl.meta dd { margin: 0; font-family: var(--mono); font-size: 12px;
+               overflow-wrap: anywhere; }
+  .stat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .stat { background: #f2f5fa; border-radius: 6px; padding: 7px 9px; }
+  .stat b { display: block; font-size: 17px; font-family: var(--mono); }
+  .stat span { font-size: 11px; color: var(--muted); }
+  .def { font-size: 11.5px; color: var(--muted); margin-top: 7px; }
+  .warn-box { background: var(--warnbg); border: 1px solid #e6d9ad; color: var(--warn);
+              border-radius: 6px; padding: 7px 9px; font-size: 12px; margin-top: 8px; }
+  .section-label { display: inline-block; font-size: 11px; font-weight: 700;
+                   letter-spacing: .05em; color: #fff; background: var(--accent);
+                   border-radius: 4px; padding: 2px 7px; margin-bottom: 6px; }
+  .section-label.render { background: #6d3f8d; }
+  .section-label.ph { background: #12695c; }
+  .section-label.cloud { background: #7a4a1f; }
+  .graphs { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  @media (max-width: 1250px) { .graphs { grid-template-columns: 1fr; } }
+  .graph-box { border: 1px solid var(--line); border-radius: 7px; padding: 8px;
+               background: #fff; }
+  .graph-box h3 { margin: 0 0 4px; font-size: 12px; color: var(--muted);
+                  font-weight: 600; }
+  svg { width: 100%; height: auto; display: block; background: #fbfcfe; }
+  .viz-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  @media (max-width: 1250px) { .viz-row { grid-template-columns: 1fr; } }
+  canvas { width: 100%; height: auto; border: 1px solid var(--line);
+           border-radius: 7px; background: #fff; display: block; }
+  table.delta { border-collapse: collapse; width: 100%; font-size: 12.5px; }
+  table.delta th, table.delta td { border-bottom: 1px solid var(--line);
+    padding: 4px 8px; text-align: right; font-family: var(--mono); }
+  table.delta th:first-child, table.delta td:first-child { text-align: left;
+    font-family: inherit; color: var(--muted); }
+  table.delta th { font-size: 11px; color: var(--muted); font-weight: 600; }
+  .pos { color: #0a7d34; } .neg { color: #b3261e; }
+  .note { font-size: 11.5px; color: var(--muted); margin-top: 6px; }
+  footer { padding: 10px 18px 26px; font-size: 11.5px; color: var(--muted); }
+  .error-banner { background: #fbe9e7; color: #b3261e; border: 1px solid #e7c4bf;
+                  border-radius: 7px; padding: 10px 12px; font-size: 13px;
+                  margin: 14px 18px; }
+  .legend { font-size: 11.5px; color: var(--muted); margin-top: 4px; }
+  .dot { display: inline-block; width: 9px; height: 9px; border-radius: 50%;
+         vertical-align: -1px; margin-right: 3px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Mapper sensitivity explorer &mdash; saved results only</h1>
+  <p>Every graph, statistic, point cloud and persistence diagram below is loaded from
+     precomputed, checksummed experiment outputs. Nothing is recomputed in this page.
+     Offline artifact: no server, no CDN, no network requests.</p>
+</header>
+
+<details class="banner" open>
+  <summary>Interpretive safeguards (read before exploring)</summary>
+  <ul id="caveat-list"></ul>
+</details>
+
+<div class="wrap">
+  <aside>
+    <div class="card">
+      <h2>1 &middot; Dataset &amp; parameter cell</h2>
+      <label for="dataset-select">Dataset</label>
+      <select id="dataset-select"></select>
+      <label for="cell-select">Mapper parameter cell (cover resolution &times; overlap)</label>
+      <div class="row">
+        <button id="prev-cell" title="previous cell (left arrow)">&#8592;</button>
+        <select id="cell-select" style="flex:1 1 auto"></select>
+        <button id="next-cell" title="next cell (right arrow)">&#8594;</button>
+      </div>
+      <p class="note" id="dataset-tier"></p>
+    </div>
+
+    <div class="card">
+      <h2>2 &middot; Configuration (visible run parameters)</h2>
+      <dl class="meta" id="meta-panel"></dl>
+      <div class="warn-box" id="lens-variant-box" hidden></div>
+    </div>
+
+    <div class="card">
+      <h2>3 &middot; Structure statistics</h2>
+      <div class="stat-grid" id="structure-panel"></div>
+      <p class="def"><b>Cyclomatic number</b> = E &minus; V + C: the number of
+        independent cycles in the <i>graph</i> (graph-theoretic quantity &mdash;
+        not a count of persistent loops in the data).</p>
+      <p class="def"><b>Max / mean basis-cycle length</b>: length of the shortest
+        cycles spanning the graph's cycle space, as saved with the experiment.</p>
+      <div class="warn-box" id="cycles-box"></div>
+    </div>
+
+    <div class="card">
+      <h2>4 &middot; Export</h2>
+      <button id="export-btn">Download JSON for selected cell</button>
+      <p class="note">Exports the selected configuration, structure statistics,
+        graph memberships, layouts, reference comparison, provenance
+        (source file + SHA-256) and caveats &mdash; exactly the values displayed,
+        taken from the embedded saved results.</p>
+    </div>
+  </aside>
+
+  <main>
+    <div class="card">
+      <span class="section-label">C &middot; Mapper graph &mdash; structure from the saved cell</span>
+      <div class="row" style="margin-bottom:8px">
+        <strong id="status-line" style="font-size:13.5px"></strong>
+        <span style="flex:1"></span>
+        <label style="margin:0 8px 0 0; font-size:12px">layout:</label>
+        <label style="margin:0; font-size:12px"><input type="radio" name="layout" value="side" checked> side-by-side</label>
+        <label style="margin:0; font-size:12px"><input type="radio" name="layout" value="native"> native</label>
+        <label style="margin:0; font-size:12px"><input type="radio" name="layout" value="separated"> component-separated</label>
+      </div>
+      <div class="graphs">
+        <div class="graph-box" id="box-selected">
+          <h3 id="title-selected">Selected cell</h3>
+          <div id="graph-selected"></div>
+        </div>
+        <div class="graph-box" id="box-separated">
+          <h3 id="title-separated">Same graph, component-separated rendering</h3>
+          <div id="graph-separated"></div>
+        </div>
+      </div>
+      <p class="note">Node area &prop; number of member points; node colour = mean
+        first-coordinate of member points in the displayed cloud (a rendering aid,
+        not the lens value). Hover a node for its id and membership size.</p>
+      <span class="section-label render">D &middot; Rendering choice &mdash; layout only, structure invariant</span>
+      <p class="note">Switching between the native and component-separated
+        renderings changes <b>only</b> node coordinates (both sets are precomputed
+        from the saved graph with fixed seeds). Nodes, edges, memberships and all
+        statistics are byte-identical between the two panels.</p>
+    </div>
+
+    <div class="card">
+      <span class="section-label">E &middot; Comparison with the reference cell</span>
+      <div class="graphs">
+        <div class="graph-box">
+          <h3 id="title-reference">Reference cell</h3>
+          <div id="graph-reference"></div>
+        </div>
+        <div>
+          <table class="delta" id="delta-table"></table>
+          <p class="note" id="s-note"></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="section-label cloud">A &middot; Point cloud &mdash; input data (not a Mapper output)</span>
+      <div class="viz-row">
+        <div>
+          <canvas id="cloud-canvas" width="460" height="380"></canvas>
+          <p class="note" id="cloud-note"></p>
+        </div>
+        <div>
+          <span class="section-label ph">B &middot; Persistent homology &mdash; computed features (saved diagrams)</span>
+          <div class="row" id="ph-switch" style="margin-bottom:6px" hidden>
+            <button id="ph-btn-state" class="ph-btn">state-space cloud</button>
+            <button id="ph-btn-seasonal" class="ph-btn">seasonal embedding (reference)</button>
+          </div>
+          <canvas id="ph-canvas" width="460" height="380"></canvas>
+          <p class="legend"><span class="dot" style="background:#9aa3ad"></span>H0 &nbsp;
+            <span class="dot" style="background:#1f5fa8"></span>H1 &nbsp;&middot;&nbsp;
+            dashed line = diagonal (persistence 0) &nbsp;&middot;&nbsp;
+            <span style="font-size:12px">&#9651;</span> = essential H0 class (death = &infin;; drawn at 1.05&times; the
+            largest finite death, a display convention &mdash; not a measured persistence)</p>
+          <p class="note" id="ph-note"></p>
+          <p class="note" id="ph-stats"></p>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<footer id="footer"></footer>
+
+<script id="explorer-data" type="application/json">/*__EXPLORER_DATA__*/</script>
+<script>
+"use strict";
+(function () {
+  var DATA = null;
+  try {
+    var raw = document.getElementById("explorer-data").textContent;
+    DATA = JSON.parse(raw.replace(/^\/\*|\*\/$/g, ""));
+  } catch (e) {
+    var eb = document.createElement("div");
+    eb.className = "error-banner";
+    eb.textContent = "Viewer data could not be parsed — the embedded dataset is " +
+      "missing or invalid. Rebuild with extensions/mapper_explorer/scripts/build_viewer.py. (" + e + ")";
+    document.body.insertBefore(eb, document.body.firstChild);
+    return;
+  }
+
+  var state = { dataset: "annulus", cell: null, layout: "side", phView: "state_space" };
+
+  /* ---------- helpers ---------- */
+  function $(id) { return document.getElementById(id); }
+  function ds() { return DATA.datasets[state.dataset]; }
+  function cells() { return ds().cells; }
+  function cellById(id) {
+    var cs = cells();
+    for (var i = 0; i < cs.length; i++) if (cs[i].id === id) return cs[i];
+    return null;
+  }
+  function curCell() { return cellById(state.cell); }
+  function refCell() { return cellById(ds().reference_cell); }
+  function fmt(x) { return (x === null || x === undefined) ? "—" : String(x); }
+  function esc(s) {
+    return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  }
+
+  /* ---------- caveat banner ---------- */
+  (function () {
+    var ul = $("caveat-list");
+    var c = DATA.caveats;
+    [["S", c.S], ["cycles", c.cycles], ["connected", c.connected],
+     ["no_participant_study", c.no_participant_study]].forEach(function (kv) {
+      var li = document.createElement("li");
+      li.textContent = kv[1];
+      ul.appendChild(li);
+    });
+  })();
+
+  /* ---------- sidebar: dataset + cell selects ---------- */
+  (function () {
+    var sel = $("dataset-select");
+    Object.keys(DATA.datasets).forEach(function (k) {
+      var o = document.createElement("option");
+      o.value = k; o.textContent = DATA.datasets[k].label;
+      sel.appendChild(o);
+    });
+    sel.addEventListener("change", function () {
+      state.dataset = sel.value;
+      state.cell = ds().reference_cell;
+      render();
+    });
+    $("prev-cell").addEventListener("click", function () { stepCell(-1); });
+    $("next-cell").addEventListener("click", function () { stepCell(1); });
+    $("cell-select").addEventListener("change", function () {
+      state.cell = $("cell-select").value; render();
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.target.tagName === "SELECT") return;
+      if (e.key === "ArrowLeft") stepCell(-1);
+      if (e.key === "ArrowRight") stepCell(1);
+    });
+    var radios = document.querySelectorAll('input[name="layout"]');
+    radios.forEach(function (r) {
+      r.addEventListener("change", function () {
+        state.layout = document.querySelector('input[name="layout"]:checked').value;
+        render();
+      });
+    });
+    $("ph-btn-state").addEventListener("click", function () { state.phView = "state_space"; render(); });
+    $("ph-btn-seasonal").addEventListener("click", function () { state.phView = "seasonal_reference"; render(); });
+  })();
+
+  function stepCell(d) {
+    var cs = cells();
+    var i = 0;
+    for (var j = 0; j < cs.length; j++) if (cs[j].id === state.cell) i = j;
+    i = (i + d + cs.length) % cs.length;
+    state.cell = cs[i].id;
+    render();
+  }
+
+  /* ---------- graph SVG rendering ---------- */
+  function buildGraphSVG(cell, layoutKey, w, h) {
+    var ns = "http://www.w3.org/2000/svg";
+    var svg = document.createElementNS(ns, "svg");
+    svg.setAttribute("viewBox", "0 0 100 " + (100 * h / w));
+    svg.setAttribute("role", "img");
+    var nodes = cell.graph.nodes, links = cell.graph.links;
+    var cloud = ds().point_cloud;
+    var xs = cloud.map(function (p) { return p[0]; });
+    var minX = Math.min.apply(null, xs), maxX = Math.max.apply(null, xs);
+    var maxN = 1;
+    for (var n0 in nodes) maxN = Math.max(maxN, nodes[n0].length);
+    var pos = layoutKey === "separated" ? cell.layout_separated : cell.layout_native;
+    // edges first (below nodes)
+    Object.keys(links).forEach(function (a) {
+      links[a].forEach(function (b) {
+        if (pos[a] && pos[b]) {
+          var ln = document.createElementNS(ns, "line");
+          ln.setAttribute("x1", pos[a][0] * 100); ln.setAttribute("y1", pos[a][1] * (100 * h / w));
+          ln.setAttribute("x2", pos[b][0] * 100); ln.setAttribute("y2", pos[b][1] * (100 * h / w));
+          ln.setAttribute("stroke", "#8899aa"); ln.setAttribute("stroke-width", 0.45);
+          ln.setAttribute("stroke-opacity", 0.5);
+          svg.appendChild(ln);
+        }
+      });
+    });
+    Object.keys(nodes).forEach(function (name) {
+      var members = nodes[name];
+      var m = 0;
+      for (var k = 0; k < members.length; k++) m += cloud[members[k]][0];
+      m = members.length ? m / members.length : 0;
+      var t = (maxX - minX) ? (m - minX) / (maxX - minX) : 0.5;
+      var hue = 220 * (1 - t);
+      var c = document.createElementNS(ns, "circle");
+      var r = 1.6 + 4.6 * Math.sqrt(members.length / maxN);
+      c.setAttribute("cx", pos[name][0] * 100);
+      c.setAttribute("cy", pos[name][1] * (100 * h / w));
+      c.setAttribute("r", r.toFixed(2));
+      c.setAttribute("fill", "hsl(" + hue.toFixed(0) + ",62%,55%)");
+      c.setAttribute("stroke", "#20262f"); c.setAttribute("stroke-width", 0.28);
+      var title = document.createElementNS(ns, "title");
+      title.textContent = name + " — " + members.length + " member point(s)";
+      c.appendChild(title);
+      svg.appendChild(c);
+    });
+    return svg;
+  }
+
+  /* ---------- canvas: point cloud ---------- */
+  function drawCloud() {
+    var cv = $("cloud-canvas"), ctx = cv.getContext("2d");
+    var cloud = ds().point_cloud;
+    ctx.clearRect(0, 0, cv.width, cv.height);
+    var xs = cloud.map(function (p) { return p[0]; });
+    var ys = cloud.map(function (p) { return p[1]; });
+    var x0 = Math.min.apply(null, xs), x1 = Math.max.apply(null, xs);
+    var y0 = Math.min.apply(null, ys), y1 = Math.max.apply(null, ys);
+    var pad = 14, W = cv.width - 2 * pad, H = cv.height - 2 * pad;
+    for (var i = 0; i < cloud.length; i++) {
+      var t = (x1 - x0) ? (cloud[i][0] - x0) / (x1 - x0) : 0.5;
+      ctx.fillStyle = "hsl(" + (220 * (1 - t)).toFixed(0) + ",55%,48%)";
+      var px = pad + W * (cloud[i][0] - x0) / ((x1 - x0) || 1);
+      var py = pad + H * (1 - (cloud[i][1] - y0) / ((y1 - y0) || 1));
+      ctx.fillRect(px - 1.1, py - 1.1, 2.2, 2.2);
+    }
+    ctx.fillStyle = "#5b6472"; ctx.font = "10px sans-serif";
+    ctx.fillText("first coordinate \u2192", pad, cv.height - 3);
+  }
+
+  /* ---------- canvas: persistence diagram ---------- */
+  function drawPH() {
+    var cv = $("ph-canvas"), ctx = cv.getContext("2d");
+    var dg = ds().ph_diagram, note = $("ph-note"), stats = $("ph-stats");
+    var H0, H1, title;
+    if (state.dataset === "weather") {
+      $("ph-switch").hidden = false;
+      var v = state.phView;
+      H0 = dg[v].H0; H1 = dg[v].H1;
+      var s = ds().ph_summary[v];
+      title = v === "state_space" ? "state-space cloud (TEMP/DEWP/SLP)"
+                                  : "sliding-window embedding, tau=60 d=8 (reference)";
+      $("ph-btn-state").style.fontWeight = v === "state_space" ? "700" : "400";
+      $("ph-btn-seasonal").style.fontWeight = v === "seasonal_reference" ? "700" : "400";
+      note.textContent = s.note;
+      stats.textContent = "H1 classes: " + s.H1_classes +
+        " · dominant persistence: " + s.dominant_H1_persistence +
+        " · gap ratio r\u2081: " + s.gap_ratio_r1 +
+        (s.span_days ? " · span " + s.span_days + " d" : "");
+    } else {
+      $("ph-switch").hidden = true;
+      H0 = dg.H0; H1 = dg.H1;
+      var sm = ds().ph_summary;
+      title = "";
+      note.textContent = ds().ph_note;
+      stats.textContent = "H0 classes: " + sm.H0_classes + " · H1 classes: " +
+        sm.H1_classes + " · top-3 H1 persistence: " +
+        sm.H1_top3_persistence.join(", ") +
+        (sm.gap_ratio !== null ? " · " + sm.gap_ratio_label + ": " + sm.gap_ratio : "") +
+        "  (" + sm.note + ")";
+    }
+    ctx.clearRect(0, 0, cv.width, cv.height);
+    var all = H0.concat(H1);
+    var lo = Math.min.apply(null, all.map(function (p) { return p[0]; }));
+    var hi = Math.max.apply(null, all.map(function (p) { return p[1]; }));
+    var pad = 16, W = cv.width - 2 * pad, H = cv.height - 2 * pad;
+    function X(v) { return pad + W * (v - lo) / ((hi - lo) || 1); }
+    function Y(v) { return pad + H * (1 - (v - lo) / ((hi - lo) || 1)); }
+    ctx.strokeStyle = "#b9c1cc"; ctx.setLineDash([4, 3]); ctx.beginPath();
+    ctx.moveTo(X(lo), Y(lo)); ctx.lineTo(X(hi), Y(hi)); ctx.stroke();
+    ctx.setLineDash([]);
+    function drawPairs(pairs, color, r) {
+      ctx.fillStyle = color;
+      for (var i = 0; i < pairs.length; i++) {
+        if (pairs[i][2] === 1) {        /* essential class: death = infinity, drawn at a display cap */
+          ctx.save(); ctx.strokeStyle = "#1a1f2b"; ctx.lineWidth = 1.6;
+          var ex = X(pairs[i][0]), ey = Y(pairs[i][1]);
+          ctx.beginPath(); ctx.moveTo(ex, ey - 5); ctx.lineTo(ex - 4.5, ey + 3.5);
+          ctx.lineTo(ex + 4.5, ey + 3.5); ctx.closePath(); ctx.stroke(); ctx.restore();
+          continue;
+        }
+        ctx.beginPath();
+        ctx.arc(X(pairs[i][0]), Y(pairs[i][1]), r, 0, 6.2832);
+        ctx.fill();
+      }
+    }
+    drawPairs(H0, "rgba(154,163,173,0.55)", 1.4);
+    drawPairs(H1, "rgba(31,95,168,0.8)", 2.4);
+    ctx.fillStyle = "#5b6472"; ctx.font = "10px sans-serif";
+    if (title) ctx.fillText(title, pad, 11);
+    ctx.fillText("birth \u2192", pad, cv.height - 3);
+    ctx.save(); ctx.translate(9, cv.height - pad); ctx.rotate(-Math.PI / 2);
+    ctx.fillText("death \u2192", 0, 0); ctx.restore();
+    ctx.fillText(lo.toFixed(2), pad, cv.height - pad + 12 > cv.height ? cv.height - 2 : cv.height - 15);
+  }
+
+  /* ---------- metadata / structure / reference ---------- */
+  function renderMeta(cell) {
+    var dl = $("meta-panel");
+    var d = ds();
+    var rows = [
+      ["cover resolution (n_cubes)", cell.n_cubes],
+      ["overlap (perc_overlap)", cell.perc_overlap],
+      ["lens", cell.lens_variant || d.lens],
+      ["clustering", d.clusterer],
+      ["random seed", d.seed],
+      ["input points", d.n_points],
+      ["tier", d.tier],
+    ];
+    dl.innerHTML = rows.map(function (r) {
+      return "<dt>" + esc(r[0]) + "</dt><dd>" + esc(fmt(r[1])) + "</dd>";
+    }).join("");
+    var box = $("lens-variant-box");
+    if (cell.lens_variant) {
+      box.hidden = false;
+      box.textContent = "DAY-OF-YEAR LENS (calendar-encoded): " + cell.lens_variant_note;
+    } else { box.hidden = true; }
+    if (cell.question) {
+      box.hidden = false;
+      box.textContent = "Control question: " + cell.question;
+    }
+  }
+
+  function renderStructure(cell) {
+    var s = cell.structure;
+    var items = [
+      [s.n_nodes, "nodes"], [s.n_edges, "edges"], [s.n_components, "components"],
+      [s.cyclomatic_number, "cyclomatic number"],
+      [s.max_basis_cycle_length, "max basis-cycle length"],
+      [s.mean_basis_cycle_length, "mean basis-cycle length"],
+    ];
+    $("structure-panel").innerHTML = items.map(function (it) {
+      return '<div class="stat"><b>' + esc(fmt(it[0])) + "</b><span>" + esc(it[1]) + "</span></div>";
+    }).join("");
+    $("cycles-box").textContent = DATA.caveats.cycles;
+  }
+
+  function renderReference(cell) {
+    var rc = refCell();
+    var title = "Reference cell — (" + rc.n_cubes + ", " + rc.perc_overlap + ")";
+    if (rc.lens_variant) title += " · " + rc.lens_variant;
+    $("title-reference").textContent = title;
+    var holder = $("graph-reference");
+    holder.innerHTML = "";
+    holder.appendChild(buildGraphSVG(rc, "native", 460, 380));
+    var d = cell.delta_vs_reference;
+    var rows = [
+      ["nodes", cell.structure.n_nodes, rc.structure.n_nodes, d ? d.d_nodes : 0],
+      ["edges", cell.structure.n_edges, rc.structure.n_edges, d ? d.d_edges : 0],
+      ["components", cell.structure.n_components, rc.structure.n_components, d ? d.d_components : 0],
+      ["cyclomatic", cell.structure.cyclomatic_number, rc.structure.cyclomatic_number, d ? d.d_cyclomatic : 0],
+    ];
+    var html = "<tr><th>quantity</th><th>selected</th><th>reference</th><th>&Delta;</th></tr>";
+    rows.forEach(function (r) {
+      var cls = r[3] > 0 ? "pos" : (r[3] < 0 ? "neg" : "");
+      html += "<tr><td>" + esc(r[0]) + "</td><td>" + r[1] + "</td><td>" + r[2] +
+        '</td><td class="' + cls + '">' + (r[3] > 0 ? "+" : "") + r[3] + "</td></tr>";
+    });
+    $("delta-table").innerHTML = html;
+    var S = cell.similarity_to_reference_S;
+    $("s-note").innerHTML = S === null || S === undefined
+      ? "Membership-Jaccard S vs reference: <b>not computed</b> for this control cell."
+      : "Membership-Jaccard S vs reference: <b>" + String(S) + "</b> — " +
+        esc(DATA.caveats.S);
+  }
+
+  /* ---------- export (feature 9) ---------- */
+  function exportJSON() {
+    var cell = curCell(), d = ds();
+    var out = {
+      exported_by: "mapper_explorer " + DATA.schema_version + " (saved-results viewer)",
+      exported_utc: new Date().toISOString(),
+      dataset: { id: state.dataset, label: d.label, tier: d.tier,
+                 lens: d.lens, clusterer: d.clusterer, seed: d.seed,
+                 n_points: d.n_points },
+      selected_cell: {
+        id: cell.id, n_cubes: cell.n_cubes, perc_overlap: cell.perc_overlap,
+        lens_variant: cell.lens_variant || null,
+        is_reference: cell.is_reference,
+        similarity_to_reference_S: cell.similarity_to_reference_S,
+        structure: cell.structure,
+        delta_vs_reference: cell.delta_vs_reference,
+        graph: cell.graph,
+        layouts: { native: cell.layout_native,
+                   component_separated: cell.layout_separated },
+      },
+      reference_cell_id: d.reference_cell,
+      provenance: { source: DATA.provenance, built_utc: DATA.built_utc,
+                    schema_version: DATA.schema_version },
+      caveats: DATA.caveats,
+      ph_summary: d.ph_summary,
+    };
+    var blob = new Blob([JSON.stringify(out, null, 2)], { type: "application/json" });
+    var a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = "mapper_explorer_export_" + state.dataset + "_" + cell.id + ".json";
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 500);
+    window.__lastExport = out;   // for automated consistency tests
+  }
+  $("export-btn").addEventListener("click", exportJSON);
+
+  /* ---------- main render ---------- */
+  function render() {
+    var cell = curCell();
+    if (!cell) { state.cell = ds().reference_cell; cell = curCell(); }
+    var sel = $("cell-select");
+    sel.innerHTML = "";
+    cells().forEach(function (c) {
+      var o = document.createElement("option");
+      o.value = c.id;
+      var lbl = "(" + c.n_cubes + ", " + c.perc_overlap + ")" +
+        (c.lens_variant ? " · day-of-year lens" : "") +
+        " — " + c.structure.n_nodes + "n/" + c.structure.n_edges + "e/" +
+        c.structure.n_components + "c";
+      if (c.is_reference) lbl += " [reference]";
+      o.textContent = lbl;
+      sel.appendChild(o);
+    });
+    sel.value = cell.id;
+    $("dataset-tier").textContent = ds().tier;
+    var status = ds().label + " — cell (" + cell.n_cubes + ", " + cell.perc_overlap + ")" +
+      (cell.lens_variant ? " · " + cell.lens_variant : "") +
+      (cell.is_reference ? " · REFERENCE" : "");
+    $("status-line").textContent = status;
+    document.title = status + " — Mapper sensitivity explorer";
+
+    renderMeta(cell);
+    renderStructure(cell);
+
+    var gSel = $("graph-selected"), gSep = $("graph-separated");
+    gSel.innerHTML = ""; gSep.innerHTML = "";
+    var boxSep = $("box-separated");
+    if (state.layout === "side") {
+      $("title-selected").textContent = "Selected cell — native layout (spring, seed 42)";
+      gSel.appendChild(buildGraphSVG(cell, "native", 460, 380));
+      boxSep.style.display = "";
+      $("title-separated").textContent = "Same graph — component-separated rendering";
+      gSep.appendChild(buildGraphSVG(cell, "separated", 460, 380));
+    } else if (state.layout === "native") {
+      $("title-selected").textContent = "Selected cell — native layout (spring, seed 42)";
+      gSel.appendChild(buildGraphSVG(cell, "native", 460, 380));
+      boxSep.style.display = "none";
+    } else {
+      $("title-selected").textContent = "Selected cell — component-separated layout";
+      gSel.appendChild(buildGraphSVG(cell, "separated", 460, 380));
+      boxSep.style.display = "none";
+    }
+    renderReference(cell);
+    drawCloud();
+    $("cloud-note").textContent = "Input point cloud (" + ds().n_points +
+      " points), first two displayed coordinates. This is the data the Mapper " +
+      "cover was computed on — section A shows the input, NOT a Mapper output.";
+    drawPH();
+    $("footer").textContent = "Offline artifact · schema " + DATA.schema_version +
+      " · built " + DATA.built_utc + " from saved, checksummed experiment outputs " +
+      "(see export for provenance) · no network requests are made by this page.";
+  }
+
+  state.cell = ds().reference_cell;
+  render();
+})();
+</script>
+</body>
+</html>

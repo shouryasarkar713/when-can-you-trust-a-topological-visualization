@@ -1,0 +1,75 @@
+{
+  "test": "offline cold-cache browser test + interaction verification",
+  "date_utc": "2026-10-22",
+  "tool": "agent-browser (headless Chromium) with offline mode enabled BEFORE page load (network access disabled at the browser level); page opened from file:// with a fresh profile (cold cache)",
+  "page": "extensions/mapper_explorer/viewer/index.html (0.56 MB, data inlined)",
+  "results": {
+    "offline_operation": {
+      "network_requests_during_load": ["file://.../viewer/index.html (Document) 200 — the only request"],
+      "http_resource_entries_via_performance_api": 0,
+      "console_errors": 0,
+      "console_messages": 0,
+      "verdict": "PASS — no external resource of any kind is fetched; the page renders fully offline"
+    },
+    "initial_render": {
+      "title": "Annulus (synthetic — known loop) — cell (10, 0.35) · REFERENCE",
+      "svg_selected_panel": "20 nodes, 21 edges",
+      "matches_saved_reference_cell": true
+    },
+    "dataset_selection": {
+      "options": ["annulus", "figure_eight", "blob", "weather"],
+      "weather_cell_options": 9,
+      "verdict": "PASS"
+    },
+    "cell_selection_weather": {
+      "selected": "nc20_po0.35",
+      "structure_panel": "40 nodes, 49 edges, 2 components, cyclomatic 11",
+      "delta_table": "+20 nodes, +23 edges, +1 components, +4 cyclomatic vs reference",
+      "S_vs_reference": 0.506,
+      "verdict": "PASS — identical to weather_mapper_results.json"
+    },
+    "day_of_year_lens_cell": {
+      "warning_displayed": "DAY-OF-YEAR LENS (calendar-encoded): ... encodes calendar information directly into the filter function ...",
+      "verdict": "PASS"
+    },
+    "layout_toggle": {
+      "native_only": "separated panel hidden (display:none)",
+      "side_by_side_restored": "display:block",
+      "structure_invariant": "layout_native, layout_separated and graph.nodes all contain the same 20 node ids",
+      "verdict": "PASS — rendering switch changes coordinates only"
+    },
+    "ph_view_toggle_weather": {
+      "seasonal_reference": "H1 classes: 1616 · dominant persistence: 2.167 · gap ratio r1: 6.753 · span 420 d",
+      "state_space": "H1 classes: 1049 · dominant persistence: 0.2103 · gap ratio r1: 1.186",
+      "verdict": "PASS — identical to weather_analysis_results.json"
+    },
+    "figure_eight_ph": "H0 500 · H1 91 · top-3 H1 persistence 0.481, 0.4807, 0.0493 · r_2: 9.747 (two comparable dominant classes — PASS)",
+    "blob_control_note": "No-loop control: the H1 diagram has NO dominant class ... yet Mapper graph cycles still appear — PASS",
+    "keyboard_navigation": "ArrowRight advanced blob (10,0.35) -> (20,0.2) — PASS",
+    "export_consistency": {
+      "method": "clicked export for weather/nc10_po0.35 and compared window.__lastExport against the embedded saved cell",
+      "graph_match": true,
+      "structure_match": true,
+      "layouts_match": true,
+      "S": 1.0,
+      "provenance_sources": 4,
+      "caveats": 4,
+      "verdict": "PASS — exported values are byte-identical to the embedded saved results"
+    },
+    "screenshots": [
+      "figures/screenshot_annulus_reference.png",
+      "figures/screenshot_weather_reference.png",
+      "figures/screenshot_weather_fragmentation.png",
+      "figures/screenshot_figure_eight.png",
+      "figures/screenshot_blob_control.png"
+    ],
+    "screenshot_vlm_inspection": "5/5 screenshots inspected (GLM vision model): layout intact, graphs rendered, canvases rendered, no defects; the isolated nodes in the weather fragmentation screenshot's component-separated panel are the cell's 2 real components, not a defect"
+  },
+  "environment": {
+    "browser": "headless Chromium via agent-browser",
+    "viewport": "1440x1000",
+    "network": "offline mode enabled before load",
+    "platform": "Linux x86_64 (project container)",
+    "other_platforms": "untested (see README)"
+  }
+}
