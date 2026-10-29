@@ -270,9 +270,19 @@ def render_table(doc, rows, header=True):
         lens = [cell_len(r[j]) if j < len(r) else 0 for r in rows]
         weights.append(max(4.0, 0.6 * max(lens) + 0.4 * (sum(lens) / len(lens))))
     total_w = 16.6
-    widths = [max(2.3 if ncol <= 4 else 1.3, total_w * w / sum(weights)) for w in weights]
-    scale = total_w / sum(widths)
-    widths = [w * scale for w in widths]
+
+    def longest_word(toks):
+        txt = "".join(tk.content for tk in toks if tk.type in ("text", "code_inline"))
+        return max((len(w) for w in re.split(r"[\s\-–/]+", txt)), default=0)
+
+    # every column is at least wide enough for its longest unbreakable word (no mid-word wrapping),
+    # the remaining width is shared in proportion to the content weights
+    mins = [min(3.2, max(1.3, 0.21 * max(longest_word(r[j]) if j < len(r) else 0 for r in rows) + 0.35))
+            for j in range(ncol)]
+    if sum(mins) > total_w:
+        mins = [m * total_w / sum(mins) for m in mins]
+    rest = total_w - sum(mins)
+    widths = [m + rest * w / sum(weights) for m, w in zip(mins, weights)]
     t.autofit = False
     tblPr = t._tbl.tblPr
     lay = OxmlElement("w:tblLayout")

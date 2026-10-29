@@ -15,9 +15,9 @@ field: Code, data and verification | https://github.com/shouryasarkar713/when-ca
 
 ## 1. Summary
 
-**Question.** A persistence diagram or a Mapper graph looks like a statement about the shape of data. This report asks when such a picture can be trusted, using the Scikit-TDA tools ripser, persim and KeplerMapper (`kmapper`) on data with known structure and on one real weather record. Five things are kept apart throughout: the true topology of the data; the persistent-homology (PH) evidence under a specific metric and filtration; the Mapper graph under a specific lens, cover, clustering rule and parameters; the appearance of a drawing; and the reader's interpretation of it.
+**Question.** A persistence diagram or a Mapper graph looks like a statement about the shape of data. This report asks when such a picture can be trusted, using the Scikit-TDA collection of topological data analysis (TDA) tools — ripser, persim and KeplerMapper (`kmapper`), together called the triad — on data with known structure and on one real weather record. Five things are kept apart throughout: the true topology of the data; the persistent-homology (PH) evidence under a specific metric and filtration; the Mapper graph under a specific lens, cover, clustering rule and parameters; the appearance of a drawing; and the reader's interpretation of it.
 
-**Studies.** Three core experiments: a 13-task capability and workflow audit (E1); a 24-cell Mapper parameter-sensitivity grid on an annulus and a figure-eight, with a no-loop blob as control (E2); and a structured inspection of 13 figures by a single observer (E3). Three extension studies: a case study on NOAA Global Summary of the Day (GSOD) observations from Central Park, New York, 2019–2024; a self-contained offline Mapper explorer; and resampling and leave-one-year-out analyses. Five control experiments (D1–D5) test specific alternative explanations of the Mapper and weather results.
+**Studies.** Three core experiments: a 13-task capability and workflow audit (E1); a 24-cell Mapper parameter-sensitivity grid on an annulus and a figure-eight, with a no-loop blob as control (E2); and a structured inspection of 13 figures by a single observer (E3). Three extension studies: a case study on daily observations from Central Park, New York, 2019–2024, taken from the Global Summary of the Day (GSOD) product of the National Oceanic and Atmospheric Administration (NOAA); a self-contained offline Mapper explorer; and resampling and leave-one-year-out analyses. Five control experiments (listed in Appendix A) test specific alternative explanations of the Mapper and weather results.
 
 **Findings.**
 
@@ -37,13 +37,13 @@ field: Code, data and verification | https://github.com/shouryasarkar713/when-ca
 ### 2.1 Research questions
 
 - **RQ1 (workflow).** Which visualization-workflow tasks does the triad support natively, which need other packages, and which need custom code? → E1.
-- **RQ2 (sensitivity).** How sensitive are KeplerMapper visualizations to cover resolution, overlap, and the clustering rule — enough to change the structural interpretation a user draws? → E2, controls D1, D3, D4, and the explorer.
+- **RQ2 (sensitivity).** How sensitive are KeplerMapper visualizations to cover resolution, overlap, and the clustering rule — enough to change the structural interpretation a user draws? → E2, the clusterer, resampling and independent-redraw controls, and the explorer.
 - **RQ3 (what the artifacts communicate).** What structural information do persistence diagrams and Mapper graphs make visible for a predefined task set, and which ambiguities arise from parameters and rendering? → E3.
 - **Extension questions.** Do the diagnostics reveal known structure in real station-scale weather data, and under which representation (weather study)? Can parameter dependence be made inspectable offline with provenance (explorer)? How do diagrams and graphs change when the *sample* changes rather than the parameters (resampling)?
 
 ### 2.2 Scope and exclusions
 
-The study evaluates the three packages as a visualization workflow. It does not benchmark other TDA libraries: a comparison of ripser with GUDHI (Maria et al., 2014), a UMAP or t-SNE baseline, torus data and a scaling benchmark were considered and left out of scope. Consequently ripser's correctness is supported only by the known-answer signatures of the synthetic data, determinism, and the literature (Bauer, 2021), not by agreement with a second implementation.
+The study evaluates the three packages as a visualization workflow. It does not benchmark other TDA libraries: a comparison of ripser with the GUDHI library (Maria et al., 2014), a baseline with UMAP (uniform manifold approximation and projection) or t-SNE (t-distributed stochastic neighbour embedding), torus data and a scaling benchmark were considered and left out of scope. Consequently ripser's correctness is supported only by the known-answer signatures of the synthetic data, determinism, and the literature (Bauer, 2021), not by agreement with a second implementation.
 
 ## 3. System boundary and related work
 
@@ -51,7 +51,7 @@ The study evaluates the three packages as a visualization workflow. It does not 
 
 The evaluated system is the Scikit-TDA triad: **ripser 0.6.15** (Vietoris–Rips persistent homology; the Python binding of Bauer's C++ Ripser; Tralie, Saul & Bar-On, 2018), **persim 0.4.1** (diagram distances and plotting; Saul & Tralie, 2019) and **kmapper 2.1.0** (the Mapper algorithm; van Veen et al., 2019). At the time of the study these were the latest PyPI releases and installed as binary wheels on Python 3.12 for Linux and Windows. networkx 3.7 (graph statistics), scikit-learn 1.9.1 (lens and clustering), numpy 2.5.4, scipy 1.18.1 and matplotlib 3.11.2 are counted as external to the system.
 
-Two documented properties of the packages shape the design. The kmapper 2.1.0 HTML export loads D3 6.1.1, FileSaver 2.0.2 and a web font from content-delivery networks at view time, so it is not an offline artifact. ripser 0.6.15 does not export a plotting function (`plot_dgms` was already absent in version 0.3.2 and present in 0.2.7); persim provides `plot_diagrams`, and neither package draws barcodes.
+Two documented properties of the packages shape the design. The kmapper 2.1.0 HTML export loads the JavaScript libraries D3 (version 6.1.1) and FileSaver (2.0.2) and a web font from content-delivery networks at view time, so it is not an offline artifact. ripser 0.6.15 does not export a plotting function (`plot_dgms` was already absent in version 0.3.2 and present in 0.2.7); persim provides `plot_diagrams`, and neither package draws barcodes.
 
 ### 3.2 Related work and positioning
 
@@ -61,7 +61,7 @@ Two documented properties of the packages shape the design. The kmapper 2.1.0 HT
 - **Weather and topology.** Perea & Harer (2015) show that sliding-window embeddings of periodic signals have a prominent H1 class, and Perea, Deckard, Haase & Harer (2015) develop SW1PerS for periodicity scoring. Applications of TDA to weather data mostly work at reanalysis scale (Muszynski et al., 2019; Strommen et al., 2023).
 - **Evaluation methodology.** Task- and scenario-based evaluation of visualizations is discussed by Lam et al. (2012) and Isenberg et al. (2013). Munzner (2009) gives the nested model (domain, abstraction, idiom, algorithm) with a named threat to validity at each level, which motivates the separation of data, PH, Mapper and drawing used here. Brehmer & Munzner (2013) give a task typology in which the E1 and E3 task lists could be expressed; the tasks were not mapped onto it. Nielsen (1992) supports the general point that a single inspector finds only part of the problems in an interface; it is cited by analogy for E3 and is not evidence about topological figures.
 
-The contribution is therefore an evaluation: a reproducible, layered study of a current ecosystem; custom indicators with documented limits; controls that isolate cover, clusterer, sampling and temporal-order effects; and an offline viewer whose novelty is limited to a particular combination of features (saved results first, one file, no server or CDN, per-cell provenance). It is not claimed to be the first Mapper explorer.
+The contribution is therefore an evaluation: a reproducible, layered study of a current ecosystem; custom indicators with documented limits; controls that isolate cover, clusterer, sampling and temporal-order effects; and an offline viewer whose novelty is limited to a particular combination of features (saved results first, one file, no server or content-delivery network, per-cell provenance). It is not claimed to be the first Mapper explorer.
 
 ## 4. Methods and definitions
 
@@ -71,14 +71,22 @@ All parameters and seeds are stored in YAML configuration files. Resampling seed
 
 ### 4.2 Definitions
 
-- **Persistence gap ratio.** For H1 persistences sorted in descending order p₁ ≥ p₂ ≥ …, r_k = p_k / p_{k+1}. The rank k is the number of loops *known from the synthetic construction* (annulus k = 1, figure-eight k = 2); for real data where it is unknown k = 1. "Dominant H1" means exactly r_k ≥ 3, a chosen operational convention and not a theorem; it carries no uncertainty statement. r_k is undefined when fewer than k + 1 persistences exist or p_{k+1} ≤ 0. r_k is unchanged when all persistences are multiplied by a constant, hence by the z-scoring used in the weather analysis, whereas raw persistence values are not.
+- **Persistence gap ratio.** For H1 persistences sorted in descending order p₁ ≥ p₂ ≥ …, r_k = p_k / p_{k+1}. The rank k is the number of loops *known from the synthetic construction* (annulus k = 1, figure-eight k = 2); for real data where it is unknown k = 1. "Dominant H1" means exactly r_k ≥ 3, a chosen operational convention and not a theorem; it carries no uncertainty statement. r_k is undefined when fewer than k + 1 persistences exist or p_{k+1} ≤ 0. r_k is unchanged when all persistences are multiplied by a constant, hence by the standardization used in the weather analysis, whereas raw persistence values are not.
 - **Cyclomatic number.** E − V + C for the undirected Mapper graph with E edges, V nodes and C connected components: the number of independent graph cycles. A *graph* cycle is not a statement about loops in the *data*.
 - **Membership-Jaccard indicator S.** For graphs with node membership sets N₁, N₂ and J(A, B) = |A ∩ B| / |A ∪ B|, S = ½ [mean over n ∈ N₁ of max over m ∈ N₂ of J(n, m) + the symmetric term]. S compares which points the nodes contain; it ignores edges and components; it matches greedily; it is not normalized for node count; 1 − S violates the triangle inequality; and S = 1 does not imply identical graphs. For a 400-point subsample graph compared with a 500-point reference its attainable maximum is about 0.80 (the reference nodes restricted to the sampled points score a median 0.800, range 0.786–0.822). S is therefore an exploratory indicator: never a distance, never used across different cover resolutions, never the sole stability measure.
 - **Bottleneck and Wasserstein distances.** persim computes them with the essential H0 class dropped. Bottleneck is a maximum over matched pairs (L∞); the Wasserstein distance used here is an order-1 sum with Euclidean ground metric. Their magnitudes are not interchangeable and H0 and H1 values are never pooled. A 400-point subsample has 399 finite H0 classes against 499 for the 500-point reference; unmatched short classes add transport cost and inflate the H0 Wasserstein value, and they shift the H0 bottleneck mildly as well (Section 8.2).
 
-### 4.3 Guards used throughout
+### 4.3 Methodological caveats
 
-**(G1)** Distances against a reference that overlaps the subsample are descriptive resampling-stability quantities: not independent validation, not unbiased generalization, and their spread is a variability band, not a confidence set. **(G2)** A distance is a metric value, not a hypothesis test. **(G3)** S is exploratory. **(G4)** Mapper graph cycles are not automatically topological loops, and the absence of a cycle does not show the absence of a loop. **(G5)** A dominant H1 class in a sliding-window embedding is evidence of recurrent structure in the embedded series at the studied scale, not of a closed physical trajectory. **(G6)** A connected or fragmented graph is a property of the construction parameters, and a layout can hide components without changing the graph.
+The following caveats apply throughout and are repeated where they matter.
+
+- **Overlapping references.** Distances against a reference that overlaps the subsample are descriptive resampling-stability quantities: they are not independent validation or unbiased generalization, and their spread is a variability band, not a confidence set.
+- **Distances are not tests.** A distance is a metric value, not a hypothesis test.
+- **The overlap indicator is exploratory.** The membership-overlap indicator S has the limits stated in Section 4.2.
+- **Graph cycles are not loops.** Mapper graph cycles are not automatically topological loops, and the absence of a cycle does not show the absence of a loop.
+- **Recurrent structure, not a trajectory.** A dominant H1 class in a sliding-window embedding is evidence of recurrent structure in the embedded series at the studied scale, not of a closed physical trajectory.
+- **Connectivity depends on construction.** A connected or fragmented graph is a property of the construction parameters, and a layout can hide components without changing the graph.
+
 ## 5. Core experiments (E1–E3) and the clusterer control
 
 ### 5.1 E1 — capability and workflow audit
@@ -87,17 +95,17 @@ The 13-task workflow was executed as a scripted pipeline on four seeded syntheti
 
 | Support level | Tasks |
 |---|---|
-| Native (the triad does it) | install (T01); persistent homology (T03); diagram plot (T04); bottleneck/Wasserstein (T06); matching plot (T07); static Mapper drawing via `draw_matplotlib` (T10, with a custom alternative layout) |
-| Needs custom code | data generators (T02); H1 barcode (T05); reproduction harness (T12) |
-| Combination with scikit-learn | Mapper with PCA lens and seeded KMeans (T08) |
-| Needs an external package | node, edge and component counts via networkx (T09); the PCA baseline view (T13) |
-| Native but not offline-capable | interactive HTML export (T11) |
+| Native (the triad does it) | installation; persistent homology; diagram plot; bottleneck and Wasserstein distances; matching plot; static Mapper drawing via `draw_matplotlib` (with a custom alternative layout) |
+| Needs custom code | data generators; H1 barcode; reproduction harness |
+| Combination with scikit-learn | Mapper with a lens from principal component analysis (PCA) and seeded KMeans clustering |
+| Needs an external package | node, edge and component counts via networkx; the PCA baseline view |
+| Native but not offline-capable | interactive HTML export |
 
-The custom glue code that fills these gaps is 130 non-blank, non-comment source lines (the counting rule and the per-task breakdown are in the repository's glue-code accounting). Three properties of the software matter for what follows. The kmapper HTML export loads D3, FileSaver and a web font from content-delivery networks and, in a cold-cache browser without network access, throws `d3 is not defined` and draws 0 nodes and 0 edges (Section 7.2). networkx is needed for component counts but is not a declared kmapper runtime dependency. The native static layout `draw_matplotlib(layout='kk')` places disconnected components in one frame without inter-component repulsion (bounding-box overlap 0.23 on the three-blob control and 0.036 on the figure-eight), which motivated a component-separated rendering that changes coordinates only.
+The custom glue code that fills these gaps is 130 non-blank, non-comment source lines (the counting rule and the per-task breakdown are in the repository's glue-code accounting). Three properties of the software matter for what follows. The kmapper HTML export loads the JavaScript libraries D3 and FileSaver and a web font from content-delivery networks and, in a cold-cache browser without network access, throws `d3 is not defined` and draws 0 nodes and 0 edges (Section 7.2). networkx is needed for component counts but is not a declared kmapper runtime dependency. The native static layout `draw_matplotlib(layout='kk')` places disconnected components in one frame without inter-component repulsion (bounding-box overlap 0.23 on the three-blob control and 0.036 on the figure-eight), which motivated a component-separated rendering that changes coordinates only.
 
 ### 5.2 E2 — Mapper parameter sensitivity
 
-Grid: `n_cubes` ∈ {5, 10, 15, 20} × `perc_overlap` ∈ {0.20, 0.35, 0.50} = 12 cells per shape, 24 in total, for the annulus and the figure-eight (n = 500, noise 0.05, seed 42); PCA-1 lens; `CubicalCover`; `KMeans(n_clusters=2, random_state=42, n_init=10)` in every cover interval; reference cell (10, 0.35) fixed in the configuration. A no-loop blob (n = 500, σ = 0.45) is run at two diagnostic cells only.
+Grid: `n_cubes` ∈ {5, 10, 15, 20} × `perc_overlap` ∈ {0.20, 0.35, 0.50} = 12 cells per shape, 24 in total, for the annulus and the figure-eight (n = 500, noise 0.05, seed 42); a lens given by the first principal component (PC1) of the points, so that the cover intervals are laid along the direction of largest variance of the cloud; `CubicalCover`; `KMeans(n_clusters=2, random_state=42, n_init=10)` in every cover interval; reference cell (10, 0.35) fixed in the configuration; a cell is written (`n_cubes`, `perc_overlap`), that is, the number of cover intervals and the overlap fraction between neighbouring intervals. A no-loop blob (n = 500, σ = 0.45) is run at two diagnostic cells only.
 
 | Reading | Annulus | Figure-eight |
 |---|---|---|
@@ -106,29 +114,29 @@ Grid: `n_cubes` ∈ {5, 10, 15, 20} × `perc_overlap` ∈ {0.20, 0.35, 0.50} = 1
 | Cycle cue absent | `n_cubes` = 5 (tree, cyclomatic 0, all overlaps) | (5, 0.35) and (5, 0.50) |
 | Fragmentation | (20, 0.20): 2 components | reference: 2 components; (20, 0.20): 4 components |
 | Construction-consistent reading | (10, 0.35)–(10, 0.50) | (20, 0.50): connected, cyclomatic 2 |
-| S against the reference | 0.449–1.000 | 0.457–1.000 |
+| Membership-overlap indicator S relative to the reference cell | 0.449–1.000 | 0.457–1.000 |
 
 The figure-eight contrast cell (20, 0.50) was chosen for presentation after the full grid had been measured; all 12 cells per shape are reported. The no-loop blob gives, at the reference cell, 20 nodes, 23 edges, 1 component, cyclomatic number 4 with a longest basis cycle of **6** nodes (mean 5.0), while its H1 diagram has top-three persistences 0.1396 / 0.0962 / 0.0924 and r₁ = **1.451**, with no dominant class. At (20, 0.20) it fragments into 6 components with cyclomatic number 5.
 
 ![E2 sensitivity summary — annulus](figures/e2_sensitivity_summary_annulus.png)
 
-*Figure 5.1. E2 summary for the annulus (12 cells). Node count is 2 × `n_cubes` everywhere; the cycle cue (cyclomatic number) appears and disappears across the grid.*
+*Figure 5.1. E2 summary for the annulus (12 cells): connected components, cyclomatic number and, in the right-hand panel, the membership-overlap indicator S relative to the reference cell. Node count is 2 × `n_cubes` everywhere; the cycle cue (cyclomatic number) appears and disappears across the grid.*
 
 ![E2 sensitivity summary — figure-eight](figures/e2_sensitivity_summary_figure_eight.png)
 
-*Figure 5.2. The same summary for the figure-eight. The reference cell fragments into two components and (20, 0.20) into four, while (20, 0.50) gives the construction-consistent connected two-cycle reading.*
+*Figure 5.2. The same summary for the figure-eight (components, cyclomatic number, and S relative to the reference cell). The reference cell fragments into two components and (20, 0.20) into four, while (20, 0.50) gives the construction-consistent connected two-cycle reading.*
 
 ![E2 control — no-loop blob](figures/e2_no_loop_blob_control.png)
 
 *Figure 5.3. The no-loop blob: Mapper graphs at two cells show cycles while the H1 diagram shows no dominant class.*
 
-### 5.3 Control D1 — does the forced two-cluster rule drive the E2 pattern?
+### 5.3 Clusterer control — does the forced two-cluster rule drive the E2 pattern?
 
 **Rationale.** `KMeans(n_clusters=2)` splits every cover interval that holds at least two points into two clusters, even where the preimage is a single connected piece. This is why the node count is exactly 2 × `n_cubes` in all 24 E2 cells and in all 90 resampled graphs: a mechanical consequence of k = 2, not a property of the data. It can also create or remove graph cycles regardless of the data. A study that holds the clusterer at a forced split cannot say whether cycle and fragmentation findings belong to Mapper or to that clustering rule.
 
-**Design.** Same data, PCA-1 lens, 12-cell grid and reference cell; only the clusterer changes, to single-linkage agglomerative clustering cut at a distance ε = c × (median distance to the fifth nearest neighbour of the full cloud), with c ∈ {1.5, 3.0}. There is no per-shape tuning. The two multipliers were written into the configuration before the control was first run, but after the E2 results with the forced two-cluster rule were known, and only these two values were tried; they are an exploratory choice.
+**Design.** Same data, PC1 lens, 12-cell grid and reference cell; only the clusterer changes, to single-linkage agglomerative clustering cut at a distance ε = c × (median distance to the fifth nearest neighbour of the full cloud), with the multiplier c ∈ {1.5, 3.0}. There is no per-shape tuning. The two multipliers were written into the configuration before the control was first run, but after the E2 results with the forced two-cluster rule were known, and only these two values were tried; they are an exploratory choice.
 
-| Shape, c | ε | Reference cell (nodes / components / cyclomatic) | Cells connected (of 12) | Cells with ≥ 1 cycle (of 12) | Node count = 2 × `n_cubes` |
+| Shape, multiplier c | Cut distance ε | Reference cell (nodes / components / cyclomatic number) | Cells connected (of 12) | Cells with ≥ 1 cycle (of 12) | Node count = 2 × `n_cubes` |
 |---|---|---|---|---|---|
 | annulus, 3.0 | 0.308 | 17 / 1 / 1 | 10 | 11 | 0 cells |
 | annulus, 1.5 | 0.154 | 27 / 3 / 1 | 0 | 8 | 0 cells |
@@ -143,7 +151,7 @@ The figure-eight contrast cell (20, 0.50) was chosen for presentation after the 
 
 ![Mapper cycle cue under resampling, two clusterers](figures/d3_mapper_resampling_clusterer.png)
 
-*Figure 5.4. Cyclomatic number of the Mapper graph over 30 subsamples (80 %) per shape for the forced two-cluster KMeans rule and for single-linkage at two scales (control D3; Section 8.3). The single-linkage scales were chosen after the KMeans result was known.*
+*Figure 5.4. Cyclomatic number of the Mapper graph over 30 subsamples (80 %) per shape for the forced two-cluster KMeans rule and for single-linkage at two scales (resampling stability with data-adaptive clustering; Section 8.3). The single-linkage scales were chosen after the KMeans result was known.*
 
 ### 5.4 E3 — single-observer artifact inspection
 
@@ -157,25 +165,27 @@ Of 13 records, 11 properties were clearly apparent and 2 ambiguous; the expected
 
 ### 6.1 Data and preprocessing
 
-The study uses NOAA NCEI Global Summary of the Day (GSOD) daily observations for New York Central Park (station 72505394728 = USAF 725053 + WBAN 94728; 40.77898 N, −73.96925 E, 42.7 m), 1 January 2019 to 31 December 2024. The raw yearly CSV files come from the NCEI access directory; their SHA-256 hashes were recorded at acquisition, and a fresh download on 28 October 2026 was byte-identical. GSOD data are free for research and educational use with no warranty, and the product has no DOI.
+The study uses daily observations from the Global Summary of the Day (GSOD) product of the National Oceanic and Atmospheric Administration (NOAA), which is distributed by NOAA's National Centers for Environmental Information (NCEI), for New York Central Park (station identifier 72505394728; 40.77898 N, −73.96925 E, 42.7 m), 1 January 2019 to 31 December 2024. The raw yearly CSV files come from the NCEI access directory; their SHA-256 hashes were recorded at acquisition, and a fresh download on 28 October 2026 was byte-identical. GSOD data are free for research and educational use with no warranty, and the product has no digital object identifier (DOI).
 
-Independent parsing of the raw files gives 2192 rows (365 / 366 / 365 / 365 / 365 / 366 by year), 2192 distinct dates and a complete calendar. Missing-value codes: TEMP 0, DEWP 0, SLP 4 (9999.9), WDSP 125, GUST 911, SNDP 2119. Units were converted before any distance computation (°F → °C; mb ≡ hPa; knots → m s⁻¹; inches → mm) and no value was imputed. Three data decisions shape the analysis:
+The GSOD documentation defines the fields used here as: mean temperature for the day in degrees Fahrenheit (field name TEMP), mean dew point in degrees Fahrenheit (DEWP), mean sea-level pressure in millibars (SLP), mean station pressure in millibars (STP), mean wind speed in knots (WDSP), maximum wind gust in knots (GUST) and snow depth in inches (SNDP). The field names are kept in this section because the saved files and figures use them; the text otherwise uses the descriptive names. Values are standardized (z-scored: centred at zero and scaled to unit standard deviation) before any distance computation.
 
-- **Primary feature cloud = TEMP, DEWP, SLP.** Adding WDSP (a four-feature cloud) would require dropping 129 days (5.9 %), seasonally clustered: all of January–February 2019 plus 11 March days (70 consecutive days), and 55 further days (6 in January 2020, 33 in May–June 2020, 16 in September–October 2021). Three features lose 4 days (0.18 %: 2019-04-20, 2021-04-04, 2023-09-18, 2024-12-30), leaving **2188 days**, z-scored after dropping. The four-feature count is recorded, but no analysis was run on that cloud.
-- **STP excluded.** 94.8 % of STP values are below 900 hPa (median 12.4 hPa) at a 42.7 m station. The cause is a lost leading digit (1012.4 appears as 012.4; SLP − (STP + 1000) has median ≈ 4.9 hPa, the hydrostatic expectation at this elevation). STP's missing-value code in these files is 999.9 (6 rows). STP is unused.
-- **SLP = 999.9 on 2020-12-01** is also the wind-family code, but STP that day (994.7 hPa) plus ≈ 5 hPa corroborates a real reading; it is kept.
+Independent parsing of the raw files gives 2192 rows (365 / 366 / 365 / 365 / 365 / 366 by year), 2192 distinct dates and a complete calendar. Missing-value counts (the documented missing-value code is 9999.9 for the temperature, dew-point and pressure fields and 999.9 for the wind and snow-depth fields): temperature 0, dew point 0, sea-level pressure 4, wind speed 125, wind gust 911, snow depth 2119. Units were converted before any distance computation (°F → °C; millibars are numerically equal to hectopascals, hPa; knots → m s⁻¹; inches → mm) and no value was imputed. Three data decisions shape the analysis:
 
-TEMP and DEWP are gapless over six years, so the seasonal series needs no interpolation.
+- **Primary feature cloud = temperature, dew point and sea-level pressure (TEMP, DEWP, SLP).** Adding wind speed (WDSP; a four-feature cloud) would require dropping 129 days (5.9 %), seasonally clustered: all of January–February 2019 plus 11 March days (70 consecutive days), and 55 further days (6 in January 2020, 33 in May–June 2020, 16 in September–October 2021). Three features lose 4 days (0.18 %: 2019-04-20, 2021-04-04, 2023-09-18, 2024-12-30), leaving **2188 days**, standardized after dropping. The four-feature count is recorded, but no analysis was run on that cloud.
+- **Station pressure (STP) excluded.** 94.8 % of STP values are below 900 hPa (median 12.4 hPa) at a 42.7 m station. The cause is a lost leading digit (1012.4 appears as 012.4; SLP − (STP + 1000) has median ≈ 4.9 hPa, the hydrostatic expectation at this elevation). STP's missing-value code in these files is 999.9 (6 rows). STP is unused.
+- **Sea-level pressure of 999.9 on 2020-12-01** is also the missing-value code of the wind fields, but the station pressure that day (994.7 hPa) plus ≈ 5 hPa corroborates a real reading; it is kept.
+
+Temperature and dew point are gapless over six years, so the seasonal series needs no interpolation.
 
 ![Weather temperature series](figures/weather_temp_series.png)
 
-*Figure 6.1. The z-scored daily TEMP series, 2019–2024 (2192 days). It is the input to the sliding-window embedding of Section 6.3.*
+*Figure 6.1. The standardized daily mean temperature series (TEMP), 2019–2024 (2192 days), coloured by season (DJF: December–February; MAM: March–May; JJA: June–August; SON: September–November); red lines mark the days dropped for a missing sea-level pressure. It is the input to the sliding-window embedding of Section 6.3.*
 
-### 6.2 PCA and Mapper on the static state cloud
+### 6.2 Principal component analysis and Mapper on the static state cloud
 
-On the z-scored TEMP/DEWP/SLP cloud, PC1 explains 69.0 % (TEMP and DEWP, negative SLP weight) and PC2 28.6 %, 97.6 % cumulatively: the three features are effectively two-dimensional. The Mapper grid ({5, 10, 15, 20} × {0.35, 0.50}, PCA-1 lens, KMeans k = 2, reference (10, 0.35)) was fixed before the outputs were inspected.
+On the standardized cloud of temperature, dew point and sea-level pressure, the first principal component (PC1) explains 69.0 % of the variance (carried by temperature and dew point, with a negative sea-level-pressure weight) and the second (PC2) 28.6 %, 97.6 % cumulatively: the three features are effectively two-dimensional. The Mapper grid (n_cubes ∈ {5, 10, 15, 20} × perc_overlap ∈ {0.35, 0.50}, PC1 lens, KMeans k = 2, reference cell (10, 0.35)) was fixed before the outputs were inspected.
 
-| Cell | Nodes | Edges | Components | Cyclomatic | S vs ref |
+| Cell | Nodes | Edges | Components | Cyclomatic number | Membership-overlap indicator S relative to the reference cell |
 |---|---|---|---|---|---|
 | (5, 0.35) | 10 | 12 | 1 | 3 | 0.551 |
 | (5, 0.50) | 10 | 13 | 1 | 4 | 0.445 |
@@ -186,17 +196,17 @@ On the z-scored TEMP/DEWP/SLP cloud, PC1 explains 69.0 % (TEMP and DEWP, negativ
 | (20, 0.35) | 40 | 49 | **2** | 11 | 0.506 |
 | (20, 0.50) | 40 | 52 | **2** | 14 | 0.666 |
 
-Node count is 2 × `n_cubes` in all 8 cells, mechanically, because k = 2 (Section 5.3). The graph is connected for `n_cubes` ≤ 15 and splits in two at 20. With such high cyclomatic numbers the graph's cycles say little about loops in a three-dimensional cloud whose PH shows no dominant class (G4). A day-of-year lens variant (20 nodes, 27 edges, 1 component) encodes the calendar directly and appears only as a labelled comparison.
+Node count is 2 × `n_cubes` in all 8 cells, mechanically, because k = 2 (Section 5.3). The graph is connected for `n_cubes` ≤ 15 and splits in two at 20. With such high cyclomatic numbers the graph's cycles say little about loops in a three-dimensional cloud whose persistent homology shows no dominant class (graph cycles are not loops; Section 4.3). A day-of-year lens variant (20 nodes, 27 edges, 1 component) encodes the calendar directly and appears only as a labelled comparison.
 
 ![Weather Mapper grid](figures/weather_mapper_grid.png)
 
-*Figure 6.2. The 8-cell weather Mapper grid (PCA-1 lens; node colour is mean z-TEMP). Fragmentation into two components appears at `n_cubes` = 20 under both overlaps.*
+*Figure 6.2. The 8-cell weather Mapper grid (PC1 lens; node colour is the mean standardized temperature). Fragmentation into two components appears at `n_cubes` = 20 under both overlaps.*
 
 ### 6.3 Seasonal sliding-window persistence
 
-The embedding is a time-delay embedding of the z-scored daily TEMP series: point *i* = (x[i], x[i+τ], …, x[i+(d−1)τ]), span (d−1)τ days, stride 1, over all 2192 days. The series is gapless, so no window spans a gap and no incomplete window arises; z-scoring uses all 2192 days before windowing. Persistence is computed by ripser with `maxdim = 1` and the default threshold.
+The embedding is a time-delay embedding of the standardized daily mean temperature series x with delay τ (in days) and embedding dimension d: point *i* = (x[i], x[i+τ], …, x[i+(d−1)τ]), span (d−1)τ days, stride 1, over all 2192 days. The series is gapless, so no window spans a gap and no incomplete window arises; the standardization uses all 2192 days before windowing. Persistence is computed by ripser with `maxdim = 1` and the default threshold.
 
-| τ, d | Span (days) | Span / 365.25 | Points | Dominant H1 (z units) | r₁ |
+| Delay τ, dimension d | Span (days) | Span / 365.25 | Points | Dominant H1 persistence (standardized units) | Gap ratio r₁ |
 |---|---|---|---|---|---|
 | 30, 8 | 210 | 0.57 | 1982 | 1.998 | 5.62 |
 | 45, 9 | 360 | 0.99 | 1832 | 2.571 | 7.32 |
@@ -207,7 +217,7 @@ The embedding is a time-delay embedding of the z-scored daily TEMP series: point
 
 Each configuration has one H1 class that exceeds the next by a factor of 4.75–7.32 (r₁ ≥ 3, the stated convention). The six configurations use one dataset and bracket the annual period (five have spans between 210 and 630 days; the reference τ = 60, d = 8 comes from the study plan), so agreement across them is consistency, not independent replication. No record fixes the order in which the sweep was designed and analysed (Section 10.3).
 
-A seasonality check — FFT periodogram and autocorrelation of the same series — was computed after the sweep and played no role in choosing any parameter. Its dominant FFT bin has period 2192/6 = 365.3 days; the neighbouring bins correspond to 438 and 313 days, so the period carries a resolution of tens of days. That bin holds 82.1 % of the non-DC power. The autocorrelation peak within the search window [180, 550] days lies at lag 360 days (autocorrelation 0.676; at 365 days 0.673; at 182 days −0.746), but the peak is flat to within 0.06 over 340–375 days. The search window was set in the script written after the sweep.
+A seasonality check — a periodogram from the fast Fourier transform (FFT) and the autocorrelation of the same series — was computed after the sweep and played no role in choosing any parameter. Its dominant FFT bin has period 2192/6 = 365.3 days; the neighbouring bins correspond to 438 and 313 days, so the period carries a resolution of tens of days. That bin holds 82.1 % of the power outside the zero-frequency component (the mean). The autocorrelation peak within the search window [180, 550] days lies at lag 360 days (autocorrelation 0.676; at 365 days 0.673; at 182 days −0.746), but the peak is flat to within 0.06 over 340–375 days. The search window was set in the script written after the sweep.
 
 ![Seasonal PH sweep](figures/weather_seasonal_ph_sweep.png)
 
@@ -215,23 +225,23 @@ A seasonality check — FFT periodogram and autocorrelation of the same series �
 
 ![Seasonality check](figures/weather_seasonality_check.png)
 
-*Figure 6.4. FFT periodogram and autocorrelation of the z-scored daily TEMP series (descriptive; no embedding parameter was selected with it).*
+*Figure 6.4. FFT periodogram and autocorrelation of the standardized daily mean temperature series (descriptive; no embedding parameter was selected with it).*
 
-**The static state-space cloud is not a null control.** Vietoris–Rips PH of the 3-D z-scored (TEMP, DEWP, SLP) cloud has 1049 H1 classes, dominant persistence 0.210 and r₁ = 1.19. The comparison with the temporal embedding is illustrative only: the persistence of a point cloud depends on the *set* of points, so permuting the day order leaves it unchanged and it cannot register temporal recurrence; it also differs from the embedding in dimension (3 against 8), variable set and density (median nearest-neighbour spacing about 0.105 against about 0.63 for the (60, 8) embedding). The exact statement is: in the tested temporal embedding a dominant H1 class appears, whereas the static 3-D cloud of three of the same observation fields has none. Matched controls follow in Section 6.4.
+**The static state-space cloud is not a null control.** Vietoris–Rips persistent homology of the three-dimensional standardized cloud of temperature, dew point and sea-level pressure has 1049 H1 classes, dominant persistence 0.210 and r₁ = 1.19. The comparison with the temporal embedding is illustrative only: the persistence of a point cloud depends on the *set* of points, so permuting the day order leaves it unchanged and it cannot register temporal recurrence; it also differs from the embedding in dimension (three against eight), variable set and density (median nearest-neighbour spacing about 0.105 against about 0.63 for the (60, 8) embedding). The exact statement is: in the tested temporal embedding a dominant H1 class appears, whereas the static three-dimensional cloud of three of the same observation fields has none. Matched controls follow in Section 6.4.
 
 ![State-space PH](figures/weather_state_space_ph.png)
 
-*Figure 6.5. Static 3-D state-space cloud: no dominant H1 class (r₁ = 1.19). A different object from the temporal embedding, shown for illustration and not as a null control.*
+*Figure 6.5. Static three-dimensional state-space cloud (temperature, dew point, sea-level pressure): no dominant H1 class (r₁ = 1.19). A different object from the temporal embedding, shown for illustration and not as a null control.*
 
 ![Embedding PCA](figures/weather_embedding_pca.png)
 
-*Figure 6.6. 2-D PCA projection of the reference 8-D sliding-window embedding: a closed band with a hole, seasons progressing around it. The quantitative evidence is the persistence diagram; the projection is a drawing of it.*
+*Figure 6.6. Projection of the reference eight-dimensional sliding-window embedding onto its first two principal components (PC1 and PC2), coloured by the season of the window start (DJF: December–February; MAM: March–May; JJA: June–August; SON: September–November): a closed band with a hole, seasons progressing around it. The quantitative evidence is the persistence diagram; the projection is a drawing of it.*
 
-### 6.4 Matched null controls remove the dominant H1 cue (control D2)
+### 6.4 Matched weather null controls remove the dominant H1 cue
 
-**Construction.** The controls use the same embedding code, ripser call and six (τ, d) configurations as Section 6.3, applied to (a) an *anomaly series*: the z-scored TEMP series minus a least-squares fit of an intercept and two annual harmonic pairs (periods 365.25 and 182.6 days), re-z-scored; and (b) ten *shuffled series*: random permutations of the z-scored TEMP values (seeds 20261028 + i), which keep the marginal distribution and destroy temporal order, for the reference configuration only because of cost. Processing the unmodified series with this code reproduces the saved sweep exactly (all six r₁ and dominant persistences; the z-scored array matches the saved one with maximum difference 0).
+**Construction.** The controls use the same embedding code, ripser call and six (τ, d) configurations as Section 6.3, applied to (a) an *anomaly series*: the standardized temperature series minus a least-squares fit of an intercept and two annual harmonic pairs (periods 365.25 and 182.6 days), standardized again; and (b) ten *shuffled series*: random permutations of the standardized temperature values (seeds 20261028 + i, where i numbers the shuffles), which keep the marginal distribution and destroy temporal order, for the reference configuration only because of cost. Processing the unmodified series with this code reproduces the saved sweep exactly (all six gap ratios r₁ and dominant persistences; the standardized array matches the saved one with maximum difference 0).
 
-| τ, d | r₁, TEMP series | r₁, anomaly series | Dominant H1, TEMP | Dominant H1, anomaly |
+| Delay τ, dimension d | r₁, temperature series | r₁, anomaly series | Dominant H1 persistence, temperature series | Dominant H1 persistence, anomaly series |
 |---|---|---|---|---|
 | 30, 8 | 5.625 | 1.138 | 1.998 | 0.685 |
 | 45, 9 | 7.319 | 1.023 | 2.571 | 0.703 |
@@ -240,35 +250,36 @@ A seasonality check — FFT periodogram and autocorrelation of the same series �
 | 73, 6 | 4.745 | 1.025 | 1.417 | 0.573 |
 | 90, 8 | 5.761 | 1.034 | 2.121 | 0.765 |
 
-The two fitted harmonic pairs explain 82.2 % of the variance of the z-scored series. After their removal r₁ lies between 1.02 and 1.14 in every configuration. The ten shuffled series give r₁ between 1.007 and 1.219 (median 1.06) and dominant persistence 0.58–0.65; none reaches r₁ = 3.
+The two fitted harmonic pairs explain 82.2 % of the variance of the standardized series. After their removal r₁ lies between 1.02 and 1.14 in every configuration. The ten shuffled series give r₁ between 1.007 and 1.219 (median 1.06) and dominant persistence 0.58–0.65; none reaches r₁ = 3.
 
 ![Matched null controls](figures/d2_weather_null_controls.png)
 
-*Figure 6.7. H1 gap ratio r₁ for the six embedding configurations for the TEMP series, the anomaly series with two annual harmonics removed, and ten shuffled series (reference configuration; median and range). The dashed line is the r₁ = 3 dominance criterion.*
+*Figure 6.7. H1 gap ratio r₁ for the six embedding configurations for the temperature series, the anomaly series with two annual harmonics removed, and ten shuffled series (reference configuration; median and range). The dashed line is the r₁ = 3 dominance criterion.*
 
-**What the controls establish.** Under the stated criterion (r₁ ≥ 3), the temperature embedding has a dominant H1 persistence-gap cue, and the two null constructions do not. H1 classes are still present in every null embedding (about 2000–2600 classes per embedding for the anomaly series), and the absolute dominant persistence of the anomaly series (0.5–0.8 z units) is not small; what is absent is a *dominant* class, so the ratio and not the magnitude carries the evidence. The tests therefore show that the cue depends on the annual harmonic structure and on temporal order in this series. They do not show that the annual harmonic is the only source of H1 structure, that no loop exists in the anomaly series, or that the cue reflects a closed physical trajectory (G5).
+**What the controls establish.** Under the stated criterion (r₁ ≥ 3), the temperature embedding has a dominant H1 persistence-gap cue, and the two null constructions do not. H1 classes are still present in every null embedding (about 2000–2600 classes per embedding for the anomaly series), and the absolute dominant persistence of the anomaly series (0.5–0.8 standardized units) is not small; what is absent is a *dominant* class, so the ratio and not the magnitude carries the evidence. The tests therefore show that the cue depends on the annual harmonic structure and on temporal order in this series. They do not show that the annual harmonic is the only source of H1 structure, that no loop exists in the anomaly series, or that the cue reflects a closed physical trajectory (a dominant H1 class shows recurrent structure in the embedded series, not a trajectory; Section 4.3).
 
-**Limitations of the controls.** The harmonic fit uses two terms by ordinary least squares and may leave other seasonal structure in the anomaly series; shuffled series destroy all autocorrelation and are therefore a weak null; phase-randomised or autoregressive surrogates and other stations were not tested; only ten shuffles were run, at one configuration; and the analysis covers one station and six years. No statement is made about climate, trends, ENSO (the phase labels used elsewhere are descriptive context, with about two ENSO episodes in the window; the ONI series is the NOAA PSL file, whose current series is derived from ERSST v6) or other regions.
+**Limitations of the controls.** The harmonic fit uses two terms by ordinary least squares and may leave other seasonal structure in the anomaly series; shuffled series destroy all autocorrelation and are therefore a weak null; phase-randomised or autoregressive surrogates and other stations were not tested; only ten shuffles were run, at one configuration; and the analysis covers one station and six years. No statement is made about climate, trends, the El Niño–Southern Oscillation (ENSO) or other regions. The repository holds the Oceanic Niño Index (ONI) table of the NOAA Physical Sciences Laboratory, used only as descriptive context: about two ENSO episodes fall in the window, and the current ONI series is derived from the Extended Reconstructed Sea Surface Temperature version 6 (ERSST v6) data set.
+
 ## 7. Offline Mapper explorer
 
 ### 7.1 Design and scope
 
-The explorer is a single 0.57 MB HTML file, included in the project repository, that displays saved Mapper results: the annulus and figure-eight grids of E2 (12 cells each), the no-loop blob control (2 cells) and the weather grid including the day-of-year lens variant (9 cells) — 35 cells over four datasets. For each cell it shows the configuration (cover resolution, overlap, lens, clusterer, seed, number of points), structure statistics with their definitions, the graph in a native and a component-separated layout (coordinates are precomputed; switching changes only coordinates), a comparison with the dataset's reference cell (differences in node, edge, component and cycle counts, and the indicator S with its caveat), the input point cloud, the saved persistence diagram (weather: a state-space ↔ seasonal toggle), and a JSON export with provenance (source file and SHA-256) and the interpretive caveats. The essential H0 class (death = ∞) is drawn as a hollow triangle at 1.05 × the largest finite death, a display convention that the legend states.
+The explorer is a single 0.57 MB HTML file, included in the project repository, that displays saved Mapper results: the annulus and figure-eight grids of E2 (12 cells each), the no-loop blob control (2 cells) and the weather grid including the day-of-year lens variant (9 cells) — 35 cells over four datasets. For each cell it shows the configuration (cover resolution, overlap, lens, clusterer, seed, number of points), structure statistics with their definitions, the graph in a native and a component-separated layout (coordinates are precomputed; switching changes only coordinates), a comparison with the dataset's reference cell (differences in node, edge, component and cycle counts, and the indicator S with its caveat), the input point cloud, the saved persistence diagram (weather: a state-space ↔ seasonal toggle), and a JSON export with provenance (source file and its SHA-256 checksum) and the interpretive caveats. The essential H0 class (death = ∞) is drawn as a hollow triangle at 1.05 × the largest finite death, a display convention that the legend states.
 
 The explorer computes nothing. It cannot show a parameter cell that was not precomputed, it recomputes neither Mapper nor persistence, and it needs no server. Three safeguards are part of the interface so that a screenshot carries them: S is an exploratory overlap indicator; a Mapper graph cycle is not a loop in the data; a connected graph is not automatically the right reading and a fragmented one is not automatically wrong.
 
 ### 7.2 Offline verification
 
-An independent browser test, kept in the repository's verification materials, drives Chrome 156.0.8078.49 (Playwright 1.55.0) on Windows 11. It opens the viewer from `file://` in a fresh browser context with the browser's network switched off and every non-file request aborted and logged. It exercises every dataset and cell, reads the rendered DOM and compares it with values recomputed independently (own networkx implementation of V, E, C and E − V + C from the exported graph; own Jaccard S) and with the memberships in the source result files.
+An independent browser test, kept in the repository's verification materials, drives Chrome 156.0.8078.49 (Playwright 1.55.0) on Windows 11. It opens the viewer from `file://` in a fresh browser context with the browser's network switched off and every non-file request aborted and logged. It exercises every dataset and cell, reads the rendered page content (the document object model) and compares it with values recomputed independently (an own networkx implementation of the numbers of nodes, edges and components and of the cyclomatic number E − V + C from the exported graph; an own computation of the Jaccard-based indicator S) and with the memberships in the source result files.
 
-The result is **222 of 222 checks passed**: no request other than the document itself; no script, link, image or frame tag with an external reference; no Performance-API resource entries; no console errors or warnings; no page errors; for all 35 cells the displayed statistics equal the recomputed ones, the number of drawn circles equals the number of nodes, the number of drawn lines equals the number of link entries, the exported memberships equal the memberships in the source result files, the export corresponds to the selected cell, and S equals the independently computed value within the precision stored in the source (four decimals for E2, three for the weather grid; the viewer prints the stored precision). At viewport sizes 1920×1080, 1440×900, 1366×768, 1024×768, 768×1024 and 390×844 there is no horizontal page overflow and no clipped text element. For contrast, the stock kmapper HTML export of the annulus graph in the same cold, offline session issues requests to cdnjs, jsDelivr, Google Fonts and imgur, throws `d3 is not defined`, and renders 0 nodes and 0 edges.
+The result is **222 of 222 checks passed**: no request other than the document itself; no script, link, image or frame tag with an external reference; no resource entries in the browser's performance timeline; no console errors or warnings; no page errors; for all 35 cells the displayed statistics equal the recomputed ones, the number of drawn circles equals the number of nodes, the number of drawn lines equals the number of link entries, the exported memberships equal the memberships in the source result files, the export corresponds to the selected cell, and S equals the independently computed value within the precision stored in the source (four decimals for E2, three for the weather grid; the viewer prints the stored precision). At viewport sizes 1920×1080, 1440×900, 1366×768, 1024×768, 768×1024 and 390×844 there is no horizontal page overflow and no clipped text element. For contrast, the stock kmapper HTML export of the annulus graph in the same cold, offline session issues requests to cdnjs, jsDelivr, Google Fonts and imgur, throws `d3 is not defined`, and renders 0 nodes and 0 edges.
 
 ### 7.3 Limitations
 
 - Tested in one browser engine (Chrome 156) on Windows 11; other browsers are untested.
 - In the component-separated layout of the 40-node weather graph many nodes overlap (Figure 7.2). The layout is a rendering aid and does not alter the graph, but overlap can hide structure — the hazard the layout toggle is meant to expose.
 - The explorer shows results for one clusterer (KMeans k = 2) per dataset. Given Section 5.3, a clusterer-scale dimension would be its most valuable extension; the control results live in this report, not in the viewer.
-- It is display-only; its novelty is limited to a combination (saved results first, one file, no server or CDN, per-cell provenance, embedded safeguards). Mapper Interactive and the giotto-tda plotters recompute on the fly and are more general; LoCoMapper quantifies local uncertainty under cover perturbation. No readability claim is made.
+- It is display-only; its novelty is limited to a combination (saved results first, one file, no server or content-delivery network, per-cell provenance, embedded safeguards). Mapper Interactive and the giotto-tda plotters recompute on the fly and are more general; LoCoMapper quantifies local uncertainty under cover perturbation. No readability claim is made.
 
 ![Explorer — annulus reference cell](figures/explorer_annulus_reference.png)
 
@@ -286,13 +297,13 @@ The result is **222 of 222 checks passed**: no request other than the document i
 
 ### 8.1 Design
 
-Two variation axes are kept apart. *Parameter sensitivity* (E2, the weather grid, the explorer) varies Mapper parameters on fixed data. *Input-sampling stability* (this chapter) varies the sample and holds parameters fixed. Both analyses use the same design: 30 deterministic 80 % without-replacement subsamples (400 of 500 points) of each of the annulus, figure-eight and blob, seed rule `seed = 20261022 + offset + i`, indices stored per replicate. The seed rule regenerates all 90 stored index sets; persistence and Mapper use identical indices; each point appears 15–30 times (mean 24). The subsamples overlap the full-data reference, and the full-data cloud is itself one realisation of the generator (G1).
+Two variation axes are kept apart. *Parameter sensitivity* (E2, the weather grid, the explorer) varies Mapper parameters on fixed data. *Input-sampling stability* (this chapter) varies the sample and holds parameters fixed. Both analyses use the same design: 30 deterministic 80 % without-replacement subsamples (400 of 500 points) of each of the annulus, figure-eight and blob, seed rule `seed = 20261022 + offset + i`, indices stored per replicate. The seed rule regenerates all 90 stored index sets; persistence and Mapper use identical indices; each point appears 15–30 times (mean 24). The subsamples overlap the full-data reference, and the full-data cloud is itself one realisation of the generator, so these distances are descriptive and not independent validation (Section 4.3).
 
 ### 8.2 Persistence-diagram resampling
 
 Distances (persim 0.4.1) are computed per homology dimension against the full-data diagram, with H0 and H1 never pooled. The gap diagnostics use the ground-truth rank (r₁ for the annulus, r₂ for the figure-eight, r₁ as calibration only for the blob).
 
-| Shape | Reference dominant H1 | Resample dominant H1 range | H1 bottleneck median (IQR) | Gap diagnostic over all 30 |
+| Shape | Reference dominant H1 persistence | Resample dominant H1 persistence, range | H1 bottleneck distance to the reference, median (interquartile range) | Gap ratio over all 30 resamples (value for the reference diagram) |
 |---|---|---|---|---|
 | annulus | 1.496 | 1.439 – 1.575 | 0.029 (0.023 – 0.051) | r₁ 13.2 – 25.6 (reference 19.3) |
 | figure-eight | 0.481 | 0.458 – 0.511 | 0.019 (0.016 – 0.024) | r₂ 7.35 – 13.8 (reference 9.75) |
@@ -300,9 +311,9 @@ Distances (persim 0.4.1) are computed per homology dimension against the full-da
 
 The constructed loops are far above the noise floor in every subsample (r_k ≥ 7.35 in all 60 annulus and figure-eight replicates) and the blob never reaches 3. The median bottleneck distance relative to the reference dominant persistence is 1.9 % / 4.0 % / 34 % for annulus / figure-eight / blob; because the absolute medians (0.029, 0.019, 0.048) are all noise-scale and within a factor of 2.5 of one another, the ratios mainly reflect the different sizes of the reference features (1.496, 0.481, 0.140), and the percentages are descriptive only.
 
-**Overlap with the reference (control D4).** Thirty independent redraws of each shape (seeds 777000 + i, n = 500) compared with the same seed-42 reference diagram give H1 bottleneck medians of 0.041 (annulus; IQR 0.033–0.050), 0.034 (figure-eight; 0.026–0.042) and 0.050 (blob; 0.048–0.057), against 0.029 / 0.019 / 0.048 for the overlapping subsamples: a factor of about 1.4 for the annulus and 1.8 for the figure-eight, and little for the blob. Across independent draws the annulus dominant H1 persistence is 1.447–1.587 (r₁ 11.6–21.8), the figure-eight 0.445–0.553 (r₂ 8.0–16.6) and the blob 0.078–0.157 (r₁ 1.00–1.64). A constructed loop is robustly present in every sample; the blob never shows a dominant class.
+**Independent redraws against the reference.** Because the subsamples overlap the reference, thirty independent redraws of each shape (seeds 777000 + i, n = 500) were compared with the same seed-42 reference diagram; they give H1 bottleneck medians of 0.041 (annulus; interquartile range 0.033–0.050), 0.034 (figure-eight; 0.026–0.042) and 0.050 (blob; 0.048–0.057), against 0.029 / 0.019 / 0.048 for the overlapping subsamples: a factor of about 1.4 for the annulus and 1.8 for the figure-eight, and little for the blob. Across independent draws the annulus dominant H1 persistence is 1.447–1.587 (r₁ 11.6–21.8), the figure-eight 0.445–0.553 (r₂ 8.0–16.6) and the blob 0.078–0.157 (r₁ 1.00–1.64). A constructed loop is robustly present in every sample; the blob never shows a dominant class.
 
-**H0 cardinality (control D5).** Every 400-point subsample has 399 finite H0 classes against 499 for the reference. Each unmatched short class adds transport cost, so H0 Wasserstein values are inflated by the class-count difference — for replicate 0, 3.68 against the 500-point reference, 0.67 against another 400-point subsample — and must not be read as instability or compared in magnitude with H1 values. The H0 bottleneck is less affected but not unaffected (0.026 against the reference, 0.016 against another subsample).
+**H0 class-count effects on diagram distances.** Every 400-point subsample has 399 finite H0 classes against 499 for the reference. Each unmatched short class adds transport cost, so H0 Wasserstein values are inflated by the class-count difference — for replicate 0, 3.68 against the 500-point reference, 0.67 against another 400-point subsample — and must not be read as instability or compared in magnitude with H1 values. The H0 bottleneck is less affected but not unaffected (0.026 against the reference, 0.016 against another subsample).
 
 ![PH resampling — persistence](figures/ph_resampling_persistence.png)
 
@@ -310,7 +321,7 @@ The constructed loops are far above the noise floor in every subsample (r_k ≥ 
 
 ![PH resampling — distance distributions](figures/ph_resampling_dists.png)
 
-*Figure 8.2. Per-resample bottleneck and Wasserstein distances for H0 and H1 (all 90 subsamples). The H0 Wasserstein panel is inflated by the 399-versus-499 class-count difference; descriptive, G1 applies.*
+*Figure 8.2. Per-resample bottleneck and Wasserstein distances for H0 and H1 (all 90 subsamples). The H0 Wasserstein panel is inflated by the 399-versus-499 class-count difference; the distances are descriptive because the subsamples overlap the reference (Section 4.3).*
 
 ![PH resampling — cross-shape comparison](figures/ph_resampling_cross_shape.png)
 
@@ -318,23 +329,23 @@ The constructed loops are far above the noise floor in every subsample (r_k ≥ 
 
 ### 8.3 Mapper input-sampling stability and the clustering rule
 
-With Mapper fixed at the reference configuration (10, 0.35, PCA-1 lens refit per subsample, KMeans k = 2), the 90 resampled graphs have 20 nodes each (mechanically, k = 2) and:
+With Mapper fixed at the reference configuration (cell (10, 0.35), PC1 lens recomputed for each subsample, KMeans k = 2), the 90 resampled graphs have 20 nodes each (mechanically, k = 2) and the following structure. Entries of the form "value: number of subsamples" give the distribution over the 30 subsamples of a shape.
 
-| Shape | Reference graph | Components over 30 | Cyclomatic over 30 | S vs reference, median (range) |
+| Shape | Reference graph | Number of components | Cyclomatic number | Membership-overlap indicator S relative to the reference graph, median (range) |
 |---|---|---|---|---|
-| annulus | 20 n, 21 e, 1 c, cyclomatic 2 | 1: 24, 2: 6 | 0: 13, 1: 9, 2: 8 | 0.585 (0.478 – 0.792) |
-| figure-eight | 20 n, 19 e, 2 c, cyclomatic 1 | 2: 24, 1: 6 | 0: 12, 1: 18 | 0.762 (0.702 – 0.813) |
-| blob | 20 n, 23 e, 1 c, cyclomatic 4 | 1: 10, 2: 12, 3: 8 | 1 – 6 | 0.645 (0.466 – 0.753) |
+| annulus | 20 nodes, 21 edges, 1 component, cyclomatic number 2 | 1: 24, 2: 6 | 0: 13, 1: 9, 2: 8 | 0.585 (0.478 – 0.792) |
+| figure-eight | 20 nodes, 19 edges, 2 components, cyclomatic number 1 | 2: 24, 1: 6 | 0: 12, 1: 18 | 0.762 (0.702 – 0.813) |
+| blob | 20 nodes, 23 edges, 1 component, cyclomatic number 4 | 1: 10, 2: 12, 3: 8 | 1 – 6 | 0.645 (0.466 – 0.753) |
 
 The count of subsamples without a cycle depends on the reference graph and on the seed set. The seed-42 annulus graph has cyclomatic number 2, whereas independent redraws of the annulus give 0 in 20 of 30, 1 in 7 and 2 in 3 under the same rule; a separate set of 30 fresh 80 % subsamples of the same cloud gave 18 / 8 / 4. The subsample counts therefore carry a binomial standard error of about 0.09 in the proportion.
 
-**Data-adaptive clustering (controls D3 and D4).** With single-linkage clustering at ε = 3.0 × the median 5-NN distance of the full cloud and everything else unchanged, the annulus graph has exactly one cycle in 30/30 subsamples and is connected in 29/30; the figure-eight has two cycles and one component in 30/30; the blob has no cycle in 27/30 but 7–12 components. With ε = 1.5 × that distance the annulus cycle cue is absent in 22/30 (components typically 4–6, range 1–10), the figure-eight has none in 30/30 (6–12 components) and the blob none in 29/30 (28–41 components). Over the independent redraws, ε = 3.0 gives one cycle and one component in 30/30 annulus draws, two cycles in 28/30 figure-eight draws (one in 2), and no cycle in 29/30 blob draws with 3–10 components; the forced two-cluster rule gives noise-scale cycles (cyclomatic 2–8) in all 30 blob draws.
+**Data-adaptive clustering (resampling stability and independent redraws).** With single-linkage clustering at ε = 3.0 × the median fifth-nearest-neighbour distance of the full cloud and everything else unchanged, the annulus graph has exactly one cycle in 30/30 subsamples and is connected in 29/30; the figure-eight has two cycles and one component in 30/30; the blob has no cycle in 27/30 but 7–12 components. With ε = 1.5 × that distance the annulus cycle cue is absent in 22/30 (components typically 4–6, range 1–10), the figure-eight has none in 30/30 (6–12 components) and the blob none in 29/30 (28–41 components). Over the independent redraws, ε = 3.0 gives one cycle and one component in 30/30 annulus draws, two cycles in 28/30 figure-eight draws (one in 2), and no cycle in 29/30 blob draws with 3–10 components; the forced two-cluster rule gives noise-scale cycles (cyclomatic 2–8) in all 30 blob draws.
 
-| Rule (annulus) | Cyclomatic over 30 subsamples | Cyclomatic over 30 independent redraws |
+| Clustering rule (annulus) | Cyclomatic number over 30 subsamples | Cyclomatic number over 30 independent redraws |
 |---|---|---|
 | KMeans k = 2 (default) | 0: 13, 1: 9, 2: 8 | 0: 20, 1: 7, 2: 3 |
-| single-linkage, ε = 3.0 × d₅ | 1: 30 | 1: 30 |
-| single-linkage, ε = 1.5 × d₅ | 0: 22, 1: 8 | not run |
+| single-linkage, ε = 3.0 × median fifth-nearest-neighbour distance | 1: 30 | 1: 30 |
+| single-linkage, ε = 1.5 × median fifth-nearest-neighbour distance | 0: 22, 1: 8 | not run |
 
 ![Mapper resampling structure](figures/mapper_resampling_structure.png)
 
@@ -350,11 +361,11 @@ The indicator S has a ceiling here: restricting the reference nodes to the sampl
 
 ### 8.4 Weather leave-one-year-out sensitivity
 
-For each omitted calendar year the retained days are re-z-scored, and windows are built within contiguous retained blocks so that no window crosses the omitted year: 6 folds × 6 configurations = 36 embeddings. An independent re-computation of two folds with a separate year split and z-scoring reproduced the saved number of windows, dominant persistence and r₁ (omitting 2022 and 2020, τ = 73, d = 6: 1.885 / 5.748 and 1.432 / 4.954). r₁ ranges from 4.376 to 7.754 over the 36 fold-configurations (full-data range 4.75–7.32); the minimum occurs for the 2024 fold with τ = 73, d = 6. Dominant persistence is in retained-series z units and is comparable across folds only up to the retained standard deviation (8.77–9.11 °C); r₁ is invariant to that rescaling (embedding raw °C and z-scored data gives r₁ 4.744627 and 4.744628).
+For each omitted calendar year the retained days are standardized again, and windows are built within contiguous retained blocks so that no window crosses the omitted year: 6 folds × 6 configurations = 36 embeddings. An independent re-computation of two folds with a separate year split and standardization reproduced the saved number of windows, dominant persistence and r₁ (omitting 2022 and 2020, τ = 73, d = 6: 1.885 / 5.748 and 1.432 / 4.954). r₁ ranges from 4.376 to 7.754 over the 36 fold-configurations (full-data range 4.75–7.32); the minimum occurs for the 2024 fold with τ = 73, d = 6. Dominant persistence is in standardized units of the retained series and is comparable across folds only up to the retained standard deviation (8.77–9.11 °C); r₁ is invariant to that rescaling (embedding raw °C and standardized data gives r₁ 4.744627 and 4.744628).
 
 **What the analysis can and cannot show.** In the 2020 and 2023 folds the retained single-year block (365 or 366 days) is shorter than or barely longer than the span and contributes at most 6 windows (none at all in 5 of the 10 affected fold-configurations), so omitting 2020 or 2023 effectively also omits the neighbouring year for those configurations: 10 of the 36 fold-configurations are not leave-one-year-out in effect. An annual harmonic explains 82 % of the series variance, so a dominant loop would be expected from any block of three or more years, and the 36 embeddings share four-sixths of the data pairwise and are not independent replicates. The analysis therefore shows only that no single year is needed for the cue; it is a sensitivity analysis, not a hypothesis test, a confidence interval, independent validation, or a statement about other climates. The null controls of Section 6.4 give the weather result its discriminating power.
 
-![Weather LOYO](figures/weather_loyo.png)
+![Weather leave-one-year-out sensitivity](figures/weather_loyo.png)
 
 *Figure 8.6. Leave-one-calendar-year-out: dominant H1 persistence and r₁ per fold and configuration (36 embeddings), with the r₁ = 3 convention line. Folds in the middle of the series lose windows through the gap-safe rule.*
 
@@ -390,7 +401,7 @@ The synthesis above holds for the data, lenses, covers and clusterers that were 
 - **Graph cycle cues are conditional on the clusterer** (Section 8.3). Forced two-way splits create noise cycles (all 30 blob draws) and can remove real ones; a small single-linkage scale fragments the graph. Node count is uninformative in every KMeans k = 2 result, by construction. Fragmentation can look like structure, and a native layout can hide it.
 - **Scope of the experiments.** Two-dimensional synthetic shapes with one data seed per shape; one station's six-year weather record; one lens (the first principal component), one cover family, and two clustering families, the second tested at only two scales. There is no other topology (tori, spheres), no high-dimensional data, no outliers and no noise sweep.
 - **No cross-implementation check.** ripser was not compared with GUDHI or another implementation (Section 2.2).
-- **Descriptive distances have structural caveats.** The H0 Wasserstein distance is inflated by the difference in class counts, and overlapping subsamples understate variability by about 1.4–1.8 for the annulus and figure-eight (G1).
+- **Descriptive distances have structural caveats.** The H0 Wasserstein distance is inflated by the difference in class counts, and overlapping subsamples understate variability by about 1.4–1.8 for the annulus and figure-eight, so they are not independent validation (Section 4.3).
 - **Custom indicators are conventions.** The threshold r_k ≥ 3 is operational; S is edge-blind and has a sampling ceiling of about 0.80 at 400 of 500 points.
 - **Temporal data resist naive resampling.** Leave-one-year-out is a sensitivity analysis with limited power (Section 8.4). The weather null controls are weak nulls with limited scope (Section 6.4), and no climatological conclusion is drawn.
 - **Human evidence.** E3 is a single-observer inspection with an AI viewing aid; there is no participant study and no evidence on human readability. The explorer was tested in one browser engine.
@@ -411,9 +422,9 @@ Contemporaneous version-control history was not maintained during the project. T
 |---|---|
 | Ground-truth ranks per shape; r_k ≥ 3 convention; 30 × 80 % design and seed rule; E2 grid and reference cell; weather reference (τ, d) = (60, 8) | Recorded in design documents or configuration before the corresponding run, per the project records; not independently time-stamped |
 | The other five embedding configurations | Designed to bracket the annual period, knowing it; not a null and not independent |
-| Seasonality check (FFT, ACF) and its search windows | Post hoc: written after the sweep; not pre-specified |
+| Seasonality check (periodogram and autocorrelation) and its search windows | Post hoc: written after the sweep; not pre-specified |
 | E2 figure-eight contrast cell (20, 0.50) | Chosen after the full grid was measured |
-| Controls D1–D5 and their parameters, including the two single-linkage scales | Written to the configuration before each script's first run but after the default-configuration results were known; only two scales were tried; exploratory choices |
+| Control experiments (Appendix A) and their parameters, including the two single-linkage scales | Written to the configuration before each script's first run but after the default-configuration results were known; only two scales were tried; exploratory choices |
 
 ### 10.4 Non-claims
 
@@ -461,7 +472,7 @@ Entries marked † were consulted at abstract or program-page level only.
 - Munzner, T. (2009). A nested model for visualization design and validation. *IEEE Transactions on Visualization and Computer Graphics, 15*(6), 921–928. https://doi.org/10.1109/TVCG.2009.111
 - Muszynski, G., Kashinath, K., Kurlin, V., Wehner, M., & Prabhat. (2019). Topological data analysis and machine learning for recognizing atmospheric river patterns in large climate datasets. *Geoscientific Model Development, 12*(2), 613–628. https://doi.org/10.5194/gmd-12-613-2019
 - NOAA National Centers for Environmental Information. *Global Summary of the Day (GSOD)*. https://www.ncei.noaa.gov/data/global-summary-of-the-day/ (accessed 28 October 2026).
-- NOAA Physical Sciences Laboratory. *Oceanic Niño Index (ONI)*, derived from NOAA Climate Prediction Center; ERSST v6 as of 7 September 2026. https://psl.noaa.gov/data/correlation/oni.data (accessed 28 October 2026).
+- NOAA Physical Sciences Laboratory. *Oceanic Niño Index (ONI)*, derived from NOAA Climate Prediction Center; Extended Reconstructed Sea Surface Temperature version 6 (ERSST v6) as of 7 September 2026. https://psl.noaa.gov/data/correlation/oni.data (accessed 28 October 2026).
 - Nielsen, J. (1992). Finding usability problems through heuristic evaluation. In *Proceedings of CHI '92* (pp. 373–380). ACM. https://doi.org/10.1145/142750.142834 (cited by analogy for single-inspector limits only).
 - Perea, J. A., Deckard, A., Haase, S. B., & Harer, J. (2015). SW1PerS: Sliding windows and 1-persistence scoring; discovering periodicity in gene expression time series data. *BMC Bioinformatics, 16*, 257. https://doi.org/10.1186/s12859-015-0645-6
 - Perea, J. A., & Harer, J. (2015). Sliding windows and persistence: An application of topological methods to signal analysis. *Foundations of Computational Mathematics, 15*(3), 799–838. https://doi.org/10.1007/s10208-014-9206-z
@@ -480,15 +491,15 @@ Entries marked † were consulted at abstract or program-page level only.
 
 ## Appendix A. Experimental configurations
 
-| Experiment | Data | Method and parameters |
+| Experiment (D1–D5 are the five control experiments) | Data | Method and parameters |
 |---|---|---|
-| E1 | annulus, figure-eight, blob (n = 500), three blobs (n = 450); seed 42 | 13-task scripted workflow; ripser `maxdim = 1`; `CubicalCover(n_cubes = 10, perc_overlap = 0.35)`, PCA-1 lens, `KMeans(2, random_state = 42, n_init = 10)` |
+| E1 | annulus, figure-eight, blob (n = 500), three blobs (n = 450); seed 42 | 13-task scripted workflow; ripser `maxdim = 1`; `CubicalCover(n_cubes = 10, perc_overlap = 0.35)`, lens given by the first principal component (PC1), `KMeans(2, random_state = 42, n_init = 10)` |
 | E2 | annulus, figure-eight (n = 500, noise 0.05, seed 42); blob (σ = 0.45) at two cells | `n_cubes` ∈ {5, 10, 15, 20} × `perc_overlap` ∈ {0.20, 0.35, 0.50}; reference (10, 0.35); same lens and clusterer |
 | E3 | 13 stimuli rendered from saved results | structured single-observer inspection; five task types; expected properties fixed from the construction |
-| Weather study | GSOD station 72505394728, 2019–2024; 2188 days (TEMP, DEWP, SLP) for the cloud, 2192 days of TEMP for embeddings | PCA; Mapper grid {5, 10, 15, 20} × {0.35, 0.50}; sliding-window embeddings (τ, d) ∈ {(30, 8), (45, 9), (52, 8), (60, 8), (73, 6), (90, 8)}, stride 1, ripser `maxdim = 1` |
+| Weather study | GSOD station 72505394728, 2019–2024; 2188 days of temperature, dew point and sea-level pressure (TEMP, DEWP, SLP) for the cloud, 2192 days of temperature (TEMP) for the embeddings | principal component analysis; Mapper grid `n_cubes` ∈ {5, 10, 15, 20} × `perc_overlap` ∈ {0.35, 0.50}; sliding-window embeddings (delay τ, dimension d) ∈ {(30, 8), (45, 9), (52, 8), (60, 8), (73, 6), (90, 8)}, stride 1, ripser `maxdim = 1` |
 | Resampling study | annulus, figure-eight, blob; 30 subsamples of 400 of 500 points per shape | seed rule above; persim bottleneck and Wasserstein (essential H0 class dropped); Mapper at (10, 0.35); leave-one-year-out: 6 folds × 6 configurations |
-| D1 | as E2 | single-linkage, ε = c × median 5-NN distance, c ∈ {1.5, 3.0}; 12-cell grid |
-| D2 | weather TEMP series | anomaly series (intercept and two annual harmonic pairs removed by least squares); 10 shuffled series (seeds 20261028 + i), reference configuration |
-| D3 | as the resampling study | the 30 subsamples with the D1 clusterer at (10, 0.35) |
-| D4 | 30 new 500-point draws per shape (seeds 777000 + i) | H1 bottleneck to the seed-42 reference diagram; Mapper cycle cue with KMeans and single-linkage (c = 3.0) |
-| D5 | annulus subsamples of the resampling study | S ceiling; H0 Wasserstein and bottleneck with matched cardinality |
+| D1, clusterer control (forced versus data-adaptive clustering) | as E2 | single-linkage clustering with cut distance ε = c × median fifth-nearest-neighbour distance of the full cloud, multiplier c ∈ {1.5, 3.0}; 12-cell grid |
+| D2, matched weather null controls | weather temperature series (TEMP) | anomaly series (intercept and two annual harmonic pairs removed by least squares); 10 shuffled series (seeds 20261028 + i), reference configuration |
+| D3, resampling stability with data-adaptive clustering | as the resampling study | the 30 subsamples with the single-linkage clusterer of D1 at cell (10, 0.35) |
+| D4, independent redraws against the reference | 30 new 500-point draws per shape (seeds 777000 + i) | H1 bottleneck distance to the seed-42 reference diagram; Mapper cycle cue with KMeans and with single-linkage (c = 3.0) |
+| D5, caveat checks (overlap-indicator ceiling and H0 class-count effects) | annulus subsamples of the resampling study | ceiling of the membership-overlap indicator S; H0 Wasserstein and bottleneck distances with matched numbers of classes |

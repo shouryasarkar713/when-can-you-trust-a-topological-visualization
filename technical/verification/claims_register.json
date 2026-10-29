@@ -347,7 +347,7 @@
    "id": "F015",
    "category": "measured",
    "claim": "PCA explained variance",
-   "derived_value": "69.0 % (TEMP and DEWP, negative SLP weight) and PC2 28.6 %, 97.6 % cumulatively",
+   "derived_value": "69.0 % of the variance (carried by temperature and dew point, with a negative sea-level-pressure weight) and the second (PC2) 28.6 %, 97.6 % cumulatively",
    "documents": [
     "report"
    ],

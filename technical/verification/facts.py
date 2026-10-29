@@ -126,7 +126,8 @@ def w_sens_drop(r):
 
 def w_pca(r):
     p = J(r, "extensions/meteorology/results/weather_analysis_results.json")["pca"]["explained_variance_ratio"]
-    return f"{100 * p[0]:.1f} % (TEMP and DEWP, negative SLP weight) and PC2 {100 * p[1]:.1f} %, {100 * sum(p):.1f} % cumulatively"
+    return (f"{100 * p[0]:.1f} % of the variance (carried by temperature and dew point, with a negative sea-level-pressure "
+            f"weight) and the second (PC2) {100 * p[1]:.1f} %, {100 * sum(p):.1f} % cumulatively")
 
 
 def w_sweep_row(key):
