@@ -396,9 +396,14 @@ def build(md_path, out_path, base_dir):
             if is_cap:
                 par.alignment = WD_ALIGN_PARAGRAPH.CENTER
                 par.paragraph_format.space_after = Pt(10)
+                if inline.content.lstrip("*").startswith("Table"):
+                    par.paragraph_format.keep_with_next = True   # table captions precede their table
+                    par.paragraph_format.space_after = Pt(3)
                 fmt_runs(par, inline.children, size=9, color=GREY)
             else:
                 fmt_runs(par, inline.children)
+            if not in_list and re.match(r"^\*Table\s", inline.content):
+                par.paragraph_format.keep_with_next = True   # a table caption stays with its table
             i += 3
             continue
         if t == "table_open":

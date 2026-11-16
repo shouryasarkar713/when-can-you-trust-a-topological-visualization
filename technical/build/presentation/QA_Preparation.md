@@ -13,16 +13,16 @@ status: Each answer states what the experiments establish, where the evidence is
 ## A. Contribution and positioning
 
 **1. What does this project contribute beyond running three packages?**
-An evaluation, not an algorithm: a 13-task capability audit; a Mapper sensitivity grid with a known-answer design and a no-loop control; a structured inspection of what the figures communicate; a weather case study with matched null controls; an offline explorer for saved results; resampling analyses; and control experiments that separate the effects of cover, clusterer, sampling and temporal order. The packages already provide the persistent-homology computation, diagram distances and the Mapper construction. No new algorithm, metric or theorem is claimed, and the gap ratio r_k and the membership-overlap indicator S are explicitly not canonical (Section 3.2).
+An evaluation, not an algorithm: a 13-task capability audit; a Mapper sensitivity grid with a known-answer design and a no-loop control; a structured inspection of what the figures communicate; a weather case study with matched null controls; an offline explorer for saved results; resampling analyses; and control experiments that separate the effects of cover, clusterer, sampling and temporal order. The packages already provide the persistent-homology computation, diagram distances and the Mapper construction. No new algorithm, metric or theorem is claimed, and the gap ratio r_k and the membership-overlap indicator S are explicitly not canonical (Section 3.6).
 
 **2. Isn't it already known that Mapper depends on its parameters and that Rips persistence is noise-sensitive?**
 Yes (Carrière & Oudot 2018; Carrière, Michel & Oudot 2018; Belchí et al. 2020; Sen, Singh & Tiwari 2026 evaluate Mapper more generally). The project does not claim otherwise. What it adds is a reproducible demonstration on a specific, current software stack, a separation of what depends on data, parameters, clusterer and drawing, and controls showing that the clusterer rule and scale are part of that dependence.
 
 **3. Why Scikit-TDA and not GUDHI or giotto-tda?**
-The assignment evaluates a visualization system, and Scikit-TDA is a lean, pip-installable triad with citable software papers and a first-party Mapper visualization. GUDHI and giotto-tda are context. A comparison of ripser with GUDHI was left out of scope, so ripser's correctness is supported only by the known-answer signatures of the synthetic data, determinism and the upstream literature, not by agreement with a second implementation (Section 2.2).
+The assignment evaluates a visualization system, and Scikit-TDA is a lean, pip-installable triad with citable software papers and a first-party Mapper visualization. GUDHI and giotto-tda are context. A comparison of ripser with GUDHI was left out of scope, so ripser's correctness is supported only by the known-answer signatures of the synthetic data, determinism and the upstream literature, not by agreement with a second implementation (Section 2.4).
 
 **4. What is the single most important finding?**
-That the reliability of a Mapper cycle cue depends on the clustering rule and its scale, while the persistence evidence for the constructed loops was present in every tested subsample and redraw. On the annulus: no cycle in 13/30 subsamples with forced two-cluster KMeans, exactly one cycle in 30/30 with single-linkage at 3 × the median fifth-nearest-neighbour distance, absent in 22/30 at half that scale (Section 8.3). The practical message: ask which representation carries the claim and check what it depends on.
+That the reliability of a Mapper cycle cue depends on the clustering rule and its scale, while the persistence evidence for the constructed loops was present in every tested subsample and redraw. On the annulus: no cycle in 13/30 subsamples with forced two-cluster KMeans, exactly one cycle in 30/30 with single-linkage at 3 × the median fifth-nearest-neighbour distance, absent in 22/30 at half that scale (Section 9.3). The practical message: ask which representation carries the claim and check what it depends on.
 
 ## B. Methods and metrics
 
@@ -39,7 +39,7 @@ No, and it is never called one. It compares membership sets greedily, ignores ed
 Bottleneck is a stable L∞ matching distance; the Wasserstein distance used here is an order-1 sum; they answer different questions, and H0 and H1 are never pooled. H0 Wasserstein is inflated when the numbers of classes differ (399 against 499 finite classes): 3.68 against the full reference, 0.67 against another subsample.
 
 **9. How were the Mapper parameters and the clusterer scales chosen?**
-The cover grid, reference cell, first-principal-component lens and ground-truth ranks were fixed in the design before the runs; the figure-eight contrast cell was chosen after the full grid was measured. The two single-linkage scales (1.5 and 3.0 × the median fifth-nearest-neighbour distance) were written into the configuration before the control ran but after the default-rule results were known, and only these two were tried, so they are an exploratory choice. No order of design and analysis can be proven from time stamps (Section 10.3).
+The cover grid, reference cell, first-principal-component lens and ground-truth ranks were fixed in the design before the runs; the figure-eight contrast cell was chosen after the full grid was measured. The two single-linkage scales (1.5 and 3.0 × the median fifth-nearest-neighbour distance) were written into the configuration before the control ran but after the default-rule results were known, and only these two were tried, so they are an exploratory choice. No order of design and analysis can be proven from time stamps (Section 11.3).
 
 ## C. Experiments and controls
 
@@ -56,7 +56,7 @@ Under the criterion r₁ ≥ 3, the temperature embedding has a dominant H1 gap 
 No. It shows that the method recovers a dominant H1 cue from a series with a strong annual component, a known feature of temperature data. Nothing is claimed about other stations, trends, ENSO or physical trajectories (G5).
 
 **14. Were the embedding configurations and the seasonality window specified in advance?**
-The reference (τ = 60, d = 8) came from the study plan; the other five were designed around the annual period knowing it; the seasonality check and its window were written after the sweep. No artifact time-stamps the order, so nothing is called pre-registered (Section 10.3). The Fourier-transform period of 365.3 days is the sixth frequency bin (2192/6), with neighbouring bins at 438 and 313 days.
+The reference (τ = 60, d = 8) came from the study plan; the other five were designed around the annual period knowing it; the seasonality check and its window were written after the sweep. No artifact time-stamps the order, so nothing is called pre-registered (Section 11.3). The Fourier-transform period of 365.3 days is the sixth frequency bin (2192/6), with neighbouring bins at 438 and 313 days.
 
 **15. What does leave-one-year-out show?**
 Only that no single year is needed for the cue, with limited power: in 10 of the 36 fold-configurations a second retained year contributes at most 6 windows (none at all in 5), and an annual harmonic explains 82 % of the variance. r₁ ranges from 4.376 to 7.754. It is not a hypothesis test or confidence interval.
@@ -90,7 +90,7 @@ Yes: a clean pinned Python 3.12 environment, commands in the README, seeds in YA
 Timings, PNG bytes, text line endings (and hashes of text files that depend on them), and the last binary digit of trigonometric functions for the annulus and figure-eight clouds (2.2·10⁻¹⁶).
 
 **24. What are the biggest threats to validity?**
-One lens, one cover family, two clusterer families; two-dimensional synthetic shapes; one station and six years; clusterer scales tried only at two values and chosen after the default result; no cross-implementation check; no participants (Section 10.2).
+One lens, one cover family, two clusterer families; two-dimensional synthetic shapes; one station and six years; clusterer scales tried only at two values and chosen after the default result; no cross-implementation check; no participants (Section 11.2).
 
 **25. What would you do next?**
 A clusterer-scale dimension in the explorer; a sweep over cover and scale with surrogate nulls; a GUDHI cross-check; additional stations; and, with proper design and approval, a participant study with counterbalanced orders and a registered analysis plan.
