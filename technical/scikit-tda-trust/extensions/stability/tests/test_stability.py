@@ -384,7 +384,7 @@ class TestFigureReproducibility:
             fig_ph_cross_shape(ph)
         finally:
             rsf._save = rsf._save_orig
-        # independent-rebuild change: PNG *bytes* embed platform/library metadata (differ between
+        # PNG *bytes* embed platform/library metadata (differ between
         # Linux and Windows); the rendered PIXELS must be identical.
         import matplotlib.image as _mimg
         px_new = _mimg.imread(_io.BytesIO(buf.getvalue()), format="png")

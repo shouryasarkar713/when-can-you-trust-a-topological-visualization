@@ -12,8 +12,8 @@ Everything that checks the project's claims lives here. Run all commands from `t
 | `check_references.py` | Reference checks against Crossref (network). Results: `reference_check_crossref.json`, `reference_url_check.json`, `REFERENCE_VERIFICATION.md`. |
 | `env/` | Environment record: pip freezes and creation log of the verified Windows run. |
 | `reference/` | **Immutable reference evidence** of the recorded verification run (see below). |
-| `VERIFICATION_STATUS.md` | What was run, in which environment, with which outcome, and what was not run. |
-| `requirements_matrix.md`, `research_ledger.*`, `code_audit_findings.*`, `claims_manual.json`, `claims_register.json` | Requirements traceability, literature and code-audit records, and the claims register. `code_audit_findings.*` documents defects found in the original code audit, including failures; they are kept deliberately. |
+| `VERIFICATION_SUMMARY.md` | What was verified, in which environment, with which outcome, and what was not verified. |
+| `claims_manual.json`, `claims_register.json` | Claims that cannot be derived mechanically (with their evidence) and the register of all claims checked by the verifier. |
 
 ## Detail behind the report's verification summary (Sections 11.2 and 11.3)
 
@@ -52,8 +52,7 @@ counts agree.
 
 `reference/` is the evidence of the run recorded for this release: `test_results.{json,md}`, the raw `test_run/` logs and
 junit reports, `compare/` (regenerated-vs-shipped comparisons), `explorer_offline_test/`, `kmapper_html_offline_test.json`,
-`runner_selftest.md`, `evidence_verification.json`, and `root_cause_original_failure/` (reproduction of the test-side-effect
-defect on the original archive). These files are listed in `SHA256SUMS.txt`.
+`runner_selftest.md` and `evidence_verification.json`. These files are listed in `SHA256SUMS.txt`.
 
 A routine `python scripts/run_all_tests.py` never writes here. It writes to a temporary directory (or an explicit, empty
 `--log-dir` outside the repository), hashes the whole tree before and after, and compares fresh per-suite counts with

@@ -58,7 +58,7 @@ from ripser import ripser  # noqa: E402
 from weather_lib import seasonal_ph_diagnostics, sliding_window_embedding  # noqa: E402
 
 RESULTS = EXT_ROOT / "results"
-RESULTS.mkdir(parents=True, exist_ok=True)  # independent-rebuild fix: fresh trees lack the dir
+RESULTS.mkdir(parents=True, exist_ok=True)  # create the directory when running in a fresh tree
 WX_NPZ = REPO_ROOT / "extensions" / "meteorology" / "data_provenance" / "processed" / "weather_analysis.npz"
 WX_CFG = REPO_ROOT / "extensions" / "meteorology" / "configs" / "weather.yaml"
 

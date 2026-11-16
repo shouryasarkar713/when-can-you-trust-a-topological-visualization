@@ -38,9 +38,9 @@ sys.path.insert(0, str(REPO_ROOT))
 from src.figures import component_separated_layout  # noqa: E402 (baseline reuse)
 
 RESULTS = EXT_ROOT / "results"
-RESULTS.mkdir(parents=True, exist_ok=True)  # independent-rebuild fix: fresh trees lack the dir
+RESULTS.mkdir(parents=True, exist_ok=True)  # create the directory when running in a fresh tree
 FIGS = EXT_ROOT / "figures"
-FIGS.mkdir(parents=True, exist_ok=True)  # independent-rebuild fix
+FIGS.mkdir(parents=True, exist_ok=True)  # create the directory when running in a fresh tree
 CONFIG_LABEL = {
     "tau30_d8": "τ=30,d=8 (210d)", "tau45_d9": "τ=45,d=9 (360d)",
     "tau52_d8": "τ=52,d=8 (364d)", "tau60_d8": "τ=60,d=8 (420d, ref)",

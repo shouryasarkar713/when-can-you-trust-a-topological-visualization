@@ -52,17 +52,7 @@
    "detail": ""
   },
   {
-   "name": "required output exists: technical/verification/requirements_matrix.md",
-   "pass": true,
-   "detail": ""
-  },
-  {
-   "name": "required output exists: technical/verification/research_ledger.md",
-   "pass": true,
-   "detail": ""
-  },
-  {
-   "name": "required output exists: technical/verification/code_audit_findings.md",
+   "name": "required output exists: technical/verification/VERIFICATION_SUMMARY.md",
    "pass": true,
    "detail": ""
   },
@@ -922,32 +912,7 @@
    "detail": ""
   },
   {
-   "name": "URL well-formed: https://doi.org/10.1109/TVCG.2011.279",
-   "pass": true,
-   "detail": ""
-  },
-  {
-   "name": "URL well-formed: https://doi.org/10.1007/s41468-021-00071-5",
-   "pass": true,
-   "detail": ""
-  },
-  {
-   "name": "URL well-formed: https://arxiv.org/abs/2606.21688",
-   "pass": true,
-   "detail": ""
-  },
-  {
-   "name": "URL well-formed: https://www.jmlr.org/papers/v21/19-540.html",
-   "pass": true,
-   "detail": ""
-  },
-  {
-   "name": "URL well-formed: https://doi.org/10.1109/TVCG.2014.2346321",
-   "pass": true,
-   "detail": ""
-  },
-  {
-   "name": "URL well-formed: https://doi.org/10.5281/zenodo.2533369",
+   "name": "URL well-formed: https://psl.noaa.gov/data/correlation/oni.data",
    "pass": true,
    "detail": ""
   },
@@ -957,7 +922,12 @@
    "detail": ""
   },
   {
-   "name": "URL well-formed: https://doi.org/10.1145/142750.142834",
+   "name": "URL well-formed: https://doi.org/10.1007/s10208-014-9206-z",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "URL well-formed: https://arxiv.org/abs/2606.21688",
    "pass": true,
    "detail": ""
   },
@@ -967,32 +937,7 @@
    "detail": ""
   },
   {
-   "name": "URL well-formed: https://doi.org/10.5194/gmd-12-613-2019",
-   "pass": true,
-   "detail": ""
-  },
-  {
-   "name": "URL well-formed: https://github.com/lucasimi/tda-mapper-python",
-   "pass": true,
-   "detail": ""
-  },
-  {
-   "name": "URL well-formed: https://doi.org/10.2312/SPBG/SPBG07/091-100",
-   "pass": true,
-   "detail": ""
-  },
-  {
-   "name": "URL well-formed: https://doi.org/10.1007/978-3-662-44199-2_28",
-   "pass": true,
-   "detail": ""
-  },
-  {
-   "name": "URL well-formed: https://doi.org/10.1109/TVCG.2009.111",
-   "pass": true,
-   "detail": ""
-  },
-  {
-   "name": "URL well-formed: https://doi.org/10.1007/s00382-022-06395-x",
+   "name": "URL well-formed: https://www.jmlr.org/papers/v21/19-540.html",
    "pass": true,
    "detail": ""
   },
@@ -1002,7 +947,17 @@
    "detail": ""
   },
   {
-   "name": "URL well-formed: https://am.ieeevis.org/year/2026/program/content/9e4af3b5-5f6d-4b27-ba09-7ea9190",
+   "name": "URL well-formed: https://doi.org/10.1007/s41468-021-00071-5",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "URL well-formed: https://doi.org/10.5281/zenodo.2533369",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "URL well-formed: https://github.com/lucasimi/tda-mapper-python",
    "pass": true,
    "detail": ""
   },
@@ -1012,12 +967,7 @@
    "detail": ""
   },
   {
-   "name": "URL well-formed: https://doi.org/10.1007/s00454-006-1276-5",
-   "pass": true,
-   "detail": ""
-  },
-  {
-   "name": "URL well-formed: https://www.ncei.noaa.gov/data/global-summary-of-the-day/",
+   "name": "URL well-formed: https://doi.org/10.1109/TVCG.2013.124",
    "pass": true,
    "detail": ""
   },
@@ -1027,32 +977,32 @@
    "detail": ""
   },
   {
+   "name": "URL well-formed: https://doi.org/10.1109/TVCG.2009.111",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "URL well-formed: https://www.ncei.noaa.gov/data/global-summary-of-the-day/",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "URL well-formed: https://doi.org/10.2312/SPBG/SPBG07/091-100",
+   "pass": true,
+   "detail": ""
+  },
+  {
    "name": "URL well-formed: https://doi.org/10.1007/s41468-020-00063-x",
    "pass": true,
    "detail": ""
   },
   {
-   "name": "URL well-formed: https://doi.org/10.1109/TVCG.2013.126",
+   "name": "URL well-formed: https://doi.org/10.1145/142750.142834",
    "pass": true,
    "detail": ""
   },
   {
-   "name": "URL well-formed: https://www.jmlr.org/papers/v19/17-291.html",
-   "pass": true,
-   "detail": ""
-  },
-  {
-   "name": "URL well-formed: https://doi.org/10.1007/s10208-014-9206-z",
-   "pass": true,
-   "detail": ""
-  },
-  {
-   "name": "URL well-formed: https://doi.org/10.1007/s10208-017-9370-z",
-   "pass": true,
-   "detail": ""
-  },
-  {
-   "name": "URL well-formed: https://psl.noaa.gov/data/correlation/oni.data",
+   "name": "URL well-formed: https://doi.org/10.1007/s00454-006-1276-5",
    "pass": true,
    "detail": ""
   },
@@ -1062,17 +1012,57 @@
    "detail": ""
   },
   {
-   "name": "URL well-formed: https://doi.org/10.1007/s00454-004-1146-y",
+   "name": "URL well-formed: https://www.jmlr.org/papers/v19/17-291.html",
    "pass": true,
    "detail": ""
   },
   {
-   "name": "URL well-formed: https://doi.org/10.1109/TVCG.2013.124",
+   "name": "URL well-formed: https://doi.org/10.1007/s10208-017-9370-z",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "URL well-formed: https://doi.org/10.1109/TVCG.2011.279",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "URL well-formed: https://doi.org/10.1007/978-3-662-44199-2_28",
    "pass": true,
    "detail": ""
   },
   {
    "name": "URL well-formed: https://doi.org/10.1007/s00454-002-2885-2",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "URL well-formed: https://doi.org/10.1109/TVCG.2013.126",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "URL well-formed: https://am.ieeevis.org/year/2026/program/content/9e4af3b5-5f6d-4b27-ba09-7ea9190",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "URL well-formed: https://doi.org/10.1109/TVCG.2014.2346321",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "URL well-formed: https://doi.org/10.1007/s00454-004-1146-y",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "URL well-formed: https://doi.org/10.5194/gmd-12-613-2019",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "URL well-formed: https://doi.org/10.1007/s00382-022-06395-x",
    "pass": true,
    "detail": ""
   },
@@ -1315,8 +1305,8 @@
  "report_pdf_pages": 30,
  "n_facts": 79,
  "summary": {
-  "n_checks": 262,
-  "n_pass": 262,
+  "n_checks": 260,
+  "n_pass": 260,
   "failed": []
  }
 }

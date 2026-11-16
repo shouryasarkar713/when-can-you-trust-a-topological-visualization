@@ -12,9 +12,9 @@ Reference list of `submission/report/Final_Report.md`, Section 13. Checked on 28
 | Gudhi paper | Crossref | Authors Maria, Boissonnat, Glisse, Yvinec M.; pages 167–174; Crossref gives no LNCS volume |
 | Non-Crossref URLs: JMLR (Belchí et al.; Carrière, Michel & Oudot; Tauzin et al.), GitHub (tda-mapper), IEEE VIS program page (LoCoMapper), NOAA GSOD directory, NOAA PSL ONI file, SPBG DOI | HTTP GET (`reference_url_check.json`) | All returned 200. `doi.org/10.5281/zenodo.2533369` returned 403 to a script (bot protection); it resolves in a browser according to the earlier research ledger. |
 
-## Inherited from the earlier research ledger (`research_ledger.md`), not re-fetched in this pass
+## Checked at the level of the publisher page only (not re-fetched through Crossref)
 
-- Belchí et al. (2020), JMLR 21(202), 1–45; Carrière, Michel & Oudot (2018), JMLR 19(12), 1–39; Tauzin et al. (2021), JMLR 22(39), 1–6: volumes and pages come from the ledger (the JMLR pages exist).
+- Belchí et al. (2020), JMLR 21(202), 1–45; Carrière, Michel & Oudot (2018), JMLR 19(12), 1–39; Tauzin et al. (2021), JMLR 22(39), 1–6: volumes and pages come from the journal's own pages (the JMLR pages exist).
 - Springer LNCS volume 8592 for the Gudhi paper; the SPBG 2007 pages 91–100 and Zenodo record for Scikit-TDA.
 - tda-mapper version 0.12.0 and first-release date; LoCoMapper authors, title, workshop and honorable mention (program page only; the full paper is behind a sign-in); the workshop date.
 - GSOD terms of use and station identity; the ONI series derivation (ERSST v6 as of 7 September 2026).

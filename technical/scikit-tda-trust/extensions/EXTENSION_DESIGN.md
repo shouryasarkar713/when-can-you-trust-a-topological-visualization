@@ -187,14 +187,14 @@ limitation if too expensive).
 | Idea | Source | Reason it stays out |
 |---|---|---|
 | ENSO hypothesis test (H4b) | Rev1 | Adversarial W3: ~2 episodes in-window; underpowered by construction. Descriptive exhibit only. |
-| Second/third weather station | Rev1/Rev2 optional | Gate discipline: only after one-station review (Stage-2 gate). |
-| DREiMac circular coordinates | Rev1/Rev2 optional | New package + new paradigm; not needed for RQ1–RQ3; deferred. |
-| GUDHI cross-validation | Rev2 optional | New dependency; cross-library validation is not decision-relevant for RQ1–RQ3 here. |
-| Sparse-input Ripser recipe | Rev2 optional (Gap 5) | Documentation contribution; deferred — no experiment in this programme needs n > 2,000 dense points. |
+| Second/third weather station | optional in the research plan | Gate discipline: only after one-station review (Stage-2 gate). |
+| DREiMac circular coordinates | optional in the research plan | New package + new paradigm; not needed for RQ1–RQ3; deferred. |
+| GUDHI cross-validation | optional in the research plan | New dependency; cross-library validation is not decision-relevant for RQ1–RQ3 here. |
+| Sparse-input Ripser recipe | optional in the research plan | Documentation contribution; deferred — no experiment in this programme needs n > 2,000 dense points. |
 | Human-participant study | — | Hard constraint (2026-10-22). E3 remains a structured single-observer artifact inspection; nothing may claim general human readability. |
 | t-SNE baseline arm | Rev1 E4 | UMAP covers the stochastic-embedding baseline role with better-documented global behavior; t-SNE adds a redundant runtime cost. Optional only if reviewers request it. |
 | HTRU2 / digits benchmark tier | Rev1 Tier 2 | Real meteorological data now serves the real-data role; benchmark tier adds breadth, not decision-relevant information for RQ1–RQ3. |
-| Performance micro-benchmark | Rev1 E5 / Rev2 E4 | Baseline already records runtime anchors; RQ1–RQ3 need no new scaling curves. Runtimes of new runs are still recorded per-run. |
+| Performance micro-benchmark | planned in the research plan | Baseline already records runtime anchors; RQ1–RQ3 need no new scaling curves. Runtimes of new runs are still recorded per-run. |
 | Fasy-style confidence guarantees | Rev1 E2 | Explicit honesty rule: descriptive bands only, guarantees never claimed. |
 | Mapper "winner" declaration | Rev1 E4 framing | Representations answer different questions; no universal single score (plan §11.1 fairness framework). |
 

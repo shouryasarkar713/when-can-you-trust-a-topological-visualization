@@ -58,7 +58,7 @@ from src.pipeline import render_barcode, render_diagram  # noqa: E402
 
 RESULTS = EXT_ROOT / "results"
 FIGS = EXT_ROOT / "figures"
-FIGS.mkdir(parents=True, exist_ok=True)  # independent-rebuild fix
+FIGS.mkdir(parents=True, exist_ok=True)  # create the directory when running in a fresh tree
 DATA_NPZ = EXT_ROOT / "data_provenance" / "processed" / "weather_analysis.npz"
 
 SEASON_COLORS = {"DJF": "#2176ff", "MAM": "#2ca02c", "JJA": "#ff7f0e", "SON": "#8c564b"}

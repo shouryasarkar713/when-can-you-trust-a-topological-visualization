@@ -46,7 +46,7 @@ units:
 
 preprocessing:
   # REDESIGN (triggered 2026-10-22 by the pre-specified rule, NOT silent):
-  # The Rev2 spec's 4-feature cloud (TEMP, DEWP, SLP, WDSP) requires dropping
+  # The planned 4-feature cloud (TEMP, DEWP, SLP, WDSP) requires dropping
   # 131 days (5.98%) because WDSP is missing 125 days, including ALL of
   # Jan-Feb 2019 (59 consecutive days) and May-Jun 2020 (33 days) — a
   # seasonally biased deletion that would remove winter 2019 from the cloud.
@@ -54,7 +54,7 @@ preprocessing:
   # unstructured). The 4-feature cloud is retained as a DOCUMENTED
   # SENSITIVITY CHECK quantifying the cost of adding wind.
   primary_features: ["TEMP", "DEWP", "SLP"]
-  sensitivity_features: ["TEMP", "DEWP", "SLP", "WDSP"]  # Rev2 spec, 131 days dropped
+  sensitivity_features: ["TEMP", "DEWP", "SLP", "WDSP"]  # planned feature set, 131 days dropped
   drop_rule: "drop_day_if_any_primary_missing"           # no imputation; count reported
   max_acceptable_primary_missing_fraction: 0.05
   scaling: "zscore"                                 # per-feature mean 0 / sd 1

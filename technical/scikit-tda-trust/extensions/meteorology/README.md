@@ -207,7 +207,7 @@ records the method, search bands, arrays, and this scope statement.
 
 | Deviation | Reason |
 |---|---|
-| Primary cloud is 3-feature (TEMP/DEWP/SLP), not the Rev2 4-feature set | WDSP missingness structure (all Jan–Feb 2019) would delete winter; pre-specified >5% rule triggered a documented redesign; 4-feature cloud kept as sensitivity check |
+| Primary cloud is 3-feature (TEMP/DEWP/SLP), not the planned 4-feature set | WDSP missingness structure (all Jan–Feb 2019) would delete winter; pre-specified >5% rule triggered a documented redesign; 4-feature cloud kept as sensitivity check |
 | No t-SNE; UMAP not run (yet) | t-SNE dropped from the default set (UMAP covers the stochastic-embedding role; would need separate extension requirements file per preservation rules) |
 | One station, not two | Gate discipline: second station only after one-station review |
 | ENSO exhibit is phase-colored PCA panel only | Descriptive context with embedded power statement (adversarial-review W3 honored) |

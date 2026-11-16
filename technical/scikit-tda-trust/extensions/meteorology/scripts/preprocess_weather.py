@@ -9,7 +9,7 @@ Pipeline (fully deterministic given the immutable raw files):
   4. Missingness report (per field, with longest consecutive runs).
   5. Primary analysis cloud: TEMP/DEWP/SLP, drop days with any missing
      primary feature (no imputation), z-score. Sensitivity cloud:
-     +WDSP (Rev2 spec), documented day drops.
+     +WDSP (planned feature set), documented day drops.
   6. Seasonal PH series: TEMP (degC, z-scored), full date range.
   7. ONI monthly values -> per-day descriptive phase labels (context only).
   8. Save: cleaned CSV, analysis NPZ, preprocessing report JSON (+ SHA-256

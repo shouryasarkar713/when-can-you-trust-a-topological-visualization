@@ -62,7 +62,7 @@ from src.pipeline import gap_ratio, h1_persistences  # noqa: E402
 from src.shapes import GROUND_TRUTH_H1_RANK, make_shape  # noqa: E402
 
 RESULTS = EXT_ROOT / "results"
-RESULTS.mkdir(parents=True, exist_ok=True)  # independent-rebuild fix: fresh trees lack the dir
+RESULTS.mkdir(parents=True, exist_ok=True)  # create the directory when running in a fresh tree
 E1_DATA = REPO_ROOT / "results" / "e1" / "data"
 E1_DGMS = REPO_ROOT / "results" / "e1"
 
@@ -105,7 +105,7 @@ def run_shape(shape: str, cfg: dict, shapes_cfg: dict) -> dict:
     params = shapes_cfg["shapes"][shape]
     X = make_shape(shape, params)
     saved = np.load(E1_DATA / f"{shape}.npy")
-    if not np.allclose(X, saved, rtol=0.0, atol=1e-12):  # independent-rebuild: libm trig differs by 1 ULP across platforms
+    if not np.allclose(X, saved, rtol=0.0, atol=1e-12):  # the trigonometric library differs by one unit in the last place across platforms
         raise SystemExit(
             f"BUILD ERROR: regenerated {shape} differs from the baseline "
             "E1 saved point cloud — refusing to proceed (the experiment "

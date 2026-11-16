@@ -74,10 +74,10 @@ pip install -r requirements.txt -r requirements-dev.txt -r requirements-verify.t
 
 The exact package list and installation record of the verified run: `technical/verification/env/`.
 
-A note on older documents: `technical/scikit-tda-trust/README.md`, `IMPLEMENTATION_NOTES.md` and `extensions/README.md` are project
-records written before the final deliverables were assembled. They are kept as written (the first two are protected by the baseline
-manifest) and refer to folders such as `report/`, `presentation/` and `extensions/final/` that are not part of this repository, and to
-test counts of their time. This README, `submission/` and `technical/verification/` are authoritative.
+Two project notes inside `technical/scikit-tda-trust/` (`README.md` and `IMPLEMENTATION_NOTES.md`) are the original working notes of
+the core experiments and are protected by the baseline manifest. They refer to folders such as `report/` and `presentation/` that are
+not part of this repository, and to test counts of their time. This README, `submission/` and `technical/verification/` are
+authoritative.
 
 ## Reproduce the experiments
 

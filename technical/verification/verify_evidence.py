@@ -94,8 +94,7 @@ def main():
 
     required = [rep_md, rep_docx, rep_pdf, pptx, notes_md, qa_md, qa_docx, qa_pdf,
                 root / "README.md", VER / "claims_register.json",
-                VER / "requirements_matrix.md", VER / "research_ledger.md",
-                VER / "code_audit_findings.md", TECH / "scikit-tda-trust" / "requirements.txt",
+                VER / "VERIFICATION_SUMMARY.md", TECH / "scikit-tda-trust" / "requirements.txt",
                 TECH / "scikit-tda-trust" / "scripts" / "run_all_tests.py"]
     for p in required:
         check(f"required output exists: {p.relative_to(root).as_posix()}", p.exists())
