@@ -187,6 +187,19 @@
    ]
   },
   {
+   "id": "M015",
+   "category": "reproduced",
+   "claim": "Subsample indices, persistence diagrams and Mapper graphs are deterministic given the seeds and configurations (report Sections 9.5 and 12.2; supplementary slide 'Runtime and determinism').",
+   "evidence": "technical/scikit-tda-trust/extensions/stability/tests; technical/verification/reference/compare/compare_stability.json (regenerated results identical); technical/scikit-tda-trust/extensions/stability/results/ph_resampling.json (stored indices and seeds)",
+   "reproduce": "python scripts/run_all_tests.py --package-root ../.. ; python technical/verification/compare_trees.py <shipped> <regenerated> out.json",
+   "status": "verified manually (not re-derived by verify_evidence.py)",
+   "caveat": "Observed on the reported workloads and environments (Linux and Windows 11); not a controlled performance benchmark",
+   "documents": [
+    "report",
+    "slides"
+   ]
+  },
+  {
    "id": "F001",
    "category": "measured",
    "claim": "E1 audits 13 tasks",
@@ -217,7 +230,8 @@
    "claim": "E2 annulus similarity range",
    "derived_value": "0.449–1.000",
    "documents": [
-    "report"
+    "report",
+    "slides"
    ],
    "reproduce": "python scripts/run_e2_sensitivity.py",
    "caveat": "S is exploratory",
@@ -229,7 +243,8 @@
    "claim": "E2 figure-eight similarity range",
    "derived_value": "0.457–1.000",
    "documents": [
-    "report"
+    "report",
+    "slides"
    ],
    "reproduce": "python scripts/run_e2_sensitivity.py",
    "caveat": "S is exploratory",
@@ -277,7 +292,8 @@
    "claim": "Blob r1 calibration",
    "derived_value": "1.451",
    "documents": [
-    "report"
+    "report",
+    "slides"
    ],
    "reproduce": "python scripts/run_e2_sensitivity.py",
    "caveat": "calibration only",
@@ -301,7 +317,8 @@
    "claim": "Primary cloud size after dropping missing-SLP days",
    "derived_value": "2188",
    "documents": [
-    "report"
+    "report",
+    "qa"
    ],
    "reproduce": "python extensions/meteorology/scripts/preprocess_weather.py",
    "caveat": "",
@@ -313,7 +330,8 @@
    "claim": "WDSP missing days",
    "derived_value": "125",
    "documents": [
-    "report"
+    "report",
+    "slides"
    ],
    "reproduce": "(raw parse)",
    "caveat": "",
@@ -325,7 +343,8 @@
    "claim": "STP values below 900 hPa",
    "derived_value": "94.8 %",
    "documents": [
-    "report"
+    "report",
+    "qa"
    ],
    "reproduce": "(raw parse)",
    "caveat": "cause: truncated leading digit",
@@ -337,7 +356,9 @@
    "claim": "Days dropped if WDSP were added",
    "derived_value": "129",
    "documents": [
-    "report"
+    "report",
+    "slides",
+    "qa"
    ],
    "reproduce": "(raw parse)",
    "caveat": "count only; no analysis run on this cloud",
@@ -362,7 +383,8 @@
    "derived_value": "4.75–7.32",
    "documents": [
     "report",
-    "slides"
+    "slides",
+    "qa"
    ],
    "reproduce": "python extensions/meteorology/scripts/run_weather_analysis.py",
    "caveat": "same dataset; designed around annual period",
@@ -458,7 +480,8 @@
    "claim": "Weather Mapper cell (5,0.35)",
    "derived_value": "| 10 | 12 | 1 | 3 | 0.551 |",
    "documents": [
-    "report"
+    "report",
+    "slides"
    ],
    "reproduce": "same",
    "caveat": "",
@@ -470,7 +493,8 @@
    "claim": "Weather Mapper cell (5,0.5)",
    "derived_value": "| 10 | 13 | 1 | 4 | 0.445 |",
    "documents": [
-    "report"
+    "report",
+    "slides"
    ],
    "reproduce": "same",
    "caveat": "",
@@ -482,7 +506,8 @@
    "claim": "Weather Mapper cell (10,0.35)",
    "derived_value": "| 20 | 26 | 1 | 7 | 1.000 |",
    "documents": [
-    "report"
+    "report",
+    "slides"
    ],
    "reproduce": "same",
    "caveat": "",
@@ -494,7 +519,8 @@
    "claim": "Weather Mapper cell (10,0.5)",
    "derived_value": "| 20 | 27 | 1 | 8 | 0.685 |",
    "documents": [
-    "report"
+    "report",
+    "slides"
    ],
    "reproduce": "same",
    "caveat": "",
@@ -506,7 +532,8 @@
    "claim": "Weather Mapper cell (15,0.35)",
    "derived_value": "| 30 | 38 | 1 | 9 | 0.558 |",
    "documents": [
-    "report"
+    "report",
+    "slides"
    ],
    "reproduce": "same",
    "caveat": "",
@@ -518,7 +545,8 @@
    "claim": "Weather Mapper cell (15,0.5)",
    "derived_value": "| 30 | 40 | 1 | 11 | 0.665 |",
    "documents": [
-    "report"
+    "report",
+    "slides"
    ],
    "reproduce": "same",
    "caveat": "",
@@ -530,7 +558,8 @@
    "claim": "Weather Mapper cell (20,0.35)",
    "derived_value": "| 40 | 49 | 2 | 11 | 0.506 |",
    "documents": [
-    "report"
+    "report",
+    "slides"
    ],
    "reproduce": "same",
    "caveat": "",
@@ -542,7 +571,8 @@
    "claim": "Weather Mapper cell (20,0.5)",
    "derived_value": "| 40 | 52 | 2 | 14 | 0.666 |",
    "documents": [
-    "report"
+    "report",
+    "slides"
    ],
    "reproduce": "same",
    "caveat": "",
@@ -594,7 +624,9 @@
    "claim": "Shuffled-series median r1 (D2)",
    "derived_value": "median 1.06",
    "documents": [
-    "report"
+    "report",
+    "slides",
+    "qa"
    ],
    "reproduce": "same",
    "caveat": "",
@@ -606,7 +638,8 @@
    "claim": "D2 anomaly row tau30_d8",
    "derived_value": "| 5.625 | 1.138 | 1.998 | 0.685 |",
    "documents": [
-    "report"
+    "report",
+    "slides"
    ],
    "reproduce": "same",
    "caveat": "",
@@ -618,7 +651,8 @@
    "claim": "D2 anomaly row tau45_d9",
    "derived_value": "| 7.319 | 1.023 | 2.571 | 0.703 |",
    "documents": [
-    "report"
+    "report",
+    "slides"
    ],
    "reproduce": "same",
    "caveat": "",
@@ -630,7 +664,8 @@
    "claim": "D2 anomaly row tau52_d8",
    "derived_value": "| 4.922 | 1.035 | 2.039 | 0.506 |",
    "documents": [
-    "report"
+    "report",
+    "slides"
    ],
    "reproduce": "same",
    "caveat": "",
@@ -642,7 +677,8 @@
    "claim": "D2 anomaly row tau60_d8",
    "derived_value": "| 6.753 | 1.077 | 2.167 | 0.636 |",
    "documents": [
-    "report"
+    "report",
+    "slides"
    ],
    "reproduce": "same",
    "caveat": "",
@@ -654,7 +690,8 @@
    "claim": "D2 anomaly row tau73_d6",
    "derived_value": "| 4.745 | 1.025 | 1.417 | 0.573 |",
    "documents": [
-    "report"
+    "report",
+    "slides"
    ],
    "reproduce": "same",
    "caveat": "",
@@ -666,7 +703,8 @@
    "claim": "D2 anomaly row tau90_d8",
    "derived_value": "| 5.761 | 1.034 | 2.121 | 0.765 |",
    "documents": [
-    "report"
+    "report",
+    "slides"
    ],
    "reproduce": "same",
    "caveat": "",
@@ -763,7 +801,8 @@
    "derived_value": "22/30",
    "documents": [
     "report",
-    "slides"
+    "slides",
+    "qa"
    ],
    "reproduce": "same",
    "caveat": "",
@@ -775,7 +814,8 @@
    "claim": "D4 annulus KMeans cyclomatic over independent draws",
    "derived_value": "0 in 20 of 30, 1 in 7 and 2 in 3",
    "documents": [
-    "report"
+    "report",
+    "qa"
    ],
    "reproduce": "python extensions/controls/scripts/run_independent_draws.py",
    "caveat": "",
@@ -788,7 +828,8 @@
    "derived_value": "0.041",
    "documents": [
     "report",
-    "slides"
+    "slides",
+    "qa"
    ],
    "reproduce": "same",
    "caveat": "reference = seed-42 diagram",
@@ -800,7 +841,8 @@
    "claim": "D4 figure-eight H1 bottleneck median",
    "derived_value": "0.034",
    "documents": [
-    "report"
+    "report",
+    "slides"
    ],
    "reproduce": "same",
    "caveat": "",
@@ -812,7 +854,8 @@
    "claim": "D4 blob H1 bottleneck median",
    "derived_value": "0.050",
    "documents": [
-    "report"
+    "report",
+    "slides"
    ],
    "reproduce": "same",
    "caveat": "",
@@ -824,7 +867,9 @@
    "claim": "D4 blob KMeans cycles in every draw",
    "derived_value": "cyclomatic 2–8",
    "documents": [
-    "report"
+    "report",
+    "slides",
+    "qa"
    ],
    "reproduce": "same",
    "caveat": "",
@@ -861,7 +906,8 @@
    "claim": "Mapper resampling annulus cyclomatic distribution (KMeans)",
    "derived_value": "0: 13, 1: 9, 2: 8",
    "documents": [
-    "report"
+    "report",
+    "slides"
    ],
    "reproduce": "python extensions/stability/scripts/run_mapper_resampling.py",
    "caveat": "reference graph is one realisation",
@@ -873,7 +919,8 @@
    "claim": "Mapper resampling figure-eight cyclomatic distribution",
    "derived_value": "0: 12, 1: 18",
    "documents": [
-    "report"
+    "report",
+    "slides"
    ],
    "reproduce": "same",
    "caveat": "",
@@ -885,7 +932,8 @@
    "claim": "Mapper S median annulus",
    "derived_value": "0.585",
    "documents": [
-    "report"
+    "report",
+    "slides"
    ],
    "reproduce": "same",
    "caveat": "S ceiling ~0.80",
@@ -960,7 +1008,8 @@
    "claim": "LOYO r1 range (slides wording)",
    "derived_value": "4.376–7.754",
    "documents": [
-    "slides"
+    "slides",
+    "qa"
    ],
    "reproduce": "same",
    "caveat": "",
@@ -996,7 +1045,8 @@
    "claim": "Explorer independent offline checks",
    "derived_value": "222 of 222 checks",
    "documents": [
-    "report"
+    "report",
+    "qa"
    ],
    "reproduce": "python verification/explorer_offline_test.py ...",
    "caveat": "Chrome 156, Windows 11",
@@ -1058,9 +1108,10 @@
    "id": "F110",
    "category": "measured",
    "claim": "Total tests passed",
-   "derived_value": "192 passed, 0 failed",
+   "derived_value": "203 passed, 0 failed",
    "documents": [
-    "report"
+    "report",
+    "qa"
    ],
    "reproduce": "python -m pytest ...",
    "caveat": "order-dependence on Windows recorded",
@@ -1090,7 +1141,7 @@
    "id": "F113",
    "category": "measured",
    "claim": "Explorer tests",
-   "derived_value": "23 passed",
+   "derived_value": "34 passed",
    "documents": [],
    "reproduce": "",
    "caveat": "",
@@ -1124,6 +1175,588 @@
    "documents": [],
    "reproduce": "python verification/compare_trees.py ...",
    "caveat": "",
+   "status": "verified"
+  },
+  {
+   "id": "F120",
+   "category": "measured",
+   "claim": "Persistence resampling gap ranges (slides)",
+   "derived_value": "annulus r₁ = 13.2–25.6, figure-eight r₂ = 7.35–13.8, blob r₁ = 1.00–1.75",
+   "documents": [
+    "slides"
+   ],
+   "reproduce": "python extensions/stability/scripts/run_ph_resampling.py",
+   "caveat": "overlapping subsamples; descriptive",
+   "status": "verified"
+  },
+  {
+   "id": "F121",
+   "category": "measured",
+   "claim": "Shuffled-series r1 range (slides)",
+   "derived_value": "r₁ = 1.007–1.219",
+   "documents": [
+    "slides",
+    "qa"
+   ],
+   "reproduce": "python extensions/controls/scripts/run_weather_null_controls.py",
+   "caveat": "reference configuration only",
+   "status": "verified"
+  },
+  {
+   "id": "F122",
+   "category": "measured",
+   "claim": "Static-cloud r1 (illustration, not a null)",
+   "derived_value": "r₁ = 1.19",
+   "documents": [
+    "slides",
+    "report",
+    "qa"
+   ],
+   "reproduce": "python extensions/meteorology/scripts/run_weather_analysis.py",
+   "caveat": "not a matched null control",
+   "status": "verified"
+  },
+  {
+   "id": "F123",
+   "category": "measured",
+   "claim": "Blob r1 (slides)",
+   "derived_value": "r₁ = 1.45",
+   "documents": [
+    "slides",
+    "report"
+   ],
+   "reproduce": "python scripts/run_e2_sensitivity.py",
+   "caveat": "calibration only",
+   "status": "verified"
+  },
+  {
+   "id": "F124",
+   "category": "measured",
+   "claim": "Annulus KMeans: no cycle counts (slides)",
+   "derived_value": "no cycle in 13/30 subsamples and 20/30 independent redraws",
+   "documents": [
+    "slides"
+   ],
+   "reproduce": "run_mapper_resampling.py; run_independent_draws.py",
+   "caveat": "",
+   "status": "verified"
+  },
+  {
+   "id": "F125",
+   "category": "measured",
+   "claim": "Annulus single-linkage 3.0: one cycle counts (slides)",
+   "derived_value": "one cycle in 30/30 subsamples and 30/30 independent redraws",
+   "documents": [
+    "slides"
+   ],
+   "reproduce": "run_mapper_resampling_control.py; run_independent_draws.py",
+   "caveat": "exploratory scale chosen after the KMeans result",
+   "status": "verified"
+  },
+  {
+   "id": "F126",
+   "category": "measured",
+   "claim": "E3 visual clarity (slides)",
+   "derived_value": "11 of 13 figures judged clearly apparent; 2 of 13 ambiguous",
+   "documents": [
+    "slides"
+   ],
+   "reproduce": "python scripts/analyze_e3_inspection.py",
+   "caveat": "single observer; AI viewing aid",
+   "status": "verified"
+  },
+  {
+   "id": "F127",
+   "category": "measured",
+   "claim": "E3 visual clarity (report)",
+   "derived_value": "11 figures were judged clearly apparent and 2 ambiguous",
+   "documents": [
+    "report",
+    "qa"
+   ],
+   "reproduce": "same",
+   "caveat": "single observer; AI viewing aid",
+   "status": "verified"
+  },
+  {
+   "id": "F128",
+   "category": "measured",
+   "claim": "E3 match with expected property (slides)",
+   "derived_value": "12 of 13 matched fully; 1 of 13 matched partially",
+   "documents": [
+    "slides"
+   ],
+   "reproduce": "same",
+   "caveat": "separate judgment from visual clarity",
+   "status": "verified"
+  },
+  {
+   "id": "F129",
+   "category": "measured",
+   "claim": "E3 match with expected property (report)",
+   "derived_value": "12 figures matched fully and 1 matched partially",
+   "documents": [
+    "report"
+   ],
+   "reproduce": "same",
+   "caveat": "separate judgment from visual clarity",
+   "status": "verified"
+  },
+  {
+   "id": "F130",
+   "category": "measured",
+   "claim": "Automated tests passed (slides)",
+   "derived_value": "203 automated tests passed",
+   "documents": [
+    "slides"
+   ],
+   "reproduce": "python scripts/run_all_tests.py",
+   "caveat": "browser test is separate",
+   "status": "verified"
+  },
+  {
+   "id": "F131",
+   "category": "measured",
+   "claim": "Explorer cells (slides wording)",
+   "derived_value": "35 precomputed Mapper cells",
+   "documents": [
+    "slides"
+   ],
+   "reproduce": "python extensions/mapper_explorer/scripts/build_viewer.py",
+   "caveat": "",
+   "status": "verified"
+  },
+  {
+   "id": "F132",
+   "category": "measured",
+   "claim": "Explorer cells (Q&A wording)",
+   "derived_value": "all 35 cells",
+   "documents": [
+    "qa",
+    "report"
+   ],
+   "reproduce": "same",
+   "caveat": "",
+   "status": "verified"
+  },
+  {
+   "id": "F133",
+   "category": "measured",
+   "claim": "Explorer offline checks (slides wording)",
+   "derived_value": "222/222 checks",
+   "documents": [
+    "slides"
+   ],
+   "reproduce": "python verification/explorer_offline_test.py ...",
+   "caveat": "Chrome 156, Windows 11",
+   "status": "verified"
+  },
+  {
+   "id": "F134",
+   "category": "measured",
+   "claim": "E3 expected-property matches (Q&A wording)",
+   "derived_value": "12 matched fully and 1 partially",
+   "documents": [
+    "qa"
+   ],
+   "reproduce": "same as F128",
+   "caveat": "separate judgment from visual clarity",
+   "status": "verified"
+  },
+  {
+   "id": "F140",
+   "category": "measured",
+   "claim": "E2 annulus reference cell (slide wording)",
+   "derived_value": "20 nodes, 21 edges, 1 component, cyclomatic number 2",
+   "documents": [
+    "slides",
+    "report"
+   ],
+   "reproduce": "python scripts/run_e2_sensitivity.py",
+   "caveat": "",
+   "status": "verified"
+  },
+  {
+   "id": "F141",
+   "category": "measured",
+   "claim": "E2 figure-eight reference cell (slide wording)",
+   "derived_value": "20 nodes, 19 edges, 2 components, cyclomatic number 1",
+   "documents": [
+    "slides",
+    "report"
+   ],
+   "reproduce": "python scripts/run_e2_sensitivity.py",
+   "caveat": "",
+   "status": "verified"
+  },
+  {
+   "id": "F142",
+   "category": "measured",
+   "claim": "E2 blob reference cell (slide wording)",
+   "derived_value": "20 nodes, 23 edges, 1 component, cyclomatic number 4",
+   "documents": [
+    "slides",
+    "report"
+   ],
+   "reproduce": "python scripts/run_e2_sensitivity.py",
+   "caveat": "",
+   "status": "verified"
+  },
+  {
+   "id": "F143",
+   "category": "measured",
+   "claim": "E2 blob fragmented cell (20, 0.20) (slide wording)",
+   "derived_value": "6 components, cyclomatic number 5",
+   "documents": [
+    "slides"
+   ],
+   "reproduce": "python scripts/run_e2_sensitivity.py",
+   "caveat": "",
+   "status": "verified"
+  },
+  {
+   "id": "F144",
+   "category": "measured",
+   "claim": "E1 native-layout component overlap (slide wording)",
+   "derived_value": "0.23 on three blobs, 0.036 on the figure-eight",
+   "documents": [
+    "slides"
+   ],
+   "reproduce": "python scripts/run_e1_audit.py",
+   "caveat": "descriptive layout measure",
+   "status": "verified"
+  },
+  {
+   "id": "F145",
+   "category": "measured",
+   "claim": "D1 annulus c=3.0 row (slide table)",
+   "derived_value": "Annulus, c = 3.0 | 17 / 1 / 1 | 10 | 11",
+   "documents": [
+    "slides"
+   ],
+   "reproduce": "python extensions/controls/scripts/run_mapper_clusterer_control.py",
+   "caveat": "scale chosen post hoc",
+   "status": "verified"
+  },
+  {
+   "id": "F146",
+   "category": "measured",
+   "claim": "D1 annulus c=1.5 row (slide table)",
+   "derived_value": "Annulus, c = 1.5 | 27 / 3 / 1 | 0 | 8",
+   "documents": [
+    "slides"
+   ],
+   "reproduce": "same",
+   "caveat": "scale chosen post hoc",
+   "status": "verified"
+  },
+  {
+   "id": "F147",
+   "category": "measured",
+   "claim": "D1 figure-eight c=3.0 row (slide table)",
+   "derived_value": "Figure-eight, c = 3.0 | 13 / 1 / 2 | 12 | 8",
+   "documents": [
+    "slides"
+   ],
+   "reproduce": "same",
+   "caveat": "scale chosen post hoc",
+   "status": "verified"
+  },
+  {
+   "id": "F148",
+   "category": "measured",
+   "claim": "D1 figure-eight c=1.5 row (slide table)",
+   "derived_value": "Figure-eight, c = 1.5 | 29 / 5 / 0 | 0 | 0",
+   "documents": [
+    "slides"
+   ],
+   "reproduce": "same",
+   "caveat": "scale chosen post hoc",
+   "status": "verified"
+  },
+  {
+   "id": "F149",
+   "category": "measured",
+   "claim": "D1 blob c=3.0 row (slide table)",
+   "derived_value": "Blob, c = 3.0 | 26 / 9 / 0 | 0 | 3",
+   "documents": [
+    "slides"
+   ],
+   "reproduce": "same",
+   "caveat": "scale chosen post hoc",
+   "status": "verified"
+  },
+  {
+   "id": "F150",
+   "category": "measured",
+   "claim": "D1 blob c=1.5 row (slide table)",
+   "derived_value": "Blob, c = 1.5 | 79 / 36 / 0 | 0 | 2",
+   "documents": [
+    "slides"
+   ],
+   "reproduce": "same",
+   "caveat": "scale chosen post hoc",
+   "status": "verified"
+  },
+  {
+   "id": "F151",
+   "category": "measured",
+   "claim": "Sweep (30, 8) row (slide table)",
+   "derived_value": "(30, 8) | 5.625 | 1.998",
+   "documents": [
+    "slides"
+   ],
+   "reproduce": "python extensions/meteorology/scripts/run_weather_analysis.py",
+   "caveat": "one dataset",
+   "status": "verified"
+  },
+  {
+   "id": "F152",
+   "category": "measured",
+   "claim": "Sweep (45, 9) row (slide table)",
+   "derived_value": "(45, 9) | 7.319 | 2.571",
+   "documents": [
+    "slides"
+   ],
+   "reproduce": "same",
+   "caveat": "one dataset",
+   "status": "verified"
+  },
+  {
+   "id": "F153",
+   "category": "measured",
+   "claim": "Sweep (52, 8) row (slide table)",
+   "derived_value": "(52, 8) | 4.922 | 2.039",
+   "documents": [
+    "slides"
+   ],
+   "reproduce": "same",
+   "caveat": "one dataset",
+   "status": "verified"
+  },
+  {
+   "id": "F154",
+   "category": "measured",
+   "claim": "Sweep (60, 8) reference row (slide table)",
+   "derived_value": "(60, 8) reference | 6.753 | 2.167",
+   "documents": [
+    "slides"
+   ],
+   "reproduce": "same",
+   "caveat": "one dataset",
+   "status": "verified"
+  },
+  {
+   "id": "F155",
+   "category": "measured",
+   "claim": "Sweep (73, 6) row (slide table)",
+   "derived_value": "(73, 6) | 4.745 | 1.417",
+   "documents": [
+    "slides"
+   ],
+   "reproduce": "same",
+   "caveat": "one dataset",
+   "status": "verified"
+  },
+  {
+   "id": "F156",
+   "category": "measured",
+   "claim": "Sweep (90, 8) row (slide table)",
+   "derived_value": "(90, 8) | 5.761 | 2.121",
+   "documents": [
+    "slides"
+   ],
+   "reproduce": "same",
+   "caveat": "one dataset",
+   "status": "verified"
+  },
+  {
+   "id": "F157",
+   "category": "measured",
+   "claim": "Reference embedding span and window count (slide wording)",
+   "derived_value": "(60, 8): span 420 days, 1,772 windows from 2,192 days",
+   "documents": [
+    "slides"
+   ],
+   "reproduce": "same",
+   "caveat": "stride 1",
+   "status": "verified"
+  },
+  {
+   "id": "F158",
+   "category": "measured",
+   "claim": "Static-cloud PCA variance (slide wording)",
+   "derived_value": "PC1 explains 69.0 %, PC2 28.6 %, 97.6 % together",
+   "documents": [
+    "slides"
+   ],
+   "reproduce": "same",
+   "caveat": "",
+   "status": "verified"
+  },
+  {
+   "id": "F159",
+   "category": "measured",
+   "claim": "Static-cloud day count (slide wording)",
+   "derived_value": "2,188 days",
+   "documents": [
+    "slides"
+   ],
+   "reproduce": "same",
+   "caveat": "after dropping four SLP-missing days",
+   "status": "verified"
+  },
+  {
+   "id": "F160",
+   "category": "measured",
+   "claim": "Resample dominant persistence, annulus (slide table)",
+   "derived_value": "1.439–1.575",
+   "documents": [
+    "slides",
+    "report"
+   ],
+   "reproduce": "python extensions/stability/scripts/run_ph_resampling.py",
+   "caveat": "overlapping subsamples",
+   "status": "verified"
+  },
+  {
+   "id": "F161",
+   "category": "measured",
+   "claim": "Resample dominant persistence, figure-eight (slide table)",
+   "derived_value": "0.458–0.511",
+   "documents": [
+    "slides",
+    "report"
+   ],
+   "reproduce": "same",
+   "caveat": "overlapping subsamples",
+   "status": "verified"
+  },
+  {
+   "id": "F162",
+   "category": "measured",
+   "claim": "Resample dominant persistence, blob (slide table)",
+   "derived_value": "0.092–0.181",
+   "documents": [
+    "slides",
+    "report"
+   ],
+   "reproduce": "same",
+   "caveat": "overlapping subsamples",
+   "status": "verified"
+  },
+  {
+   "id": "F163",
+   "category": "measured",
+   "claim": "Independent-redraw dominant persistence, annulus (slide table)",
+   "derived_value": "1.447–1.587",
+   "documents": [
+    "slides",
+    "report"
+   ],
+   "reproduce": "python extensions/controls/scripts/run_independent_draws.py",
+   "caveat": "",
+   "status": "verified"
+  },
+  {
+   "id": "F164",
+   "category": "measured",
+   "claim": "Independent-redraw dominant persistence, figure-eight (slide table)",
+   "derived_value": "0.445–0.553",
+   "documents": [
+    "slides",
+    "report"
+   ],
+   "reproduce": "same",
+   "caveat": "",
+   "status": "verified"
+  },
+  {
+   "id": "F165",
+   "category": "measured",
+   "claim": "Independent-redraw dominant persistence, blob (slide table)",
+   "derived_value": "0.078–0.157",
+   "documents": [
+    "slides",
+    "report"
+   ],
+   "reproduce": "same",
+   "caveat": "",
+   "status": "verified"
+  },
+  {
+   "id": "F166",
+   "category": "measured",
+   "claim": "KMeans resampled graph row, annulus (slide table)",
+   "derived_value": "Annulus | 1: 24, 2: 6 | 0: 13, 1: 9, 2: 8",
+   "documents": [
+    "slides"
+   ],
+   "reproduce": "python extensions/stability/scripts/run_mapper_resampling.py",
+   "caveat": "KMeans k=2",
+   "status": "verified"
+  },
+  {
+   "id": "F167",
+   "category": "measured",
+   "claim": "KMeans resampled graph row, figure-eight (slide table)",
+   "derived_value": "Figure-eight | 2: 24, 1: 6 | 0: 12, 1: 18",
+   "documents": [
+    "slides"
+   ],
+   "reproduce": "same",
+   "caveat": "KMeans k=2",
+   "status": "verified"
+  },
+  {
+   "id": "F168",
+   "category": "measured",
+   "claim": "KMeans resampled graph row, blob (slide table)",
+   "derived_value": "Blob | 1: 10, 2: 12, 3: 8 | 1–6",
+   "documents": [
+    "slides"
+   ],
+   "reproduce": "same",
+   "caveat": "KMeans k=2",
+   "status": "verified"
+  },
+  {
+   "id": "F170",
+   "category": "measured",
+   "claim": "H0 bottleneck call times (runtime slide)",
+   "derived_value": "Individual H0 bottleneck calls took 0.2–75 s across the 90 resamples (0.6–75 s for the blob)",
+   "documents": [
+    "slides",
+    "report"
+   ],
+   "reproduce": "recorded in extensions/stability/results/ph_resampling.json",
+   "caveat": "observed on the reported workload and environment; not a benchmark",
+   "status": "verified"
+  },
+  {
+   "id": "F171",
+   "category": "measured",
+   "claim": "H0 bottleneck share of recorded distance time (runtime slide)",
+   "derived_value": "826 of the 833 s of recorded distance-computation time",
+   "documents": [
+    "slides",
+    "report"
+   ],
+   "reproduce": "same",
+   "caveat": "observed runtimes",
+   "status": "verified"
+  },
+  {
+   "id": "F172",
+   "category": "measured",
+   "claim": "Leave-one-year-out runtime (runtime slide)",
+   "derived_value": "about 4 minutes (36 embeddings, 250 s of recorded ripser time)",
+   "documents": [
+    "slides",
+    "report"
+   ],
+   "reproduce": "recorded in extensions/stability/results/weather_loyo.json",
+   "caveat": "observed runtimes; wall-clock sums of per-configuration ripser timings",
    "status": "verified"
   }
  ]

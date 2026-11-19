@@ -58,8 +58,8 @@ python -m pytest extensions/mapper_explorer/tests/ -q     # 19 tests
 The builder reads only the saved outputs (E2 sensitivity + blob sanity,
 Extension A weather mapper/analysis results, E1 point clouds and persistence
 diagrams), verifies each cell's graph against its saved structure statistics,
-computes the two deterministic layouts with the same seeds as the project
-figures, and writes `viewer/index.html`, `data/explorer_data.json`, and
+computes the two deterministic layouts (native: networkx spring layout, seed 42;
+component-separated: radius-aware, section 6), and writes `viewer/index.html`, `data/explorer_data.json`, and
 `results/build_report.json` (with source SHA-256 checksums). Missing inputs
 produce a clear `BUILD ERROR` naming the missing artifact.
 
@@ -95,7 +95,9 @@ scripts/build_viewer.py    builder: saved results -> data + viewer
 data/explorer_data.json    standalone copy of the embedded data
 results/build_report.json  build record (sizes, checksums, cell counts)
 results/browser_test.json  offline + interaction test record
-tests/test_explorer.py     19 pytest checks (data, layouts, export, HTML, errors)
+tests/test_explorer.py     pytest checks (data, layouts, export, HTML, errors)
+tests/test_layout_geometry.py  pytest checks of the component-separated layout (invariants, no overlap)
+scripts/layout_geometry.py radius-aware component-separated layout used by the builder
 figures/screenshot_*.png   5 screenshots from the real viewer (headless Chromium)
 PRIOR_ART.md               documented prior-art search and novelty position
 ```
@@ -115,3 +117,19 @@ PRIOR_ART.md               documented prior-art search and novelty position
   a different lens, not a different cover cell of the same grid).
 - Export contains the displayed values verbatim; it deliberately includes
   the caveats so exported snapshots cannot be silently de-contextualized.
+
+## 6. The two renderings
+
+* **Native layout** (spring, seed 42): the networkx spring layout of the whole graph, normalised into the
+  drawing area. Unchanged.
+* **Component-separated rendering** (`scripts/layout_geometry.py`): every connected component is laid out on its
+  own (seeded spring layout, then collision relaxation) using the radii that the viewer draws
+  (`r = 1.6 + 4.6 sqrt(members / largest membership in the cell)` plus half the stroke width), so that the
+  distance between any two circles is at least the sum of their radii plus a clearance of 0.8 drawing units.
+  Components are packed with their complete rendered bounds plus a padding of 3 units. The drawing area is
+  100 units wide and grows taller when the nodes need more room (stored per cell as `layout_separated_viewbox`);
+  nodes are never shrunk, so node area stays proportional to membership.
+* Only coordinates differ between the renderings. Nodes, edges, memberships and statistics come from the one saved
+  graph. The first version of this rendering placed centres only (components were squeezed into bands and
+  then stretched independently in x and y), which made circles overlap for graphs such as the weather cell
+  (20, 0.35); `tests/test_layout_geometry.py` and `verification/explorer_layout_browser_test.py` guard against it.

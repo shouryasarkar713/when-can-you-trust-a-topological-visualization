@@ -21,8 +21,9 @@ Data sources (all precomputed):
   extensions/meteorology/results/weather_state_space_dgms.npz
   extensions/meteorology/results/weather_seasonal_ph_dgms.npz (reference config)
 
-Layouts are computed here (deterministic, seeded, same conventions as the
-project figures) and embedded as coordinates; the viewer never recomputes a
+Layouts are computed here (deterministic, seeded) and embedded as coordinates. The native layout is
+networkx's spring layout (seed 42); the component-separated layout is radius-aware
+(scripts/layout_geometry.py: circles never overlap, components are packed using their rendered bounds); the viewer never recomputes a
 layout, so switching the rendering cannot modify graph structure.
 
 Usage: python extensions/mapper_explorer/scripts/build_viewer.py
@@ -44,7 +45,8 @@ import numpy as np
 EXT_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_REPO_ROOT = EXT_ROOT.parents[1]
 sys.path.insert(0, str(DEFAULT_REPO_ROOT))
-from src.figures import component_separated_layout  # noqa: E402
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from layout_geometry import radius_aware_component_layout  # noqa: E402
 
 SCHEMA_VERSION = "1.0.0"
 
@@ -171,7 +173,7 @@ def _cell_payload(cell: dict, is_reference: bool,
     with warnings.catch_warnings():
         warnings.simplefilter("ignore", RuntimeWarning)  # benign np.where guard
         pos_native = _normalize_layout(dict(nx.spring_layout(G, seed=42)))
-        pos_sep = _normalize_layout(component_separated_layout(G, seed=42))
+        pos_sep, sep_box = radius_aware_component_layout(gj["nodes"], gj["links"])
     structure = {k: st[k] for k in (
         "n_nodes", "n_edges", "n_components", "cyclomatic_number",
         "max_basis_cycle_length", "mean_basis_cycle_length")}
@@ -185,6 +187,7 @@ def _cell_payload(cell: dict, is_reference: bool,
         "graph": {"nodes": gj["nodes"], "links": gj["links"]},
         "layout_native": pos_native,
         "layout_separated": pos_sep,
+        "layout_separated_viewbox": sep_box,
     }
     if reference_stats is not None and not is_reference:
         payload["delta_vs_reference"] = {
@@ -335,13 +338,15 @@ def build(repo_root: Path) -> dict:
         "graph": {"nodes": doy["graph"]["nodes"], "links": doy["graph"]["links"]},
         "layout_native": None,   # filled below
         "layout_separated": None,
+        "layout_separated_viewbox": None,
         "delta_vs_reference": None,
     }
     G = _graph_from_json(doy["graph"])
     with warnings.catch_warnings():
         warnings.simplefilter("ignore", RuntimeWarning)
         doy_cell["layout_native"] = _normalize_layout(dict(nx.spring_layout(G, seed=42)))
-        doy_cell["layout_separated"] = _normalize_layout(component_separated_layout(G, seed=42))
+        doy_cell["layout_separated"], doy_cell["layout_separated_viewbox"] = radius_aware_component_layout(
+            doy["graph"]["nodes"], doy["graph"]["links"])
     ss_stats = wxaj["state_space_ph"]
     sw_stats = wxaj["seasonal_ph"]["sweep"][ref_sw]
     datasets["weather"] = {

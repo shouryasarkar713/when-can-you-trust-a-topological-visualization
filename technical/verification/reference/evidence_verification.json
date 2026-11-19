@@ -312,7 +312,7 @@
    "detail": ""
   },
   {
-   "name": "F059: '0.041' derived from results and present in report,slides",
+   "name": "F059: '0.041' derived from results and present in report,qa",
    "pass": true,
    "detail": ""
   },
@@ -427,7 +427,7 @@
    "detail": ""
   },
   {
-   "name": "F110: '192 passed, 0 failed' derived from results and present in report",
+   "name": "F110: '192 passed, 0 failed' derived from results and present in report,qa",
    "pass": true,
    "detail": ""
   },
@@ -458,6 +458,61 @@
   },
   {
    "name": "F104: '5 files identical' derived from results and present in ",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F120: 'annulus r₁ = 13.2–25.6, figure-eight r₂ = 7.35–13.8, blob r₁ = 1.00–1.' derived from results and present in slides",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F121: 'r₁ = 1.007–1.219' derived from results and present in slides",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F122: 'r₁ = 1.19' derived from results and present in slides",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F123: 'r₁ = 1.45' derived from results and present in slides",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F124: 'no cycle in 13/30 subsamples and 20/30 independent redraws' derived from results and present in slides",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F125: 'one cycle in 30/30 subsamples and 30/30 independent redraws' derived from results and present in slides",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F126: '11 of 13 figures judged clearly apparent; 2 of 13 ambiguous' derived from results and present in slides",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F127: '11 figures were judged clearly apparent and 2 ambiguous' derived from results and present in report",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F128: '12 of 13 matched fully; 1 of 13 matched partially' derived from results and present in slides",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F129: '12 figures matched fully and 1 matched partially' derived from results and present in report",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F130: '192 automated tests passed' derived from results and present in slides",
    "pass": true,
    "detail": ""
   },
@@ -922,37 +977,27 @@
    "detail": ""
   },
   {
-   "name": "URL well-formed: https://doi.org/10.1007/s41468-021-00071-5",
+   "name": "URL well-formed: https://www.jmlr.org/papers/v22/20-325.html",
    "pass": true,
    "detail": ""
   },
   {
-   "name": "URL well-formed: https://www.jmlr.org/papers/v21/19-540.html",
+   "name": "URL well-formed: https://doi.org/10.1007/s00454-006-1276-5",
    "pass": true,
    "detail": ""
   },
   {
-   "name": "URL well-formed: https://doi.org/10.5281/zenodo.2533369",
+   "name": "URL well-formed: https://doi.org/10.1109/TVCG.2013.126",
    "pass": true,
    "detail": ""
   },
   {
-   "name": "URL well-formed: https://doi.org/10.1007/s10208-017-9370-z",
+   "name": "URL well-formed: https://doi.org/10.1109/TVCG.2009.111",
    "pass": true,
    "detail": ""
   },
   {
-   "name": "URL well-formed: https://doi.org/10.1109/TVCG.2013.124",
-   "pass": true,
-   "detail": ""
-  },
-  {
-   "name": "URL well-formed: https://psl.noaa.gov/data/correlation/oni.data",
-   "pass": true,
-   "detail": ""
-  },
-  {
-   "name": "URL well-formed: https://doi.org/10.1007/978-3-662-44199-2_28",
+   "name": "URL well-formed: https://github.com/lucasimi/tda-mapper-python",
    "pass": true,
    "detail": ""
   },
@@ -962,22 +1007,17 @@
    "detail": ""
   },
   {
-   "name": "URL well-formed: https://www.jmlr.org/papers/v22/20-325.html",
+   "name": "URL well-formed: https://psl.noaa.gov/data/correlation/oni.data",
    "pass": true,
    "detail": ""
   },
   {
-   "name": "URL well-formed: https://doi.org/10.21105/joss.01315",
+   "name": "URL well-formed: https://doi.org/10.5281/zenodo.2533369",
    "pass": true,
    "detail": ""
   },
   {
-   "name": "URL well-formed: https://doi.org/10.1145/142750.142834",
-   "pass": true,
-   "detail": ""
-  },
-  {
-   "name": "URL well-formed: https://doi.org/10.1007/s41468-020-00063-x",
+   "name": "URL well-formed: https://doi.org/10.1186/s12859-015-0645-6",
    "pass": true,
    "detail": ""
   },
@@ -992,67 +1032,7 @@
    "detail": ""
   },
   {
-   "name": "URL well-formed: https://www.ncei.noaa.gov/data/global-summary-of-the-day/",
-   "pass": true,
-   "detail": ""
-  },
-  {
-   "name": "URL well-formed: https://doi.org/10.1109/TVCG.2009.111",
-   "pass": true,
-   "detail": ""
-  },
-  {
-   "name": "URL well-formed: https://doi.org/10.2312/SPBG/SPBG07/091-100",
-   "pass": true,
-   "detail": ""
-  },
-  {
-   "name": "URL well-formed: https://doi.org/10.1109/TVCG.2014.2346321",
-   "pass": true,
-   "detail": ""
-  },
-  {
-   "name": "URL well-formed: https://github.com/shouryasarkar713/when-can-you-trust-a-topological-visualizati",
-   "pass": true,
-   "detail": ""
-  },
-  {
-   "name": "URL well-formed: https://doi.org/10.1007/s00454-002-2885-2",
-   "pass": true,
-   "detail": ""
-  },
-  {
-   "name": "URL well-formed: https://doi.org/10.5194/gmd-12-613-2019",
-   "pass": true,
-   "detail": ""
-  },
-  {
-   "name": "URL well-formed: https://doi.org/10.1109/TVCG.2013.126",
-   "pass": true,
-   "detail": ""
-  },
-  {
-   "name": "URL well-formed: https://arxiv.org/abs/2606.21688",
-   "pass": true,
-   "detail": ""
-  },
-  {
-   "name": "URL well-formed: https://github.com/lucasimi/tda-mapper-python",
-   "pass": true,
-   "detail": ""
-  },
-  {
-   "name": "URL well-formed: https://www.jmlr.org/papers/v19/17-291.html",
-   "pass": true,
-   "detail": ""
-  },
-  {
-   "name": "URL well-formed: https://am.ieeevis.org/year/2026/program/content/9e4af3b5-5f6d-4b27-ba09-7ea9190",
-   "pass": true,
-   "detail": ""
-  },
-  {
-   "name": "URL well-formed: https://doi.org/10.1109/TVCG.2011.279",
+   "name": "URL well-formed: https://doi.org/10.21105/joss.01315",
    "pass": true,
    "detail": ""
   },
@@ -1062,17 +1042,92 @@
    "detail": ""
   },
   {
-   "name": "URL well-formed: https://doi.org/10.1007/s00454-006-1276-5",
+   "name": "URL well-formed: https://github.com/shouryasarkar713/when-can-you-trust-a-topological-visualizati",
    "pass": true,
    "detail": ""
   },
   {
-   "name": "URL well-formed: https://doi.org/10.1186/s12859-015-0645-6",
+   "name": "URL well-formed: https://doi.org/10.1109/TVCG.2013.124",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "URL well-formed: https://doi.org/10.1007/s00454-002-2885-2",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "URL well-formed: https://www.jmlr.org/papers/v21/19-540.html",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "URL well-formed: https://www.ncei.noaa.gov/data/global-summary-of-the-day/",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "URL well-formed: https://www.jmlr.org/papers/v19/17-291.html",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "URL well-formed: https://doi.org/10.1109/TVCG.2014.2346321",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "URL well-formed: https://doi.org/10.2312/SPBG/SPBG07/091-100",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "URL well-formed: https://doi.org/10.1145/142750.142834",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "URL well-formed: https://doi.org/10.1007/s41468-020-00063-x",
    "pass": true,
    "detail": ""
   },
   {
    "name": "URL well-formed: https://doi.org/10.1007/s10208-014-9206-z",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "URL well-formed: https://doi.org/10.5194/gmd-12-613-2019",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "URL well-formed: https://doi.org/10.1109/TVCG.2011.279",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "URL well-formed: https://am.ieeevis.org/year/2026/program/content/9e4af3b5-5f6d-4b27-ba09-7ea9190",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "URL well-formed: https://doi.org/10.1007/s41468-021-00071-5",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "URL well-formed: https://doi.org/10.1007/s10208-017-9370-z",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "URL well-formed: https://arxiv.org/abs/2606.21688",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "URL well-formed: https://doi.org/10.1007/978-3-662-44199-2_28",
    "pass": true,
    "detail": ""
   },
@@ -1104,7 +1159,7 @@
   {
    "name": "slide count == notes sections",
    "pass": true,
-   "detail": "14 vs 14"
+   "detail": "15 vs 15"
   },
   {
    "name": "embedded PPTX notes identical to speaker_notes.md",
@@ -1114,17 +1169,17 @@
   {
    "name": "every slide has speaker notes of 60-200 words",
    "pass": true,
-   "detail": "[73, 87, 73, 86, 93, 132, 93, 88, 106, 98, 88, 98, 115, 94]"
+   "detail": "[70, 101, 119, 68, 86, 101, 104, 105, 109, 124, 87, 80, 100, 85, 90]"
   },
   {
    "name": "documented narration duration equals actual word count / 130 wpm",
    "pass": true,
-   "detail": "('1324', '10.2')"
+   "detail": "('1429', '11.0')"
   },
   {
    "name": "talk length 9-12 minutes",
    "pass": true,
-   "detail": "10.2 min"
+   "detail": "11.0 min"
   },
   {
    "name": "requirements pin ripser==0.6.15",
@@ -1313,10 +1368,10 @@
   }
  ],
  "report_pdf_pages": 36,
- "n_facts": 79,
+ "n_facts": 90,
  "summary": {
-  "n_checks": 262,
-  "n_pass": 262,
+  "n_checks": 273,
+  "n_pass": 273,
   "failed": []
  }
 }

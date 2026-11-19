@@ -63,6 +63,9 @@ def read_pptx(p):
         for sh in s.shapes:
             if sh.has_text_frame:
                 t.append(sh.text_frame.text)
+            elif getattr(sh, "has_table", False) and sh.has_table:
+                for row in sh.table.rows:
+                    t.append(" | ".join(c.text_frame.text for c in row.cells))
         slides.append("\n".join(t))
         notes.append(s.notes_slide.notes_text_frame.text if s.has_notes_slide else "")
     return slides, notes
@@ -276,12 +279,18 @@ def main():
         check("slide count == notes sections", len(slides_t) == len(n_md), f"{len(slides_t)} vs {len(n_md)}")
         same = [i + 1 for i, (x, y) in enumerate(zip(notes_t, n_md)) if x.strip() != y.strip()]
         check("embedded PPTX notes identical to speaker_notes.md", not same, same)
-        check("every slide has speaker notes of 60-200 words",
-              all(60 <= len(x.split()) <= 200 for x in notes_t), [len(x.split()) for x in notes_t])
-        words = sum(len(x.split()) for x in notes_t)
-        m = re.search(r"Narration word count: (\d+); at 130 words per minute: ([0-9.]+) minutes", notes_md.read_text(encoding="utf8"))
-        check("documented narration duration equals actual word count / 130 wpm", m and int(m.group(1)) == words and abs(float(m.group(2)) - words / 130) < 0.06, (m.groups() if m else None))
-        check("talk length 9-12 minutes", 9 <= words / 130 <= 12, f"{words/130:.1f} min")
+        check("every slide has speaker notes of 30-200 words",
+              all(30 <= len(x.split()) <= 200 for x in notes_t), [len(x.split()) for x in notes_t])
+        div = next((i for i, x in enumerate(slides_t) if x.strip().startswith("Supplementary Evidence and Additional Results")), len(slides_t))
+        words = sum(len(x.split()) for x in notes_t[:div])
+        supp_words = sum(len(x.split()) for x in notes_t[div:])
+        m = re.search(r"Narration word count: (\d+) \(main talk, slides 1-(\d+)\); at 130 words per minute: ([0-9.]+) minutes\. Supplementary notes: (\d+) words",
+                      notes_md.read_text(encoding="utf8"))
+        check("documented narration duration equals actual main-talk word count / 130 wpm",
+              bool(m) and int(m.group(1)) == words and int(m.group(2)) == div and abs(float(m.group(3)) - words / 130) < 0.06 and int(m.group(4)) == supp_words,
+              (m.groups() if m else None, words, div, supp_words))
+        check("main talk length 10-12.5 minutes at 130 wpm (slides before the supplementary divider; the live explorer demonstration is not counted)", 10 <= words / 130 <= 12.5, f"{words/130:.1f} min")
+        check("supplementary section is introduced by a divider slide", div < len(slides_t), div)
         for fid, cat, claim, fn, where, cmd, cav in F.FACTS:
             pass
 

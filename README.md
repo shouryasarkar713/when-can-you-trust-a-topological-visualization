@@ -41,7 +41,7 @@ Full discussion: report Sections 10 and 11.
 | Item | Files |
 |---|---|
 | Final report | [PDF](submission/report/Final_Report.pdf) · [DOCX](submission/report/Final_Report.docx) · [Markdown source](submission/report/Final_Report.md) (figures in `submission/report/figures/`) |
-| Presentation | [PPTX, 14 slides, speaker notes embedded](submission/presentation/Final_Presentation.pptx) · [PDF](submission/presentation/Final_Presentation.pdf) · [speaker notes](submission/presentation/Speaker_Notes.md) |
+| Presentation | [PPTX, 48 slides (a 27-slide talk, a divider and 20 supplementary slides), speaker notes embedded](submission/presentation/Final_Presentation.pptx) · [PDF](submission/presentation/Final_Presentation.pdf) · [speaker notes](submission/presentation/Speaker_Notes.md) |
 | Q&A preparation | [DOCX](submission/presentation/QA_Preparation.docx) · [PDF](submission/presentation/QA_Preparation.pdf) |
 
 ## Directory guide

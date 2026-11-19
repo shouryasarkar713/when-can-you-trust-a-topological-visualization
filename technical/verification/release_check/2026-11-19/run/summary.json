@@ -1,0 +1,214 @@
+{
+  "started_utc": "2026-11-19T04:25:32+00:00",
+  "python": "3.12.13",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "steps": [
+    {
+      "step": "tests",
+      "kind": "pytest",
+      "log": "pytest_tests.log",
+      "exit_code": 0,
+      "counts": {
+        "tests": 86,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "outcome": "PASS",
+      "ok": true,
+      "result": "PASS"
+    },
+    {
+      "step": "extensions/meteorology/tests",
+      "kind": "pytest",
+      "log": "pytest_extensions_meteorology_tests.log",
+      "exit_code": 0,
+      "counts": {
+        "tests": 44,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "outcome": "PASS",
+      "ok": true,
+      "result": "PASS"
+    },
+    {
+      "step": "extensions/mapper_explorer/tests",
+      "kind": "pytest",
+      "log": "pytest_extensions_mapper_explorer_tests.log",
+      "exit_code": 0,
+      "counts": {
+        "tests": 34,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "outcome": "PASS",
+      "ok": true,
+      "result": "PASS"
+    },
+    {
+      "step": "extensions/stability/tests",
+      "kind": "pytest",
+      "log": "pytest_extensions_stability_tests.log",
+      "exit_code": 0,
+      "counts": {
+        "tests": 29,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "outcome": "PASS",
+      "ok": true,
+      "result": "PASS"
+    },
+    {
+      "step": "extensions/controls/tests",
+      "kind": "pytest",
+      "log": "pytest_extensions_controls_tests.log",
+      "exit_code": 0,
+      "counts": {
+        "tests": 10,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "outcome": "PASS",
+      "ok": true,
+      "result": "PASS"
+    },
+    {
+      "step": "baseline manifest (immediately after the suites)",
+      "kind": "script",
+      "exit_code": 0,
+      "outcome": "PASS",
+      "ok": true,
+      "result": "PASS"
+    },
+    {
+      "step": "scripts/verify_env.py (temporary copy)",
+      "kind": "script",
+      "exit_code": 0,
+      "outcome": "PASS",
+      "ok": true,
+      "result": "PASS 38/38 checks passed."
+    },
+    {
+      "step": "verify_evidence.py",
+      "kind": "script",
+      "exit_code": 0,
+      "outcome": "PASS",
+      "ok": true,
+      "result": "PASS 310/310 checks passed; 126 derived facts"
+    },
+    {
+      "step": "explorer offline browser test",
+      "kind": "script",
+      "exit_code": 0,
+      "outcome": "PASS",
+      "ok": true,
+      "result": "PASS"
+    },
+    {
+      "step": "protected tree unchanged by the run",
+      "kind": "integrity",
+      "exit_code": 0,
+      "outcome": "PASS",
+      "ok": true,
+      "result": "PASS (413 files identical before/after)"
+    }
+  ],
+  "tree_integrity": {
+    "protected_tree": "<repo-root>",
+    "files_hashed": 413,
+    "changes": []
+  },
+  "reference_comparison": {
+    "reference_file": "..\\verification\\reference\\test_results.json",
+    "reference_run_started_utc": "2026-10-28T14:22:53+00:00",
+    "identical_counts": false,
+    "suites": [
+      {
+        "suite": "tests",
+        "reference": [
+          86,
+          0,
+          0
+        ],
+        "fresh": [
+          86,
+          0,
+          0
+        ],
+        "same": true
+      },
+      {
+        "suite": "extensions/meteorology/tests",
+        "reference": [
+          44,
+          0,
+          0
+        ],
+        "fresh": [
+          44,
+          0,
+          0
+        ],
+        "same": true
+      },
+      {
+        "suite": "extensions/mapper_explorer/tests",
+        "reference": [
+          23,
+          0,
+          0
+        ],
+        "fresh": [
+          34,
+          0,
+          0
+        ],
+        "same": false
+      },
+      {
+        "suite": "extensions/stability/tests",
+        "reference": [
+          29,
+          0,
+          0
+        ],
+        "fresh": [
+          29,
+          0,
+          0
+        ],
+        "same": true
+      },
+      {
+        "suite": "extensions/controls/tests",
+        "reference": [
+          10,
+          0,
+          0
+        ],
+        "fresh": [
+          10,
+          0,
+          0
+        ],
+        "same": true
+      }
+    ],
+    "note": "(passed, failed, skipped)"
+  },
+  "totals": {
+    "tests": 203,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "failed_steps": [],
+  "overall": "PASS",
+  "finished_utc": "2026-11-19T04:31:50+00:00"
+}

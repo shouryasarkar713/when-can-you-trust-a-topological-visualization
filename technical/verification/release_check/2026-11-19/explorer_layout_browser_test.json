@@ -1,0 +1,99 @@
+{
+ "viewer": "index.html",
+ "cells_tested": 8,
+ "external_requests": [],
+ "console_errors_or_warnings": [],
+ "page_errors": [],
+ "failures": [],
+ "per_cell": [
+  {
+   "cell": "weather:nc20_po0.35",
+   "nodes": 40,
+   "edges": 49,
+   "separated_viewbox": [
+    100,
+    108.317
+   ],
+   "min_circle_margin": -0.01,
+   "native_overlapping_pairs_in_dom": 55
+  },
+  {
+   "cell": "weather:nc20_po0.5",
+   "nodes": 40,
+   "edges": 52,
+   "separated_viewbox": [
+    100,
+    152.191
+   ],
+   "min_circle_margin": -0.008,
+   "native_overlapping_pairs_in_dom": 53
+  },
+  {
+   "cell": "weather:nc10_po0.35",
+   "nodes": 20,
+   "edges": 26,
+   "separated_viewbox": [
+    100,
+    82.609
+   ],
+   "min_circle_margin": -0.008,
+   "native_overlapping_pairs_in_dom": 5
+  },
+  {
+   "cell": "annulus:nc10_po0.35",
+   "nodes": 20,
+   "edges": 21,
+   "separated_viewbox": [
+    100,
+    82.609
+   ],
+   "min_circle_margin": 0.505,
+   "native_overlapping_pairs_in_dom": 4
+  },
+  {
+   "cell": "figure_eight:nc10_po0.35",
+   "nodes": 20,
+   "edges": 19,
+   "separated_viewbox": [
+    100,
+    84.454
+   ],
+   "min_circle_margin": -0.008,
+   "native_overlapping_pairs_in_dom": 12
+  },
+  {
+   "cell": "figure_eight:nc20_po0.2",
+   "nodes": 40,
+   "edges": 36,
+   "separated_viewbox": [
+    100,
+    119.122
+   ],
+   "min_circle_margin": -0.008,
+   "native_overlapping_pairs_in_dom": 43
+  },
+  {
+   "cell": "blob:nc20_po0.2",
+   "nodes": 38,
+   "edges": 37,
+   "separated_viewbox": [
+    100,
+    88.098
+   ],
+   "min_circle_margin": -0.008,
+   "native_overlapping_pairs_in_dom": 80
+  },
+  {
+   "cell": "annulus:nc20_po0.5",
+   "nodes": 40,
+   "edges": 44,
+   "separated_viewbox": [
+    100,
+    166.275
+   ],
+   "min_circle_margin": -0.004,
+   "native_overlapping_pairs_in_dom": 48
+  }
+ ],
+ "pass": true
+}

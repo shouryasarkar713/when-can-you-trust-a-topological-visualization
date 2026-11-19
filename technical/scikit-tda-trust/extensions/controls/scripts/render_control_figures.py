@@ -59,7 +59,7 @@ def fig_weather():
     ax.set_xticks(x)
     ax.set_xticklabels([f"τ={d['raw'][k]['tau']}, d={d['raw'][k]['d']}" for k in keys], fontsize=8)
     ax.set_ylabel("gap ratio r₁ = p₁ / p₂ (H1)")
-    ax.set_title("Matched null controls remove the dominant H1 cue (H1 gap ratio r₁ = p₁ / p₂)", fontsize=9.5)
+    ax.set_title("H1 gap ratio by series construction", fontsize=9.5)
     ax.legend(fontsize=7.5, frameon=False, loc="upper center", bbox_to_anchor=(0.5, -0.13), ncol=1)
     fig.savefig(FIG / "d2_weather_null_controls.png", dpi=150)
     plt.close(fig)

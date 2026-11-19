@@ -1,0 +1,3 @@
+$ <python> -B <repo-root>\technical\verification\verify_evidence.py --root <repo-root> --out <log-dir>\evidence_verification.json
+
+310/310 checks passed; 126 derived facts

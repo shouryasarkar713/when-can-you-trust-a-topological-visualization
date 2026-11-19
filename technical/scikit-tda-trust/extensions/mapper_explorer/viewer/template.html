@@ -170,7 +170,10 @@
       <p class="note">Switching between the native and component-separated
         renderings changes <b>only</b> node coordinates (both sets are precomputed
         from the saved graph with fixed seeds). Nodes, edges, memberships and all
-        statistics are byte-identical between the two panels.</p>
+        statistics are byte-identical between the two panels. The component-separated
+        view lays out every connected component on its own, uses the same node radii
+        as the drawing so that circles do not overlap, and packs the components apart;
+        its drawing area grows taller when the nodes need more room.</p>
     </div>
 
     <div class="card">
@@ -310,7 +313,9 @@
   function buildGraphSVG(cell, layoutKey, w, h) {
     var ns = "http://www.w3.org/2000/svg";
     var svg = document.createElementNS(ns, "svg");
-    svg.setAttribute("viewBox", "0 0 100 " + (100 * h / w));
+    var boxH = 100 * h / w;
+    if (layoutKey === "separated" && cell.layout_separated_viewbox) boxH = cell.layout_separated_viewbox[1];
+    svg.setAttribute("viewBox", "0 0 100 " + boxH);
     svg.setAttribute("role", "img");
     var nodes = cell.graph.nodes, links = cell.graph.links;
     var cloud = ds().point_cloud;
@@ -324,8 +329,8 @@
       links[a].forEach(function (b) {
         if (pos[a] && pos[b]) {
           var ln = document.createElementNS(ns, "line");
-          ln.setAttribute("x1", pos[a][0] * 100); ln.setAttribute("y1", pos[a][1] * (100 * h / w));
-          ln.setAttribute("x2", pos[b][0] * 100); ln.setAttribute("y2", pos[b][1] * (100 * h / w));
+          ln.setAttribute("x1", pos[a][0] * 100); ln.setAttribute("y1", pos[a][1] * boxH);
+          ln.setAttribute("x2", pos[b][0] * 100); ln.setAttribute("y2", pos[b][1] * boxH);
           ln.setAttribute("stroke", "#8899aa"); ln.setAttribute("stroke-width", 0.45);
           ln.setAttribute("stroke-opacity", 0.5);
           svg.appendChild(ln);
@@ -342,7 +347,7 @@
       var c = document.createElementNS(ns, "circle");
       var r = 1.6 + 4.6 * Math.sqrt(members.length / maxN);
       c.setAttribute("cx", pos[name][0] * 100);
-      c.setAttribute("cy", pos[name][1] * (100 * h / w));
+      c.setAttribute("cy", pos[name][1] * boxH);
       c.setAttribute("r", r.toFixed(2));
       c.setAttribute("fill", "hsl(" + hue.toFixed(0) + ",62%,55%)");
       c.setAttribute("stroke", "#20262f"); c.setAttribute("stroke-width", 0.28);
@@ -530,6 +535,8 @@
         graph: cell.graph,
         layouts: { native: cell.layout_native,
                    component_separated: cell.layout_separated },
+        layout_viewboxes: { native: [100, 100 * 380 / 460],
+                            component_separated: cell.layout_separated_viewbox || null },
       },
       reference_cell_id: d.reference_cell,
       provenance: { source: DATA.provenance, built_utc: DATA.built_utc,

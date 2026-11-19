@@ -1,4 +1,4 @@
-"""Derivation of every numerical claim in the report from result files.
+"""Derivation of registered numerical claims from saved result files.
 
 Each FACT = (id, category, claim, derive(root) -> str, where, command, caveat).
 `derive` reads files under `root/scikit-tda-trust/...` (repository-relative; no hard-coded
@@ -8,6 +8,7 @@ Categories: measured | reproduced | external | interpretation | future.
 """
 import csv
 import json
+import re
 from pathlib import Path
 
 import numpy as np
@@ -347,19 +348,19 @@ R, S, Q = "report", "slides", "qa"
 FACTS = [
     ("F001", "measured", "E1 audits 13 tasks", e1_tasks, [R], "python scripts/run_e1_audit.py", ""),
     ("F002", "measured", "Glue code is 130 counted lines", e1_glue, [R, S], "python scripts/count_glue_code.py", "LOC rule stated in the JSON"),
-    ("F003", "measured", "E2 annulus similarity range", e2_S_range("annulus"), [R], "python scripts/run_e2_sensitivity.py", "S is exploratory"),
-    ("F004", "measured", "E2 figure-eight similarity range", e2_S_range("figure_eight"), [R], "python scripts/run_e2_sensitivity.py", "S is exploratory"),
+    ("F003", "measured", "E2 annulus similarity range", e2_S_range("annulus"), [R, S], "python scripts/run_e2_sensitivity.py", "S is exploratory"),
+    ("F004", "measured", "E2 figure-eight similarity range", e2_S_range("figure_eight"), [R, S], "python scripts/run_e2_sensitivity.py", "S is exploratory"),
     ("F005", "measured", "Node count = 2 x n_cubes in all 24 E2 cells", e2_nodes_2x, [R], "python scripts/run_e2_sensitivity.py", "Consequence of KMeans k=2"),
     ("F006", "measured", "Blob control reference cell cycle statistics", blob_ref, [R], "python scripts/run_e2_sensitivity.py", ""),
     ("F007", "measured", "Blob H1 top-3 persistences", blob_top3, [R], "python scripts/run_e2_sensitivity.py", ""),
-    ("F008", "measured", "Blob r1 calibration", blob_r1, [R], "python scripts/run_e2_sensitivity.py", "calibration only"),
+    ("F008", "measured", "Blob r1 calibration", blob_r1, [R, S], "python scripts/run_e2_sensitivity.py", "calibration only"),
     ("F010", "measured", "GSOD rows per year and total", w_rows, [R], "python extensions/meteorology/scripts/preprocess_weather.py", "raw files byte-identical to fresh NOAA download"),
-    ("F011", "measured", "Primary cloud size after dropping missing-SLP days", w_primary, [R], "python extensions/meteorology/scripts/preprocess_weather.py", ""),
-    ("F012", "measured", "WDSP missing days", w_wdsp, [R], "(raw parse)", ""),
-    ("F013", "measured", "STP values below 900 hPa", w_stp_pct, [R], "(raw parse)", "cause: truncated leading digit"),
-    ("F014", "measured", "Days dropped if WDSP were added", w_sens_drop, [R], "(raw parse)", "count only; no analysis run on this cloud"),
+    ("F011", "measured", "Primary cloud size after dropping missing-SLP days", w_primary, [R, Q], "python extensions/meteorology/scripts/preprocess_weather.py", ""),
+    ("F012", "measured", "WDSP missing days", w_wdsp, [R, S], "(raw parse)", ""),
+    ("F013", "measured", "STP values below 900 hPa", w_stp_pct, [R, Q], "(raw parse)", "cause: truncated leading digit"),
+    ("F014", "measured", "Days dropped if WDSP were added", w_sens_drop, [R, S, Q], "(raw parse)", "count only; no analysis run on this cloud"),
     ("F015", "measured", "PCA explained variance", w_pca, [R], "python extensions/meteorology/scripts/run_weather_analysis.py", ""),
-    ("F016", "measured", "Weather r1 range over six configurations", w_sweep_range, [R, S], "python extensions/meteorology/scripts/run_weather_analysis.py", "same dataset; designed around annual period"),
+    ("F016", "measured", "Weather r1 range over six configurations", w_sweep_range, [R, S, Q], "python extensions/meteorology/scripts/run_weather_analysis.py", "same dataset; designed around annual period"),
     ("F017", "measured", "Sweep tau30_d8", w_sweep_row("tau30_d8"), [R], "same", ""),
     ("F018", "measured", "Sweep tau45_d9", w_sweep_row("tau45_d9"), [R], "same", ""),
     ("F019", "measured", "Sweep tau52_d8", w_sweep_row("tau52_d8"), [R], "same", ""),
@@ -367,24 +368,24 @@ FACTS = [
     ("F021", "measured", "Sweep tau73_d6", w_sweep_row("tau73_d6"), [R], "same", ""),
     ("F022", "measured", "Sweep tau90_d8", w_sweep_row("tau90_d8"), [R], "same", ""),
     ("F023", "measured", "State-space PH", w_state, [R], "same", "not a null control"),
-    ("F024", "measured", "Weather Mapper cell (5,0.35)", w_mapper_cell("nc5_po0.35"), [R], "same", ""),
-    ("F025", "measured", "Weather Mapper cell (5,0.5)", w_mapper_cell("nc5_po0.5"), [R], "same", ""),
-    ("F026", "measured", "Weather Mapper cell (10,0.35)", w_mapper_cell("nc10_po0.35"), [R], "same", ""),
-    ("F027", "measured", "Weather Mapper cell (10,0.5)", w_mapper_cell("nc10_po0.5"), [R], "same", ""),
-    ("F028", "measured", "Weather Mapper cell (15,0.35)", w_mapper_cell("nc15_po0.35"), [R], "same", ""),
-    ("F029", "measured", "Weather Mapper cell (15,0.5)", w_mapper_cell("nc15_po0.5"), [R], "same", ""),
-    ("F030", "measured", "Weather Mapper cell (20,0.35)", w_mapper_cell("nc20_po0.35"), [R], "same", ""),
-    ("F031", "measured", "Weather Mapper cell (20,0.5)", w_mapper_cell("nc20_po0.5"), [R], "same", ""),
+    ("F024", "measured", "Weather Mapper cell (5,0.35)", w_mapper_cell("nc5_po0.35"), [R, S], "same", ""),
+    ("F025", "measured", "Weather Mapper cell (5,0.5)", w_mapper_cell("nc5_po0.5"), [R, S], "same", ""),
+    ("F026", "measured", "Weather Mapper cell (10,0.35)", w_mapper_cell("nc10_po0.35"), [R, S], "same", ""),
+    ("F027", "measured", "Weather Mapper cell (10,0.5)", w_mapper_cell("nc10_po0.5"), [R, S], "same", ""),
+    ("F028", "measured", "Weather Mapper cell (15,0.35)", w_mapper_cell("nc15_po0.35"), [R, S], "same", ""),
+    ("F029", "measured", "Weather Mapper cell (15,0.5)", w_mapper_cell("nc15_po0.5"), [R, S], "same", ""),
+    ("F030", "measured", "Weather Mapper cell (20,0.35)", w_mapper_cell("nc20_po0.35"), [R, S], "same", ""),
+    ("F031", "measured", "Weather Mapper cell (20,0.5)", w_mapper_cell("nc20_po0.5"), [R, S], "same", ""),
     ("F040", "measured", "Annual harmonics variance explained (D2)", d2_r2, [R, S, Q], "python extensions/controls/scripts/run_weather_null_controls.py", ""),
     ("F041", "measured", "Anomaly-series r1 range (D2)", d2_anom_range, [R, S, Q], "same", "no dominant H1 under r1>=3"),
     ("F042", "measured", "Shuffled-series r1 range (D2)", d2_shuffle, [R], "same", "reference config only; 10 shuffles"),
-    ("F043", "measured", "Shuffled-series median r1 (D2)", d2_shuffle_median, [R], "same", ""),
-    ("F044", "measured", "D2 anomaly row tau30_d8", d2_anom_row("tau30_d8"), [R], "same", ""),
-    ("F045", "measured", "D2 anomaly row tau45_d9", d2_anom_row("tau45_d9"), [R], "same", ""),
-    ("F046", "measured", "D2 anomaly row tau52_d8", d2_anom_row("tau52_d8"), [R], "same", ""),
-    ("F047", "measured", "D2 anomaly row tau60_d8", d2_anom_row("tau60_d8"), [R], "same", ""),
-    ("F048", "measured", "D2 anomaly row tau73_d6", d2_anom_row("tau73_d6"), [R], "same", ""),
-    ("F049", "measured", "D2 anomaly row tau90_d8", d2_anom_row("tau90_d8"), [R], "same", ""),
+    ("F043", "measured", "Shuffled-series median r1 (D2)", d2_shuffle_median, [R, S, Q], "same", ""),
+    ("F044", "measured", "D2 anomaly row tau30_d8", d2_anom_row("tau30_d8"), [R, S], "same", ""),
+    ("F045", "measured", "D2 anomaly row tau45_d9", d2_anom_row("tau45_d9"), [R, S], "same", ""),
+    ("F046", "measured", "D2 anomaly row tau52_d8", d2_anom_row("tau52_d8"), [R, S], "same", ""),
+    ("F047", "measured", "D2 anomaly row tau60_d8", d2_anom_row("tau60_d8"), [R, S], "same", ""),
+    ("F048", "measured", "D2 anomaly row tau73_d6", d2_anom_row("tau73_d6"), [R, S], "same", ""),
+    ("F049", "measured", "D2 anomaly row tau90_d8", d2_anom_row("tau90_d8"), [R, S], "same", ""),
     ("F050", "measured", "D1 annulus c=3.0", d1_ref("annulus", "c3.0"), [R], "python extensions/controls/scripts/run_mapper_clusterer_control.py", "scale chosen with E2 in view"),
     ("F051", "measured", "D1 annulus c=1.5", d1_ref("annulus", "c1.5"), [R], "same", ""),
     ("F052", "measured", "D1 figure-eight c=3.0", d1_ref("figure_eight", "c3.0"), [R], "same", ""),
@@ -392,26 +393,26 @@ FACTS = [
     ("F054", "measured", "D1 blob c=3.0", d1_ref("blob", "c3.0"), [R], "same", ""),
     ("F055", "measured", "D1 blob c=1.5", d1_ref("blob", "c1.5"), [R], "same", ""),
     ("F056", "measured", "D3 annulus c=3.0 cycle in all subsamples", d3_annulus_sl3, [R], "python extensions/controls/scripts/run_mapper_resampling_control.py", ""),
-    ("F057", "measured", "D3 annulus c=1.5 cycle lost", d3_annulus_sl15_lost, [R, S], "same", ""),
-    ("F058", "measured", "D4 annulus KMeans cyclomatic over independent draws", d4_annulus_kmeans, [R], "python extensions/controls/scripts/run_independent_draws.py", ""),
-    ("F059", "measured", "D4 annulus H1 bottleneck median", d4_bn("annulus"), [R, S], "same", "reference = seed-42 diagram"),
-    ("F060", "measured", "D4 figure-eight H1 bottleneck median", d4_bn("figure_eight"), [R], "same", ""),
-    ("F061", "measured", "D4 blob H1 bottleneck median", d4_bn("blob"), [R], "same", ""),
-    ("F062", "measured", "D4 blob KMeans cycles in every draw", d4_blob_kmeans_min_max, [R], "same", ""),
+    ("F057", "measured", "D3 annulus c=1.5 cycle lost", d3_annulus_sl15_lost, [R, S, Q], "same", ""),
+    ("F058", "measured", "D4 annulus KMeans cyclomatic over independent draws", d4_annulus_kmeans, [R, Q], "python extensions/controls/scripts/run_independent_draws.py", ""),
+    ("F059", "measured", "D4 annulus H1 bottleneck median", d4_bn("annulus"), [R, S, Q], "same", "reference = seed-42 diagram"),
+    ("F060", "measured", "D4 figure-eight H1 bottleneck median", d4_bn("figure_eight"), [R, S], "same", ""),
+    ("F061", "measured", "D4 blob H1 bottleneck median", d4_bn("blob"), [R, S], "same", ""),
+    ("F062", "measured", "D4 blob KMeans cycles in every draw", d4_blob_kmeans_min_max, [R, S, Q], "same", ""),
     ("F063", "measured", "S ceiling (D5) range", d5_ceiling_range, [R, Q], "python extensions/controls/scripts/run_caveat_checks.py", "annulus only"),
     ("F064", "measured", "H0 Wasserstein cardinality control (D5)", d5_h0, [R], "same", ""),
-    ("F070", "measured", "Mapper resampling annulus cyclomatic distribution (KMeans)", c_mapper_cyc("annulus"), [R], "python extensions/stability/scripts/run_mapper_resampling.py", "reference graph is one realisation"),
-    ("F071", "measured", "Mapper resampling figure-eight cyclomatic distribution", c_mapper_cyc("figure_eight"), [R], "same", ""),
-    ("F072", "measured", "Mapper S median annulus", c_mapper_S_median("annulus"), [R], "same", "S ceiling ~0.80"),
+    ("F070", "measured", "Mapper resampling annulus cyclomatic distribution (KMeans)", c_mapper_cyc("annulus"), [R, S], "python extensions/stability/scripts/run_mapper_resampling.py", "reference graph is one realisation"),
+    ("F071", "measured", "Mapper resampling figure-eight cyclomatic distribution", c_mapper_cyc("figure_eight"), [R, S], "same", ""),
+    ("F072", "measured", "Mapper S median annulus", c_mapper_S_median("annulus"), [R, S], "same", "S ceiling ~0.80"),
     ("F073", "measured", "Mapper S median figure-eight", c_mapper_S_median("figure_eight"), [R], "same", ""),
     ("F074", "measured", "Mapper S median blob", c_mapper_S_median("blob"), [R], "same", ""),
     ("F080", "measured", "LOYO r1 range", loyo_range, [R], "python extensions/stability/scripts/run_weather_loyo.py", "bookkeeping-disclosed sensitivity analysis"),
     ("F081", "measured", "LOYO effective-data bookkeeping", loyo_affected, [R, S, Q], "same", ""),
     ("F083", "measured", "LOYO zero-window fold-configurations", loyo_zero, [R, Q], "same", ""),
-    ("F084", "measured", "LOYO r1 range (slides wording)", loyo_range_dash, [S], "same", ""),
+    ("F084", "measured", "LOYO r1 range (slides wording)", loyo_range_dash, [S, Q], "same", ""),
     ("F082", "measured", "LOYO retained SD range (C)", loyo_sd, [R], "same", ""),
     ("F090", "measured", "Explorer cells", ex_cells, [R], "python extensions/mapper_explorer/scripts/build_viewer.py", ""),
-    ("F091", "measured", "Explorer independent offline checks", ex_checks, [R], "python verification/explorer_offline_test.py ...", "Chrome 156, Windows 11"),
+    ("F091", "measured", "Explorer independent offline checks", ex_checks, [R, Q], "python verification/explorer_offline_test.py ...", "Chrome 156, Windows 11"),
     ("F092", "measured", "Stock kmapper HTML offline", kmapper_offline, [R], "python verification/kmapper_html_offline_test.py ...", ""),
 ]
 
@@ -431,15 +432,26 @@ def cmp_short(name):
     return g
 
 
+def _latest_release_summary(rt):
+    """summary.json of the most recent dated release run (technical/verification/release_check/<date>/run/)."""
+    base = Path(rt) / "technical" / "verification" / "release_check"
+    runs = sorted(d for d in base.iterdir() if (d / "run" / "summary.json").exists())
+    return json.loads((runs[-1] / "run" / "summary.json").read_text(encoding="utf8"))
+
+
+def _passed(c):
+    return c["tests"] - c["failures"] - c["errors"] - c["skipped"]
+
+
 def tests_total(rt):
-    t = json.loads((Path(rt) / "technical" / "verification" / "reference" / "test_results.json").read_text(encoding="utf8"))
-    return f"{t['total_passed']} passed, {t['total_failed']} failed"
+    t = _latest_release_summary(rt)["totals"]
+    return f"{_passed(t)} passed, {t['failures']} failed"
 
 
 def tests_suite(d):
     def g(rt):
-        t = json.loads((Path(rt) / "technical" / "verification" / "reference" / "test_results.json").read_text(encoding="utf8"))
-        return next(s for s in t["suites"] if s["dir"] == d)["result"]
+        s = next(x for x in _latest_release_summary(rt)["steps"] if x.get("kind") == "pytest" and x["step"] == d)
+        return f"{_passed(s['counts'])} passed"
     return g
 
 
@@ -448,7 +460,7 @@ FACTS += [
     ("F101", "reproduced", "Meteorology regeneration comparison", cmp_summary("meteorology"), [], "same", ""),
     ("F102", "reproduced", "Stability regeneration comparison", cmp_summary("stability"), [], "same", ""),
     ("F103", "reproduced", "Explorer regeneration comparison", cmp_short("explorer"), [], "same", "provenance hashes differ by CRLF"),
-    ("F110", "measured", "Total tests passed", tests_total, [R], "python -m pytest ...", "order-dependence on Windows recorded"),
+    ("F110", "measured", "Total tests passed", tests_total, [R, Q], "python -m pytest ...", "order-dependence on Windows recorded"),
     ("F111", "measured", "Baseline test suite", tests_suite("tests"), [], "python -m pytest tests", ""),
     ("F112", "measured", "Meteorology tests", tests_suite("extensions/meteorology/tests"), [], "", ""),
     ("F113", "measured", "Explorer tests", tests_suite("extensions/mapper_explorer/tests"), [], "", ""),
@@ -465,3 +477,109 @@ def cmp_ident(name):
 
 
 FACTS += [("F104", "reproduced", "Control experiments recomputed identically", cmp_ident("controls"), [], "python verification/compare_trees.py ...", "")]
+
+
+# ---------------------------------------------------------------- slide and Q&A wording of numbers
+def s_ph_ranges(r):
+    g = J(r, "extensions/stability/results/stability_summary.json")["ph_resampling"]
+    a, f, b = (g[k]["gap_diagnostic"]["resamples"] for k in ("annulus", "figure_eight", "blob"))
+    return (f"annulus r₁ = {a['min']:.1f}–{a['max']:.1f}, figure-eight r₂ = {f['min']:.2f}–{f['max']:.1f}, "
+            f"blob r₁ = {b['min']:.2f}–{b['max']:.2f}")
+
+
+def s_shuffle(r):
+    s = J(r, "extensions/controls/results/weather_null_controls.json")["shuffle"]["summary"]
+    return f"r₁ = {s['r1_min_max'][0]:.3f}–{s['r1_min_max'][1]:.3f}"
+
+
+def s_static(r):
+    return f"r₁ = {J(r, 'extensions/meteorology/results/weather_analysis_results.json')['state_space_ph']['gap_ratio_r1']:.2f}"
+
+
+def s_blob(r):
+    return f"r₁ = {J(r, 'results/e2/e2_blob_sanity.json')['h1_calibration']['gap_ratio_r1_calibration']:.2f}"
+
+
+def s_kmeans_none(r):
+    reps = J(r, "extensions/stability/results/mapper_resampling.json")["shapes"]["annulus"]["replicates"]
+    sub = sum(1 for x in reps if x["structure"]["cyclomatic_number"] == 0)
+    red = J(r, "extensions/controls/results/independent_draws.json")["shapes"]["annulus"]["summary"]["kmeans_cyclomatic_counts"]["0"]
+    return f"no cycle in {sub}/30 subsamples and {red}/30 independent redraws"
+
+
+def s_sl3(r):
+    sub = J(r, "extensions/controls/results/mapper_resampling_control.json")["shapes"]["annulus"]["eps"]["c3.0"]["summary"]["cyclomatic_counts"]["1"]
+    red = J(r, "extensions/controls/results/independent_draws.json")["shapes"]["annulus"]["summary"]["sl_cyclomatic_counts"]["1"]
+    return f"one cycle in {sub}/30 subsamples and {red}/30 independent redraws"
+
+
+def e3_clarity(r):
+    s = J(r, "results/e3/inspection_summary.json")["assessment_counts_overall"]
+    return f"{s['clearly_apparent']} of 13 figures judged clearly apparent; {s['ambiguous']} of 13 ambiguous"
+
+
+def e3_clarity_report(r):
+    s = J(r, "results/e3/inspection_summary.json")["assessment_counts_overall"]
+    return f"{s['clearly_apparent']} figures were judged clearly apparent and {s['ambiguous']} ambiguous"
+
+
+def e3_match(r):
+    s = J(r, "results/e3/inspection_summary.json")["matches_expected_counts_overall"]
+    return f"{s['yes']} of 13 matched fully; {s['partial']} of 13 matched partially"
+
+
+def e3_match_report(r):
+    s = J(r, "results/e3/inspection_summary.json")["matches_expected_counts_overall"]
+    return f"{s['yes']} figures matched fully and {s['partial']} matched partially"
+
+
+def s_tests(r):
+    t = _latest_release_summary(r)["totals"]
+    return f"{_passed(t)} automated tests passed"
+
+
+FACTS += [
+    ("F120", "measured", "Persistence resampling gap ranges (slides)", s_ph_ranges, [S], "python extensions/stability/scripts/run_ph_resampling.py", "overlapping subsamples; descriptive"),
+    ("F121", "measured", "Shuffled-series r1 range (slides)", s_shuffle, [S, Q], "python extensions/controls/scripts/run_weather_null_controls.py", "reference configuration only"),
+    ("F122", "measured", "Static-cloud r1 (illustration, not a null)", s_static, [S, R, Q], "python extensions/meteorology/scripts/run_weather_analysis.py", "not a matched null control"),
+    ("F123", "measured", "Blob r1 (slides)", s_blob, [S, R], "python scripts/run_e2_sensitivity.py", "calibration only"),
+    ("F124", "measured", "Annulus KMeans: no cycle counts (slides)", s_kmeans_none, [S], "run_mapper_resampling.py; run_independent_draws.py", ""),
+    ("F125", "measured", "Annulus single-linkage 3.0: one cycle counts (slides)", s_sl3, [S], "run_mapper_resampling_control.py; run_independent_draws.py", "exploratory scale chosen after the KMeans result"),
+    ("F126", "measured", "E3 visual clarity (slides)", e3_clarity, [S], "python scripts/analyze_e3_inspection.py", "single observer; AI viewing aid"),
+    ("F127", "measured", "E3 visual clarity (report)", e3_clarity_report, [R, Q], "same", "single observer; AI viewing aid"),
+    ("F128", "measured", "E3 match with expected property (slides)", e3_match, [S], "same", "separate judgment from visual clarity"),
+    ("F129", "measured", "E3 match with expected property (report)", e3_match_report, [R], "same", "separate judgment from visual clarity"),
+    ("F130", "measured", "Automated tests passed (slides)", s_tests, [S], "python scripts/run_all_tests.py", "browser test is separate"),
+]
+
+
+def ex_count(r):
+    return f"{re.search(r'(\d+) cells', ex_cells(r)).group(1)} precomputed Mapper cells"
+
+
+def ex_all(r):
+    return f"all {re.search(r'(\d+) cells', ex_cells(r)).group(1)} cells"
+
+
+def ex_slash(r):
+    c = re.search(r"(\d+) of (\d+)", ex_checks(r))
+    return f"{c.group(1)}/{c.group(2)} checks"
+
+
+def e3_match_qa(r):
+    s = J(r, "results/e3/inspection_summary.json")["matches_expected_counts_overall"]
+    return f"{s['yes']} matched fully and {s['partial']} partially"
+
+
+FACTS += [
+    ("F131", "measured", "Explorer cells (slides wording)", ex_count, [S], "python extensions/mapper_explorer/scripts/build_viewer.py", ""),
+    ("F132", "measured", "Explorer cells (Q&A wording)", ex_all, [Q, R], "same", ""),
+    ("F133", "measured", "Explorer offline checks (slides wording)", ex_slash, [S], "python verification/explorer_offline_test.py ...", "Chrome 156, Windows 11"),
+    ("F134", "measured", "E3 expected-property matches (Q&A wording)", e3_match_qa, [Q], "same as F128", "separate judgment from visual clarity"),
+]
+
+
+# slide-specific facts of the expanded presentation
+from facts_slides import FACTS_SLIDES  # noqa: E402
+
+FACTS = FACTS + FACTS_SLIDES
