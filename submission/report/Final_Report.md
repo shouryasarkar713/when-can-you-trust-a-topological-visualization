@@ -612,8 +612,6 @@ The automated test suites cover the core experiments, the weather study, the exp
 
 ## 14. References
 
-Entries marked † were consulted at abstract or program-page level only.
-
 - Bauer, U. (2021). Ripser: Efficient computation of Vietoris–Rips persistence barcodes. *Journal of Applied and Computational Topology, 5*(3), 391–423. https://doi.org/10.1007/s41468-021-00071-5
 - Belchí, F., Brodzki, J., Burfitt, M., & Niranjan, M. (2020). A numerical measure of the instability of Mapper-type algorithms. *Journal of Machine Learning Research, 21*(202), 1–45. https://www.jmlr.org/papers/v21/19-540.html
 - Brehmer, M., & Munzner, T. (2013). A multi-level typology of abstract visualization tasks. *IEEE Transactions on Visualization and Computer Graphics, 19*(12), 2376–2385. https://doi.org/10.1109/TVCG.2013.124
