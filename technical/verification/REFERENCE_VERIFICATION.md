@@ -20,4 +20,4 @@ Reference list of `submission/report/Final_Report.md`, Section 13. Checked on 28
 - GSOD terms of use and station identity; the ONI series derivation (ERSST v6 as of 7 September 2026).
 - Sen et al. (2026) beyond the abstract; Nielsen's single-inspector result (secondary summary).
 
-Citations marked † in the report were consulted at abstract or program-page level only. No bibliographic detail was invented: where a field could not be confirmed it is listed above.
+No bibliographic detail was invented: where a field could not be confirmed it is listed above.
